@@ -1,3 +1,4 @@
+package modele;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("c2ee39a9-ae24-4e96-92b9-84f600fdbe41")
