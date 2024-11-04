@@ -19,7 +19,7 @@ public class Locataire {
 	private String dateNaissance;
 
 	public String getNom() {
-		return nom;
+		return this.nom;
 	}
 
 	public void setNom(String nom) {
