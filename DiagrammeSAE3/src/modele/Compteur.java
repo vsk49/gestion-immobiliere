@@ -19,7 +19,7 @@ public class Compteur {
     private String indexAncien;
 
     @objid ("8d2d8836-b875-4df0-854b-079dff0f019a")
-    public Compteur(final String numero) {
+    public Compteur (String numero) {
     }
 
     @objid ("465ba065-fa78-411a-92ee-4a4a42b28d86")
@@ -27,5 +27,7 @@ public class Compteur {
         // TODO Auto-generated return
         return 0;
     }
+
+    public setCpt
 
 }

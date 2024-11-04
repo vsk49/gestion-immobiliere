@@ -143,4 +143,6 @@ public class Locataire {
 	public Locataire() {
 	}
 
+	public getID
+
 }
