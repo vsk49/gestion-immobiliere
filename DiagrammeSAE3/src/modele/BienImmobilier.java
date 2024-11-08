@@ -16,6 +16,7 @@ public class BienImmobilier {
 	private int idBienImmobilier;
 	private List<Locataire> locataires = new ArrayList<Locataire>();
 	private List<Assurance> assurances = new ArrayList<Assurance>();
+	private List<Bail> baux = new ArrayList<Bail>();
 
 	public BienImmobilier() {
 	}

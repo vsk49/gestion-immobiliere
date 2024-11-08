@@ -9,6 +9,7 @@ public class BienLouable extends BienImmobilier {
 	private int nbPieces;
 	private List<FactureTravail> travaux = new ArrayList<>();
 	private Compteur compteur;
+	private List<Loyer> loyers = new ArrayList<Loyer>();
 
 	public BienLouable() {
 	}

@@ -17,7 +17,7 @@ public class DAOBienImmobilier implements DAO<BienImmobilier> {
 
 	@Override
 	public BienImmobilier getById(String id) {
-		return this.biens.stream().filter(b -> b.getId() == id).findFirst().get();
+		return this.biens.stream().filter(b -> b.getIdBienImmobilier() == id).findFirst().get();
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class DAOBienImmobilier implements DAO<BienImmobilier> {
 		if (!this.biens.contains(t)) {
 			throw new IllegalArgumentException("Bien inexistant");
 		}
-		BienImmobilier bien = this.getById(t.getId());
+		BienImmobilier bien = this.getById(t.getIdBienImmobilier());
 		this.delete(bien);
 		this.insert(t);
 	}

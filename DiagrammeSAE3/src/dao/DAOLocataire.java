@@ -17,7 +17,7 @@ public class DAOLocataire implements DAO<Locataire> {
 
 	@Override
 	public Locataire getById(String id) {
-		return this.locataires.stream().filter(l -> l.getId() == id).findFirst().get();
+		return this.locataires.stream().filter(l -> l.getIdLocataire() == id).findFirst().get();
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class DAOLocataire implements DAO<Locataire> {
 		if (!this.locataires.contains(t)) {
 			throw new IllegalArgumentException("locataire inexistant");
 		}
-		Locataire ancien = this.getById(t.getId());
+		Locataire ancien = this.getById(t.getIdLocataire());
 		this.delete(ancien);
 		this.insert(t);
 	}
