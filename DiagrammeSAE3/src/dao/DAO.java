@@ -1,17 +1,18 @@
 package dao;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface DAO<T> {
+public interface DAO<T, ID> {
 
 	public List<T> getAll();
 
-	public T getById(String id);
+	public Optional<T> getById(ID id);
 
-	public void insert(T t);
+	public void insert(T t) throws IllegalArgumentException;
 
-	public void update(T t);
+	public void update(T t) throws IllegalArgumentException;
 
-	public void delete(T t);
+	public void delete(T t) throws IllegalArgumentException;
 
 }

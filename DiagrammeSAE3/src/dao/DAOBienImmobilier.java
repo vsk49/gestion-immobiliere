@@ -6,7 +6,7 @@ import java.util.List;
 
 import modele.BienImmobilier;
 
-public class DAOBienImmobilier implements DAO<BienImmobilier> {
+public class DAOBienImmobilier implements DAO<BienImmobilier, Integer> {
 	
 	private List<BienImmobilier> biens = new LinkedList<>();
 
@@ -16,8 +16,8 @@ public class DAOBienImmobilier implements DAO<BienImmobilier> {
 	}
 
 	@Override
-	public BienImmobilier getById(String id) {
-		return this.biens.stream().filter(b -> b.getIdBienImmobilier() == id).findFirst().get();
+	public Optional<BienImmobilier> getById(Integer id) {
+		return this.biens.stream().filter(b -> b.getIdBienImmobilier() == id).findFirst();
 	}
 
 	@Override
