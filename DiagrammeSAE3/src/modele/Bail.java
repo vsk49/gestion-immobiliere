@@ -3,6 +3,7 @@ package modele;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
 public class Bail {
 
@@ -13,11 +14,20 @@ public class Bail {
 	private LocalDate dateFin;
 	private String indexAncienBail;
 	private int idBail;
-	private List<Locataire> locataires = new ArrayList<Locataire>();
 	private BienImmobilier bien;
 	private Loyer loyer;
+	private List<Locataire> locataires = new ArrayList<Locataire>();
 
-	public Bail() {
+	public Bail(LocalDate dateDebut, double depotDeGarantie, String duree, LocalDate dateSignature, LocalDate dateFin, String indexAncienBail, int idBail, BienImmobilier bien, Loyer loyer) {
+	this.dateDebut = dateDebut;
+	this.depotDeGarantie = depotDeGarantie;
+	this.duree = duree;
+	this.dateSignature = dateSignature;
+	this.dateFin = dateFin;
+	this.indexAncienBail = indexAncienBail;
+	this.idBail = idBail;
+	this.bien = bien,
+	this.loyer = loyer;
 	}
 
 	public int nbLocataires() {
@@ -26,8 +36,7 @@ public class Bail {
 	}
 
 	public boolean estFini() {
-		// TODO Auto-generated return
-		return false;
+		return LocalDate.now().isAfter(this.dateFin);
 	}
 
 	public int getIdBail() {

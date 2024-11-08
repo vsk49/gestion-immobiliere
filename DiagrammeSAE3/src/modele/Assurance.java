@@ -12,7 +12,14 @@ public class Assurance {
     private double quotiteJurisprudence;
     private double protectionJuridique;
 
-    public Assurance() {
+    public Assurance(int idAssurance, TypeAssurance type, double prime, LocalDate dateDebutAssurance, String nomAssureur, double quotiteJurisprudence, double protectionJuridique) {
+        this.idAssurance = idAssurance;
+        this.type = type;
+        this.prime = prime;
+        this.dateDebutAssurance = dateDebutAssurance;
+        this.nomAssureur = nomAssureur;
+        this.quotiteJurisprudence = quotiteJurisprudence;
+        this.protectionJuridique = protectionJuridique;
     }
 
     public int getIdAssurance() {

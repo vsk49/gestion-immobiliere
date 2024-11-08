@@ -18,12 +18,29 @@ public class Locataire {
 	private LocalDate dateEntree;
 	private LocalDate dateDepart;
 	private double quotite;
-	private int idLocataire;
-	private List<BienImmobilier> bien = new ArrayList<BienImmobilier>();
 	private Caution caution;
+	private int idLocataire;
+	private List<Bail> baux = new ArrayList<Bail>();
+	private List<BienImmobilier> bien = new ArrayList<BienImmobilier>();
 	private List<Charge> charges = new ArrayList<Charge>();
-	private Bail bail;
 
+	public Locataire(String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance, String nationalite, String profession, String telephone, String email, LocalDate dateEntree, LocalDate dateDepart, double quotite, Caution caution, int idLocataire) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.genre = genre;
+		this.dateNaissance = dateNaissance;
+		this.lieuNaissance  = lieuNaissance;
+		this.nationalite = nationalite;
+		this.profession = profession;
+		this.telephone = telephone;
+		this.email = email;
+		this.dateEntree = dateEntree;
+		this.dateDepart = dateDepart;
+		this.quotite = quotite;
+		this.caution = caution;
+		this.idLocataire = idLocataire;
+	}
+	
 	public double soldeDeToutCompte() {
 		return 0;
 	}
@@ -34,9 +51,6 @@ public class Locataire {
 
 	public double nbMoisOccupation() {
 		return 0;
-	}
-
-	public Locataire() {
 	}
 
 	public int getIdLocataire() {

@@ -11,10 +11,18 @@ public abstract class Charge {
 	private double montantCoPropriete;
 	private double montantElectricite;
 
-	public Charge() {
+	public Charge(LocalDate dateDebut, LocalDate dateFin, int idCharge, double montantEau, double montantCoPropriete, double montantElectricite) {
+		this.dateDebut = dateDebut;
+		this.dateFin;
+		this.idCharge = idCharge;
+		this.montantEau = montantEau;
+		this.montantCoPropriete = montantCoPropriete;
+		thiss.montantElectricite = montantElectricite;
 	}
 
-	public abstract double montantTotalDeCharge();
+	public double getMontantTotalDeCharge(){
+		return this.montantEau + this.montantCoPropriete + thiss.montantElectricite;
+	};
 
 	public int getIdCharge() {
 		return this.idCharge;

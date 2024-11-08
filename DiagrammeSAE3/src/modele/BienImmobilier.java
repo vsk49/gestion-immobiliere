@@ -18,7 +18,15 @@ public class BienImmobilier {
 	private List<Assurance> assurances = new ArrayList<Assurance>();
 	private List<Bail> baux = new ArrayList<Bail>();
 
-	public BienImmobilier() {
+	public BienImmobilier(String adresse, String numeroFiscal, String codePostal, String ville, double montantTaxesFoncieres, LocalDate dateAnniversaire, double ICCDateDebut, int idBienImmobilier) {
+		this.adresse = adresse;
+		this.numeroFiscal = numeroFiscal;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.montantTaxesFoncieres = montantTaxesFoncieres;
+		this.dateAnniversaire = dateAnniversaire;
+		this.ICCDateDebut = ICCDateDebut;
+		this.idBienImmobilier = idBienImmobilier;
 	}
 
 	public int getIdBienImmobilier() {

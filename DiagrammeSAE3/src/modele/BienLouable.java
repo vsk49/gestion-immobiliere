@@ -7,14 +7,18 @@ public class BienLouable extends BienImmobilier {
 
 	private double surface;
 	private int nbPieces;
-	private List<FactureTravail> travaux = new ArrayList<>();
 	private Compteur compteur;
+	private List<FactureTravail> travaux = new ArrayList<>();
 	private List<Loyer> loyers = new ArrayList<Loyer>();
 
-	public BienLouable() {
+	public BienLouable(double surface, int nbPieces, Compteur compteur) {
+		this.surface = surface;
+		this.nbPieces = nbPieces;
+		this.compteur = compteur;
 	}
 
-	public void changerCompteur(Compteur nvCompteur) {
+	public void changerCompteur(double indexActuel) {
+		this.compteur.setIndexActuel(indexActuel);
 	}
 
 }

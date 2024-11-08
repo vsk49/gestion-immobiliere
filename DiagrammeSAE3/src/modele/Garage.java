@@ -4,7 +4,8 @@ public class Garage extends BienLouable {
     
     private Logement logement;
 
-    public Garage() {
+    public Garage(Logement logement) {
+        this.logement = logement;
     }
 
 }
