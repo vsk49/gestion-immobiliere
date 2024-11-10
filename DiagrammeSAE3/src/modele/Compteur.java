@@ -18,12 +18,12 @@ public class Compteur {
         this.dateReleveEntree = dateReleveEntree;
     }
 
-    public int getAncienIndex() {
+    public double getAncienIndex() {
         return this.indexAncien;
     }
 
-    public int getIdCompteur() {
-        return this.idCompteur;
+    public int getNumeroCompteur() {
+        return this.numero;
     }
 
     public void setIndexActuel(double indexActuel){

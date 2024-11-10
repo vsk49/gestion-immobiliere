@@ -26,7 +26,7 @@ public class Bail {
 	this.dateFin = dateFin;
 	this.indexAncienBail = indexAncienBail;
 	this.idBail = idBail;
-	this.bien = bien,
+	this.bien = bien;
 	this.loyer = loyer;
 	}
 

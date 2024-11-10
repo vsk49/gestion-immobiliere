@@ -3,6 +3,7 @@ package dao;
 import java.util.LinkedList;
 
 import java.util.List;
+import java.util.Optional;
 
 import modele.BienImmobilier;
 
@@ -33,8 +34,8 @@ public class DAOBienImmobilier implements DAO<BienImmobilier, Integer> {
 		if (!this.biens.contains(t)) {
 			throw new IllegalArgumentException("Bien inexistant");
 		}
-		BienImmobilier bien = this.getById(t.getIdBienImmobilier());
-		this.delete(bien);
+		// BienImmobilier bien = this.getById(t.getIdBienImmobilier());
+		// this.delete(bien);
 		this.insert(t);
 	}
 
