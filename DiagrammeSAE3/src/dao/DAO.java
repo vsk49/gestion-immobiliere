@@ -9,10 +9,10 @@ public interface DAO<T, ID> {
 
 	public Optional<T> getById(ID id);
 
-	public void insert(T t) throws IllegalArgumentException;
+	public void insert(T t);
 
-	public void update(T t) throws IllegalArgumentException;
+	public void update(T t);
 
-	public void delete(T t) throws IllegalArgumentException;
+	public void delete(T t);
 
 }

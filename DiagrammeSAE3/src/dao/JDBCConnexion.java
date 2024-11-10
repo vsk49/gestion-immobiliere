@@ -33,5 +33,10 @@ public class JDBCConnexion extends OracleDataSource {
 			connexion = null;
 		}
 	}
+	
+	public static void main(String[] args) throws SQLException {
+		@SuppressWarnings("unused")
+		Connection connexion = JDBCConnexion.getConnexion();
+	}
 
 }
