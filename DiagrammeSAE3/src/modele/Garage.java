@@ -1,11 +1,17 @@
 package modele;
 
-public class Garage extends BienLouable {
-    
-    private Logement logement;
+import java.time.LocalDate;
 
-    public Garage(Logement logement) {
-        this.logement = logement;
-    }
+public class Garage extends BienLouable {
+
+	private Logement logement;
+
+	public Garage(String adresse, String numeroFiscal, String codePostal, String ville, double montantTaxesFoncieres,
+			LocalDate dateAnniversaire, double ICCDateDebut, int idBienImmobilier, double surface, int nbPieces,
+			Compteur compteur, Logement logement) {
+		super(adresse, numeroFiscal, codePostal, ville, montantTaxesFoncieres, dateAnniversaire, ICCDateDebut,
+				idBienImmobilier, surface, nbPieces, compteur);
+		this.logement = logement;
+	}
 
 }
