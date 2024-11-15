@@ -1,54 +1,59 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import modele.Locataire;
 
 public class JDBCLocataire implements DAOLocataire {
-	
+
 	@Override
 	public List<Locataire> getAll() {
-		return null;
-		// return this.locataires;
+		List<Locataire> locataires = new ArrayList<>();
+		try {
+			ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery("SELECT * FROM Locataire");
+			while (resultat.next()) {
+				/*
+				locataires.add(new Locataire(resultat.getInt("idLocataire"), resultat.getString("nom"),
+						resultat.getString("prenom"), resultat.getObject("genre", LocalDate.class),
+						resultat.getObject("dateNaissance", LocalDate.class), resultat.getString("lieuNaissance"),
+						resultat.getString("nationalite"), resultat.getString("profession"),
+						resultat.getString("telephone"), resultat.getString("email"),
+						resultat.getObject("dateEntree", LocalDate.class),
+						resultat.getObject("dateDepart", LocalDate.class), resultat.getDouble("quotite"), 
+						resultat.getInt("caution")));
+				*/
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return locataires;
 	}
 
 	@Override
 	public Optional<Locataire> getById(Integer id) {
-		return null;
-		// return this.locataires.stream().filter(l -> l.getIdLocataire() == id).findFirst();
+		return Optional.empty();
 	}
 
 	@Override
-	public void insert(Locataire t) throws IllegalArgumentException {
-		// if (this.locataires.contains(t)) {
-			throw new IllegalArgumentException("locataire deja existant");
-		// }
-		// this.locataires.add(t);
+	public boolean insert(Locataire t) {
+		return false;
 	}
 
 	@Override
-	public void update(Locataire t) throws IllegalArgumentException {
-		// if (!this.locataires.contains(t)) {
-			// throw new IllegalArgumentException("locataire inexistant");
-		// }
-		// Locataire ancien = this.getById(t.getIdLocataire());
-		// this.delete(ancien);
-		this.insert(t);
+	public boolean update(Locataire t) {
+		return false;
 	}
 
 	@Override
-	public void delete(Locataire t) throws IllegalArgumentException {
-		// if (!this.locataires.contains(t)) {
-			// throw new IllegalArgumentException("locataire inexistant");
-		// }
-		// this.locataires.remove(t);
+	public boolean delete(Locataire t) {
+		return false;
 	}
 
 	@Override
 	public Optional<Locataire> getByNom(String nom) {
-		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 

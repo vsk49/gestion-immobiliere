@@ -9,10 +9,10 @@ public interface DAO<T, ID> {
 
 	public Optional<T> getById(ID id);
 
-	public void insert(T t);
+	public boolean insert(T t);
 
-	public void update(T t);
+	public boolean update(T t);
 
-	public void delete(T t);
+	public boolean delete(T t);
 
 }

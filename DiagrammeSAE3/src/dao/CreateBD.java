@@ -102,7 +102,24 @@ public class CreateBD {
         }
 		
 		// creation des tables
-		
+		try {
+			requeteSQL.executeQuery(
+					"Create table Locataire ("
+					+ "idLocataire INTEGER,"
+					+ "nom VARCHAR2(50),"
+					+ "prenom VARCHAR2(50),"
+					+ "genre CHAR(1)"
+					+ "dateNaissance DATE,"
+					+ "lieuNaissance VARCHAR2(50),"
+					+ "nationalite VARCHAR(50),"
+					+ "profession VARCHAR(50),"
+					+ "telephone VARCHAR(15),"
+					+ "email VARCHAR(100),"
+					+ ")"
+					);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
