@@ -13,18 +13,17 @@ public class CreateBD {
 		}
 	}
 	
-	public CreateBD() throws Exception {
-		Connection connexion;
+	public CreateBD() {
 		try {
-			connexion = JDBCConnexion.getConnexion();
+			Connection connexion = JDBCConnexion.getConnexion();
 			createTablesBD(connexion);
 			JDBCConnexion.closeConnexion();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private static void createTablesBD(Connection connexion) throws Exception {
+	private static void createTablesBD(Connection connexion) throws SQLException {
 		Statement requeteSQL = null;
 		
 		// initialisation de la requete SQL
@@ -35,13 +34,92 @@ public class CreateBD {
 			System.exit(-1);
 		}
 		
-		// mise a jour de la base de donnees (s'il y a deja des tables, elles sont supprimees)
+		// mise a jour de la base de donnees (supression des tables en cas d'erreur)
 		try {
-			requeteSQL.executeUpdate("DROP TABLE Etudiant");
+			requeteSQL.executeUpdate("DROP TABLE Locataire");
 		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+			e.printStackTrace();
 		}
-
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE BienImmobilier");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Bail");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Assurance");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Loyer");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Compteur");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Caution");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Bail");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Charge");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE FactureTravail");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Diagnostic");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		// creation des tables
+		try {
+			requeteSQL.executeQuery(
+					"Create table Locataire ("
+					+ "idLocataire INTEGER,"
+					+ "nom VARCHAR2(50),"
+					+ "prenom VARCHAR2(50),"
+					+ "genre CHAR(1)"
+					+ "dateNaissance DATE,"
+					+ "lieuNaissance VARCHAR2(50),"
+					+ "nationalite VARCHAR(50),"
+					+ "profession VARCHAR(50),"
+					+ "telephone VARCHAR(15),"
+					+ "email VARCHAR(100),"
+					+ ")"
+					);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

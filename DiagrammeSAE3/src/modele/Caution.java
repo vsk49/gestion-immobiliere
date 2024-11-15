@@ -20,7 +20,10 @@ public class Caution {
 	private LocalDate dateSignature;
 	private double montantCautionne;
 
-	public Caution(String nom, String prenom, LocalDate dateNaissance, String nationalite, String adresse, String codePostal, String ville, String profession, String employeur, double revenusMensuelsNets, String typeContratTravail, String lienLocataire, LocalDate dateSignature, double montantCautionne, int idCaution) {
+	public Caution(int idCaution, String nom, String prenom, LocalDate dateNaissance, String nationalite,
+			String adresse, String codePostal, String ville, String profession, String employeur,
+			double revenusMensuelsNets, String typeContratTravail, String lienLocataire, LocalDate dateSignature,
+			double montantCautionne) {
 		this.idCaution = idCaution;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -38,8 +41,64 @@ public class Caution {
 		this.montantCautionne = montantCautionne;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public LocalDate getDateNaissance() {
+		return dateNaissance;
+	}
+
+	public String getNationalite() {
+		return nationalite;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public String getCodePostal() {
+		return codePostal;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public String getProfession() {
+		return profession;
+	}
+
+	public String getEmployeur() {
+		return employeur;
+	}
+
+	public double getRevenusMensuelsNets() {
+		return revenusMensuelsNets;
+	}
+
+	public String getTypeContratTravail() {
+		return typeContratTravail;
+	}
+
+	public String getLienLocataire() {
+		return lienLocataire;
+	}
+
+	public LocalDate getDateSignature() {
+		return dateSignature;
+	}
+
+	public double getMontantCautionne() {
+		return montantCautionne;
+	}
+
 	public int getIdCaution() {
-		return this.idCaution;
+		return idCaution;
 	}
 
 }

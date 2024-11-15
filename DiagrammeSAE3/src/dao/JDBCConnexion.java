@@ -9,8 +9,8 @@ public class JDBCConnexion extends OracleDataSource {
 	private static Connection connexion;
 
 	private JDBCConnexion() throws SQLException {
-		this.setURL("jdbc:oracle:thin:@telline.univ-tlse3.fr:1521:etupre");
-		this.setUser("khv4609a");
+		this.setURL("jdbc:oracle:thin:@localhost:1521/xe");
+		this.setUser("sae3a01");
 		this.setPassword("$iutinfo");
 	}
 
@@ -18,8 +18,7 @@ public class JDBCConnexion extends OracleDataSource {
 		if (connexion == null) {
 			try {
 				OracleDataSource bd = new JDBCConnexion();
-				@SuppressWarnings("unused")
-				Connection connexion = bd.getConnection();
+				connexion = bd.getConnection();
 				System.out.println("Connexion réussite");
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -30,8 +29,20 @@ public class JDBCConnexion extends OracleDataSource {
 
 	public static void closeConnexion() {
 		if (connexion != null) {
-			connexion = null;
+			try {
+				connexion.close();
+				connexion = null;
+				System.out.println("Connexion fermée");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
+	public static void main(String[] args) throws SQLException {
+		@SuppressWarnings("unused")
+		Connection connexion = JDBCConnexion.getConnexion();
+		JDBCConnexion.closeConnexion();
+	}
+	
 }
