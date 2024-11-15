@@ -21,9 +21,4 @@ public class Loyer {
     public int getIdLoyer() {
         return this.idLoyer;
     }
-
-    public void setIdLoyer(final int value) {
-        this.idLoyer = value;
-    }
-
 }
