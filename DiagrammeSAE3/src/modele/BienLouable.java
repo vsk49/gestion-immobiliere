@@ -22,7 +22,7 @@ public class BienLouable extends BienImmobilier {
 		this.compteur = compteur;
 	}
 
-	public void changerCompteur(double indexActuel) {
+	public void changerCompteur(int indexActuel) {
 		this.compteur.setIndexActuel(indexActuel);
 	}
 

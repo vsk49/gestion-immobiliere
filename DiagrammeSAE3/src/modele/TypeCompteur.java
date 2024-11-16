@@ -1,5 +1,9 @@
 package modele;
 
 public enum TypeCompteur {
-    EAU, ELECTRICITE;
+
+	EAU("eau"), ELECTRICITE("electricite");
+
+	TypeCompteur(String string) {}
+	
 }
