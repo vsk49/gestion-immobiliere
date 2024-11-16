@@ -3,31 +3,50 @@ package modele;
 import java.time.LocalDate;
 
 public class Compteur {
-    
-    private int numero;
-    private TypeCompteur type;
-    private double indexActuel;
-    private double indexAncien;
-    private LocalDate dateReleveEntree;
-    
-    public Compteur(int numero, TypeCompteur type, double indexActuel, double indexAncien, LocalDate dateReleveEntree) {
-        this.numero = numero;
-        this.type = type;
-        this.indexActuel = indexActuel;
-        this.indexAncien = indexAncien;
-        this.dateReleveEntree = dateReleveEntree;
-    }
 
-    public double getAncienIndex() {
-        return this.indexAncien;
-    }
+	private int idCompteur;
+	private String numero;
+	private TypeCompteur typeCompteur;
+	private int indexAncien;
+	private int indexActuel;
+	private LocalDate dateReleveEntree;
 
-    public int getNumeroCompteur() {
-        return this.numero;
-    }
+	public Compteur(int idCompteur, String numero, TypeCompteur typeCompteur, int indexAncien, int indexActuel,
+			LocalDate dateReleveEntree) {
+		this.idCompteur = idCompteur;
+		this.numero = numero;
+		this.typeCompteur = typeCompteur;
+		this.indexAncien = indexAncien;
+		this.indexActuel = indexActuel;
+		this.dateReleveEntree = dateReleveEntree;
+	}
 
-    public void setIndexActuel(double indexActuel){
-        this.indexActuel = indexActuel;
-    }
+	public int getIdCompteur() {
+		return this.idCompteur;
+	}
+	
+	public String getNumero() {
+		return this.numero;
+	}
+	
+	public TypeCompteur getTypeCompteur() {
+		return this.typeCompteur;
+	}
+	
+	public int getIndexAncien() {
+		return this.indexAncien;
+	}
+
+	public int getIndexActuel() {
+		return this.indexActuel;
+	}
+
+	public void setIndexActuel(int indexActuel) {
+		this.indexActuel = indexActuel;
+	}
+	
+	public LocalDate getDateReleveEntree() {
+		return this.dateReleveEntree;
+	}
 
 }

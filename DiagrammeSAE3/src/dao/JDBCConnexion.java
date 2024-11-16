@@ -9,8 +9,8 @@ public class JDBCConnexion extends OracleDataSource {
 	private static Connection connexion;
 
 	private JDBCConnexion() throws SQLException {
-		this.setURL("jdbc:oracle:thin:@localhost:1521/xe");
-		this.setUser("sae3a01");
+		this.setURL("jdbc:oracle:thin:@//localhost:1521/XEPDB1");
+		this.setUser("SAE3A01");
 		this.setPassword("$iutinfo");
 	}
 

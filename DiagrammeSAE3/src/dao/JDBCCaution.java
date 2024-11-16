@@ -11,7 +11,7 @@ public class JDBCCaution implements DAOCaution {
 
 	@Override
 	public List<Caution> getAll() {
-		List<Caution> locataires = new ArrayList<>();
+		List<Caution> cautions = new ArrayList<>();
 		try {
 			ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery("SELECT * FROM Caution");
 			boolean enregistrementExiste = resultat.next();
@@ -23,13 +23,13 @@ public class JDBCCaution implements DAOCaution {
 						resultat.getString("employeur"), resultat.getDouble("revenusMensuelsNets"),
 						resultat.getString("typeContratTravail"), resultat.getString("lienLocataire"),
 						resultat.getDate("dateSignature").toLocalDate(), resultat.getDouble("montantCautionne"));
-				locataires.add(c);
+				cautions.add(c);
 				enregistrementExiste = resultat.next();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return locataires;
+		return cautions;
 	}
 
 	@Override
