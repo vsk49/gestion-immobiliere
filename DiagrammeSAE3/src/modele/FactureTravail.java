@@ -4,22 +4,63 @@ import java.time.LocalDate;
 
 public class FactureTravail {
 
-	private String entreprise;
+	private int idFactureTravail;
 	private String numeroFacture;
-	private LocalDate date;
-	private String referenceDevis;
-	private double montant;
+	private LocalDate dateFacture;
 	private String nature;
+	private double montant;
+	private String entreprise;
+	private String referenceDevis;
 	private double montantDevis;
+	private BienLouable bien;
 
-	public FactureTravail(String entreprise, String numeroFacture, LocalDate date, String referenceDevis, double montant, String nature, double montantDevis) {
-		this.entreprise = entreprise;
+	public FactureTravail(int idFactureTravail, String numeroFacture, LocalDate dateFacture, String nature, double montant,
+			String entreprise, String referenceDevis, double montantDevis, BienLouable bien) {
+		this.idFactureTravail = idFactureTravail;
 		this.numeroFacture = numeroFacture;
-		this.date = date;
-		this.referenceDevis = referenceDevis;
-		this.montant = montant;
+		this.dateFacture = dateFacture;
 		this.nature = nature;
+		this.montant = montant;
+		this.entreprise = entreprise;
+		this.referenceDevis = referenceDevis;
 		this.montantDevis = montantDevis;
+		this.bien = bien;
 	}
 
+	public int getIdFactureTravail() {
+		return idFactureTravail;
+	}
+
+	public String getNumeroFacture() {
+		return numeroFacture;
+	}
+
+	public LocalDate getDateFacture() {
+		return dateFacture;
+	}
+
+	public String getNature() {
+		return nature;
+	}
+
+	public double getMontant() {
+		return montant;
+	}
+
+	public String getEntreprise() {
+		return entreprise;
+	}
+
+	public String getReferenceDevis() {
+		return referenceDevis;
+	}
+
+	public double getMontantDevis() {
+		return montantDevis;
+	}
+
+	public BienLouable getBien() {
+		return bien;
+	}
+	
 }

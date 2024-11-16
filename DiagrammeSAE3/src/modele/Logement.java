@@ -3,12 +3,15 @@ package modele;
 import java.time.LocalDate;
 
 public class Logement extends BienLouable {
+	
+	private Garage garage;
 
-	public Logement(String adresse, String numeroFiscal, String codePostal, String ville, double montantTaxesFoncieres,
-			LocalDate dateAnniversaire, double ICCDateDebut, int idBienImmobilier, double surface, int nbPieces,
-			Compteur compteur) {
-		super(adresse, numeroFiscal, codePostal, ville, montantTaxesFoncieres, dateAnniversaire, ICCDateDebut,
-				idBienImmobilier, surface, nbPieces, compteur);
+	public Logement(int idBienImmobilier, String numeroFiscal, String adresse, String codePostal, String ville,
+			LocalDate dateAnniversaire, double montantTaxesFoncieres, double ICCDateDebut, double surface, int nbPieces,
+			Compteur compteur, Garage garage) {
+		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, montantTaxesFoncieres,
+				ICCDateDebut, surface, nbPieces, compteur);
+		this.garage = garage;
 	}
 
 	public boolean estEnColocation() {
@@ -21,6 +24,10 @@ public class Logement extends BienLouable {
 
 	public double getQuotiteLocataire(String id) {
 		return 0;
+	}
+	
+	public Garage getGarageLie() {
+		return this.garage;
 	}
 
 }
