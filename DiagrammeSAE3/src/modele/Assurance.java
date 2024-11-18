@@ -26,4 +26,24 @@ public class Assurance {
         return this.idAssurance;
     }
 
+    public TypeAssurance getType() {
+        return this.type;
+    }
+
+    public double getPrime() {
+        return this.prime;
+    }public LocalDate getDateDebutAssurance() {
+        return this.dateDebutAssurance;
+    }public int get() {
+        return this.;
+    }public int get() {
+        return this.;
+    }public int get() {
+        return this.;
+    }
+    private LocalDate dateDebutAssurance;
+    private String nomAssureur;
+    private double quotiteJurisprudence;
+    private double protectionJuridique;
+
 }

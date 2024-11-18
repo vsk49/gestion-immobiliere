@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Diagnostic {
 
+	private int IdDiagnostic;
 	private String reference;
 	private LocalDate dateRealisation;
 	private String type;
@@ -13,7 +14,8 @@ public class Diagnostic {
 	private String numeroRapport;
 	private BienImmobilier bien;
 
-	public Diagnostic(String reference, LocalDate dateRealisation, String type, LocalDate dateExpiration, String classification, String operateur, String numeroRapport, BienImmobilier bien) {
+	public Diagnostic(int IdDiagnostic, String reference, LocalDate dateRealisation, String type, LocalDate dateExpiration, String classification, String operateur, String numeroRapport, BienImmobilier bien) {
+		this.int IdDiagnostic = int IdDiagnostic;
 		this.reference = reference;
 		this.dateRealisation = dateRealisation;
 		this.type = type;
