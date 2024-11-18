@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public abstract class Charge {
 
+	private int idCharge;
 	private LocalDate dateDebut;
 	private LocalDate dateFin;
-	private int idCharge;
 	private double montantEau;
 	private double montantCoPropriete;
 	private double montantElectricite;
@@ -20,36 +20,44 @@ public abstract class Charge {
 		this.montantElectricite = montantElectricite;
 	}
 
-	public double getMontantTotalDeCharge(){
-		return this.montantEau + this.montantCoPropriete + this.montantElectricite;
-	};
-
 	public int getIdCharge() {
 		return this.idCharge;
 	}
 
+	public LocalDate getDateDebut(){
+		return this.dateDebut;
+	}
+
+	public LocalDate getDateFin(){
+		return this.dateFin;
+	}
+	
 	public double getMontantEau() {
 		return this.montantEau;
 	}
-
+	
 	public void setMontantEau(final double value) {
 		this.montantEau = value;
 	}
-
+	
 	public double getMontantCoPropriete() {
 		return this.montantCoPropriete;
 	}
-
+	
 	public void setMontantCoPropriete(double value) {
 		this.montantCoPropriete = value;
 	}
-
+	
 	public double getMontantElectricite() {
 		return this.montantElectricite;
 	}
-
+	
 	public void setMontantElectricite(double value) {
 		this.montantElectricite = value;
 	}
 
+	public double getMontantTotalDeCharge(){
+		return this.montantEau + this.montantCoPropriete + this.montantElectricite;
+	}
+	
 }

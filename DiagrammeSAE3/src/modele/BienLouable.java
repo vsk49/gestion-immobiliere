@@ -44,4 +44,8 @@ public class BienLouable extends BienImmobilier {
 		this.compteur.setIndexActuel(indexActuel);
 	}
 
+	public Compteur getCompteur(){
+		return this.compteur;
+	}
+
 }

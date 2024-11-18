@@ -32,18 +32,21 @@ public class Assurance {
 
     public double getPrime() {
         return this.prime;
-    }public LocalDate getDateDebutAssurance() {
-        return this.dateDebutAssurance;
-    }public int get() {
-        return this.;
-    }public int get() {
-        return this.;
-    }public int get() {
-        return this.;
     }
-    private LocalDate dateDebutAssurance;
-    private String nomAssureur;
-    private double quotiteJurisprudence;
-    private double protectionJuridique;
+    
+    public LocalDate getDateDebutAssurance() {
+        return this.dateDebutAssurance;
+    }
+    
+    public String getNomAssureur() {
+        return this.nomAssureur;
+    }
+    
+    public double getQuotiteJurisprudence() {
+        return this.quotiteJurisprudence;
+        
+    }public double getProtectionJuridique() {
+        return this.protectionJuridique;
+    }
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Locataire {
 
+	private int idLocataire;
 	private String nom;
 	private String prenom;
 	private Genre genre;
@@ -19,9 +20,8 @@ public class Locataire {
 	private LocalDate dateDepart;
 	private double quotite;
 	private Caution caution;
-	private int idLocataire;
 	private List<Bail> baux = new ArrayList<Bail>();
-	private List<BienImmobilier> bien = new ArrayList<BienImmobilier>();
+	private List<BienImmobilier> biens = new ArrayList<BienImmobilier>();
 	private List<Charge> charges = new ArrayList<Charge>();
 
 	public Locataire(int idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
@@ -59,4 +59,67 @@ public class Locataire {
 		return this.idLocataire;
 	}
 
+	public String getNom() {
+		return this.nom;
+	}
+
+	public String getPrenom() {
+		return this.prenom;
+	}
+
+	public Genre getGenre() {
+		return this.genre;
+	}
+
+	public LocalDate getDateNaissance() {
+		return this.dateNaissance;
+	}
+
+	public String getLieuNaissance() {
+		return this.lieuNaissance;
+	}
+
+	public String getNationalite() {
+		return this.nationalite;
+	}
+
+	public String getProfession() {
+		return this.profession;
+	}
+
+	public String getTelephone() {
+		return this.telephone;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public LocalDate getDateEntree() {
+		return this.dateEntree;
+	}
+
+	public LocalDate getDateDepart() {
+		return this.dateDepart;
+	}
+
+	public double getQuotite() {
+		return this.quotite;
+	}
+
+	public Caution getCaution() {
+		return this.caution;
+	}
+
+	public List<Bail> getBaux() {
+		return this.baux;
+	}
+
+	public List<BienImmobilier> getBiens() {
+		return this.biens;
+	}
+
+	public List<Charge> getCharges() {
+		return this.charges;
+	}
 }
