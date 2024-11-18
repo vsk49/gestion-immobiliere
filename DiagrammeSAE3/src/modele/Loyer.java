@@ -8,16 +8,16 @@ public class Loyer {
 	private LocalDate dateLoyer;
 	private double montantLoyer;
 	private double provisionPourCharge;
-	private BienLouable bienLouable;
+	private Logement logement;
 	private Locataire locataire;
 
-	public Loyer(LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, int idLoyer,
-			BienLouable bienLouable, Locataire locataire) {
+	public Loyer(int idLoyer, LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, Logement logement,
+			Locataire locataire) {
 		this.dateLoyer = dateLoyer;
 		this.montantLoyer = montantLoyer;
 		this.provisionPourCharge = provisionPourCharge;
 		this.idLoyer = idLoyer;
-		this.bienLouable = bienLouable;
+		this.logement = logement;
 		this.locataire = locataire;
 	}
 
@@ -25,7 +25,7 @@ public class Loyer {
 		return this.idLoyer;
 	}
 
-	public void setIdLoyer(final int value) {
+	public void setIdLoyer(int value) {
 		this.idLoyer = value;
 	}
 
@@ -41,11 +41,12 @@ public class Loyer {
 		return this.provisionPourCharge;
 	}
 
-	public BienLouable getBienLouable() {
-		return this.bienLouable;
+	public BienLouable getLogement() {
+		return this.logement;
 	}
 
 	public Locataire getLocataire() {
 		return this.locataire;
 	}
+	
 }
