@@ -3,7 +3,7 @@ package modele;
 import java.time.LocalDate;
 
 public class Garage extends BienLouable {
-
+	
 	private Logement logement;
 
 	public Garage(int idBienImmobilier, String numeroFiscal, String adresse, String codePostal, String ville,

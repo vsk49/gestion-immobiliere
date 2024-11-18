@@ -28,7 +28,7 @@ public class Assurance {
 	public int getIdAssurance() {
 		return this.idAssurance;
 	}
-
+	
 	public TypeAssurance getTypeAssurance() {
 		return typeAssurance;
 	}
@@ -56,5 +56,5 @@ public class Assurance {
 	public BienImmobilier getBien() {
 		return bien;
 	}
-	
+   
 }
