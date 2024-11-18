@@ -29,4 +29,23 @@ public class Loyer {
 		this.idLoyer = value;
 	}
 
+	public LocalDate getDateLoyer() {
+		return this.dateLoyer;
+	}
+
+	public double getMontantLoyer() {
+		return this.montantLoyer;
+	}
+
+	public double getProvisionPourCharge() {
+		return this.provisionPourCharge;
+	}
+
+	public BienLouable getBienLouable() {
+		return this.bienLouable;
+	}
+
+	public Locataire getLocataire() {
+		return this.locataire;
+	}
 }

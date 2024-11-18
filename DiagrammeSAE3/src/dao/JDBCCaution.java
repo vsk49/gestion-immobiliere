@@ -26,6 +26,7 @@ public class JDBCCaution implements DAOCaution {
 				cautions.add(c);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -51,6 +52,7 @@ public class JDBCCaution implements DAOCaution {
 						resultat.getDate("dateSignature").toLocalDate(), resultat.getDouble("montantCautionne"));
 				conteneur = Optional.ofNullable(c);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -83,6 +85,7 @@ public class JDBCCaution implements DAOCaution {
 			statement.executeUpdate();
 			System.out.println("La caution " + t.getNom() + " " + t.getPrenom() + " a été ajouté.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -102,6 +105,7 @@ public class JDBCCaution implements DAOCaution {
 			statement.executeUpdate();
 			System.out.println("La caution " + t.getNom() + " " + t.getPrenom() + " a été modifié.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -120,6 +124,7 @@ public class JDBCCaution implements DAOCaution {
 			statement.executeUpdate();
 			System.out.println("La caution " + t.getNom() + " " + t.getPrenom() + " a été supprimée.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -145,6 +150,7 @@ public class JDBCCaution implements DAOCaution {
 						resultat.getDate("dateSignature").toLocalDate(), resultat.getDouble("montantCautionne"));
 				conteneur = Optional.ofNullable(c);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -41,6 +41,10 @@ public class Caution {
 		this.montantCautionne = montantCautionne;
 	}
 
+	public int getIdCaution() {
+		return idCaution;
+	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -95,10 +99,6 @@ public class Caution {
 
 	public double getMontantCautionne() {
 		return montantCautionne;
-	}
-
-	public int getIdCaution() {
-		return idCaution;
 	}
 
 }

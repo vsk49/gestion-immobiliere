@@ -7,13 +7,13 @@ import java.time.LocalDate;
 
 public class Bail {
 
+	private int idBail;
 	private LocalDate dateDebut;
 	private double depotDeGarantie;
 	private String duree;
 	private LocalDate dateSignature;
 	private LocalDate dateFin;
 	private String indexAncienBail;
-	private int idBail;
 	private BienImmobilier bien;
 	private Loyer loyer;
 	private List<Locataire> locataires = new ArrayList<Locataire>();
@@ -43,4 +43,39 @@ public class Bail {
 		return this.idBail;
 	}
 
+	public LocalDate getDateDebut() {
+		return this.dateDebut;
+	}
+
+	public double getDepotDeGarantie() {
+		return this.depotDeGarantie;
+	}
+	
+	public String getDuree() {
+		return this.duree;
+	}
+	
+	public LocalDate getDateSignature() {
+		return this.dateSignature;
+	}
+	
+	public LocalDate getDateFin() {
+		return this.dateFin;
+	
+	
+	}public String getIndexAncienBail() {
+		return this.indexAncienBail;
+	}
+	
+	public BienImmobilier getBien() {
+		return this.bien;
+	}
+	
+	public Loyer getLoyer() {
+		return this.loyer;
+	}
+	
+	public List<Locataire> getLocataires() {
+		return this.locataires;
+	}
 }

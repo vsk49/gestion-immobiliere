@@ -28,4 +28,39 @@ public class Diagnostic {
 		this.bien = bien;
 	}
 
+	public int getIdDiagnostic(){
+		return this.idDiagnostic;
+	}
+	
+	public String getReference(){
+		return this.reference;
+	}
+
+	public LocalDate getDateRealisation(){
+		return this.dateRealisation;
+	}
+
+	public String getType(){
+		return this.type;
+	}
+
+	public LocalDate getDateExpiraion(){
+		return this.dateExpiration;
+	}
+
+	public String getClassification(){
+		return this.classification;
+	}
+
+	public String getOperateur(){
+		return this.operateur;
+	}
+
+	public String getNumeroRapport(){
+		return this.numeroRapport;
+	}
+
+	public BienImmobilier getBien(){
+		return this.bien;
+	}
 }

@@ -23,6 +23,7 @@ public class JDBCCompteur implements DAOCompteur {
 				compteurs.add(c);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -44,6 +45,7 @@ public class JDBCCompteur implements DAOCompteur {
 						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
 				conteneur = Optional.ofNullable(c);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -67,6 +69,7 @@ public class JDBCCompteur implements DAOCompteur {
 			statement.executeUpdate();
 			System.out.println("Le compteur numero " + t.getNumero() + " a été ajouté.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,6 +89,7 @@ public class JDBCCompteur implements DAOCompteur {
 			statement.executeUpdate();
 			System.out.println("Le compteur numero " + t.getNumero() + " a été modifié.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -104,6 +108,7 @@ public class JDBCCompteur implements DAOCompteur {
 			statement.executeUpdate();
 			System.out.println("Le compteur numero " + t.getNumero() + " a été supprimé.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -125,6 +130,7 @@ public class JDBCCompteur implements DAOCompteur {
 						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
 				conteneur = Optional.ofNullable(c);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

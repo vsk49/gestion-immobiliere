@@ -29,6 +29,7 @@ public class JDBCAssurance implements DAOAssurance {
 				assurances.add(a);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -50,6 +51,7 @@ public class JDBCAssurance implements DAOAssurance {
 						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getInt(8)).get());
 				assurance = Optional.ofNullable(a);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -75,6 +77,7 @@ public class JDBCAssurance implements DAOAssurance {
 			statement.executeUpdate();
 			System.out.println("L'assurance du nom " + t.getNomAssureur() + " a été ajoutée.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,6 +97,7 @@ public class JDBCAssurance implements DAOAssurance {
 			statement.executeUpdate();
 			System.out.println("L'assurance du nom " + t.getNomAssureur() + " a été modifiée.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -112,6 +116,7 @@ public class JDBCAssurance implements DAOAssurance {
 			statement.executeUpdate();
 			System.out.println("L'assurance du nom " + t.getNomAssureur() + " a ete supprimee.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -133,6 +138,7 @@ public class JDBCAssurance implements DAOAssurance {
 						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getInt(8)).get());
 				assurance = Optional.ofNullable(a);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -155,6 +161,7 @@ public class JDBCAssurance implements DAOAssurance {
 				assurances.add(a);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
