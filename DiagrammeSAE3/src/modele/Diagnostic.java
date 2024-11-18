@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Diagnostic {
 
-	private int IdDiagnostic;
+	private int idDiagnostic;
 	private String reference;
 	private LocalDate dateRealisation;
 	private String type;
@@ -14,8 +14,10 @@ public class Diagnostic {
 	private String numeroRapport;
 	private BienImmobilier bien;
 
-	public Diagnostic(int IdDiagnostic, String reference, LocalDate dateRealisation, String type, LocalDate dateExpiration, String classification, String operateur, String numeroRapport, BienImmobilier bien) {
-		this.int IdDiagnostic = int IdDiagnostic;
+	public Diagnostic(int idDiagnostic, String reference, LocalDate dateRealisation, String type,
+			LocalDate dateExpiration, String classification, String operateur, String numeroRapport,
+			BienImmobilier bien) {
+		this.idDiagnostic = idDiagnostic;
 		this.reference = reference;
 		this.dateRealisation = dateRealisation;
 		this.type = type;
@@ -27,7 +29,7 @@ public class Diagnostic {
 	}
 
 	public int getIdDiagnostic(){
-		return this.IdDiagnostic;
+		return this.idDiagnostic;
 	}
 	
 	public String getReference(){
