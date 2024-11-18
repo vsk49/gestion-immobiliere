@@ -2,7 +2,7 @@ package modele;
 
 import java.time.LocalDate;
 
-public abstract class Charge {
+public class Charge {
 
 	private int idCharge;
 	private LocalDate dateDebut;
@@ -11,10 +11,11 @@ public abstract class Charge {
 	private double montantCoPropriete;
 	private double montantElectricite;
 
-	public Charge(LocalDate dateDebut, LocalDate dateFin, int idCharge, double montantEau, double montantCoPropriete, double montantElectricite) {
+	public Charge(int idCharge, LocalDate dateDebut, LocalDate dateFin, double montantEau, double montantCoPropriete,
+			double montantElectricite) {
+		this.idCharge = idCharge;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.idCharge = idCharge;
 		this.montantEau = montantEau;
 		this.montantCoPropriete = montantCoPropriete;
 		this.montantElectricite = montantElectricite;
@@ -24,40 +25,40 @@ public abstract class Charge {
 		return this.idCharge;
 	}
 
-	public LocalDate getDateDebut(){
+	public LocalDate getDateDebut() {
 		return this.dateDebut;
 	}
 
-	public LocalDate getDateFin(){
+	public LocalDate getDateFin() {
 		return this.dateFin;
 	}
-	
+
 	public double getMontantEau() {
 		return this.montantEau;
 	}
-	
+
 	public void setMontantEau(final double value) {
 		this.montantEau = value;
 	}
-	
+
 	public double getMontantCoPropriete() {
 		return this.montantCoPropriete;
 	}
-	
+
 	public void setMontantCoPropriete(double value) {
 		this.montantCoPropriete = value;
 	}
-	
+
 	public double getMontantElectricite() {
 		return this.montantElectricite;
 	}
-	
+
 	public void setMontantElectricite(double value) {
 		this.montantElectricite = value;
 	}
 
-	public double getMontantTotalDeCharge(){
+	public double getMontantTotalDeCharge() {
 		return this.montantEau + this.montantCoPropriete + this.montantElectricite;
 	}
-	
+
 }
