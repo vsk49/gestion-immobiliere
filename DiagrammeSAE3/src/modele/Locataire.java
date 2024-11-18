@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Locataire {
-	
+
 	private String nom;
 	private String prenom;
 	private Genre genre;
@@ -24,12 +24,14 @@ public class Locataire {
 	private List<BienImmobilier> bien = new ArrayList<BienImmobilier>();
 	private List<Charge> charges = new ArrayList<Charge>();
 
-	public Locataire(String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance, String nationalite, String profession, String telephone, String email, LocalDate dateEntree, LocalDate dateDepart, double quotite, Caution caution, int idLocataire) {
+	public Locataire(int idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
+			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
+			LocalDate dateDepart, double quotite, Caution caution) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
 		this.dateNaissance = dateNaissance;
-		this.lieuNaissance  = lieuNaissance;
+		this.lieuNaissance = lieuNaissance;
 		this.nationalite = nationalite;
 		this.profession = profession;
 		this.telephone = telephone;
@@ -40,7 +42,7 @@ public class Locataire {
 		this.caution = caution;
 		this.idLocataire = idLocataire;
 	}
-	
+
 	public double soldeDeToutCompte() {
 		return 0;
 	}

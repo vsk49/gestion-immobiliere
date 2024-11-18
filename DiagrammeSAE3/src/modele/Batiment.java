@@ -6,11 +6,17 @@ import java.util.List;
 
 public class Batiment extends BienImmobilier {
 
-	private List<BienLouable> biensLouables = new ArrayList<BienLouable>();
+	private List<BienLouable> biensLouables;
 
-	public Batiment(String adresse, String numeroFiscal, String codePostal, String ville, double montantTaxesFoncieres,
-			LocalDate dateAnniversaire, double ICCDateDebut, int idBienImmobilier) {
-		super(adresse, adresse, adresse, adresse, ICCDateDebut, dateAnniversaire, ICCDateDebut, idBienImmobilier);
+	public Batiment(int idBienImmobilier, String numeroFiscal, String adresse, String codePostal, String ville,
+			LocalDate dateAnniversaire, double montantTaxesFoncieres, double ICCDateDebut) {
+		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, montantTaxesFoncieres,
+				ICCDateDebut);
+		this.biensLouables = new ArrayList<>();
+	}
+	
+	public List<BienLouable> getBiensLouables() {
+		return this.biensLouables;
 	}
 
 }
