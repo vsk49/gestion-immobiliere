@@ -3,10 +3,11 @@ package dao;
 import java.util.LinkedList;
 
 import java.util.List;
+import java.util.Optional;
 
 import modele.BienImmobilier;
 
-public class DAOBienImmobilier implements DAO<BienImmobilier> {
+public class DAOBienImmobilier implements DAO<BienImmobilier, Integer> {
 	
 	private List<BienImmobilier> biens = new LinkedList<>();
 
@@ -16,8 +17,8 @@ public class DAOBienImmobilier implements DAO<BienImmobilier> {
 	}
 
 	@Override
-	public BienImmobilier getById(String id) {
-		return this.biens.stream().filter(b -> b.getIdBienImmobilier() == id).findFirst().get();
+	public Optional<BienImmobilier> getById(Integer id) {
+		return this.biens.stream().filter(b -> b.getIdBienImmobilier() == id).findFirst();
 	}
 
 	@Override
@@ -33,8 +34,8 @@ public class DAOBienImmobilier implements DAO<BienImmobilier> {
 		if (!this.biens.contains(t)) {
 			throw new IllegalArgumentException("Bien inexistant");
 		}
-		BienImmobilier bien = this.getById(t.getIdBienImmobilier());
-		this.delete(bien);
+		// BienImmobilier bien = this.getById(t.getIdBienImmobilier());
+		// this.delete(bien);
 		this.insert(t);
 	}
 

@@ -1,5 +1,6 @@
 package modele;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,11 @@ public class BienLouable extends BienImmobilier {
 	private List<FactureTravail> travaux = new ArrayList<>();
 	private List<Loyer> loyers = new ArrayList<Loyer>();
 
-	public BienLouable(double surface, int nbPieces, Compteur compteur, String adresse, String numeroFiscal, String codePostal, String ville, double montantTaxesFoncieres, LocalDate dateAnniversaire, double ICCDateDebut, int idBienImmobilier) {
+	public BienLouable(String adresse, String numeroFiscal, String codePostal, String ville,
+			double montantTaxesFoncieres, LocalDate dateAnniversaire, double ICCDateDebut, int idBienImmobilier,
+			double surface, int nbPieces, Compteur compteur) {
+		super(adresse, numeroFiscal, codePostal, ville, montantTaxesFoncieres, dateAnniversaire, ICCDateDebut,
+				idBienImmobilier);
 		this.surface = surface;
 		this.nbPieces = nbPieces;
 		this.compteur = compteur;

@@ -13,15 +13,15 @@ public abstract class Charge {
 
 	public Charge(LocalDate dateDebut, LocalDate dateFin, int idCharge, double montantEau, double montantCoPropriete, double montantElectricite) {
 		this.dateDebut = dateDebut;
-		this.dateFin;
+		this.dateFin = dateFin;
 		this.idCharge = idCharge;
 		this.montantEau = montantEau;
 		this.montantCoPropriete = montantCoPropriete;
-		thiss.montantElectricite = montantElectricite;
+		this.montantElectricite = montantElectricite;
 	}
 
 	public double getMontantTotalDeCharge(){
-		return this.montantEau + this.montantCoPropriete + thiss.montantElectricite;
+		return this.montantEau + this.montantCoPropriete + this.montantElectricite;
 	};
 
 	public int getIdCharge() {
