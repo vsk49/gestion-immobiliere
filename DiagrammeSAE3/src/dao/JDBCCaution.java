@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import modele.Caution;
+import modele.Locataire;
 
 public class JDBCCaution implements DAOCaution {
 
@@ -138,6 +139,32 @@ public class JDBCCaution implements DAOCaution {
 			String requete = "SELECT * FROM Caution where nom = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setString(1, nom);
+			ResultSet resultat = statement.executeQuery();
+			boolean enregistrementExiste = resultat.next();
+			if (enregistrementExiste) {
+				Caution c = new Caution(resultat.getInt("idCaution"), resultat.getString("nom"),
+						resultat.getString("prenom"), resultat.getDate("dateNaissance").toLocalDate(),
+						resultat.getString("nationalite"), resultat.getString("adresse"),
+						resultat.getString("codePostal"), resultat.getString("ville"), resultat.getString("profession"),
+						resultat.getString("employeur"), resultat.getDouble("revenusMensuelsNets"),
+						resultat.getString("typeContratTravail"), resultat.getString("lienLocataire"),
+						resultat.getDate("dateSignature").toLocalDate(), resultat.getDouble("montantCautionne"));
+				conteneur = Optional.ofNullable(c);
+			}
+			JDBCConnexion.closeConnexion();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conteneur;
+	}
+
+	@Override
+	public Optional<Caution> getByLocataire(Locataire locataire) {
+		Optional<Caution> conteneur = Optional.empty();
+		try {
+			String requete = "SELECT * FROM Caution where idLocataire = ?";
+			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
+			statement.setInt(1, locataire.getIdLocataire());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
