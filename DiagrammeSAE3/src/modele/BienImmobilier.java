@@ -9,17 +9,18 @@ public class BienImmobilier {
 	private int idBienImmobilier;
 	private String numeroFiscal;
 	private String adresse;
-	private String codePostal;
+	private int codePostal;
 	private String ville;
 	private LocalDate dateAnniversaire;
 	private double montantTaxesFoncieres;
-	private double ICCDateDebut;
-	private List<Locataire> locataires = new ArrayList<Locataire>();
-	private List<Assurance> assurances = new ArrayList<Assurance>();
-	private List<Bail> baux = new ArrayList<Bail>();
+	private int ICCDateDebut;
+	private List<Locataire> locataires;
+	private List<Assurance> assurances;
+	private List<Bail> baux;
+	private List<Diagnostic> diagnostics;
 
-	public BienImmobilier(int idBienImmobilier, String numeroFiscal, String adresse, String codePostal, String ville,
-			LocalDate dateAnniversaire, double montantTaxesFoncieres, double ICCDateDebut) {
+	public BienImmobilier(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
+			LocalDate dateAnniversaire, double montantTaxesFoncieres, int ICCDateDebut) {
 		this.idBienImmobilier = idBienImmobilier;
 		this.numeroFiscal = numeroFiscal;
 		this.adresse = adresse;
@@ -31,6 +32,7 @@ public class BienImmobilier {
 		this.locataires = new ArrayList<>();
 		this.assurances = new ArrayList<>();
 		this.baux = new ArrayList<>();
+		this.diagnostics = new ArrayList<>();
 	}
 
 	public int getIdBienImmobilier() {
@@ -45,7 +47,7 @@ public class BienImmobilier {
 		return adresse;
 	}
 
-	public String getCodePostal() {
+	public int getCodePostal() {
 		return codePostal;
 	}
 
@@ -61,7 +63,7 @@ public class BienImmobilier {
 		return montantTaxesFoncieres;
 	}
 
-	public double getICCDateDebut() {
+	public int getICCDateDebut() {
 		return ICCDateDebut;
 	}
 
@@ -75,6 +77,10 @@ public class BienImmobilier {
 
 	public List<Bail> getBaux() {
 		return baux;
+	}
+	
+	public List<Diagnostic> getDiagnostics() {
+		return diagnostics;
 	}
 
 	public void ajouterLocataire(Locataire... l) {
