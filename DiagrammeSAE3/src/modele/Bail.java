@@ -17,12 +17,12 @@ public class Bail {
 	private Loyer loyer;
 	private List<Locataire> locataires; 
 
-	public Bail(int idBail, LocalDate dateDebut, double depotDeGarantie, double duree, LocalDate dateSignature,
+	public Bail(int idBail, LocalDate dateDebut, double depotDeGarantie, double dureeOccupation, LocalDate dateSignature,
 			LocalDate dateFin, int indexAncienBail, BienImmobilier bien, Loyer loyer) {
 		this.idBail = idBail;
 		this.dateDebut = dateDebut;
 		this.depotDeGarantie = depotDeGarantie;
-		this.dureeOccupation = duree;
+		this.dureeOccupation = dureeOccupation;
 		this.dateSignature = dateSignature;
 		this.dateFin = dateFin;
 		this.indexAncienBail = indexAncienBail;

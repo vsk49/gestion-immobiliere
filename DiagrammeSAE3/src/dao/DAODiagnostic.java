@@ -10,6 +10,6 @@ public interface DAODiagnostic extends DAO<Diagnostic, Integer> {
 	
 	public Optional<Diagnostic> getByNumeroRapport(String numeroRapport);
 	
-	public List<Diagnostic> getByBienImmoobilier(BienImmobilier bien);
+	public List<Diagnostic> getByBienImmobilier(BienImmobilier bien);
 	
 }
