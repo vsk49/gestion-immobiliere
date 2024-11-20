@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import modele.Caution;
@@ -9,6 +10,6 @@ public interface DAOCaution extends DAO<Caution, Integer> {
 
 	public Optional<Caution> getByNom(String nom);
 	
-	public Optional<Caution> getByLocataire(Locataire locataire);
+	public List<Caution> getByLocataire(Locataire locataire);
 	
 }

@@ -159,15 +159,15 @@ public class JDBCCaution implements DAOCaution {
 	}
 
 	@Override
-	public Optional<Caution> getByLocataire(Locataire locataire) {
-		Optional<Caution> conteneur = Optional.empty();
+	public List<Caution> getByLocataire(Locataire locataire) {
+		List<Caution> cautions = new ArrayList<>();
 		try {
 			String requete = "SELECT * FROM Caution where idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setInt(1, locataire.getIdLocataire());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
-			if (enregistrementExiste) {
+			while (enregistrementExiste) {
 				Caution c = new Caution(resultat.getInt("idCaution"), resultat.getString("nom"),
 						resultat.getString("prenom"), resultat.getDate("dateNaissance").toLocalDate(),
 						resultat.getString("nationalite"), resultat.getString("adresse"),
@@ -175,13 +175,14 @@ public class JDBCCaution implements DAOCaution {
 						resultat.getString("employeur"), resultat.getDouble("revenusMensuelsNets"),
 						resultat.getString("typeContratTravail"), resultat.getString("lienLocataire"),
 						resultat.getDate("dateSignature").toLocalDate(), resultat.getDouble("montantCautionne"));
-				conteneur = Optional.ofNullable(c);
+				cautions.add(c);
+				enregistrementExiste = resultat.next();
 			}
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return conteneur;
+		return cautions;
 	}
 
 }

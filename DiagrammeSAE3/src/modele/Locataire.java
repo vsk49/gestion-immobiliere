@@ -19,14 +19,14 @@ public class Locataire {
 	private LocalDate dateEntree;
 	private LocalDate dateDepart;
 	private double quotite;
-	private Caution caution;
+	private List<Caution> cautions;
 	private List<Bail> baux; 
 	private List<BienImmobilier> biens;
 	private List<Charge> charges;
 
 	public Locataire(int idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
-			LocalDate dateDepart, double quotite, Caution caution) {
+			LocalDate dateDepart, double quotite) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
@@ -39,7 +39,7 @@ public class Locataire {
 		this.dateEntree = dateEntree;
 		this.dateDepart = dateDepart;
 		this.quotite = quotite;
-		this.caution = caution;
+		this.cautions = new ArrayList<>();
 		this.idLocataire = idLocataire;
 		this.baux = new ArrayList<>();
 		this.biens = new ArrayList<>();
@@ -110,8 +110,14 @@ public class Locataire {
 		return this.quotite;
 	}
 
-	public Caution getCaution() {
-		return this.caution;
+	public List<Caution> getCautions() {
+		return this.cautions;
+	}
+	
+	public void ajouterCaution(Caution... cautions) {
+		for (Caution c : cautions) {
+			this.cautions.add(c);
+		}
 	}
 
 	public List<Bail> getBaux() {

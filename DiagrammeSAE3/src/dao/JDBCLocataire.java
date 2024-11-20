@@ -10,8 +10,6 @@ import modele.Locataire;
 
 public class JDBCLocataire implements DAOLocataire {
 
-	private JDBCCaution cautionConcerne = new JDBCCaution();
-
 	@Override
 	public List<Locataire> getAll() {
 		List<Locataire> locataires = new ArrayList<>();
@@ -25,8 +23,7 @@ public class JDBCLocataire implements DAOLocataire {
 						resultat.getString("nationalite"), resultat.getString("profession"),
 						resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"),
-						cautionConcerne.getByLocataire(this.getById(resultat.getInt(1)).get()).get());
+						resultat.getDouble("quotite"));
 				locataires.add(l);
 				enregistrementExiste = resultat.next();
 			}
@@ -53,8 +50,7 @@ public class JDBCLocataire implements DAOLocataire {
 						resultat.getString("nationalite"), resultat.getString("profession"),
 						resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"),
-						cautionConcerne.getByLocataire(this.getById(resultat.getInt(1)).get()).get());
+						resultat.getDouble("quotite"));
 				locataire = Optional.ofNullable(l);
 			}
 			JDBCConnexion.closeConnexion();
@@ -143,8 +139,7 @@ public class JDBCLocataire implements DAOLocataire {
 						resultat.getString("lieuNaissance"), resultat.getString("nationalite"),
 						resultat.getString("profession"), resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"),
-						cautionConcerne.getByLocataire(this.getById(resultat.getInt(1)).get()).get());
+						resultat.getDouble("quotite"));
 				locataire = Optional.ofNullable(l);
 			}
 			JDBCConnexion.closeConnexion();
