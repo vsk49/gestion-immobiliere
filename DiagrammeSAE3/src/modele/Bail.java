@@ -3,36 +3,36 @@ package modele;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 public class Bail {
 
 	private int idBail;
 	private LocalDate dateDebut;
 	private double depotDeGarantie;
-	private String duree;
+	private double dureeOccupation;
 	private LocalDate dateSignature;
 	private LocalDate dateFin;
-	private String indexAncienBail;
+	private int indexAncienBail;
 	private BienImmobilier bien;
 	private Loyer loyer;
-	private List<Locataire> locataires = new ArrayList<Locataire>();
+	private List<Locataire> locataires; 
 
-	public Bail(LocalDate dateDebut, double depotDeGarantie, String duree, LocalDate dateSignature, LocalDate dateFin, String indexAncienBail, int idBail, BienImmobilier bien, Loyer loyer) {
-	this.dateDebut = dateDebut;
-	this.depotDeGarantie = depotDeGarantie;
-	this.duree = duree;
-	this.dateSignature = dateSignature;
-	this.dateFin = dateFin;
-	this.indexAncienBail = indexAncienBail;
-	this.idBail = idBail;
-	this.bien = bien;
-	this.loyer = loyer;
+	public Bail(int idBail, LocalDate dateDebut, double depotDeGarantie, double duree, LocalDate dateSignature,
+			LocalDate dateFin, int indexAncienBail, BienImmobilier bien, Loyer loyer) {
+		this.idBail = idBail;
+		this.dateDebut = dateDebut;
+		this.depotDeGarantie = depotDeGarantie;
+		this.dureeOccupation = duree;
+		this.dateSignature = dateSignature;
+		this.dateFin = dateFin;
+		this.indexAncienBail = indexAncienBail;
+		this.bien = bien;
+		this.loyer = loyer;
+		this.locataires = new ArrayList<>();
 	}
 
 	public int nbLocataires() {
-		// TODO Auto-generated return
-		return 0;
+		return this.locataires.size();
 	}
 
 	public boolean estFini() {
@@ -50,32 +50,33 @@ public class Bail {
 	public double getDepotDeGarantie() {
 		return this.depotDeGarantie;
 	}
-	
-	public String getDuree() {
-		return this.duree;
+
+	public double getDureeOccupation() {
+		return this.dureeOccupation;
 	}
-	
+
 	public LocalDate getDateSignature() {
 		return this.dateSignature;
 	}
-	
+
 	public LocalDate getDateFin() {
 		return this.dateFin;
-	
-	
-	}public String getIndexAncienBail() {
+	}
+
+	public int getIndexAncienBail() {
 		return this.indexAncienBail;
 	}
-	
-	public BienImmobilier getBien() {
+
+	public BienImmobilier getBienImmobilier() {
 		return this.bien;
 	}
-	
+
 	public Loyer getLoyer() {
 		return this.loyer;
 	}
-	
+
 	public List<Locataire> getLocataires() {
 		return this.locataires;
 	}
+	
 }
