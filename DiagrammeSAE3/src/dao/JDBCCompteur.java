@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.sql.*;
 
+import modele.BienLouable;
 import modele.Compteur;
 import modele.TypeCompteur;
 
@@ -122,6 +123,28 @@ public class JDBCCompteur implements DAOCompteur {
 			String requete = "SELECT * FROM Compteur where numero = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setString(1, numero);
+			ResultSet resultat = statement.executeQuery();
+			boolean enregistrementExiste = resultat.next();
+			if (enregistrementExiste) {
+				Compteur c = new Compteur(resultat.getInt("idCompteur"), resultat.getString("numero"),
+						TypeCompteur.valueOf(resultat.getString("typeCompteur")), resultat.getInt("indexAncien"),
+						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
+				conteneur = Optional.ofNullable(c);
+			}
+			JDBCConnexion.closeConnexion();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conteneur;
+	}
+
+	@Override
+	public Optional<Compteur> getByBienLouable(BienLouable bien) {
+		Optional<Compteur> conteneur = Optional.empty();
+		try {
+			String requete = "SELECT * FROM Compteur where idBienLouable = ?";
+			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
+			statement.setInt(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {

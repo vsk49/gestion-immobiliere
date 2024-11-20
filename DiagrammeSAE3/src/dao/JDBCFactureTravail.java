@@ -24,7 +24,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				factures.add(f);
 				enregistrementExiste = resultat.next();
 			}
@@ -48,7 +48,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				facture = Optional.ofNullable(f);
 			}
 			JDBCConnexion.closeConnexion();
@@ -137,7 +137,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				facture = Optional.ofNullable(f);
 			}
 			JDBCConnexion.closeConnexion();
@@ -160,7 +160,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				factures.add(f);
 				enregistrementExiste = resultat.next();
 			}

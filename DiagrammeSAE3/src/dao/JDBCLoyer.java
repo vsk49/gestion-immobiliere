@@ -6,14 +6,12 @@ import java.util.List;
 import java.util.Optional;
 import java.sql.*;
 
-import modele.Locataire;
-import modele.Logement;
+import modele.BienLouable;
 import modele.Loyer;
 
 public class JDBCLoyer implements DAOLoyer {
 
-	private JDBCLogement logementConcerne = new JDBCLogement();
-	private JDBCLocataire locataireConcerne = new JDBCLocataire();
+	private JDBCBienLouable bienConcerne = new JDBCBienLouable();
 
 	@Override
 	public List<Loyer> getAll() {
@@ -24,8 +22,7 @@ public class JDBCLoyer implements DAOLoyer {
 			while (enregistrementExiste) {
 				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
 						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"),
-						logementConcerne.getById(resultat.getInt("idLogement")).get(),
-						locataireConcerne.getById(resultat.getInt("idLocataire")).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt("idBienLouable")).get());
 				loyers.add(l);
 				enregistrementExiste = resultat.next();
 			}
@@ -48,8 +45,7 @@ public class JDBCLoyer implements DAOLoyer {
 			if (enregistrementExiste) {
 				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
 						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"),
-						logementConcerne.getById(resultat.getInt("idLogement")).get(),
-						locataireConcerne.getById(resultat.getInt("idLocataire")).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt("idBienLouable")).get());
 				loyer = Optional.ofNullable(l);
 			}
 			JDBCConnexion.closeConnexion();
@@ -63,18 +59,17 @@ public class JDBCLoyer implements DAOLoyer {
 	public boolean insert(Loyer t) {
 		boolean resultat = false;
 		try {
-			String insertion = "INSERT INTO Loyer VALUES (?, ?, ?, ?, ?, ?)";
+			String insertion = "INSERT INTO Loyer VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
 
 			statement.setInt(1, t.getIdLoyer());
 			statement.setDate(2, Date.valueOf(t.getDateLoyer()));
 			statement.setDouble(3, t.getMontantLoyer());
 			statement.setDouble(4, t.getProvisionPourCharge());
-			statement.setInt(5, t.getLogement().getIdBienImmobilier());
-			statement.setInt(6, t.getLocataire().getIdLocataire());
+			statement.setInt(5, t.getBienLouable().getIdBienImmobilier());
 
 			statement.executeUpdate();
-			System.out.println("Le loyer du locataire " + t.getLocataire().getNom() + "pour "
+			System.out.println("Le loyer du logement " + t.getBienLouable().getNumeroFiscal() + " pour "
 					+ t.getDateLoyer().toString() + " a ete ajoute.");
 			resultat = true;
 			JDBCConnexion.closeConnexion();
@@ -96,7 +91,7 @@ public class JDBCLoyer implements DAOLoyer {
 			statement.setInt(3, t.getIdLoyer());
 
 			statement.executeUpdate();
-			System.out.println("Le loyer du locataire " + t.getLocataire().getNom() + "pour "
+			System.out.println("Le loyer du logement " + t.getBienLouable().getNumeroFiscal() + " pour "
 					+ t.getDateLoyer().toString() + " a ete modifie.");
 			resultat = true;
 			JDBCConnexion.closeConnexion();
@@ -114,9 +109,9 @@ public class JDBCLoyer implements DAOLoyer {
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setInt(1, t.getIdLoyer());
 			statement.executeUpdate();
-			System.out.println("Le loyer du locataire " + t.getLocataire().getNom() + "pour "
+			System.out.println("Le loyer du logement " + t.getBienLouable().getNumeroFiscal() + " pour "
 					+ t.getDateLoyer().toString() + " a ete supprime.");
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -135,8 +130,7 @@ public class JDBCLoyer implements DAOLoyer {
 			while (enregistrementExiste) {
 				Loyer l = new Loyer(resultat.getInt("idLoyer"), date, resultat.getDouble("montantLoyer"),
 						resultat.getDouble("provisionPourCharge"),
-						logementConcerne.getById(resultat.getInt("idLogement")).get(),
-						locataireConcerne.getById(resultat.getInt("idLocataire")).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt("idBienLouable")).get());
 				loyers.add(l);
 				enregistrementExiste = resultat.next();
 			}
@@ -148,41 +142,17 @@ public class JDBCLoyer implements DAOLoyer {
 	}
 
 	@Override
-	public List<Loyer> getByLocataire(Locataire locataire) {
+	public List<Loyer> getByBienLouable(BienLouable bien) {
 		List<Loyer> loyers = new ArrayList<>();
 		try {
-			String requete = "SELECT * FROM Loyer WHERE idLocataire = ?";
+			String requete = "SELECT * FROM Loyer WHERE idBienLouable = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, locataire.getIdLocataire());
+			statement.setInt(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
 				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
-						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"),
-						logementConcerne.getById(resultat.getInt("idLogement")).get(), locataire);
-				loyers.add(l);
-				enregistrementExiste = resultat.next();
-			}
-			JDBCConnexion.closeConnexion();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return loyers;
-	}
-
-	@Override
-	public List<Loyer> getByLogement(Logement logement) {
-		List<Loyer> loyers = new ArrayList<>();
-		try {
-			String requete = "SELECT * FROM Loyer WHERE idLogement = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, logement.getIdBienImmobilier());
-			ResultSet resultat = statement.executeQuery();
-			boolean enregistrementExiste = resultat.next();
-			while (enregistrementExiste) {
-				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
-						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"), logement,
-						locataireConcerne.getById(resultat.getInt("idLocataire")).get());
+						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"), bien);
 				loyers.add(l);
 				enregistrementExiste = resultat.next();
 			}

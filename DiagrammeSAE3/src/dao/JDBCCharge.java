@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import modele.Charge;
+import modele.Locataire;
 
 public class JDBCCharge implements DAOCharge {
 
@@ -107,6 +108,29 @@ public class JDBCCharge implements DAOCharge {
 			e.printStackTrace();
 		}
 		return resultat;
+	}
+
+	@Override
+	public List<Charge> getByLocataire(Locataire locataire) {
+		List<Charge> charges = new ArrayList<>();
+		try {
+			String requete = "SELECT * FROM Charge WHERE idLocataire = ?";
+			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
+			statement.setInt(1, locataire.getIdLocataire());
+			ResultSet resultat = statement.executeQuery();
+			boolean enregistrementExiste = resultat.next();
+			while (enregistrementExiste) {
+				Charge c = new Charge(resultat.getInt("idCharge"), resultat.getDate("dateDebut").toLocalDate(),
+						resultat.getDate("dateFin").toLocalDate(), resultat.getDouble("montantEau"),
+						resultat.getDouble("montantCoPropriete"), resultat.getDouble("montantElectricite"));
+				charges.add(c);
+				enregistrementExiste = resultat.next();
+			}
+			JDBCConnexion.closeConnexion();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return charges;
 	}
 
 }

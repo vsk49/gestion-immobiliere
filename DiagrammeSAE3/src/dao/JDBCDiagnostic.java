@@ -144,7 +144,7 @@ public class JDBCDiagnostic implements DAODiagnostic {
 	}
 
 	@Override
-	public List<Diagnostic> getByBienImmoobilier(BienImmobilier bien) {
+	public List<Diagnostic> getByBienImmobilier(BienImmobilier bien) {
 		List<Diagnostic> diagnostics = new ArrayList<>();
 		try {
 			String requete = "SELECT * FROM Diagnostic WHERE idBienImmobilier = ?";
