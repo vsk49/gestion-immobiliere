@@ -20,9 +20,9 @@ public class Locataire {
 	private LocalDate dateDepart;
 	private double quotite;
 	private Caution caution;
-	private List<Bail> baux = new ArrayList<Bail>();
-	private List<BienImmobilier> biens = new ArrayList<BienImmobilier>();
-	private List<Charge> charges = new ArrayList<Charge>();
+	private List<Bail> baux; 
+	private List<BienImmobilier> biens;
+	private List<Charge> charges;
 
 	public Locataire(int idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
@@ -41,6 +41,9 @@ public class Locataire {
 		this.quotite = quotite;
 		this.caution = caution;
 		this.idLocataire = idLocataire;
+		this.baux = new ArrayList<>();
+		this.biens = new ArrayList<>();
+		this.charges = new ArrayList<>();
 	}
 
 	public double soldeDeToutCompte() {
@@ -122,4 +125,5 @@ public class Locataire {
 	public List<Charge> getCharges() {
 		return this.charges;
 	}
+	
 }
