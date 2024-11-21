@@ -116,7 +116,7 @@ public class JDBCCharge implements DAOCharge {
 		try {
 			String requete = "SELECT * FROM Charge WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, locataire.getIdLocataire());
+			statement.setString(1, locataire.getIdLocataire());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
