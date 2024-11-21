@@ -10,8 +10,6 @@ import modele.Locataire;
 
 public class JDBCLocataire implements DAOLocataire {
 
-	private JDBCCaution cautionConcerne = new JDBCCaution();
-
 	@Override
 	public List<Locataire> getAll() {
 		List<Locataire> locataires = new ArrayList<>();
@@ -19,14 +17,13 @@ public class JDBCLocataire implements DAOLocataire {
 			ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery("SELECT * FROM Locataire");
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
-				Locataire l = new Locataire(resultat.getInt("idLocataire"), resultat.getString("nom"),
+				Locataire l = new Locataire(resultat.getString("idLocataire"), resultat.getString("nom"),
 						resultat.getString("prenom"), Genre.valueOf(resultat.getString("genre")),
 						resultat.getDate("dateNaissance").toLocalDate(), resultat.getString("lieuNaissance"),
 						resultat.getString("nationalite"), resultat.getString("profession"),
 						resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"),
-						cautionConcerne.getByLocataire(this.getById(resultat.getInt(1)).get()).get());
+						resultat.getDouble("quotite"));
 				locataires.add(l);
 				enregistrementExiste = resultat.next();
 			}
@@ -38,23 +35,22 @@ public class JDBCLocataire implements DAOLocataire {
 	}
 
 	@Override
-	public Optional<Locataire> getById(Integer id) {
+	public Optional<Locataire> getById(String idLocataire) {
 		Optional<Locataire> locataire = Optional.empty();
 		try {
 			String requete = "SELECT * FROM Locataire WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, id);
+			statement.setString(1, idLocataire);
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
-				Locataire l = new Locataire(resultat.getInt("idLocataire"), resultat.getString("nom"),
+				Locataire l = new Locataire(resultat.getString("idLocataire"), resultat.getString("nom"),
 						resultat.getString("prenom"), Genre.valueOf(resultat.getString("genre")),
 						resultat.getDate("dateNaissance").toLocalDate(), resultat.getString("lieuNaissance"),
 						resultat.getString("nationalite"), resultat.getString("profession"),
 						resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"),
-						cautionConcerne.getByLocataire(this.getById(resultat.getInt(1)).get()).get());
+						resultat.getDouble("quotite"));
 				locataire = Optional.ofNullable(l);
 			}
 			JDBCConnexion.closeConnexion();
@@ -70,7 +66,7 @@ public class JDBCLocataire implements DAOLocataire {
 		try {
 			String insertion = "INSERT INTO Locataire VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
-			statement.setInt(1, t.getIdLocataire());
+			statement.setString(1, t.getIdLocataire());
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
 			statement.setString(4, t.getGenre().name());
@@ -100,7 +96,7 @@ public class JDBCLocataire implements DAOLocataire {
 			String misAJour = "UPDATE Locataire SET quotite = ? WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
 			statement.setDouble(1, t.getQuotite());
-			statement.setInt(2, t.getIdLocataire());
+			statement.setString(2, t.getIdLocataire());
 			statement.executeUpdate();
 			System.out.println("La quotite du locataire a ete mise a jour.");
 			resultat = true;
@@ -117,7 +113,7 @@ public class JDBCLocataire implements DAOLocataire {
 		try {
 			String suppression = "DELETE FROM Locataire WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(suppression);
-			statement.setInt(1, t.getIdLocataire());
+			statement.setString(1, t.getIdLocataire());
 			statement.executeUpdate();
 			System.out.println("Le locataire a ete archive");
 			resultat = true;
@@ -138,13 +134,12 @@ public class JDBCLocataire implements DAOLocataire {
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
-				Locataire l = new Locataire(resultat.getInt("idLocataire"), nom, resultat.getString("prenom"),
+				Locataire l = new Locataire(resultat.getString("idLocataire"), nom, resultat.getString("prenom"),
 						Genre.valueOf(resultat.getString("genre")), resultat.getDate("dateNaissance").toLocalDate(),
 						resultat.getString("lieuNaissance"), resultat.getString("nationalite"),
 						resultat.getString("profession"), resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"),
-						cautionConcerne.getByLocataire(this.getById(resultat.getInt(1)).get()).get());
+						resultat.getDouble("quotite"));
 				locataire = Optional.ofNullable(l);
 			}
 			JDBCConnexion.closeConnexion();
