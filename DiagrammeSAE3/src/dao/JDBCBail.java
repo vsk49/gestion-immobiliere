@@ -10,7 +10,6 @@ import java.util.Optional;
 
 import modele.Bail;
 import modele.BienImmobilier;
-import modele.Loyer;
 
 public class JDBCBail implements DAOBail {
 
@@ -25,9 +24,8 @@ public class JDBCBail implements DAOBail {
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
 				Bail b = new Bail(resultat.getInt("idBail"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDouble("depotDeGarantie"), resultat.getDouble("dureeOccupation"),
-						resultat.getDate("dateSignature").toLocalDate(), resultat.getDate("dateFin").toLocalDate(),
-						resultat.getInt("indexAncienBail"),
+						resultat.getDouble("depotDeGarantie"), resultat.getDate("dateSignature").toLocalDate(),
+						resultat.getDate("dateFin").toLocalDate(), resultat.getInt("indexAncienBail"),
 						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get(),
 						loyerConcerne.getById(resultat.getInt("idLoyer")).get());
 				baux.add(b);
@@ -51,9 +49,8 @@ public class JDBCBail implements DAOBail {
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
 				Bail b = new Bail(resultat.getInt("idBail"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDouble("depotDeGarantie"), resultat.getDouble("dureeOccupation"),
-						resultat.getDate("dateSignature").toLocalDate(), resultat.getDate("dateFin").toLocalDate(),
-						resultat.getInt("indexAncienBail"),
+						resultat.getDouble("depotDeGarantie"), resultat.getDate("dateSignature").toLocalDate(),
+						resultat.getDate("dateFin").toLocalDate(), resultat.getInt("indexAncienBail"),
 						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get(),
 						loyerConcerne.getById(resultat.getInt("idLoyer")).get());
 				bail = Optional.ofNullable(b);
@@ -69,17 +66,16 @@ public class JDBCBail implements DAOBail {
 	public boolean insert(Bail t) {
 		boolean resultat = false;
 		try {
-			String insertion = "INSERT INTO Bail VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String insertion = "INSERT INTO Bail VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
 			statement.setInt(1, t.getIdBail());
 			statement.setDate(2, Date.valueOf(t.getDateDebut()));
 			statement.setDouble(3, t.getDepotDeGarantie());
-			statement.setDouble(4, t.getDureeOccupation());
-			statement.setDate(5, Date.valueOf(t.getDateSignature()));
-			statement.setDate(6, Date.valueOf(t.getDateFin()));
-			statement.setInt(7, t.getIndexAncienBail());
-			statement.setInt(8, t.getBienImmobilier().getIdBienImmobilier());
-			statement.setInt(9, t.getLoyer().getIdLoyer());
+			statement.setDate(4, Date.valueOf(t.getDateSignature()));
+			statement.setDate(5, Date.valueOf(t.getDateFin()));
+			statement.setInt(6, t.getIndexAncienBail());
+			statement.setInt(7, t.getBienImmobilier().getIdBienImmobilier());
+			statement.setInt(8, t.getLoyer().getIdLoyer());
 			statement.executeUpdate();
 			System.out.println("Le bail a ete ajoute.");
 			resultat = true;
@@ -136,9 +132,8 @@ public class JDBCBail implements DAOBail {
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
 				Bail b = new Bail(resultat.getInt("idBail"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDouble("depotDeGarantie"), resultat.getDouble("dureeOccupation"),
-						resultat.getDate("dateSignature").toLocalDate(), resultat.getDate("dateFin").toLocalDate(),
-						resultat.getInt("indexAncienBail"), bien,
+						resultat.getDouble("depotDeGarantie"), resultat.getDate("dateSignature").toLocalDate(),
+						resultat.getDate("dateFin").toLocalDate(), resultat.getInt("indexAncienBail"), bien,
 						loyerConcerne.getById(resultat.getInt("idLoyer")).get());
 				baux.add(b);
 				enregistrementExiste = resultat.next();
@@ -148,31 +143,6 @@ public class JDBCBail implements DAOBail {
 			e.printStackTrace();
 		}
 		return baux;
-	}
-
-	@Override
-	public Optional<Bail> getByLoyer(Loyer loyer) {
-		Optional<Bail> bail = Optional.empty();
-		try {
-			String requete = "SELECT * FROM Bail WHERE idLoyer = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, loyer.getIdLoyer());
-			ResultSet resultat = statement.executeQuery();
-			boolean enregistrementExiste = resultat.next();
-			if (enregistrementExiste) {
-				Bail b = new Bail(resultat.getInt("idBail"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDouble("depotDeGarantie"), resultat.getDouble("dureeOccupation"),
-						resultat.getDate("dateSignature").toLocalDate(), resultat.getDate("dateFin").toLocalDate(),
-						resultat.getInt("indexAncienBail"),
-						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get(),
-						loyerConcerne.getById(resultat.getInt("idLoyer")).get());
-				bail = Optional.ofNullable(b);
-			}
-			JDBCConnexion.closeConnexion();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return bail;
 	}
 
 }

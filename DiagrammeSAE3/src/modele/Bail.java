@@ -9,20 +9,18 @@ public class Bail {
 	private int idBail;
 	private LocalDate dateDebut;
 	private double depotDeGarantie;
-	private double dureeOccupation;
 	private LocalDate dateSignature;
 	private LocalDate dateFin;
 	private int indexAncienBail;
 	private BienImmobilier bien;
 	private Loyer loyer;
-	private List<Locataire> locataires; 
+	private List<Locataire> locataires;
 
-	public Bail(int idBail, LocalDate dateDebut, double depotDeGarantie, double dureeOccupation, LocalDate dateSignature,
-			LocalDate dateFin, int indexAncienBail, BienImmobilier bien, Loyer loyer) {
+	public Bail(int idBail, LocalDate dateDebut, double depotDeGarantie, LocalDate dateSignature, LocalDate dateFin,
+			int indexAncienBail, BienImmobilier bien, Loyer loyer) {
 		this.idBail = idBail;
 		this.dateDebut = dateDebut;
 		this.depotDeGarantie = depotDeGarantie;
-		this.dureeOccupation = dureeOccupation;
 		this.dateSignature = dateSignature;
 		this.dateFin = dateFin;
 		this.indexAncienBail = indexAncienBail;
@@ -52,7 +50,7 @@ public class Bail {
 	}
 
 	public double getDureeOccupation() {
-		return this.dureeOccupation;
+		return 0;
 	}
 
 	public LocalDate getDateSignature() {
@@ -70,7 +68,7 @@ public class Bail {
 	public BienImmobilier getBienImmobilier() {
 		return this.bien;
 	}
-
+	
 	public Loyer getLoyer() {
 		return this.loyer;
 	}
@@ -78,5 +76,5 @@ public class Bail {
 	public List<Locataire> getLocataires() {
 		return this.locataires;
 	}
-	
+
 }
