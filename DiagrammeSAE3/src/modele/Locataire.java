@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Locataire {
 
-	private int idLocataire;
+	private String idLocataire;
 	private String nom;
 	private String prenom;
 	private Genre genre;
@@ -24,9 +24,10 @@ public class Locataire {
 	private List<BienImmobilier> biens;
 	private List<Charge> charges;
 
-	public Locataire(int idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
+	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
 			LocalDate dateDepart, double quotite) {
+		this.idLocataire = idLocataire;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
@@ -40,7 +41,6 @@ public class Locataire {
 		this.dateDepart = dateDepart;
 		this.quotite = quotite;
 		this.cautions = new ArrayList<>();
-		this.idLocataire = idLocataire;
 		this.baux = new ArrayList<>();
 		this.biens = new ArrayList<>();
 		this.charges = new ArrayList<>();
@@ -58,7 +58,7 @@ public class Locataire {
 		return 0;
 	}
 
-	public int getIdLocataire() {
+	public String getIdLocataire() {
 		return this.idLocataire;
 	}
 
