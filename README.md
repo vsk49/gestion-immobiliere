@@ -3,14 +3,6 @@ Application de gestion de biens immobiliers
 
 Cette application propose différents services pour recenser et gérer des biens immobiliers ainsi que les locataires et baux liés.
 
-## Introduction
-
-## Les fonctionnalites
-
-## La base de donnees
-
-## Conclusion
-
 # Membre
 | SCRUM Master | Product Owner | Developer | Developer |
 | -------- | ------- | ------- | ------- |
@@ -20,6 +12,3 @@ Cette application propose différents services pour recenser et gérer des biens
 
 # Board Gitlab
 Sur ce [board](https://gitlab.info.iut-tlse3.fr/pxn4923a/saea3.01/-/boards) vous pourrez suivre l'avancement de notre projet !
-
-# Dossier Teams
-Le lien vers le dossier Teams contenant les documents relatifs au projet
