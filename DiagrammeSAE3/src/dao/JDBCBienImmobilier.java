@@ -28,7 +28,6 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 				biensImmobiliers.add(b);
 				enregistrementExiste = resultat.next();
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +51,6 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 						resultat.getInt("ICCDateDebut"));
 				bien = Optional.ofNullable(b);
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -74,9 +72,8 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 			statement.setDouble(7, t.getMontantTaxesFoncieres());
 			statement.setDouble(8, t.getICCDateDebut());
 			statement.executeUpdate();
-			System.out.println("le bien a ete supprime");
+			System.out.println("le bien a ete insere");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,7 +91,6 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 			statement.executeUpdate();
 			System.out.println("l'index du bien a ete mis a jour.");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -111,7 +107,6 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 			statement.executeUpdate();
 			System.out.println("le bien a ete supprime");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

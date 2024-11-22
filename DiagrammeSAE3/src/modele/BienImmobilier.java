@@ -101,4 +101,8 @@ public class BienImmobilier {
 		}
 	}
 	
+	public void setICCDateDebut(int nouveauICC) {
+		this.ICCDateDebut = nouveauICC;
+	}
+	
 }

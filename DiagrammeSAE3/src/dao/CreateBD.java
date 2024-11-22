@@ -147,13 +147,13 @@ public class CreateBD {
 			requeteSQL.executeQuery(
 				"Create table BienImmobilier ("
 				+ "idBienImmobilier INTEGER PRIMARY KEY, "
-				+ "numeroFiscal CHAR(12), "
-				+ "adresse VARCHAR2(50) NOT NULL, "
-				+ "codePostal NUMBER(5) NOT NULL, "
-				+ "ville VARCHAR(50) NOT NULL, "
-				+ "dateAnniversaire DATE NOT NULL, "
+				+ "numeroFiscal CHAR(13) NOT NULL, "
+				+ "adresse VARCHAR2(50), "
+				+ "codePostal NUMBER(5), "
+				+ "ville VARCHAR(50), "
+				+ "dateAnniversaire DATE, "
 				+ "montantTaxesFoncieres BINARY_DOUBLE, "
-				+ "ICCDateDebut NUMBER(4) NOT NULL"
+				+ "ICCDateDebut NUMBER(4)"
 				+ ")"
 			);
 			System.out.println("Table BienImmobilier created.");
