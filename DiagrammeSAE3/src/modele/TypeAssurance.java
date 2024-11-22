@@ -1,5 +1,9 @@
 package modele;
 
 public enum TypeAssurance {
-    PROPRIETAIRE, AIDE_JURIDIQUE;
+	PROPRIETAIRE("proprietaire"), AIDE_JURIDIQUE("aideJuridique");
+
+	TypeAssurance(String string) {
+	}
+
 }

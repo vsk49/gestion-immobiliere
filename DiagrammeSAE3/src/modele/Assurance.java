@@ -3,50 +3,58 @@ package modele;
 import java.time.LocalDate;
 
 public class Assurance {
-    
+
 	private int idAssurance;
-    private TypeAssurance type;
-    private double prime;
-    private LocalDate dateDebutAssurance;
-    private String nomAssureur;
-    private double quotiteJurisprudence;
-    private double protectionJuridique;
+	private TypeAssurance typeAssurance;
+	private String nomAssureur;
+	private LocalDate dateDebutAssurance;
+	private double quotiteJurisprudence;
+	private double protectionJuridique;
+	private double prime;
+	private BienImmobilier bien;
 
-    public Assurance(int idAssurance, TypeAssurance type, double prime, LocalDate dateDebutAssurance, String nomAssureur, double quotiteJurisprudence, double protectionJuridique) {
-        this.idAssurance = idAssurance;
-        this.type = type;
-        this.prime = prime;
-        this.dateDebutAssurance = dateDebutAssurance;
-        this.nomAssureur = nomAssureur;
-        this.quotiteJurisprudence = quotiteJurisprudence;
-        this.protectionJuridique = protectionJuridique;
-    }
+	public Assurance(int idAssurance, TypeAssurance typeAssurance, String nomAssureur, LocalDate dateDebutAssurance,
+			double quotiteJurisprudence, double protectionJuridique, double prime, BienImmobilier bien) {
+		this.idAssurance = idAssurance;
+		this.typeAssurance = typeAssurance;
+		this.prime = prime;
+		this.dateDebutAssurance = dateDebutAssurance;
+		this.nomAssureur = nomAssureur;
+		this.quotiteJurisprudence = quotiteJurisprudence;
+		this.protectionJuridique = protectionJuridique;
+		this.bien = bien;
+	}
 
-    public int getIdAssurance() {
-        return this.idAssurance;
-    }
+	public int getIdAssurance() {
+		return this.idAssurance;
+	}
+	
+	public TypeAssurance getTypeAssurance() {
+		return typeAssurance;
+	}
 
-    public TypeAssurance getType() {
-        return this.type;
-    }
+	public String getNomAssureur() {
+		return nomAssureur;
+	}
 
-    public double getPrime() {
-        return this.prime;
-    }
-    
-    public LocalDate getDateDebutAssurance() {
-        return this.dateDebutAssurance;
-    }
-    
-    public String getNomAssureur() {
-        return this.nomAssureur;
-    }
-    
-    public double getQuotiteJurisprudence() {
-        return this.quotiteJurisprudence;
-        
-    }public double getProtectionJuridique() {
-        return this.protectionJuridique;
-    }
+	public LocalDate getDateDebutAssurance() {
+		return dateDebutAssurance;
+	}
 
+	public double getQuotiteJurisprudence() {
+		return quotiteJurisprudence;
+	}
+
+	public double getProtectionJuridique() {
+		return protectionJuridique;
+	}
+
+	public double getPrime() {
+		return prime;
+	}
+
+	public BienImmobilier getBien() {
+		return bien;
+	}
+   
 }

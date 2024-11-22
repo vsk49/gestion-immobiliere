@@ -1,6 +1,8 @@
 package modele;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Loyer {
 
@@ -8,24 +10,23 @@ public class Loyer {
 	private LocalDate dateLoyer;
 	private double montantLoyer;
 	private double provisionPourCharge;
-	private BienLouable bienLouable;
-	private Locataire locataire;
+	private BienLouable bien;
+	private List<Locataire> locataires;
 
-	public Loyer(LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, int idLoyer,
-			BienLouable bienLouable, Locataire locataire) {
+	public Loyer(int idLoyer, LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, BienLouable bien) {
 		this.dateLoyer = dateLoyer;
 		this.montantLoyer = montantLoyer;
 		this.provisionPourCharge = provisionPourCharge;
 		this.idLoyer = idLoyer;
-		this.bienLouable = bienLouable;
-		this.locataire = locataire;
+		this.bien = bien;
+		this.locataires = new ArrayList<>();
 	}
 
 	public int getIdLoyer() {
 		return this.idLoyer;
 	}
 
-	public void setIdLoyer(final int value) {
+	public void setIdLoyer(int value) {
 		this.idLoyer = value;
 	}
 
@@ -42,10 +43,17 @@ public class Loyer {
 	}
 
 	public BienLouable getBienLouable() {
-		return this.bienLouable;
+		return this.bien;
 	}
 
-	public Locataire getLocataire() {
-		return this.locataire;
+	public List<Locataire> getLocataires() {
+		return this.locataires;
 	}
+	
+	public void ajouterLocataires(Locataire... l) {
+		for (Locataire loc : l) {
+			this.locataires.add(loc);
+		}
+	}
+	
 }

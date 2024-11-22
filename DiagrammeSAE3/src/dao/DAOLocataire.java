@@ -1,10 +1,11 @@
 package dao;
 
 import modele.Locataire;
+
 import java.util.Optional;
 
-public interface DAOLocataire extends DAO<Locataire, Integer> {
+public interface DAOLocataire extends DAO<Locataire, String> {
 
-	Optional<Locataire> getByNom(String nom);
-
+	public Optional<Locataire> getByNom(String nom);
+	
 }

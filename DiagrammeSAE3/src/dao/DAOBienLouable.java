@@ -1,9 +1,7 @@
 package dao;
 
-import modele.BienLouable;
-
-public interface DAOBienLouable extends DAO<BienLouable, Integer> {
+public interface DAOBienLouable extends DAOBienImmobilier {
 	
 	
-
+	
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Locataire {
 
-	private int idLocataire;
+	private String idLocataire;
 	private String nom;
 	private String prenom;
 	private Genre genre;
@@ -19,14 +19,15 @@ public class Locataire {
 	private LocalDate dateEntree;
 	private LocalDate dateDepart;
 	private double quotite;
-	private Caution caution;
-	private List<Bail> baux = new ArrayList<Bail>();
-	private List<BienImmobilier> biens = new ArrayList<BienImmobilier>();
-	private List<Charge> charges = new ArrayList<Charge>();
+	private List<Caution> cautions;
+	private List<Bail> baux; 
+	private List<BienImmobilier> biens;
+	private List<Charge> charges;
 
-	public Locataire(int idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
+	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
-			LocalDate dateDepart, double quotite, Caution caution) {
+			LocalDate dateDepart, double quotite) {
+		this.idLocataire = idLocataire;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
@@ -39,8 +40,10 @@ public class Locataire {
 		this.dateEntree = dateEntree;
 		this.dateDepart = dateDepart;
 		this.quotite = quotite;
-		this.caution = caution;
-		this.idLocataire = idLocataire;
+		this.cautions = new ArrayList<>();
+		this.baux = new ArrayList<>();
+		this.biens = new ArrayList<>();
+		this.charges = new ArrayList<>();
 	}
 
 	public double soldeDeToutCompte() {
@@ -55,7 +58,7 @@ public class Locataire {
 		return 0;
 	}
 
-	public int getIdLocataire() {
+	public String getIdLocataire() {
 		return this.idLocataire;
 	}
 
@@ -107,8 +110,14 @@ public class Locataire {
 		return this.quotite;
 	}
 
-	public Caution getCaution() {
-		return this.caution;
+	public List<Caution> getCautions() {
+		return this.cautions;
+	}
+	
+	public void ajouterCaution(Caution... cautions) {
+		for (Caution c : cautions) {
+			this.cautions.add(c);
+		}
 	}
 
 	public List<Bail> getBaux() {
@@ -122,4 +131,5 @@ public class Locataire {
 	public List<Charge> getCharges() {
 		return this.charges;
 	}
+	
 }

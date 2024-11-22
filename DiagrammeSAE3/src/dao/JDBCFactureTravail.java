@@ -24,10 +24,11 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				factures.add(f);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -47,9 +48,10 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				facture = Optional.ofNullable(f);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -76,6 +78,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 			statement.executeUpdate();
 			System.out.println("La facture numero " + t.getNumeroFacture() + " a été ajouté.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -95,6 +98,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 			statement.executeUpdate();
 			System.out.println("La facture numero " + t.getNumeroFacture() + " a été modifié.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -113,6 +117,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 			statement.executeUpdate();
 			System.out.println("La facture numero " + t.getNumeroFacture() + " a ete supprimee.");
 			resultat = true;
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -132,9 +137,10 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				facture = Optional.ofNullable(f);
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -154,10 +160,11 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				FactureTravail f = new FactureTravail(resultat.getInt(1), resultat.getString(2),
 						resultat.getDate(3).toLocalDate(), resultat.getString(4), resultat.getDouble(5),
 						resultat.getString(6), resultat.getString(7), resultat.getDouble(8),
-						bienConcerne.getById(resultat.getInt(9)).get());
+						(BienLouable) bienConcerne.getById(resultat.getInt(9)).get());
 				factures.add(f);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -180,6 +187,7 @@ public class JDBCFactureTravail implements DAOFactureTravail {
 				factures.add(f);
 				enregistrementExiste = resultat.next();
 			}
+			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
