@@ -5,14 +5,14 @@ import java.util.Optional;
 
 public interface DAO<T, ID> {
 
-	public List<T> getAll();
+	public List<T> getAll() throws DAOException;
 
-	public Optional<T> getById(ID id);
+	public Optional<T> getById(ID id) throws DAOException;
 
-	public boolean insert(T t);
+	public boolean insert(T t) throws DAOException;
 
-	public boolean update(T t);
+	public boolean update(T t) throws DAOException;
 
-	public boolean delete(T t);
+	public boolean delete(T t) throws DAOException;
 
 }

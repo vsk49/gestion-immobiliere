@@ -29,20 +29,9 @@ public class JDBCConnexion extends OracleDataSource {
 
 	public static void closeConnexion() {
 		if (connexion != null) {
-			try {
-				connexion.close();
-				connexion = null;
-				System.out.println("Connexion fermée");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			connexion = null;
+			System.out.println("Connexion fermée");
 		}
-	}
-
-	public static void main(String[] args) throws SQLException {
-		@SuppressWarnings("unused")
-		Connection connexion = JDBCConnexion.getConnexion();
-		JDBCConnexion.closeConnexion();
 	}
 	
 }
