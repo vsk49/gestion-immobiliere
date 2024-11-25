@@ -34,6 +34,7 @@ public class IHMDetailsBail extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsBail() {
+		setTitle("Page de détail du bail");
 setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
