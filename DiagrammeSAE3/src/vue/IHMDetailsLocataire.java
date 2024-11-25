@@ -140,40 +140,40 @@ public class IHMDetailsLocataire extends JFrame {
 		JLabel labelFeuilleDePaie = new JLabel("Feuille de paie ");
 		panelFichiers.add(labelFeuilleDePaie);
 		
-		JPanel panelBoutons = new JPanel();
-		panelBasDePage.add(panelBoutons);
+		JPanel panel_4 = new JPanel();
+		panelBasDePage.add(panel_4);
 		
 		JButton boutonAnnuler = new JButton("Annuler");
 		boutonAnnuler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panelBoutons.add(boutonAnnuler);
+		panel_4.add(boutonAnnuler);
 		
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
-		panelBoutons.add(BoutonRéinitialiser);
+		panel_4.add(BoutonRéinitialiser);
 		
 		JButton boutonValider = new JButton("Valider");
-		panelBoutons.add(boutonValider);
+		panel_4.add(boutonValider);
 		
 		JPanel menu = new JPanel();
 		getContentPane().add(menu, BorderLayout.WEST);
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel imageLocataire = new JLabel("image Locataire");
-		menu.add(imageLocataire);
+		JButton boutonLocataire = new JButton("Image Locataire");
+		menu.add(boutonLocataire);
 		
-		JLabel imageBien = new JLabel("Image Bien");
-		menu.add(imageBien);
+		JButton boutonBiens = new JButton("Image Locataire");
+		menu.add(boutonBiens);
 		
-		JLabel ImageBaux = new JLabel("Image Baux");
-		menu.add(ImageBaux);
+		JButton boutonBail = new JButton("Image bail");
+		menu.add(boutonBail);
 		
-		JLabel ImageDéclarationFiscale = new JLabel("Image Déclaration Fiscale");
-		menu.add(ImageDéclarationFiscale);
+		JButton boutonDéclarationFiscale = new JButton("Image Déclaration fiscale");
+		menu.add(boutonDéclarationFiscale);
 		
-		JLabel ImageFinance = new JLabel("Image Finance");
-		menu.add(ImageFinance);
+		JButton boutonFinance = new JButton("Image finance");
+		menu.add(boutonFinance);
 	}
 
 }
