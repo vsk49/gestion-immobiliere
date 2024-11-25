@@ -10,6 +10,7 @@ import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -67,7 +68,9 @@ public class IHMAccueil extends JFrame {
 		panel_2.add(panel_4);
 		panel_4.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
+		JLabel lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setIcon(iconeLocataires);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(lblNewLabel_1);
 		
@@ -82,7 +85,9 @@ public class IHMAccueil extends JFrame {
 		panel_2.add(panel_5);
 		panel_5.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
+		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
+		JLabel lblNewLabel_3 = new JLabel();
+		lblNewLabel_3.setIcon(iconeBiens);
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_5.add(lblNewLabel_3);
 		
@@ -97,7 +102,9 @@ public class IHMAccueil extends JFrame {
 		panel_2.add(panel_8);
 		panel_8.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
+		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
+		JLabel lblNewLabel_5 = new JLabel();
+		lblNewLabel_5.setIcon(iconeBaux);
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_8.add(lblNewLabel_5);
 		
@@ -115,7 +122,9 @@ public class IHMAccueil extends JFrame {
 		panel_3.add(panel_6);
 		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_7 = new JLabel("New label");
+		ImageIcon iconeDeclarationFisc = new ImageIcon("ressources/declarationFiscale.png");
+		JLabel lblNewLabel_7 = new JLabel();
+		lblNewLabel_7.setIcon(iconeDeclarationFisc);
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_6.add(lblNewLabel_7);
 		
@@ -126,7 +135,9 @@ public class IHMAccueil extends JFrame {
 		panel_3.add(panel_7);
 		panel_7.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_9 = new JLabel("New label");
+		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
+		JLabel lblNewLabel_9 = new JLabel();
+		lblNewLabel_9.setIcon(iconeFinances);
 		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_7.add(lblNewLabel_9);
 		
