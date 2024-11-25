@@ -42,10 +42,10 @@ public class IHMGestionBaux extends JFrame {
 	public IHMGestionBaux() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setLayout(new BorderLayout(0, 0));
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		add(panel);
+		getContentPane().add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel imageLocataire = new JLabel("image Locataire");
@@ -74,10 +74,10 @@ public class IHMGestionBaux extends JFrame {
 				"New column", "New column", "New column", "New column"
 			}
 		));
-		add(table);
+		getContentPane().add(table);
 		
 		JPanel panel_1 = new JPanel();
-		add(panel_1);
+		getContentPane().add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		JLabel labelGestionBaux_1 = new JLabel("Gestion des baux");
@@ -87,11 +87,11 @@ public class IHMGestionBaux extends JFrame {
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		panel_1.add(comboBox);
-		
 		JButton btnNewButton = new JButton("Chercher");
 		panel_1.add(btnNewButton);
+		
+		JComboBox comboBox = new JComboBox();
+		panel_1.add(comboBox);
 	}
 
 }
