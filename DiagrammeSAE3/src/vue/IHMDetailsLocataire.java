@@ -47,6 +47,7 @@ public class IHMDetailsLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire() {
+		setTitle("Page de details du bien");
 		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this);
 		this.setLayout(new BorderLayout(0, 0));
 
