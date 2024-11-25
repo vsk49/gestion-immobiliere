@@ -86,7 +86,7 @@ public class IHMAccueil extends JFrame {
 		panelLocataire.add(BoutonConsultLoc);
 		
 		JButton btnAjoutLoc = new JButton("Ajouter un locataire");
-		panel_4.add(btnAjoutLoc);
+		btnAjoutLoc.add(btnAjoutLoc);
 		btnAjoutLoc.addActionListener(controleur);
 		
 		JPanel panelBiens = new JPanel();
@@ -103,7 +103,7 @@ public class IHMAccueil extends JFrame {
 		panelBiens.add(BoutonConsultBiens);
 		
 		JButton btnAjoutBien = new JButton("Ajouter un bien");
-		panel_5.add(btnAjoutBien);
+		btnAjoutBien.add(btnAjoutBien);
 		btnAjoutBien.addActionListener(controleur);
 		
 		JPanel panelBaux = new JPanel();
@@ -120,7 +120,7 @@ public class IHMAccueil extends JFrame {
 		panelBaux.add(BoutonConsultBaux);
 		
 		JButton btnAjoutBail = new JButton("Ajouter un bail");
-		panel_8.add(btnAjoutBail);
+		btnAjoutBail.add(btnAjoutBail);
 		btnAjoutBail.addActionListener(controleur);
 		
 		JPanel panelBottom = new JPanel();
@@ -137,7 +137,7 @@ public class IHMAccueil extends JFrame {
 		panelFiscale.add(lblNewLabel_7);
 		
 		JButton btnDeclarationFiscale = new JButton("Déclaration fiscale");
-		panel_6.add(btnDeclarationFiscale);
+		btnDeclarationFiscale.add(btnDeclarationFiscale);
 		btnDeclarationFiscale.addActionListener(controleur);
 		
 		JPanel panelFinance = new JPanel();
@@ -151,7 +151,7 @@ public class IHMAccueil extends JFrame {
 		panelFinance.add(lblNewLabel_9);
 		
 		JButton btnVoirFinances = new JButton("Finances");
-		panel_7.add(btnVoirFinances);
+		btnVoirFinances.add(btnVoirFinances);
 		btnVoirFinances.addActionListener(controleur);
 	}
 
