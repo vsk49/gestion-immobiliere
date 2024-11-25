@@ -70,6 +70,18 @@ public class IHMGestionBaux extends JFrame {
 				{null, null, null, null},
 				{null, null, null, null},
 				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
 			},
 			new String[] {
 				"New column", "New column", "New column", "New column"
@@ -93,6 +105,9 @@ public class IHMGestionBaux extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		panel_1.add(comboBox);
+		
+		JLabel lblNewLabel = new JLabel("Image filtre");
+		panel_1.add(lblNewLabel);
 	}
 
 }
