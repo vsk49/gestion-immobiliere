@@ -7,6 +7,7 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -167,19 +168,30 @@ public class IHMDetailsLocataire extends JFrame {
 		getContentPane().add(menu, BorderLayout.WEST);
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton boutonLocataire = new JButton("Image Locataire");
+		JButton boutonLocataire = new JButton();
+		ImageIcon IconeBoutonLocataire = new ImageIcon("ressources/locataires.png");
+		boutonLocataire.setIcon(IconeBoutonLocataire);
 		menu.add(boutonLocataire);
+
 		
-		JButton boutonBiens = new JButton("Image Locataire");
+		JButton boutonBiens = new JButton();
+		ImageIcon IconeBoutonBien = new ImageIcon("ressources/biens50.png");
+		boutonBiens.setIcon(IconeBoutonBien);
 		menu.add(boutonBiens);
 		
-		JButton boutonBail = new JButton("Image bail");
+		JButton boutonBail = new JButton();
+		ImageIcon IconeBoutonBail = new ImageIcon("ressources/baux.png");
+		boutonBail.setIcon(IconeBoutonBail);
 		menu.add(boutonBail);
 		
-		JButton boutonDéclarationFiscale = new JButton("Image Déclaration fiscale");
+		JButton boutonDéclarationFiscale = new JButton();
+		ImageIcon IconeBoutonDéclarationFiscale = new ImageIcon("ressources/declarationFiscale.png");
+		boutonDéclarationFiscale.setIcon(IconeBoutonDéclarationFiscale);
 		menu.add(boutonDéclarationFiscale);
 		
-		JButton boutonFinance = new JButton("Image finance");
+		JButton boutonFinance = new JButton();
+		ImageIcon IconeBoutonFinance = new ImageIcon("ressources/finance.png");
+		boutonFinance.setIcon(IconeBoutonFinance);
 		menu.add(boutonFinance);
 	}
 
