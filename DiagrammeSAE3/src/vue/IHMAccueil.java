@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controleur.controleurAccueil;
+
 public class IHMAccueil extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -39,6 +41,7 @@ public class IHMAccueil extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAccueil() {
+		controleurAccueil controleur = new controleurAccueil();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 450, 448);
 		this.contentPane = new JPanel();
