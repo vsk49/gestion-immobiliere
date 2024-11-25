@@ -11,13 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
 
 public class IHMGestionLocataires extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
-	private JTextField textField;
+	private JTable tableLocataires;
+	private JTextField saisieRecherche;
 
 	/**
 	 * Launch the application.
@@ -48,45 +49,59 @@ public class IHMGestionLocataires extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.WEST);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelRechercheEtTableau = new JPanel();
+		contentPane.add(panelRechercheEtTableau, BorderLayout.CENTER);
+		panelRechercheEtTableau.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel.add(lblNewLabel);
+		JPanel panelRecherche = new JPanel();
+		panelRechercheEtTableau.add(panelRecherche, BorderLayout.NORTH);
+		panelRecherche.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel.add(lblNewLabel_1);
+		JLabel labelTitre = new JLabel("Gestion des locataires");
+		panelRecherche.add(labelTitre);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		panel.add(lblNewLabel_2);
+		saisieRecherche = new JTextField();
+		panelRecherche.add(saisieRecherche);
+		saisieRecherche.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		panel.add(lblNewLabel_3);
+		JComboBox listeDeroulanteFiltre = new JComboBox();
+		panelRecherche.add(listeDeroulanteFiltre);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		JLabel imageRecherche = new JLabel("Image Filtre");
+		panelRecherche.add(imageRecherche);
 		
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2, BorderLayout.NORTH);
-		panel_2.setLayout(new GridLayout(1, 0, 0, 0));
+		tableLocataires = new JTable();
+		tableLocataires.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));
+		panelRechercheEtTableau.add(tableLocataires, BorderLayout.CENTER);
 		
-		JLabel lblNewLabel_4 = new JLabel("Gestion des locataires");
-		panel_2.add(lblNewLabel_4);
+		JPanel menu = new JPanel();
+		contentPane.add(menu, BorderLayout.WEST);
+		menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		textField = new JTextField();
-		panel_2.add(textField);
-		textField.setColumns(10);
+		JLabel imageLocataire = new JLabel("image Locataire");
+		menu.add(imageLocataire);
 		
-		JComboBox comboBox = new JComboBox();
-		panel_2.add(comboBox);
+		JLabel imageBien = new JLabel("Image Bien");
+		menu.add(imageBien);
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		panel_2.add(lblNewLabel_5);
+		JLabel ImageBaux = new JLabel("Image Baux");
+		menu.add(ImageBaux);
 		
-		table = new JTable();
-		panel_1.add(table, BorderLayout.CENTER);
+		JLabel ImageDéclarationFiscale = new JLabel("Image Déclaration Fiscale");
+		menu.add(ImageDéclarationFiscale);
+		
+		JLabel ImageFinance = new JLabel("Image Finance");
+		menu.add(ImageFinance);
 	}
 
 }
