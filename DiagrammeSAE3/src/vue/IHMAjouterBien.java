@@ -7,6 +7,7 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -46,25 +47,38 @@ public class IHMAjouterBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
-getContentPane().setLayout(new BorderLayout(0, 0));
+		setTitle("Page d'ajout de bien");
+		setBounds(100, 100, 450, 300);
+		setLayout(new BorderLayout(0, 0));
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel imageLocataire = new JLabel("image Locataire");
+		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
+		JLabel imageLocataire = new JLabel();
+		imageLocataire.setIcon(iconeLocataires);
 		panel.add(imageLocataire);
 		
-		JLabel imageBien = new JLabel("Image Bien");
+		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
+		JLabel imageBien = new JLabel();
+		imageBien.setIcon(iconeBiens);
 		panel.add(imageBien);
 		
-		JLabel ImageBaux = new JLabel("Image Baux");
+		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
+		JLabel ImageBaux = new JLabel();
+		ImageBaux.setIcon(iconeBaux);
 		panel.add(ImageBaux);
 		
-		JLabel ImageDéclarationFiscale = new JLabel("Image Déclaration Fiscale");
+		ImageIcon iconeDecFisc = new ImageIcon("ressources/declarationFiscale.png");
+		JLabel ImageDéclarationFiscale = new JLabel();
+		ImageDéclarationFiscale.setIcon(iconeDecFisc);
 		panel.add(ImageDéclarationFiscale);
 		
-		JLabel ImageFinance = new JLabel("Image Finance");
+		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
+		JLabel ImageFinance = new JLabel();
+		ImageFinance.setIcon(iconeFinances);
 		panel.add(ImageFinance);
 		
 		JLabel labelAjouterBien = new JLabel("New label");
