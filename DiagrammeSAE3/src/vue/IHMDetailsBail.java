@@ -1,19 +1,40 @@
 package vue;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 
-public class IHMDetailBail extends JPanel {
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class IHMDetailsBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 
 	/**
-	 * Create the panel.
+	 * Launch the application.
 	 */
-	public IHMDetailBail() {
-		setLayout(new BorderLayout(0, 0));
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IHMDetailsBail frame = new IHMDetailsBail();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public IHMDetailsBail() {
+setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.WEST);
@@ -70,7 +91,6 @@ public class IHMDetailBail extends JPanel {
 		
 		JLabel lblNewLabel_3 = new JLabel("Fiche de paie");
 		panel_6.add(lblNewLabel_3);
-
 	}
 
 }

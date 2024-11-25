@@ -1,17 +1,19 @@
 package vue;
-import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class IHMAjouterLocataire extends JFrame {
 
@@ -23,10 +25,29 @@ public class IHMAjouterLocataire extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 
+
 	/**
-	 * Create the panel.
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IHMAjouterLocataire frame = new IHMAjouterLocataire();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
 	 */
 	public IHMAjouterLocataire() {
+		setBounds(100, 100, 450, 300);
+		setLayout(new BorderLayout(0, 0));
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
@@ -154,7 +175,6 @@ public class IHMAjouterLocataire extends JFrame {
 		
 		JButton boutonValider = new JButton("Valider");
 		panel_4.add(boutonValider);
-
 	}
 
 }

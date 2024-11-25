@@ -47,7 +47,9 @@ public class IHMAjouterBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
-getContentPane().setLayout(new BorderLayout(0, 0));
+		setBounds(100, 100, 450, 300);
+		setLayout(new BorderLayout(0, 0));
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.WEST);
