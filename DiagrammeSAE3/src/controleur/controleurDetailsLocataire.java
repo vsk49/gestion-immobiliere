@@ -3,6 +3,8 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 import vue.IHMDetailsLocataire;
 
 public class controleurDetailsLocataire implements ActionListener {
@@ -15,8 +17,14 @@ public class controleurDetailsLocataire implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		JButton actionCommand = (JButton) e.getSource();
+        switch (actionCommand.getText()) {
+        case "Annuler" :
+			break;
+        case "Réinitialiser" :
+			break;
+        case "Valider" :
+        }
 	}
 
 }

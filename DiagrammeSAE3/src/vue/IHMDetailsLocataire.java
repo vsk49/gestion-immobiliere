@@ -12,7 +12,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
+import controleur.controleurDetailsLocataire;
 
 public class IHMDetailsLocataire extends JFrame {
 
@@ -24,6 +25,7 @@ public class IHMDetailsLocataire extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					IHMDetailsLocataire frame = new IHMDetailsLocataire();
@@ -39,10 +41,11 @@ public class IHMDetailsLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire() {
-		setLayout(new BorderLayout(0, 0));
+		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this);
+		this.setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
-		add(panel, BorderLayout.WEST);
+		this.add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 
 		JLabel imageLocataire = new JLabel("image Locataire");
@@ -61,10 +64,10 @@ public class IHMDetailsLocataire extends JFrame {
 		panel.add(ImageFinance);
 
 		JLabel labelAjouterBien = new JLabel("New label");
-		add(labelAjouterBien, BorderLayout.NORTH);
+		this.add(labelAjouterBien, BorderLayout.NORTH);
 
 		JPanel panel_1 = new JPanel();
-		add(panel_1, BorderLayout.CENTER);
+		this.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 
 		Panel premièrePartieFormulaire = new Panel();
@@ -112,7 +115,7 @@ public class IHMDetailsLocataire extends JFrame {
 		deuxièmePartieFormulaire.add(lblNewLabel_5);
 
 		JPanel panel_2 = new JPanel();
-		add(panel_2, BorderLayout.EAST);
+		this.add(panel_2, BorderLayout.EAST);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 
 		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
@@ -125,7 +128,7 @@ public class IHMDetailsLocataire extends JFrame {
 		panel_2.add(lblNewLabel_1);
 
 		JPanel panel_3 = new JPanel();
-		add(panel_3, BorderLayout.SOUTH);
+		this.add(panel_3, BorderLayout.SOUTH);
 		panel_3.setLayout(new GridLayout(2, 2, 0, 0));
 
 		JPanel panel_5 = new JPanel();
@@ -150,16 +153,20 @@ public class IHMDetailsLocataire extends JFrame {
 
 		JButton boutonAnnuler = new JButton("Annuler");
 		boutonAnnuler.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panel_4.add(boutonAnnuler);
+		boutonAnnuler.addActionListener(controleur);
 
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
 		panel_4.add(BoutonRéinitialiser);
+		BoutonRéinitialiser.addActionListener(controleur);
 
 		JButton boutonValider = new JButton("Valider");
 		panel_4.add(boutonValider);
+		boutonValider.addActionListener(controleur);
 	}
 
 }
