@@ -41,7 +41,7 @@ public class IHMAccueil extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAccueil() {
-		controleurAccueil controleur = new controleurAccueil();
+		controleurAccueil controleur = new controleurAccueil(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 450, 448);
 		this.contentPane = new JPanel();
@@ -80,7 +80,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton btnAjoutLoc = new JButton("Ajouter un locataire");
 		panel_4.add(btnAjoutLoc);
-		btnAjoutLoc.setActionCommand("ajouterLocataire");
+		btnAjoutLoc.addActionListener(controleur);
 		
 		JPanel panel_5 = new JPanel();
 		panel_2.add(panel_5);
@@ -96,7 +96,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton btnAjoutBien = new JButton("Ajouter un bien");
 		panel_5.add(btnAjoutBien);
-		btnAjoutBien.setActionCommand("ajouterBien");
+		btnAjoutBien.addActionListener(controleur);
 		
 		JPanel panel_8 = new JPanel();
 		panel_2.add(panel_8);
@@ -112,7 +112,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton btnAjoutBail = new JButton("Ajouter un bail");
 		panel_8.add(btnAjoutBail);
-		btnAjoutBail.setActionCommand("ajouterBail");
+		btnAjoutBail.addActionListener(controleur);
 		
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.CENTER);
@@ -127,7 +127,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton btnDeclarationFiscale = new JButton("Déclaration fiscale");
 		panel_6.add(btnDeclarationFiscale);
-		btnDeclarationFiscale.setActionCommand("faireDeclarationFiscale");
+		btnDeclarationFiscale.addActionListener(controleur);
 		
 		JPanel panel_7 = new JPanel();
 		panel_3.add(panel_7);
@@ -139,7 +139,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton btnVoirFinances = new JButton("Finances");
 		panel_7.add(btnVoirFinances);
-		btnVoirFinances.setActionCommand("voirFinances");
+		btnVoirFinances.addActionListener(controleur);
 	}
 
 }
