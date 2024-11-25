@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry including="dao/|modele/|tests/|vue/" kind="src" path="src"/>
+	<classpathentry including="controleur/|dao/|modele/|tests/|vue/" kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/vsk49/.modelio/4.1/modules/JavaDesigner_3.10.00/JavaDesigner/bin/javadesigner.jar"/>
 	<classpathentry kind="lib" path="C:/Users/vsk49/Downloads/ojdbc11.jar">
 		<attributes>

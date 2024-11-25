@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.JDBCCharge;
+
 public class Locataire {
 
 	private String idLocataire;
@@ -23,6 +25,7 @@ public class Locataire {
 	private List<Bail> baux; 
 	private List<BienImmobilier> biens;
 	private List<Charge> charges;
+	private JDBCCharge donneesCharges = new JDBCCharge();
 
 	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
@@ -43,7 +46,7 @@ public class Locataire {
 		this.cautions = new ArrayList<>();
 		this.baux = new ArrayList<>();
 		this.biens = new ArrayList<>();
-		this.charges = new ArrayList<>();
+		this.charges = this.donneesCharges.getByLocataire(this);
 	}
 
 	public double soldeDeToutCompte() {
