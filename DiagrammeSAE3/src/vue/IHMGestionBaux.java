@@ -1,28 +1,52 @@
 package vue;
-import javax.swing.JPanel;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class IHMGestionBaux extends JPanel {
+public class IHMGestionBaux extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JTable table;
 	private JTextField textField_1;
 
 	/**
-	 * Create the panel.
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IHMGestionBaux frame = new IHMGestionBaux();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
 	 */
 	public IHMGestionBaux() {
-		setLayout(new BorderLayout(0, 0));
+		setTitle("Page de gestion des baux");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		add(panel);
+		getContentPane().add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel imageLocataire = new JLabel("image Locataire");
@@ -46,15 +70,27 @@ public class IHMGestionBaux extends JPanel {
 				{null, null, null, null},
 				{null, null, null, null},
 				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
 			},
 			new String[] {
 				"New column", "New column", "New column", "New column"
 			}
 		));
-		add(table);
+		getContentPane().add(table);
 		
 		JPanel panel_1 = new JPanel();
-		add(panel_1);
+		getContentPane().add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		JLabel labelGestionBaux_1 = new JLabel("Gestion des baux");
@@ -64,12 +100,14 @@ public class IHMGestionBaux extends JPanel {
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 		
+		JButton btnNewButton = new JButton("Chercher");
+		panel_1.add(btnNewButton);
+		
 		JComboBox comboBox = new JComboBox();
 		panel_1.add(comboBox);
 		
-		JButton btnNewButton = new JButton("Chercher");
-		panel_1.add(btnNewButton);
-
+		JLabel lblNewLabel = new JLabel("Image filtre");
+		panel_1.add(lblNewLabel);
 	}
 
 }

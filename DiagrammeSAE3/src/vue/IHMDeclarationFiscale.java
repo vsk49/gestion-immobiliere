@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.FlowLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -43,6 +45,7 @@ public class IHMDeclarationFiscale extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDeclarationFiscale() {
+		setTitle("Page de déclaration fiscale");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -51,118 +54,126 @@ public class IHMDeclarationFiscale extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.WEST);
-		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelGauche = new JPanel();
+		contentPane.add(panelGauche, BorderLayout.WEST);
+		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		panel_1.add(lblNewLabel_3);
+		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
+		JLabel LabelGLocataire = new JLabel();
+		LabelGLocataire.setIcon(iconeLocataires);
+		panelGauche.add(LabelGLocataire);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		panel_1.add(lblNewLabel_4);
+		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
+		JLabel LabelGBiens = new JLabel();
+		LabelGBiens.setIcon(iconeBiens);
+		panelGauche.add(LabelGBiens);
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		panel_1.add(lblNewLabel_5);
+		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
+		JLabel LabelGBaux = new JLabel();
+		LabelGBaux.setIcon(iconeBaux);
+		panelGauche.add(LabelGBaux);
 		
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		panel_1.add(lblNewLabel_6);
+		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
+		JLabel LabelGFinances = new JLabel();
+		LabelGFinances.setIcon(iconeFinances);
+		panelGauche.add(LabelGFinances);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BorderLayout(0, 0));
+		JPanel panelBody = new JPanel();
+		contentPane.add(panelBody, BorderLayout.CENTER);
+		panelBody.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_2 = new JPanel();
-		panel.add(panel_2, BorderLayout.NORTH);
+		JPanel panelTitre = new JPanel();
+		panelBody.add(panelTitre, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel = new JLabel("Déclaration fiscale");
-		panel_2.add(lblNewLabel);
+		JLabel LabelTitre = new JLabel("Déclaration fiscale");
+		panelTitre.add(LabelTitre);
 		
-		JPanel panel_3 = new JPanel();
-		panel.add(panel_3, BorderLayout.SOUTH);
-		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		JPanel panelBoutons = new JPanel();
+		panelBody.add(panelBoutons, BorderLayout.SOUTH);
+		panelBoutons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JButton btnNewButton = new JButton("New button");
-		panel_3.add(btnNewButton);
+		JButton ButtonAnnuler = new JButton("Annuler");
+		panelBoutons.add(ButtonAnnuler);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		panel_3.add(btnNewButton_1);
+		JButton ButtonValider = new JButton("Valider");
+		panelBoutons.add(ButtonValider);
 		
-		JPanel panel_4 = new JPanel();
-		panel.add(panel_4, BorderLayout.CENTER);
-		panel_4.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel PanelMain = new JPanel();
+		panelBody.add(PanelMain, BorderLayout.CENTER);
+		PanelMain.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_5 = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel_5.getLayout();
+		JPanel PanelRegime = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) PanelRegime.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		panel_4.add(panel_5);
+		PanelMain.add(PanelRegime);
 		
-		JLabel lblNewLabel_1 = new JLabel("Régime microfoncier");
-		panel_5.add(lblNewLabel_1);
+		JLabel LabelRegimeFoncier = new JLabel("Régime microfoncier");
+		PanelRegime.add(LabelRegimeFoncier);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Oui");
-		rdbtnNewRadioButton.setSelected(true);
-		panel_5.add(rdbtnNewRadioButton);
+		JRadioButton BoutonRegimeOui = new JRadioButton("Oui");
+		BoutonRegimeOui.setSelected(true);
+		PanelRegime.add(BoutonRegimeOui);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Non");
-		panel_5.add(rdbtnNewRadioButton_1);
+		JRadioButton BoutonRegimeNon = new JRadioButton("Non");
+		PanelRegime.add(BoutonRegimeNon);
 		
 		JPanel panel_6 = new JPanel();
-		panel_4.add(panel_6);
+		PanelMain.add(panel_6);
 		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_8 = new JPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) panel_8.getLayout();
+		JPanel PanelRevenuGestion = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) PanelRevenuGestion.getLayout();
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
-		panel_6.add(panel_8);
+		panel_6.add(PanelRevenuGestion);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		panel_8.add(lblNewLabel_2);
+		JLabel LabelRevenus = new JLabel("Revenus immobilier :");
+		PanelRevenuGestion.add(LabelRevenus);
 		
-		JPanel panel_7 = new JPanel();
-		FlowLayout flowLayout_2 = (FlowLayout) panel_7.getLayout();
+		JPanel PanelChampRevenus = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) PanelChampRevenus.getLayout();
 		flowLayout_2.setAlignment(FlowLayout.LEFT);
-		panel_6.add(panel_7);
+		panel_6.add(PanelChampRevenus);
 		
 		textField = new JTextField();
-		panel_7.add(textField);
+		PanelChampRevenus.add(textField);
 		textField.setColumns(10);
 		
-		JPanel panel_6_1 = new JPanel();
-		panel_4.add(panel_6_1);
-		panel_6_1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel PanelGestion = new JPanel();
+		PanelMain.add(PanelGestion);
+		PanelGestion.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_8_1 = new JPanel();
-		FlowLayout flowLayout_3 = (FlowLayout) panel_8_1.getLayout();
+		JPanel PanelTitreGestion = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) PanelTitreGestion.getLayout();
 		flowLayout_3.setAlignment(FlowLayout.LEFT);
-		panel_6_1.add(panel_8_1);
+		PanelGestion.add(PanelTitreGestion);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("New label");
-		panel_8_1.add(lblNewLabel_2_1);
+		JLabel LabelGestion = new JLabel("Frais de gestion :");
+		PanelTitreGestion.add(LabelGestion);
 		
-		JPanel panel_7_1 = new JPanel();
-		FlowLayout flowLayout_4 = (FlowLayout) panel_7_1.getLayout();
+		JPanel PanelChampGestion = new JPanel();
+		FlowLayout flowLayout_4 = (FlowLayout) PanelChampGestion.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
-		panel_6_1.add(panel_7_1);
+		PanelGestion.add(PanelChampGestion);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		panel_7_1.add(textField_1);
+		PanelChampGestion.add(textField_1);
 		
-		JPanel panel_6_1_1 = new JPanel();
-		panel_4.add(panel_6_1_1);
-		panel_6_1_1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel PanelBas = new JPanel();
+		PanelMain.add(PanelBas);
+		PanelBas.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_8_1_1 = new JPanel();
-		panel_6_1_1.add(panel_8_1_1);
+		JPanel panelTravaux = new JPanel();
+		PanelBas.add(panelTravaux);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("New label");
-		panel_8_1_1.add(lblNewLabel_2_1_1);
+		JLabel LabelTravaux = new JLabel("Informations travaux :");
+		panelTravaux.add(LabelTravaux);
 		
-		JPanel panel_7_1_1 = new JPanel();
-		panel_6_1_1.add(panel_7_1_1);
+		JPanel panelTable = new JPanel();
+		PanelBas.add(panelTable);
 		
 		table = new JTable();
-		panel_7_1_1.add(table);
+		panelTable.add(table);
 	}
 
 }
