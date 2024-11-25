@@ -14,10 +14,10 @@ public class Loyer {
 	private List<Locataire> locataires;
 
 	public Loyer(int idLoyer, LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, BienLouable bien) {
+		this.idLoyer = idLoyer;
 		this.dateLoyer = dateLoyer;
 		this.montantLoyer = montantLoyer;
 		this.provisionPourCharge = provisionPourCharge;
-		this.idLoyer = idLoyer;
 		this.bien = bien;
 		this.locataires = new ArrayList<>();
 	}
@@ -37,9 +37,17 @@ public class Loyer {
 	public double getMontantLoyer() {
 		return this.montantLoyer;
 	}
+	
+	public void setMontantLoyer(double nouveauLoyer) {
+		this.montantLoyer += nouveauLoyer;
+	}
 
 	public double getProvisionPourCharge() {
 		return this.provisionPourCharge;
+	}
+	
+	public void setProvisionPourCharge(double nouvelleProvision) {
+		this.provisionPourCharge += nouvelleProvision;
 	}
 
 	public BienLouable getBienLouable() {
@@ -55,5 +63,7 @@ public class Loyer {
 			this.locataires.add(loc);
 		}
 	}
+	
+	
 	
 }

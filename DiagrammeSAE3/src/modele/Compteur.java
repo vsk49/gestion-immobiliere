@@ -10,6 +10,7 @@ public class Compteur {
 	private int indexAncien;
 	private int indexActuel;
 	private LocalDate dateReleveEntree;
+	private int volumeEauConsommee;
 
 	public Compteur(int idCompteur, String numero, TypeCompteur typeCompteur, int indexAncien, int indexActuel,
 			LocalDate dateReleveEntree) {
@@ -39,6 +40,10 @@ public class Compteur {
 
 	public int getIndexActuel() {
 		return this.indexActuel;
+	}
+	
+	public int getConsommation() {
+		return this.indexActuel - this.indexAncien;
 	}
 
 	public void setIndexActuel(int indexActuel) {

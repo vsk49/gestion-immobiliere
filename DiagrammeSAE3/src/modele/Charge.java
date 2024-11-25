@@ -57,7 +57,7 @@ public class Charge {
 		this.montantElectricite = value;
 	}
 
-	public double getMontantTotalDeCharge() {
+	public double getMontantReelDeCharge() {
 		return this.montantEau + this.montantCoPropriete + this.montantElectricite;
 	}
 
