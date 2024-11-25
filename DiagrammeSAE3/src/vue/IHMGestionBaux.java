@@ -40,6 +40,7 @@ public class IHMGestionBaux extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMGestionBaux() {
+		setTitle("Page de gestion des baux");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -69,6 +70,18 @@ public class IHMGestionBaux extends JFrame {
 				{null, null, null, null},
 				{null, null, null, null},
 				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
 			},
 			new String[] {
 				"New column", "New column", "New column", "New column"
@@ -92,6 +105,9 @@ public class IHMGestionBaux extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		panel_1.add(comboBox);
+		
+		JLabel lblNewLabel = new JLabel("Image filtre");
+		panel_1.add(lblNewLabel);
 	}
 
 }
