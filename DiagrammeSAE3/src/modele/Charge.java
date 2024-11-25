@@ -37,7 +37,7 @@ public class Charge {
 		return this.montantEau;
 	}
 
-	public void setMontantEau(final double value) {
+	public void setMontantEau(double value) {
 		this.montantEau = value;
 	}
 

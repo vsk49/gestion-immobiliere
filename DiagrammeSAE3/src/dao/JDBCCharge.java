@@ -24,7 +24,6 @@ public class JDBCCharge implements DAOCharge {
 				charges.add(c);
 				enregistrementExiste = resultat.next();
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -46,7 +45,6 @@ public class JDBCCharge implements DAOCharge {
 						resultat.getDouble("montantCoPropriete"), resultat.getDouble("montantElectricite"));
 				charge = Optional.ofNullable(c);
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -68,7 +66,6 @@ public class JDBCCharge implements DAOCharge {
 			statement.executeUpdate();
 			System.out.println("La charge concernant a ete ajoutee.");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,7 +83,6 @@ public class JDBCCharge implements DAOCharge {
 			statement.executeUpdate();
 			System.out.println("La charge concernant a ete mise a jour.");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -103,7 +99,6 @@ public class JDBCCharge implements DAOCharge {
 			statement.executeUpdate();
 			System.out.println("La charge concernant a ete supprimee.");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -126,7 +121,6 @@ public class JDBCCharge implements DAOCharge {
 				charges.add(c);
 				enregistrementExiste = resultat.next();
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -27,7 +27,6 @@ public class JDBCLocataire implements DAOLocataire {
 				locataires.add(l);
 				enregistrementExiste = resultat.next();
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -53,7 +52,6 @@ public class JDBCLocataire implements DAOLocataire {
 						resultat.getDouble("quotite"));
 				locataire = Optional.ofNullable(l);
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -82,7 +80,6 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.executeUpdate();
 			System.out.println("Le locataire a ete enregistre.");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -100,7 +97,6 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.executeUpdate();
 			System.out.println("La quotite du locataire a ete mise a jour.");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -117,7 +113,6 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.executeUpdate();
 			System.out.println("Le locataire a ete archive");
 			resultat = true;
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -142,7 +137,6 @@ public class JDBCLocataire implements DAOLocataire {
 						resultat.getDouble("quotite"));
 				locataire = Optional.ofNullable(l);
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
