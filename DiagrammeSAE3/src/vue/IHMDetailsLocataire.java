@@ -12,7 +12,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+import controleur.controleurDetailsLocataire;
 
 public class IHMDetailsLocataire extends JFrame {
 
@@ -29,6 +30,7 @@ public class IHMDetailsLocataire extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					IHMDetailsLocataire frame = new IHMDetailsLocataire();
@@ -44,22 +46,39 @@ public class IHMDetailsLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire() {
-		setTitle("Page de détail du locataire");
-		setBounds(100, 100, 450, 300);
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		
-		JLabel labelAGEstionLocataire = new JLabel("Gestion du locataire");
-		getContentPane().add(labelAGEstionLocataire, BorderLayout.NORTH);
-		
-		JPanel panelFormulaire = new JPanel();
-		getContentPane().add(panelFormulaire, BorderLayout.CENTER);
-		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
-		
-		Panel panelPremièrePartieFormulaire = new Panel();
-		panelFormulaire.add(panelPremièrePartieFormulaire);
-		panelPremièrePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
-		
+		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this);
+		this.setLayout(new BorderLayout(0, 0));
+
+		JPanel panel = new JPanel();
+		this.add(panel, BorderLayout.WEST);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
+
+		JLabel imageLocataire = new JLabel("image Locataire");
+		panel.add(imageLocataire);
+
+		JLabel imageBien = new JLabel("Image Bien");
+		panel.add(imageBien);
+
+		JLabel ImageBaux = new JLabel("Image Baux");
+		panel.add(ImageBaux);
+
+		JLabel ImageDéclarationFiscale = new JLabel("Image Déclaration Fiscale");
+		panel.add(ImageDéclarationFiscale);
+
+		JLabel ImageFinance = new JLabel("Image Finance");
+		panel.add(ImageFinance);
+
+		JLabel labelAjouterBien = new JLabel("New label");
+		this.add(labelAjouterBien, BorderLayout.NORTH);
+
+		JPanel panel_1 = new JPanel();
+		this.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+
+		Panel premièrePartieFormulaire = new Panel();
+		panel_1.add(premièrePartieFormulaire);
+		premièrePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+
 		JLabel labelNom = new JLabel("Nom :");
 		panelPremièrePartieFormulaire.add(labelNom);
 		
@@ -145,35 +164,20 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		JButton boutonAnnuler = new JButton("Annuler");
 		boutonAnnuler.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panel_4.add(boutonAnnuler);
-		
+		boutonAnnuler.addActionListener(controleur);
+
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
 		panel_4.add(BoutonRéinitialiser);
-		
+		BoutonRéinitialiser.addActionListener(controleur);
+
 		JButton boutonValider = new JButton("Valider");
 		panel_4.add(boutonValider);
-		
-		JPanel menu = new JPanel();
-		getContentPane().add(menu, BorderLayout.WEST);
-		menu.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JButton boutonLocataire = new JButton("Image Locataire");
-		menu.add(boutonLocataire);
-		
-		JButton boutonBiens = new JButton("Image Locataire");
-		menu.add(boutonBiens);
-		
-		JButton boutonBail = new JButton("Image bail");
-		menu.add(boutonBail);
-		
-		JButton boutonDéclarationFiscale = new JButton("Image Déclaration fiscale");
-		menu.add(boutonDéclarationFiscale);
-		
-		JButton boutonFinance = new JButton("Image finance");
-		menu.add(boutonFinance);
+		boutonValider.addActionListener(controleur);
 	}
 
 }

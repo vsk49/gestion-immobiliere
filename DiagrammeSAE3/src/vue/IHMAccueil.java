@@ -1,11 +1,7 @@
 package vue;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
@@ -14,6 +10,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import controleur.controleurAccueil;
 
 public class IHMAccueil extends JFrame {
 
@@ -25,6 +31,7 @@ public class IHMAccueil extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					IHMAccueil frame = new IHMAccueil();
@@ -40,14 +47,14 @@ public class IHMAccueil extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAccueil() {
-		setTitle("Page d'accueil");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 448);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		controleurAccueil controleur = new controleurAccueil(this);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(100, 100, 450, 448);
+		this.contentPane = new JPanel();
+		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		this.setContentPane(this.contentPane);
+		this.contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelTitre = new JPanel();
 		FlowLayout fl_panelTitre = (FlowLayout) panelTitre.getLayout();
@@ -78,8 +85,9 @@ public class IHMAccueil extends JFrame {
 		JButton BoutonConsultLoc = new JButton("Consulter les locataires");
 		panelLocataire.add(BoutonConsultLoc);
 		
-		JButton btnNewButton = new JButton("Ajouter un locataire");
-		panelLocataire.add(btnNewButton);
+		JButton btnAjoutLoc = new JButton("Ajouter un locataire");
+		panel_4.add(btnAjoutLoc);
+		btnAjoutLoc.addActionListener(controleur);
 		
 		JPanel panelBiens = new JPanel();
 		panelTop.add(panelBiens);
@@ -94,8 +102,9 @@ public class IHMAccueil extends JFrame {
 		JButton BoutonConsultBiens = new JButton("Consulter les biens");
 		panelBiens.add(BoutonConsultBiens);
 		
-		JButton btnNewButton_1 = new JButton("Ajouter un bien");
-		panelBiens.add(btnNewButton_1);
+		JButton btnAjoutBien = new JButton("Ajouter un bien");
+		panel_5.add(btnAjoutBien);
+		btnAjoutBien.addActionListener(controleur);
 		
 		JPanel panelBaux = new JPanel();
 		panelTop.add(panelBaux);
@@ -110,8 +119,9 @@ public class IHMAccueil extends JFrame {
 		JButton BoutonConsultBaux = new JButton("Consulter les baux");
 		panelBaux.add(BoutonConsultBaux);
 		
-		JButton btnNewButton_2 = new JButton("Ajouter un bail");
-		panelBaux.add(btnNewButton_2);
+		JButton btnAjoutBail = new JButton("Ajouter un bail");
+		panel_8.add(btnAjoutBail);
+		btnAjoutBail.addActionListener(controleur);
 		
 		JPanel panelBottom = new JPanel();
 		panelMain.add(panelBottom, BorderLayout.CENTER);
@@ -126,8 +136,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		panelFiscale.add(lblNewLabel_7);
 		
-		JButton btnNewButton_3 = new JButton("Déclaration fiscale");
-		panelFiscale.add(btnNewButton_3);
+		JButton btnDeclarationFiscale = new JButton("Déclaration fiscale");
+		panel_6.add(btnDeclarationFiscale);
+		btnDeclarationFiscale.addActionListener(controleur);
 		
 		JPanel panelFinance = new JPanel();
 		panelBottom.add(panelFinance);
@@ -139,21 +150,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
 		panelFinance.add(lblNewLabel_9);
 		
-		JButton btnNewButton_4 = new JButton("Finances");
-		panelFinance.add(btnNewButton_4);
-		
-		JPanel panelCharges = new JPanel();
-		panelBottom.add(panelCharges);
-		panelCharges.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeCharges = new ImageIcon("ressources/icone_calculcharge.png");
-		JLabel LabelCharge = new JLabel();
-		LabelCharge.setHorizontalAlignment(SwingConstants.CENTER);
-		LabelCharge.setIcon(iconeCharges);
-		panelCharges.add(LabelCharge);
-		
-		JButton BoutonCharge = new JButton("Charges");
-		panelCharges.add(BoutonCharge);
+		JButton btnVoirFinances = new JButton("Finances");
+		panel_7.add(btnVoirFinances);
+		btnVoirFinances.addActionListener(controleur);
 	}
 
 }
