@@ -1,18 +1,17 @@
 package vue;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import javax.swing.JLabel;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class IHMAccueil extends JFrame {
 
@@ -24,6 +23,7 @@ public class IHMAccueil extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					IHMAccueil frame = new IHMAccueil();
@@ -39,25 +39,25 @@ public class IHMAccueil extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAccueil() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 448);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(100, 100, 450, 448);
+		this.contentPane = new JPanel();
+		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		this.setContentPane(this.contentPane);
+		this.contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		contentPane.add(panel, BorderLayout.NORTH);
+		this.contentPane.add(panel, BorderLayout.NORTH);
 		
 		JLabel lblNewLabel = new JLabel("Bienvenue. Que voulez-vous faire aujourd'hui ?");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		panel.add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
+		this.contentPane.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_2 = new JPanel();
@@ -75,8 +75,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("Ajouter un locataire");
-		panel_4.add(btnNewButton);
+		JButton btnAjoutLoc = new JButton("Ajouter un locataire");
+		panel_4.add(btnAjoutLoc);
+		btnAjoutLoc.setActionCommand("ajouterLocataire");
 		
 		JPanel panel_5 = new JPanel();
 		panel_2.add(panel_5);
@@ -90,8 +91,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_5.add(lblNewLabel_4);
 		
-		JButton btnNewButton_1 = new JButton("Ajouter un bien");
-		panel_5.add(btnNewButton_1);
+		JButton btnAjoutBien = new JButton("Ajouter un bien");
+		panel_5.add(btnAjoutBien);
+		btnAjoutBien.setActionCommand("ajouterBien");
 		
 		JPanel panel_8 = new JPanel();
 		panel_2.add(panel_8);
@@ -105,8 +107,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_8.add(lblNewLabel_6);
 		
-		JButton btnNewButton_2 = new JButton("Ajouter un bail");
-		panel_8.add(btnNewButton_2);
+		JButton btnAjoutBail = new JButton("Ajouter un bail");
+		panel_8.add(btnAjoutBail);
+		btnAjoutBail.setActionCommand("ajouterBail");
 		
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.CENTER);
@@ -119,8 +122,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_6.add(lblNewLabel_7);
 		
-		JButton btnNewButton_3 = new JButton("Déclaration fiscale");
-		panel_6.add(btnNewButton_3);
+		JButton btnDeclarationFiscale = new JButton("Déclaration fiscale");
+		panel_6.add(btnDeclarationFiscale);
+		btnDeclarationFiscale.setActionCommand("faireDeclarationFiscale");
 		
 		JPanel panel_7 = new JPanel();
 		panel_3.add(panel_7);
@@ -130,8 +134,9 @@ public class IHMAccueil extends JFrame {
 		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_7.add(lblNewLabel_9);
 		
-		JButton btnNewButton_4 = new JButton("Finances");
-		panel_7.add(btnNewButton_4);
+		JButton btnVoirFinances = new JButton("Finances");
+		panel_7.add(btnVoirFinances);
+		btnVoirFinances.setActionCommand("voirFinances");
 	}
 
 }
