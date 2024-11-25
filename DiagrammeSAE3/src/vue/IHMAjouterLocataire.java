@@ -6,12 +6,14 @@ import java.awt.GridLayout;
 import java.awt.Panel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class IHMAjouterLocataire extends JPanel {
+public class IHMAjouterLocataire extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;

@@ -1,23 +1,42 @@
 package vue;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class IHMDetailsLocataire extends JPanel {
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class IHMDetailsLocataire extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 
 	/**
-	 * Create the panel.
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IHMDetailsLocataire frame = new IHMDetailsLocataire();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
 	 */
 	public IHMDetailsLocataire() {
 		setLayout(new BorderLayout(0, 0));

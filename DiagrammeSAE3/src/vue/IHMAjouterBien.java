@@ -1,18 +1,21 @@
 package vue;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class IHMAjouterBien extends JPanel {
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class IHMAjouterBien extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
@@ -21,17 +24,32 @@ public class IHMAjouterBien extends JPanel {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
 	private JTextField textField_7;
 
 	/**
-	 * Create the panel.
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IHMAjouterBien frame = new IHMAjouterBien();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
-		setLayout(new BorderLayout(0, 0));
+getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		add(panel, BorderLayout.WEST);
+		getContentPane().add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel imageLocataire = new JLabel("image Locataire");
@@ -50,10 +68,10 @@ public class IHMAjouterBien extends JPanel {
 		panel.add(ImageFinance);
 		
 		JLabel labelAjouterBien = new JLabel("New label");
-		add(labelAjouterBien, BorderLayout.NORTH);
+		getContentPane().add(labelAjouterBien, BorderLayout.NORTH);
 		
 		JPanel panel_1 = new JPanel();
-		add(panel_1, BorderLayout.CENTER);
+		getContentPane().add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		Panel premièrePartieFormulaire = new Panel();
@@ -116,12 +134,12 @@ public class IHMAjouterBien extends JPanel {
 		JLabel labelStatut = new JLabel("Statut :");
 		deuxièmePartieFormulaire.add(labelStatut);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		deuxièmePartieFormulaire.add(textField_6);
+		textField_2 = new JTextField();
+		deuxièmePartieFormulaire.add(textField_2);
+		textField_2.setColumns(10);
 		
 		JPanel panel_2 = new JPanel();
-		add(panel_2, BorderLayout.EAST);
+		getContentPane().add(panel_2, BorderLayout.EAST);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel labelChoixLocataire = new JLabel("Ajouter un locataire (facultatif) :");
@@ -134,7 +152,7 @@ public class IHMAjouterBien extends JPanel {
 		panel_2.add(lblNewLabel_1);
 		
 		JPanel panel_3 = new JPanel();
-		add(panel_3, BorderLayout.SOUTH);
+		getContentPane().add(panel_3, BorderLayout.SOUTH);
 		panel_3.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JPanel panel_5 = new JPanel();
@@ -169,7 +187,6 @@ public class IHMAjouterBien extends JPanel {
 		
 		JButton boutonValider = new JButton("Valider");
 		panel_4.add(boutonValider);
-
 	}
 
 }
