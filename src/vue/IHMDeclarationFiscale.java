@@ -45,7 +45,7 @@ public class IHMDeclarationFiscale extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDeclarationFiscale() {
-		setTitle("Page de déclaration fiscale");
+		setTitle("Déclaration fiscale");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

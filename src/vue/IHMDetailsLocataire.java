@@ -48,7 +48,7 @@ public class IHMDetailsLocataire extends JFrame {
 	 */
 	@SuppressWarnings("rawtypes")
 	public IHMDetailsLocataire() {
-		setTitle("Page de détail du locataire");
+		setTitle("Détail du locataire");
 		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout(0, 0));

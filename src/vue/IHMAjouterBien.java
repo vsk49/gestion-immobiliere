@@ -47,7 +47,7 @@ public class IHMAjouterBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
-		setTitle("Page d'ajout de bien");
+		setTitle("Ajout de bien");
 		setBounds(100, 100, 450, 300);
 		setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));

@@ -46,7 +46,7 @@ public class IHMAjouterLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterLocataire() {
-		setTitle("Page d'ajout de locataire");
+		setTitle("Ajout de locataire");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
