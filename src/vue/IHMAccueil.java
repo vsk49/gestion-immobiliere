@@ -48,7 +48,7 @@ public class IHMAccueil extends JFrame {
 	 */
 	public IHMAccueil() {
 		controleurAccueil controleur = new controleurAccueil(this);
-		setTitle("Page d'accueil");
+		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 450, 448);
 		this.contentPane = new JPanel();

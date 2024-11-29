@@ -42,7 +42,7 @@ public class IHMVirement extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMVirement() {
-		setTitle("Page de virement");
+		setTitle("Virement");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

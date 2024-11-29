@@ -43,7 +43,7 @@ public class IHMInscription extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMInscription() {
-		setTitle("Page d'inscription");
+		setTitle("Inscription");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

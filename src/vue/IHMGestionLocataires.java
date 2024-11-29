@@ -40,7 +40,7 @@ public class IHMGestionLocataires extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMGestionLocataires() {
-		setTitle("Page de gestion des locataires");
+		setTitle("Gestion des locataires");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

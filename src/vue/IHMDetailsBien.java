@@ -46,7 +46,7 @@ public class IHMDetailsBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsBien() {
-		setTitle("Page de détail de bail");
+		setTitle("Détail de bail");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
