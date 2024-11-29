@@ -85,6 +85,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton BoutonConsultLoc = new JButton("Consulter les locataires");
 		panelLocataire.add(BoutonConsultLoc);
+		BoutonConsultLoc.addActionListener(controleur);
 		
 		JButton btnAjoutLoc = new JButton("Ajouter un locataire");
 		panelLocataire.add(btnAjoutLoc);
@@ -102,6 +103,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton BoutonConsultBiens = new JButton("Consulter les biens");
 		panelBiens.add(BoutonConsultBiens);
+		BoutonConsultBiens.addActionListener(controleur);
 		
 		JButton btnAjoutBien = new JButton("Ajouter un bien");
 		panelBiens.add(btnAjoutBien);
@@ -119,6 +121,7 @@ public class IHMAccueil extends JFrame {
 		
 		JButton BoutonConsultBaux = new JButton("Consulter les baux");
 		panelBaux.add(BoutonConsultBaux);
+		BoutonConsultBaux.addActionListener(controleur);
 		
 		JButton btnAjoutBail = new JButton("Ajouter un bail");
 		panelBaux.add(btnAjoutBail);

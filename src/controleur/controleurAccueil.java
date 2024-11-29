@@ -9,6 +9,8 @@ import vue.IHMAccueil;
 import vue.IHMAjouterBien;
 import vue.IHMAjouterLocataire;
 import vue.IHMDeclarationFiscale;
+import vue.IHMGestionBiens;
+import vue.IHMGestionLocataires;
 import vue.IHMVirement;
 
 public class controleurAccueil implements ActionListener {
@@ -38,21 +40,21 @@ public class controleurAccueil implements ActionListener {
 		//	vueAjouterBail.setVisible(true);
 		//	this.vue.setVisible(false);
 			break;
-        //case "Gestions Locataires" :
-		//	IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-		//	vueGestionLocataires.setVisible(true);
-		//	this.vue.setVisible(false);
-		//	break;
-        //case "Gestions Logements" :
-		//	IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-		//	vueGestionBiens.setVisible(true);
-		//	this.vue.setVisible(false);
-		//	break;
-        //case "Gestions Baux" :
+        case "Consulter les locataires" :
+			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+			vueGestionLocataires.setVisible(true);
+			this.vue.setVisible(false);
+			break;
+        case "Consulter les biens" :
+			IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+			vueGestionBiens.setVisible(true);
+			this.vue.setVisible(false);
+			break;
+        case "Consulter les baux" :
 		//	IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
 		//	vueGestionBaux.setVisible(true);
 		//	this.vue.setVisible(false);
-		//	break;
+			break;
         case "Déclaration fiscale" :
 			IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
 			vueDeclarationFiscale.setVisible(true);
