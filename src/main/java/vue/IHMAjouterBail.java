@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.Objects;
+
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
@@ -60,27 +62,27 @@ public class IHMAjouterBail extends JFrame {
 		contentPane.add(panelGauche, BorderLayout.WEST);
 		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
-		JButton BoutonGLocataire = new JButton();
-		BoutonGLocataire.setIcon(iconeLocataires);
-		panelGauche.add(BoutonGLocataire);
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
+		JButton BoutonGLocataires = new JButton();
+		BoutonGLocataires.setIcon(iconeLocataires);
+		panelGauche.add(BoutonGLocataires);
 		
-		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
+		
+		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
 		
-		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
 		
-		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
-		JButton BoutonGFinances = new JButton();
-		BoutonGFinances.setIcon(iconeFinances);
-		panelGauche.add(BoutonGFinances);
-		
-		ImageIcon iconeDeclFisc = new ImageIcon("ressources/declarationFiscale.png");
+		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
+		JButton BoutonGFinances = new JButton();
+		BoutonGFinances.setIcon(iconeFinances);
+		panelGauche.add(BoutonGFinances);
 		
 		JPanel panelBody = new JPanel();
 		contentPane.add(panelBody, BorderLayout.CENTER);
