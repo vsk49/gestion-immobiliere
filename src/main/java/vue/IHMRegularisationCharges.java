@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -54,27 +55,23 @@ public class IHMRegularisationCharges extends JFrame {
 		contentPane.add(panelGauche, BorderLayout.WEST);
 		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
 		JButton BoutonGLocataire = new JButton();
 		BoutonGLocataire.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataire);
 		
-		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
+		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
 		
-		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
+		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
 		
-		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
-		JButton BoutonGFinances = new JButton();
-		BoutonGFinances.setIcon(iconeFinances);
-		panelGauche.add(BoutonGFinances);
 		
-		ImageIcon iconeDeclFisc = new ImageIcon("ressources/declarationFiscale.png");
+		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
