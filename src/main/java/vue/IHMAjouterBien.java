@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
 
 public class IHMAjouterBien extends JFrame {
 
@@ -49,47 +52,88 @@ public class IHMAjouterBien extends JFrame {
 	public IHMAjouterBien() {
 		setTitle("Ajout de bien");
 		setBounds(100, 100, 450, 300);
-		setLayout(new BorderLayout(0, 0));
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
-		JLabel imageLocataire = new JLabel();
-		imageLocataire.setIcon(iconeLocataires);
-		panel.add(imageLocataire);
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
+		JButton BoutonGLocataire = new JButton();
+		BoutonGLocataire.setIcon(iconeLocataires);
+		panel.add(BoutonGLocataire);
 		
-		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
-		JLabel imageBien = new JLabel();
-		imageBien.setIcon(iconeBiens);
-		panel.add(imageBien);
 		
-		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
-		JLabel ImageBaux = new JLabel();
-		ImageBaux.setIcon(iconeBaux);
-		panel.add(ImageBaux);
+		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
+		JButton BoutonGBaux = new JButton();
+		BoutonGBaux.setIcon(iconeBaux);
+		panel.add(BoutonGBaux);
 		
-		ImageIcon iconeDecFisc = new ImageIcon("ressources/declarationFiscale.png");
-		JLabel ImageDéclarationFiscale = new JLabel();
-		ImageDéclarationFiscale.setIcon(iconeDecFisc);
-		panel.add(ImageDéclarationFiscale);
 		
-		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
-		JLabel ImageFinance = new JLabel();
-		ImageFinance.setIcon(iconeFinances);
-		panel.add(ImageFinance);
+		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
+		JButton BoutonGDeclFisc = new JButton();
+		BoutonGDeclFisc.setIcon(iconeDeclFisc);
+		panel.add(BoutonGDeclFisc);
+
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
+		JButton BoutonGFinances = new JButton();
+		BoutonGFinances.setIcon(iconeFinances);
+		panel.add(BoutonGFinances);
 		
-		JLabel labelAjouterBien = new JLabel("New label");
-		getContentPane().add(labelAjouterBien, BorderLayout.NORTH);
+		JPanel panelBasDePage = new JPanel();
 		
-		JPanel panel_1 = new JPanel();
-		getContentPane().add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JPanel panelDocuments = new JPanel();
+		panelBasDePage.add(panelDocuments);
+		panelDocuments.setLayout(new GridLayout(2, 2, 0, 0));
+		
+		JLabel labelDocsLiéAuBien = new JLabel("Liste des documents liés aux biens :");
+		panelDocuments.add(labelDocsLiéAuBien);
+		
+		JPanel panelFichiers = new JPanel();
+		panelDocuments.add(panelFichiers);
+		panelFichiers.setLayout(new GridLayout(2, 2, 0, 0));
+		
+		JLabel lblNewLabel_2 = new JLabel("Fichier Bail");
+		panelFichiers.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Fichier Diagnostics");
+		panelFichiers.add(lblNewLabel_3);
+		
+		JPanel panelBoutons = new JPanel();
+		panelBasDePage.add(panelBoutons);
+		
+		JButton boutonAnnuler = new JButton("Annuler");
+		boutonAnnuler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panelBoutons.add(boutonAnnuler);
+		
+		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
+		panelBoutons.add(BoutonRéinitialiser);
+		
+		JButton boutonValider = new JButton("Valider");
+		panelBoutons.add(boutonValider);
+		
+		JPanel panelBody = new JPanel();
+		getContentPane().add(panelBody, BorderLayout.CENTER);
+		panelBody.setLayout(new BorderLayout(0, 0));
+		
+		JLabel labelAjouterBien = new JLabel("Ajouter un bien");
+		labelAjouterBien.setHorizontalAlignment(SwingConstants.CENTER);
+		panelBody.add(labelAjouterBien, BorderLayout.NORTH);
+		
+		panelBody.add(panelBasDePage, BorderLayout.SOUTH);
+		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
+		
+		JPanel panelFormulaire = new JPanel();
+		panelBody.add(panelFormulaire);
+		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		Panel premièrePartieFormulaire = new Panel();
-		panel_1.add(premièrePartieFormulaire);
+		panelFormulaire.add(premièrePartieFormulaire);
 		premièrePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Adresse :");
@@ -121,7 +165,7 @@ public class IHMAjouterBien extends JFrame {
 		premièrePartieFormulaire.add(textField_7);
 		
 		Panel deuxièmePartieFormulaire = new Panel();
-		panel_1.add(deuxièmePartieFormulaire);
+		panelFormulaire.add(deuxièmePartieFormulaire);
 		deuxièmePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel labelType = new JLabel("Type de bien :");
@@ -152,55 +196,18 @@ public class IHMAjouterBien extends JFrame {
 		deuxièmePartieFormulaire.add(textField_2);
 		textField_2.setColumns(10);
 		
-		JPanel panel_2 = new JPanel();
-		getContentPane().add(panel_2, BorderLayout.EAST);
-		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelChoixLocataire = new JPanel();
+		panelBody.add(panelChoixLocataire, BorderLayout.EAST);
+		panelChoixLocataire.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel labelChoixLocataire = new JLabel("Ajouter un locataire (facultatif) :");
-		panel_2.add(labelChoixLocataire);
+		panelChoixLocataire.add(labelChoixLocataire);
 		
 		JComboBox comboBox = new JComboBox();
-		panel_2.add(comboBox);
+		panelChoixLocataire.add(comboBox);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		panel_2.add(lblNewLabel_1);
-		
-		JPanel panel_3 = new JPanel();
-		getContentPane().add(panel_3, BorderLayout.SOUTH);
-		panel_3.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panel_5 = new JPanel();
-		panel_3.add(panel_5);
-		panel_5.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JLabel labelDocsLiéAuBien = new JLabel("Liste des documents liés aux biens :");
-		panel_5.add(labelDocsLiéAuBien);
-		
-		JPanel panel_6 = new JPanel();
-		panel_5.add(panel_6);
-		panel_6.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JLabel lblNewLabel_2 = new JLabel("Fichier Bail");
-		panel_6.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Fichier Diagnostics");
-		panel_6.add(lblNewLabel_3);
-		
-		JPanel panel_4 = new JPanel();
-		panel_3.add(panel_4);
-		
-		JButton boutonAnnuler = new JButton("Annuler");
-		boutonAnnuler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panel_4.add(boutonAnnuler);
-		
-		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
-		panel_4.add(BoutonRéinitialiser);
-		
-		JButton boutonValider = new JButton("Valider");
-		panel_4.add(boutonValider);
+		panelChoixLocataire.add(lblNewLabel_1);
 	}
 
 }
