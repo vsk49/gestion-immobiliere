@@ -16,6 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurAccueil;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class IHMAccueil extends JFrame {
 
@@ -43,7 +47,7 @@ public class IHMAccueil extends JFrame {
 		controleurAccueil controleur = new controleurAccueil(this);
 		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(100, 100, 450, 448);
+		this.setBounds(100, 100, 600, 450);
 		this.contentPane = new JPanel();
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -51,11 +55,11 @@ public class IHMAccueil extends JFrame {
 		this.contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelTitre = new JPanel();
-		FlowLayout fl_panelTitre = (FlowLayout) panelTitre.getLayout();
-		fl_panelTitre.setAlignment(FlowLayout.LEFT);
 		contentPane.add(panelTitre, BorderLayout.NORTH);
+		panelTitre.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JLabel LabelTitre = new JLabel("Bienvenue. Que voulez-vous faire aujourd'hui ?");
+		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
 		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		panelTitre.add(LabelTitre);
 		

@@ -26,7 +26,6 @@ public class IHMAjouterLocataire extends JFrame {
 	private JTextField saisieDateDeNaissance;
 	private JTextField saisieTelephone;
 	private JTextField saisieEmail;
-	private JTextField saisieAncienneAdresse;
 
 
 	/**
@@ -172,13 +171,6 @@ public class IHMAjouterLocataire extends JFrame {
 		saisieEmail = new JTextField();
 		saisieEmail.setColumns(10);
 		panelDeuxièmePartieFormulaire.add(saisieEmail);
-		
-		JLabel labelAncienneAdresse = new JLabel("Ancienne adresse :");
-		panelDeuxièmePartieFormulaire.add(labelAncienneAdresse);
-		
-		saisieAncienneAdresse = new JTextField();
-		saisieAncienneAdresse.setColumns(10);
-		panelDeuxièmePartieFormulaire.add(saisieAncienneAdresse);
 		
 		JPanel panelSelectionBien = new JPanel();
 		panelBody.add(panelSelectionBien,BorderLayout.EAST);
