@@ -77,4 +77,20 @@ public class Bail {
 		return this.locataires;
 	}
 
+	public void terminerBail() {
+		this.dateFin = LocalDate.now();
+	}
+
+	public void ajouterAvenant() {
+
+	}
+
+	public double soldeDeToutCompte(Locataire locataire) {
+		return 0;
+	}
+
+	public void archiverBail() {
+
+	}
+
 }

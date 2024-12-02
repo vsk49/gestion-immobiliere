@@ -16,10 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurAccueil;
-// import com.jgoodies.forms.layout.FormLayout;
-// import com.jgoodies.forms.layout.ColumnSpec;
-// import com.jgoodies.forms.layout.FormSpecs;
-// import com.jgoodies.forms.layout.RowSpec;
 
 public class IHMAccueil extends JFrame {
 
