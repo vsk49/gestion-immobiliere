@@ -157,8 +157,8 @@ public class IHMRegularisationCharges extends JFrame {
 		JLabel LabelAjusterProvisions = new JLabel("Modifier montant des provisions :");
 		panelAjusterProvisions.add(LabelAjusterProvisions);
 		
-		JLabel AjusterProvisions = new JLabel("");
-		panelAjusterProvisions.add(AjusterProvisions);
+		JButton AjusterProvision = new JButton("Ajuster les provisions");
+		panelBoutons.add(AjusterProvision);
 		
 		JPanel panelResultat = new JPanel();
 		PanelMain.add(panelResultat);
