@@ -5,18 +5,14 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import java.awt.GridLayout;
+import java.util.Objects;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurAccueil;
@@ -30,17 +26,14 @@ public class IHMAccueil extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					IHMAccueil frame = new IHMAccueil();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                IHMAccueil frame = new IHMAccueil();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 
 	/**
@@ -76,8 +69,8 @@ public class IHMAccueil extends JFrame {
 		JPanel panelLocataire = new JPanel();
 		panelTop.add(panelLocataire);
 		panelLocataire.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
+
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
 		JLabel lblNewLabel_1 = new JLabel();
 		lblNewLabel_1.setIcon(iconeLocataires);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -95,7 +88,7 @@ public class IHMAccueil extends JFrame {
 		panelTop.add(panelBiens);
 		panelBiens.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
+		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JLabel lblNewLabel_3 = new JLabel();
 		lblNewLabel_3.setIcon(iconeBiens);
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -113,7 +106,7 @@ public class IHMAccueil extends JFrame {
 		panelTop.add(panelBaux);
 		panelBaux.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
+		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JLabel lblNewLabel_5 = new JLabel();
 		lblNewLabel_5.setIcon(iconeBaux);
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
@@ -134,7 +127,7 @@ public class IHMAccueil extends JFrame {
 		panelBottom.add(panelFiscale);
 		panelFiscale.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeDeclarationFisc = new ImageIcon("ressources/declarationFiscale.png");
+		ImageIcon iconeDeclarationFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JLabel lblNewLabel_7 = new JLabel();
 		lblNewLabel_7.setIcon(iconeDeclarationFisc);
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
@@ -148,7 +141,7 @@ public class IHMAccueil extends JFrame {
 		panelBottom.add(panelFinance);
 		panelFinance.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JLabel lblNewLabel_9 = new JLabel();
 		lblNewLabel_9.setIcon(iconeFinances);
 		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);

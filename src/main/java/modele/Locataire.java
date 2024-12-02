@@ -2,6 +2,7 @@ package modele;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import dao.JDBCCharge;
@@ -118,9 +119,7 @@ public class Locataire {
 	}
 	
 	public void ajouterCaution(Caution... cautions) {
-		for (Caution c : cautions) {
-			this.cautions.add(c);
-		}
+        this.cautions.addAll(Arrays.asList(cautions));
 	}
 
 	public List<Bail> getBaux() {

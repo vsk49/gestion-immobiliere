@@ -66,6 +66,5 @@ public class controleurAccueil implements ActionListener {
 			vueRegularisationCharges.setVisible(true);
 			this.vue.setVisible(false);
 		}
-		
 	}
 }
