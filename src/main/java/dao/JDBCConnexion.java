@@ -21,7 +21,7 @@ public class JDBCConnexion extends OracleDataSource {
 				connexion = bd.getConnection();
 				System.out.println("Connexion réussite");
 			} catch (SQLException e) {
-				e.printStackTrace();
+				System.out.println(e.getErrorCode() + " : " + e.getMessage());
 			}
 		}
 		return connexion;

@@ -56,5 +56,10 @@ public class Assurance {
 	public BienImmobilier getBien() {
 		return bien;
 	}
+
+	public void renouvelerAssurance(double prime, LocalDate dateDebutAssurance) {
+		this.prime = prime;
+		this.dateDebutAssurance = dateDebutAssurance;
+	}
    
 }

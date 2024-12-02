@@ -62,5 +62,18 @@ public class FactureTravail {
 	public BienLouable getBien() {
 		return bien;
 	}
+
+	public void associerDevis(String referenceDevis, double montantDevis) {
+		this.referenceDevis = referenceDevis;
+		this.montantDevis = montantDevis;
+	}
+
+	public void genererRapportTravail() {
+
+	}
+
+	public void archiverFactureTravail() {
+
+	}
 	
 }

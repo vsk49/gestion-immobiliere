@@ -63,4 +63,9 @@ public class Diagnostic {
 	public BienImmobilier getBien(){
 		return this.bien;
 	}
+
+	public void archiverDiagnostic() {
+
+	}
+
 }

@@ -12,4 +12,6 @@ public interface DAOLoyer extends DAO<Loyer, Integer> {
 	
 	public List<Loyer> getByBienLouable(BienLouable bien);
 
+	public boolean importerLoyersCSV(String cheminFichier);
+
 }
