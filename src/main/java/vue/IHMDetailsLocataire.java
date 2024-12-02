@@ -17,7 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dao.JDBCLocataire;
+
 import controleur.controleurDetailsLocataire;
+import modele.Locataire;
 import vue.IHMGestionLocataires;
 
 public class IHMDetailsLocataire extends JFrame {
@@ -25,10 +28,9 @@ public class IHMDetailsLocataire extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField saisieModificationNom;
 	private JTextField saisieModificationPrenom;
-	private JTextField saisieModificationCodePostal;
+	private JTextField saisieModificationDateNaissance;
 	private JTextField saisieModificationTelephone;
 	private JTextField saisieModificationEmail;
-	private JTextField saisieModificationAncienneAdresse;
 
 	/**
 	 * Launch the application.
@@ -37,7 +39,7 @@ public class IHMDetailsLocataire extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IHMDetailsLocataire frame = new IHMDetailsLocataire();
+					IHMDetailsLocataire frame = new IHMDetailsLocataire(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,13 +48,18 @@ public class IHMDetailsLocataire extends JFrame {
 		});
 	}
 
+	private Locataire locataire;
+	private JDBCLocataire daoLoc = new JDBCLocataire();
+
 	/**
 	 * Create the frame.
 	 */
 	@SuppressWarnings("rawtypes")
-	public IHMDetailsLocataire() {
+	public IHMDetailsLocataire(Locataire locataire) {
+		//this.locataire = locataire;
+		this.locataire = daoLoc.getById("DUDU").get();
 		setTitle("Détail du locataire");
-		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this);
+		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, this.locataire);
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -93,12 +100,12 @@ public class IHMDetailsLocataire extends JFrame {
 		saisieModificationPrenom.setColumns(10);
 		panelPremièrePartieFormulaire.add(saisieModificationPrenom);
 		
-		JLabel labelCodePostal = new JLabel("Date de naissance :");
-		panelPremièrePartieFormulaire.add(labelCodePostal);
+		JLabel labelDateNaissance = new JLabel("Date de naissance :");
+		panelPremièrePartieFormulaire.add(labelDateNaissance);
 		
-		saisieModificationCodePostal = new JTextField();
-		saisieModificationCodePostal.setColumns(10);
-		panelPremièrePartieFormulaire.add(saisieModificationCodePostal);
+		saisieModificationDateNaissance = new JTextField();
+		saisieModificationDateNaissance.setColumns(10);
+		panelPremièrePartieFormulaire.add(saisieModificationDateNaissance);
 		
 		Panel PaneldeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(PaneldeuxièmePartieFormulaire);
@@ -117,13 +124,6 @@ public class IHMDetailsLocataire extends JFrame {
 		saisieModificationEmail = new JTextField();
 		saisieModificationEmail.setColumns(10);
 		PaneldeuxièmePartieFormulaire.add(saisieModificationEmail);
-		
-		JLabel labelAncienneAdresse = new JLabel("Ancienne adresse :");
-		PaneldeuxièmePartieFormulaire.add(labelAncienneAdresse);
-		
-		saisieModificationAncienneAdresse = new JTextField();
-		saisieModificationAncienneAdresse.setColumns(10);
-		PaneldeuxièmePartieFormulaire.add(saisieModificationAncienneAdresse);
 		
 		JPanel panelSelectionBien = new JPanel();
 		getContentPane().add(panelSelectionBien, BorderLayout.EAST);
@@ -186,7 +186,6 @@ public class IHMDetailsLocataire extends JFrame {
 		ImageIcon IconeBoutonLocataire = new ImageIcon("ressources/locataires.png");
 		boutonLocataire.setIcon(IconeBoutonLocataire);
 		menu.add(boutonLocataire);
-
 		
 		JButton boutonBiens = new JButton();
 		ImageIcon IconeBoutonBien = new ImageIcon("ressources/biens50.png");
@@ -209,4 +208,19 @@ public class IHMDetailsLocataire extends JFrame {
 		menu.add(boutonFinance);
 	}
 
+	public JTextField getModifPrenom(){
+		return saisieModificationPrenom;
+	}
+	public JTextField getModifNom(){
+		return saisieModificationNom;
+	}
+	public JTextField getModifDateNaissance(){
+		return saisieModificationDateNaissance;
+	}
+	public JTextField getModifTelephone(){
+		return saisieModificationTelephone;
+	}
+	public JTextField getModifEmail(){
+		return saisieModificationEmail;
+	}
 }
