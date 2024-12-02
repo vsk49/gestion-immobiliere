@@ -2,6 +2,7 @@ package modele;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Loyer {
@@ -59,11 +60,11 @@ public class Loyer {
 	}
 	
 	public void ajouterLocataires(Locataire... l) {
-		for (Locataire loc : l) {
-			this.locataires.add(loc);
-		}
+        this.locataires.addAll(Arrays.asList(l));
 	}
 	
-	
+	public void calculerRevalorisationICC(int nouvelleICC) {
+
+	}
 	
 }

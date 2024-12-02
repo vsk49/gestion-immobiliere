@@ -17,20 +17,24 @@ public class JDBCLocataire implements DAOLocataire {
 			ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery("SELECT * FROM Locataire");
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
-				Locataire l = new Locataire(resultat.getString("idLocataire"), resultat.getString("nom"),
-						resultat.getString("prenom"), Genre.valueOf(resultat.getString("genre")),
-						resultat.getDate("dateNaissance").toLocalDate(), resultat.getString("lieuNaissance"),
-						resultat.getString("nationalite"), resultat.getString("profession"),
-						resultat.getString("telephone"), resultat.getString("email"),
-						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"));
+				Locataire l = getLocataire(resultat);
 				locataires.add(l);
 				enregistrementExiste = resultat.next();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return locataires;
+	}
+
+	private static Locataire getLocataire(ResultSet resultat) throws SQLException {
+        return new Locataire(resultat.getString("idLocataire"), resultat.getString("nom"),
+                resultat.getString("prenom"), Genre.valueOf(resultat.getString("genre")),
+                resultat.getDate("dateNaissance").toLocalDate(), resultat.getString("lieuNaissance"),
+                resultat.getString("nationalite"), resultat.getString("profession"),
+                resultat.getString("telephone"), resultat.getString("email"),
+                resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
+                resultat.getDouble("quotite"));
 	}
 
 	@Override
@@ -43,17 +47,11 @@ public class JDBCLocataire implements DAOLocataire {
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
-				Locataire l = new Locataire(resultat.getString("idLocataire"), resultat.getString("nom"),
-						resultat.getString("prenom"), Genre.valueOf(resultat.getString("genre")),
-						resultat.getDate("dateNaissance").toLocalDate(), resultat.getString("lieuNaissance"),
-						resultat.getString("nationalite"), resultat.getString("profession"),
-						resultat.getString("telephone"), resultat.getString("email"),
-						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"));
-				locataire = Optional.ofNullable(l);
+				Locataire l = getLocataire(resultat);
+				locataire = Optional.of(l);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return locataire;
 	}
@@ -81,7 +79,7 @@ public class JDBCLocataire implements DAOLocataire {
 			System.out.println("Le locataire a ete enregistre.");
 			resultat = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -98,7 +96,7 @@ public class JDBCLocataire implements DAOLocataire {
 			System.out.println("La quotite du locataire a ete mise a jour.");
 			resultat = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -114,7 +112,7 @@ public class JDBCLocataire implements DAOLocataire {
 			System.out.println("Le locataire a ete archive");
 			resultat = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -135,10 +133,10 @@ public class JDBCLocataire implements DAOLocataire {
 						resultat.getString("profession"), resultat.getString("telephone"), resultat.getString("email"),
 						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
 						resultat.getDouble("quotite"));
-				locataire = Optional.ofNullable(l);
+				locataire = Optional.of(l);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return locataire;
 	}

@@ -4,91 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] fixed the whole Maven project structure.">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] changed the image source path.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurAccueil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Assurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Assurance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Bail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Bail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Charge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Diagnostic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Diagnostic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/TypeAssurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/TypeAssurance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/TypeCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/TypeCompteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestDAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controleur/controleurAccueil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controleur/controleurAccueil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controleur/controleurDetailsLocataire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controleur/controleurDetailsLocataire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/CreateBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/CreateBD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOAssurance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOAssurance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOBail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOBail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOBienImmobilier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOBienImmobilier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOCaution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOCaution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOCharge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOCharge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOCompteur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOCompteur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAODiagnostic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAODiagnostic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOFactureTravail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOFactureTravail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOLocataire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOLocataire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOLogement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOLogement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/DAOLoyer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/DAOLoyer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/InputData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/InputData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCAssurance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCAssurance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCBail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCBail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCBienImmobilier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCBienImmobilier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCBienLouable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCBienLouable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCCaution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCCaution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCCharge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCCharge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCCompteur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCCompteur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCConnexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCConnexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCDiagnostic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCDiagnostic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCFactureTravail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCFactureTravail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCLocataire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCLocataire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCLogement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCLogement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/JDBCLoyer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/JDBCLoyer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Assurance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Assurance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Bail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Bail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Batiment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Batiment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/BienImmobilier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/BienImmobilier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/BienLouable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/BienLouable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Caution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Caution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Charge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Charge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Compteur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Compteur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Diagnostic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Diagnostic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/FactureTravail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/FactureTravail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Garage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Garage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Genre.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Genre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Locataire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Locataire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Logement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Logement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/Loyer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/Loyer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/TypeAssurance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/TypeAssurance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/TypeCompteur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/TypeCompteur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAccueil$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAccueil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAccueil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAjouterBien$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAjouterBien$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAjouterBien$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAjouterBien$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAjouterBien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAjouterBien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAjouterLocataire$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAjouterLocataire$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAjouterLocataire$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAjouterLocataire$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMAjouterLocataire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMAjouterLocataire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMConnexion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMConnexion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMConnexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMConnexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDeclarationFiscale$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDeclarationFiscale$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDeclarationFiscale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDeclarationFiscale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBail$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBien$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBien$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsBien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsLocataire$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsLocataire$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsLocataire$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsLocataire$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMDetailsLocataire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMDetailsLocataire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMGestionBaux$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMGestionBaux$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMGestionBaux.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMGestionBaux.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMGestionBiens$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMGestionBiens$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMGestionBiens.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMGestionBiens.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMGestionLocataires$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMGestionLocataires$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMGestionLocataires.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMGestionLocataires.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMInscription$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMInscription$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/IHMInscription.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/IHMInscription.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +34,22 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLabMergeRequestFiltersHistory">{
@@ -133,6 +84,7 @@
   "keyToString": {
     "Application.IHMAccueil.executor": "Run",
     "Application.IHMAjouterBien.executor": "Run",
+    "Application.IHMDetailsLocataire.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.TestDAOBienImmobilier.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -154,6 +106,11 @@
     "project.structure.side.proportion": "0.2678161",
     "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -194,6 +151,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="WorkInProgress" />
     <MESSAGE value="[CONFIG] fixed the whole Maven project structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] fixed the whole Maven project structure." />
+    <MESSAGE value="[CODE] changed the image source path." />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] changed the image source path." />
   </component>
 </project>

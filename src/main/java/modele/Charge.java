@@ -61,4 +61,16 @@ public class Charge {
 		return this.montantEau + this.montantCoPropriete + this.montantElectricite;
 	}
 
+	public void calculerRegularisationDesCharges() {
+
+	}
+
+	public String getDetailsRegularisation() {
+		return "";
+	}
+
+	public void genererRapportRegularisation() {
+
+	}
+
 }
