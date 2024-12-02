@@ -15,6 +15,8 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controleur.controleurRegularisationCharges;
+
 public class IHMRegularisationCharges extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -42,6 +44,7 @@ public class IHMRegularisationCharges extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMRegularisationCharges() {
+		controleurRegularisationCharges controleur = new controleurRegularisationCharges(this);
 		setTitle("Régularisation des charges");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -59,23 +62,31 @@ public class IHMRegularisationCharges extends JFrame {
 		JButton BoutonGLocataire = new JButton();
 		BoutonGLocataire.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataire);
-		
+		BoutonGLocataire.setActionCommand("locataires");
+		BoutonGLocataire.addActionListener(controleur);
+
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
-		
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
+
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
-		
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
+
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
-		
+		BoutonGDeclFisc.setActionCommand("declarations fiscales");
+		BoutonGDeclFisc.addActionListener(controleur);
+
 		JPanel panelBody = new JPanel();
 		contentPane.add(panelBody, BorderLayout.CENTER);
 		panelBody.setLayout(new BorderLayout(0, 0));
@@ -92,9 +103,11 @@ public class IHMRegularisationCharges extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
+		ButtonAnnuler.setActionCommand("annuler");
 		
 		JButton ButtonValider = new JButton("Valider");
 		panelBoutons.add(ButtonValider);
+		ButtonValider.setActionCommand("valider");
 		
 		JPanel PanelMain = new JPanel();
 		panelBody.add(PanelMain, BorderLayout.CENTER);
