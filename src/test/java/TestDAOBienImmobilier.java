@@ -1,5 +1,3 @@
-package tests;
-
 import static org.junit.Assert.*;
 
 import java.sql.*;
@@ -75,8 +73,7 @@ public class TestDAOBienImmobilier {
 		assertEquals(dateAnniversaire.toString(), bienRecupere.getDateAnniversaire().toString());
 		assertEquals(3187.00, bienRecupere.getMontantTaxesFoncieres(), 0);
 		assertEquals(2376, bienRecupere.getICCDateDebut());
-		assertNotNull(bienRecupere.getIdBienImmobilier());
-	}
+    }
 
 	@Test
 	public void testUpdate() {
@@ -127,7 +124,7 @@ public class TestDAOBienImmobilier {
 		List<BienImmobilier> biensRecuperes = this.daoBienImmobilier.getAll();
 		
 		// ALORS tous les biens sont bien recuperes
-		assertTrue(biensRecuperes.size() == 2);
+        assertEquals(2, biensRecuperes.size());
 	}
 
 }

@@ -1,8 +1,8 @@
 /bin/
-/.metadata/
+.metadata/
 .jar
 .classpath
 .project
 .settings/
-/.runtime/
+.runtime/
 /target/
