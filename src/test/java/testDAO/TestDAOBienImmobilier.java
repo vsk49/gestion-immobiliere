@@ -1,3 +1,5 @@
+package testDAO;
+
 import static org.junit.Assert.*;
 
 import java.sql.*;
