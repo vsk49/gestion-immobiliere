@@ -30,4 +30,8 @@ public class Logement extends BienLouable {
 		return this.garage;
 	}
 
+	public void changerCompteur() {
+
+	}
+
 }

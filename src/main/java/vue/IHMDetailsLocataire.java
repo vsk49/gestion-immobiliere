@@ -39,7 +39,10 @@ public class IHMDetailsLocataire extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IHMDetailsLocataire frame = new IHMDetailsLocataire(null);
+					Locataire l1 = new Locataire("DUDU", "Dupont", "Dudule", null,
+							null, null, null, null,
+							null, null, null, null, 0);
+					IHMDetailsLocataire frame = new IHMDetailsLocataire(l1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

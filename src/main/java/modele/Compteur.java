@@ -54,4 +54,13 @@ public class Compteur {
 		return this.dateReleveEntree;
 	}
 
+	public void ajouterReleve() {
+
+	}
+
+	public void remplacerCompteur(String numero, TypeCompteur typeCompteur) {
+		this.numero = numero;
+		this.typeCompteur = typeCompteur;
+	}
+
 }

@@ -50,10 +50,6 @@ public class Locataire {
 		this.charges = this.donneesCharges.getByLocataire(this);
 	}
 
-	public double soldeDeToutCompte() {
-		return 0;
-	}
-
 	public boolean estLocataireAncien() {
 		return false;
 	}
@@ -132,6 +128,10 @@ public class Locataire {
 
 	public List<Charge> getCharges() {
 		return this.charges;
+	}
+
+	public void archiverLocataire() {
+		this.dateDepart = LocalDate.now();
 	}
 	
 }
