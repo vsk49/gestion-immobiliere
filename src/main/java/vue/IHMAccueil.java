@@ -3,23 +3,23 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import javax.swing.JLabel;
-import java.awt.GridLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.Objects;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurAccueil;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
+// import com.jgoodies.forms.layout.FormLayout;
+// import com.jgoodies.forms.layout.ColumnSpec;
+// import com.jgoodies.forms.layout.FormSpecs;
+// import com.jgoodies.forms.layout.RowSpec;
 
 public class IHMAccueil extends JFrame {
 
