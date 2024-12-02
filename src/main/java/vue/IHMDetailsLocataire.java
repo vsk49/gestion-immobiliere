@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controleur.controleurDetailsLocataire;
+import vue.IHMGestionLocataires;
 
 public class IHMDetailsLocataire extends JFrame {
 
@@ -53,9 +54,20 @@ public class IHMDetailsLocataire extends JFrame {
 		setTitle("Détail du locataire");
 		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this);
 		setBounds(100, 100, 450, 300);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		
+
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+                vueGestionLocataires.setVisible(true);
+
+                dispose();
+            }
+        });
+
 		JLabel labelAGEstionLocataire = new JLabel("Gestion du locataire");
 		getContentPane().add(labelAGEstionLocataire, BorderLayout.NORTH);
 		
