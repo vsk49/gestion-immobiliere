@@ -52,7 +52,7 @@ public class IHMAjouterLocataire extends JFrame {
 	 */
 	public IHMAjouterLocataire() {
 		setTitle("Ajout de locataire");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 513, 320);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -90,6 +90,7 @@ public class IHMAjouterLocataire extends JFrame {
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JPanel panelBienEtDocuments = new JPanel();
+		panelBienEtDocuments.setBorder(new EmptyBorder(5, 0, 0, 0));
 		panelBasDePage.add(panelBienEtDocuments);
 		panelBienEtDocuments.setLayout(new GridLayout(0, 2, 0, 0));
 		
