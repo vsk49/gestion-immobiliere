@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] l'ajout des entetes des fonctionnalites principales, testing IHMDetailsLocataire" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[TEST] solving pipeline errors." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,13 +130,41 @@
       <option name="project" value="LOCAL" />
       <updated>1733148531114</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[TEST] solving pipeline errors.">
+      <option name="closed" value="true" />
+      <created>1733309359701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733309359701</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Virgil" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -152,6 +180,7 @@
     <MESSAGE value="[CONFIG] fixed the whole Maven project structure." />
     <MESSAGE value="[CODE] changed the image source path." />
     <MESSAGE value="[TEST] IHMDetailsLocataire" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TEST] IHMDetailsLocataire" />
+    <MESSAGE value="[TEST] solving pipeline errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="[TEST] solving pipeline errors." />
   </component>
 </project>

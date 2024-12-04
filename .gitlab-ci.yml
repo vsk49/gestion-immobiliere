@@ -3,20 +3,30 @@ stages:
   - test
   - deploy
 
+# Define a Maven build stage
 build:
   stage: build
+  image: maven:3.9-eclipse-temurin-17
   script:
     - echo "Building the project..."
-    - ./build.sh
+    - mvn clean package
+  artifacts:
+    paths:
+      - target/*.jar
+    when: always
 
+# Define a Maven test stage
 test:
   stage: test
+  image: maven:3.9-eclipse-temurin-17
   script:
     - echo "Running tests..."
-    - ./test.sh
+    - mvn test
 
+# Optional deployment stage (can be customized later)
 deploy:
   stage: deploy
+  image: maven:3.9-eclipse-temurin-17
   script:
     - echo "Deploying the project..."
-    - ./deploy.sh
+    - echo "No deployment configured yet!"
