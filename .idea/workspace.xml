@@ -4,27 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] changed the image source path.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] l'ajout des entetes des fonctionnalites principales, testing IHMDetailsLocataire">
+      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Eau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Assurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Assurance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Bail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Bail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Charge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Diagnostic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Diagnostic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +120,7 @@
       <workItem from="1733060276552" duration="2349000" />
       <workItem from="1733062693667" duration="1701000" />
       <workItem from="1733064417168" duration="4953000" />
+      <workItem from="1733302666817" duration="4629000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -142,11 +130,30 @@
       <option name="project" value="LOCAL" />
       <updated>1733065092750</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[CODE] l'ajout des entetes des fonctionnalites principales, testing IHMDetailsLocataire">
+      <option name="closed" value="true" />
+      <created>1733148531114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733148531114</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="WorkInProgress" />

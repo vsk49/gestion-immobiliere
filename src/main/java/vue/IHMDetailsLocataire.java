@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.time.LocalDate;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -40,7 +41,7 @@ public class IHMDetailsLocataire extends JFrame {
 			public void run() {
 				try {
 					Locataire l1 = new Locataire("DUDU", "Dupont", "Dudule", null,
-							null, null, null, null,
+							LocalDate.of(2004, 4, 9), null, null, null,
 							null, null, null, null, 0);
 					IHMDetailsLocataire frame = new IHMDetailsLocataire(l1);
 					frame.setVisible(true);
@@ -59,10 +60,9 @@ public class IHMDetailsLocataire extends JFrame {
 	 */
 	@SuppressWarnings("rawtypes")
 	public IHMDetailsLocataire(Locataire locataire) {
-		//this.locataire = locataire;
-		this.locataire = daoLoc.getById("DUDU").get();
+		this.locataire = locataire;
+		// this.locataire = daoLoc.getById("DUDU").get();
 		setTitle("Détail du locataire");
-		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, this.locataire);
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -164,6 +164,8 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		JPanel panel_4 = new JPanel();
 		panelBasDePage.add(panel_4);
+
+		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, this.locataire);
 		
 		JButton boutonAnnuler = new JButton("Annuler");
 		boutonAnnuler.addActionListener(new ActionListener() {

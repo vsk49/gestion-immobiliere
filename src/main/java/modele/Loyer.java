@@ -27,10 +27,6 @@ public class Loyer {
 		return this.idLoyer;
 	}
 
-	public void setIdLoyer(int value) {
-		this.idLoyer = value;
-	}
-
 	public LocalDate getDateLoyer() {
 		return this.dateLoyer;
 	}

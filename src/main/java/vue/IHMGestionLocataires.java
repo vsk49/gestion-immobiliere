@@ -104,4 +104,8 @@ public class IHMGestionLocataires extends JFrame {
 		menu.add(ImageFinance);
 	}
 
+	public void afficherInformationsLocataire() {
+
+	}
+
 }
