@@ -1,0 +1,227 @@
+Index: src/main/java/vue/IHMGestionLocataires.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package vue;\r\n\r\nimport java.awt.EventQueue;\r\n\r\nimport javax.swing.JFrame;\r\nimport javax.swing.JPanel;\r\nimport javax.swing.border.EmptyBorder;\r\nimport java.awt.BorderLayout;\r\nimport java.awt.GridLayout;\r\nimport javax.swing.JLabel;\r\nimport javax.swing.JTable;\r\nimport javax.swing.JTextField;\r\nimport javax.swing.JComboBox;\r\nimport javax.swing.table.DefaultTableModel;\r\n\r\npublic class IHMGestionLocataires extends JFrame {\r\n\r\n\tprivate static final long serialVersionUID = 1L;\r\n\tprivate JPanel contentPane;\r\n\tprivate JTable tableLocataires;\r\n\tprivate JTextField saisieRecherche;\r\n\r\n\t/**\r\n\t * Launch the application.\r\n\t */\r\n\tpublic static void main(String[] args) {\r\n\t\tEventQueue.invokeLater(new Runnable() {\r\n\t\t\tpublic void run() {\r\n\t\t\t\ttry {\r\n\t\t\t\t\tIHMGestionLocataires frame = new IHMGestionLocataires();\r\n\t\t\t\t\tframe.setVisible(true);\r\n\t\t\t\t} catch (Exception e) {\r\n\t\t\t\t\te.printStackTrace();\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Create the frame.\r\n\t */\r\n\tpublic IHMGestionLocataires() {\r\n\t\tsetTitle(\"Gestion des locataires\");\r\n\t\tsetDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\t\tsetBounds(100, 100, 450, 300);\r\n\t\tcontentPane = new JPanel();\r\n\t\tcontentPane.setBorder(new EmptyBorder(5, 5, 5, 5));\r\n\r\n\t\tsetContentPane(contentPane);\r\n\t\tcontentPane.setLayout(new BorderLayout(0, 0));\r\n\t\t\r\n\t\tJPanel panelRechercheEtTableau = new JPanel();\r\n\t\tcontentPane.add(panelRechercheEtTableau, BorderLayout.CENTER);\r\n\t\tpanelRechercheEtTableau.setLayout(new BorderLayout(0, 0));\r\n\t\t\r\n\t\tJPanel panelRecherche = new JPanel();\r\n\t\tpanelRechercheEtTableau.add(panelRecherche, BorderLayout.NORTH);\r\n\t\tpanelRecherche.setLayout(new GridLayout(1, 0, 0, 0));\r\n\t\t\r\n\t\tJLabel labelTitre = new JLabel(\"Gestion des locataires\");\r\n\t\tpanelRecherche.add(labelTitre);\r\n\t\t\r\n\t\tsaisieRecherche = new JTextField();\r\n\t\tpanelRecherche.add(saisieRecherche);\r\n\t\tsaisieRecherche.setColumns(10);\r\n\t\t\r\n\t\tJComboBox listeDeroulanteFiltre = new JComboBox();\r\n\t\tpanelRecherche.add(listeDeroulanteFiltre);\r\n\t\t\r\n\t\tJLabel imageRecherche = new JLabel(\"Image Filtre\");\r\n\t\tpanelRecherche.add(imageRecherche);\r\n\t\t\r\n\t\ttableLocataires = new JTable();\r\n\t\ttableLocataires.setModel(new DefaultTableModel(\r\n\t\t\tnew Object[][] {\r\n\t\t\t\t{null, null, null},\r\n\t\t\t\t{null, null, null},\r\n\t\t\t\t{null, null, null},\r\n\t\t\t\t{null, null, null},\r\n\t\t\t},\r\n\t\t\tnew String[] {\r\n\t\t\t\t\"New column\", \"New column\", \"New column\"\r\n\t\t\t}\r\n\t\t));\r\n\t\tpanelRechercheEtTableau.add(tableLocataires, BorderLayout.CENTER);\r\n\t\t\r\n\t\tJPanel menu = new JPanel();\r\n\t\tcontentPane.add(menu, BorderLayout.WEST);\r\n\t\tmenu.setLayout(new GridLayout(0, 1, 0, 0));\r\n\t\t\r\n\t\tJLabel imageLocataire = new JLabel(\"image Locataire\");\r\n\t\tmenu.add(imageLocataire);\r\n\t\t\r\n\t\tJLabel imageBien = new JLabel(\"Image Bien\");\r\n\t\tmenu.add(imageBien);\r\n\t\t\r\n\t\tJLabel ImageBaux = new JLabel(\"Image Baux\");\r\n\t\tmenu.add(ImageBaux);\r\n\t\t\r\n\t\tJLabel ImageDéclarationFiscale = new JLabel(\"Image Déclaration Fiscale\");\r\n\t\tmenu.add(ImageDéclarationFiscale);\r\n\t\t\r\n\t\tJLabel ImageFinance = new JLabel(\"Image Finance\");\r\n\t\tmenu.add(ImageFinance);\r\n\t}\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/vue/IHMGestionLocataires.java b/src/main/java/vue/IHMGestionLocataires.java
+--- a/src/main/java/vue/IHMGestionLocataires.java	(revision 737556e0d8f66761c7cf36b891234ee0d0258201)
++++ b/src/main/java/vue/IHMGestionLocataires.java	(date 1733308595907)
+@@ -104,4 +104,8 @@
+ 		menu.add(ImageFinance);
+ 	}
+ 
++	public void afficherInformationsLocataire() {
++
++	}
++
+ }
+Index: src/main/java/modele/Loyer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modele;\r\n\r\nimport java.time.LocalDate;\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.List;\r\n\r\npublic class Loyer {\r\n\r\n\tprivate int idLoyer;\r\n\tprivate LocalDate dateLoyer;\r\n\tprivate double montantLoyer;\r\n\tprivate double provisionPourCharge;\r\n\tprivate BienLouable bien;\r\n\tprivate List<Locataire> locataires;\r\n\r\n\tpublic Loyer(int idLoyer, LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, BienLouable bien) {\r\n\t\tthis.idLoyer = idLoyer;\r\n\t\tthis.dateLoyer = dateLoyer;\r\n\t\tthis.montantLoyer = montantLoyer;\r\n\t\tthis.provisionPourCharge = provisionPourCharge;\r\n\t\tthis.bien = bien;\r\n\t\tthis.locataires = new ArrayList<>();\r\n\t}\r\n\r\n\tpublic int getIdLoyer() {\r\n\t\treturn this.idLoyer;\r\n\t}\r\n\r\n\tpublic void setIdLoyer(int value) {\r\n\t\tthis.idLoyer = value;\r\n\t}\r\n\r\n\tpublic LocalDate getDateLoyer() {\r\n\t\treturn this.dateLoyer;\r\n\t}\r\n\r\n\tpublic double getMontantLoyer() {\r\n\t\treturn this.montantLoyer;\r\n\t}\r\n\t\r\n\tpublic void setMontantLoyer(double nouveauLoyer) {\r\n\t\tthis.montantLoyer += nouveauLoyer;\r\n\t}\r\n\r\n\tpublic double getProvisionPourCharge() {\r\n\t\treturn this.provisionPourCharge;\r\n\t}\r\n\t\r\n\tpublic void setProvisionPourCharge(double nouvelleProvision) {\r\n\t\tthis.provisionPourCharge += nouvelleProvision;\r\n\t}\r\n\r\n\tpublic BienLouable getBienLouable() {\r\n\t\treturn this.bien;\r\n\t}\r\n\r\n\tpublic List<Locataire> getLocataires() {\r\n\t\treturn this.locataires;\r\n\t}\r\n\t\r\n\tpublic void ajouterLocataires(Locataire... l) {\r\n        this.locataires.addAll(Arrays.asList(l));\r\n\t}\r\n\t\r\n\tpublic void calculerRevalorisationICC(int nouvelleICC) {\r\n\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/modele/Loyer.java b/src/main/java/modele/Loyer.java
+--- a/src/main/java/modele/Loyer.java	(revision 737556e0d8f66761c7cf36b891234ee0d0258201)
++++ b/src/main/java/modele/Loyer.java	(date 1733308595916)
+@@ -27,10 +27,6 @@
+ 		return this.idLoyer;
+ 	}
+ 
+-	public void setIdLoyer(int value) {
+-		this.idLoyer = value;
+-	}
+-
+ 	public LocalDate getDateLoyer() {
+ 		return this.dateLoyer;
+ 	}
+Index: src/main/java/vue/IHMDetailsLocataire.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package vue;\r\n\r\nimport java.awt.BorderLayout;\r\nimport java.awt.EventQueue;\r\nimport java.awt.GridLayout;\r\nimport java.awt.Panel;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.awt.event.WindowAdapter;\r\nimport java.awt.event.WindowEvent;\r\n\r\nimport javax.swing.ImageIcon;\r\nimport javax.swing.JButton;\r\nimport javax.swing.JComboBox;\r\nimport javax.swing.JFrame;\r\nimport javax.swing.JLabel;\r\nimport javax.swing.JPanel;\r\nimport javax.swing.JTextField;\r\n\r\nimport dao.JDBCLocataire;\r\n\r\nimport controleur.controleurDetailsLocataire;\r\nimport modele.Locataire;\r\nimport vue.IHMGestionLocataires;\r\n\r\npublic class IHMDetailsLocataire extends JFrame {\r\n\r\n\tprivate static final long serialVersionUID = 1L;\r\n\tprivate JTextField saisieModificationNom;\r\n\tprivate JTextField saisieModificationPrenom;\r\n\tprivate JTextField saisieModificationDateNaissance;\r\n\tprivate JTextField saisieModificationTelephone;\r\n\tprivate JTextField saisieModificationEmail;\r\n\r\n\t/**\r\n\t * Launch the application.\r\n\t */\r\n\tpublic static void main(String[] args) {\r\n\t\tEventQueue.invokeLater(new Runnable() {\r\n\t\t\tpublic void run() {\r\n\t\t\t\ttry {\r\n\t\t\t\t\tLocataire l1 = new Locataire(\"DUDU\", \"Dupont\", \"Dudule\", null,\r\n\t\t\t\t\t\t\tnull, null, null, null,\r\n\t\t\t\t\t\t\tnull, null, null, null, 0);\r\n\t\t\t\t\tIHMDetailsLocataire frame = new IHMDetailsLocataire(l1);\r\n\t\t\t\t\tframe.setVisible(true);\r\n\t\t\t\t} catch (Exception e) {\r\n\t\t\t\t\te.printStackTrace();\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t});\r\n\t}\r\n\r\n\tprivate Locataire locataire;\r\n\tprivate JDBCLocataire daoLoc = new JDBCLocataire();\r\n\r\n\t/**\r\n\t * Create the frame.\r\n\t */\r\n\t@SuppressWarnings(\"rawtypes\")\r\n\tpublic IHMDetailsLocataire(Locataire locataire) {\r\n\t\t//this.locataire = locataire;\r\n\t\tthis.locataire = daoLoc.getById(\"DUDU\").get();\r\n\t\tsetTitle(\"Détail du locataire\");\r\n\t\tcontroleurDetailsLocataire controleur = new controleurDetailsLocataire(this, this.locataire);\r\n\t\tsetBounds(100, 100, 450, 300);\r\n\t\tsetDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);\r\n\t\tgetContentPane().setLayout(new BorderLayout(0, 0));\r\n\t\tgetContentPane().setLayout(new BorderLayout(0, 0));\r\n\r\n\t\taddWindowListener(new WindowAdapter() {\r\n            @Override\r\n            public void windowClosing(WindowEvent e) {\r\n                IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();\r\n                vueGestionLocataires.setVisible(true);\r\n\r\n                dispose();\r\n            }\r\n        });\r\n\r\n\t\tJLabel labelAGEstionLocataire = new JLabel(\"Gestion du locataire\");\r\n\t\tgetContentPane().add(labelAGEstionLocataire, BorderLayout.NORTH);\r\n\t\t\r\n\t\tJPanel panelFormulaire = new JPanel();\r\n\t\tgetContentPane().add(panelFormulaire, BorderLayout.CENTER);\r\n\t\tpanelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));\r\n\t\t\r\n\t\tPanel panelPremièrePartieFormulaire = new Panel();\r\n\t\tpanelFormulaire.add(panelPremièrePartieFormulaire);\r\n\t\tpanelPremièrePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));\r\n\t\t\r\n\t\tJLabel labelNom = new JLabel(\"Nom :\");\r\n\t\tpanelPremièrePartieFormulaire.add(labelNom);\r\n\t\t\r\n\t\tsaisieModificationNom = new JTextField();\r\n\t\tsaisieModificationNom.setColumns(10);\r\n\t\tpanelPremièrePartieFormulaire.add(saisieModificationNom);\r\n\t\t\r\n\t\tJLabel labelPrenom = new JLabel(\"Prenom :\");\r\n\t\tpanelPremièrePartieFormulaire.add(labelPrenom);\r\n\t\t\r\n\t\tsaisieModificationPrenom = new JTextField();\r\n\t\tsaisieModificationPrenom.setColumns(10);\r\n\t\tpanelPremièrePartieFormulaire.add(saisieModificationPrenom);\r\n\t\t\r\n\t\tJLabel labelDateNaissance = new JLabel(\"Date de naissance :\");\r\n\t\tpanelPremièrePartieFormulaire.add(labelDateNaissance);\r\n\t\t\r\n\t\tsaisieModificationDateNaissance = new JTextField();\r\n\t\tsaisieModificationDateNaissance.setColumns(10);\r\n\t\tpanelPremièrePartieFormulaire.add(saisieModificationDateNaissance);\r\n\t\t\r\n\t\tPanel PaneldeuxièmePartieFormulaire = new Panel();\r\n\t\tpanelFormulaire.add(PaneldeuxièmePartieFormulaire);\r\n\t\tPaneldeuxièmePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));\r\n\t\t\r\n\t\tJLabel labelTéléphone = new JLabel(\"Téléphone :\");\r\n\t\tPaneldeuxièmePartieFormulaire.add(labelTéléphone);\r\n\t\t\r\n\t\tsaisieModificationTelephone = new JTextField();\r\n\t\tsaisieModificationTelephone.setColumns(10);\r\n\t\tPaneldeuxièmePartieFormulaire.add(saisieModificationTelephone);\r\n\t\t\r\n\t\tJLabel labelEmail = new JLabel(\"Email :\");\r\n\t\tPaneldeuxièmePartieFormulaire.add(labelEmail);\r\n\t\t\r\n\t\tsaisieModificationEmail = new JTextField();\r\n\t\tsaisieModificationEmail.setColumns(10);\r\n\t\tPaneldeuxièmePartieFormulaire.add(saisieModificationEmail);\r\n\t\t\r\n\t\tJPanel panelSelectionBien = new JPanel();\r\n\t\tgetContentPane().add(panelSelectionBien, BorderLayout.EAST);\r\n\t\tpanelSelectionBien.setLayout(new GridLayout(0, 1, 0, 0));\r\n\t\t\r\n\t\tJLabel labelChoixBien = new JLabel(\"Selectionner un bien :\");\r\n\t\tpanelSelectionBien.add(labelChoixBien);\r\n\t\t\r\n\t\tJComboBox listeDeroulanteBiens = new JComboBox();\r\n\t\tpanelSelectionBien.add(listeDeroulanteBiens);\r\n\t\t\r\n\t\tJLabel labelVide = new JLabel(\"\");\r\n\t\tpanelSelectionBien.add(labelVide);\r\n\t\t\r\n\t\tJPanel panelBasDePage = new JPanel();\r\n\t\tgetContentPane().add(panelBasDePage, BorderLayout.SOUTH);\r\n\t\tpanelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));\r\n\t\t\r\n\t\tJPanel panelDocuments = new JPanel();\r\n\t\tpanelBasDePage.add(panelDocuments);\r\n\t\tpanelDocuments.setLayout(new GridLayout(2, 2, 0, 0));\r\n\t\t\r\n\t\tJLabel labelDocsLiéAuLocataire = new JLabel(\"Liste des documents liés au locataire :\");\r\n\t\tpanelDocuments.add(labelDocsLiéAuLocataire);\r\n\t\t\r\n\t\tJPanel panelFichiers = new JPanel();\r\n\t\tpanelDocuments.add(panelFichiers);\r\n\t\tpanelFichiers.setLayout(new GridLayout(2, 2, 0, 0));\r\n\t\t\r\n\t\tJLabel labelFichierBail = new JLabel(\"Fichier Bail\");\r\n\t\tpanelFichiers.add(labelFichierBail);\r\n\t\t\r\n\t\tJLabel labelFeuilleDePaie = new JLabel(\"Feuille de paie \");\r\n\t\tpanelFichiers.add(labelFeuilleDePaie);\r\n\t\t\r\n\t\tJPanel panel_4 = new JPanel();\r\n\t\tpanelBasDePage.add(panel_4);\r\n\t\t\r\n\t\tJButton boutonAnnuler = new JButton(\"Annuler\");\r\n\t\tboutonAnnuler.addActionListener(new ActionListener() {\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\t\t\t}\r\n\t\t});\r\n\t\tpanel_4.add(boutonAnnuler);\r\n\t\tboutonAnnuler.addActionListener(controleur);\r\n\t\t\r\n\t\tJButton BoutonRéinitialiser = new JButton(\"Réinitialiser\");\r\n\t\tpanel_4.add(BoutonRéinitialiser);\r\n\t\tBoutonRéinitialiser.addActionListener(controleur);\r\n\t\t\r\n\t\tJButton boutonValider = new JButton(\"Valider\");\r\n\t\tpanel_4.add(boutonValider);\r\n\t\tboutonValider.addActionListener(controleur);\r\n\t\t\r\n\t\tJPanel menu = new JPanel();\r\n\t\tgetContentPane().add(menu, BorderLayout.WEST);\r\n\t\tmenu.setLayout(new GridLayout(0, 1, 0, 0));\r\n\t\t\r\n\t\tJButton boutonLocataire = new JButton();\r\n\t\tImageIcon IconeBoutonLocataire = new ImageIcon(\"ressources/locataires.png\");\r\n\t\tboutonLocataire.setIcon(IconeBoutonLocataire);\r\n\t\tmenu.add(boutonLocataire);\r\n\t\t\r\n\t\tJButton boutonBiens = new JButton();\r\n\t\tImageIcon IconeBoutonBien = new ImageIcon(\"ressources/biens50.png\");\r\n\t\tboutonBiens.setIcon(IconeBoutonBien);\r\n\t\tmenu.add(boutonBiens);\r\n\t\t\r\n\t\tJButton boutonBail = new JButton();\r\n\t\tImageIcon IconeBoutonBail = new ImageIcon(\"ressources/baux.png\");\r\n\t\tboutonBail.setIcon(IconeBoutonBail);\r\n\t\tmenu.add(boutonBail);\r\n\t\t\r\n\t\tJButton boutonDéclarationFiscale = new JButton();\r\n\t\tImageIcon IconeBoutonDéclarationFiscale = new ImageIcon(\"ressources/declarationFiscale.png\");\r\n\t\tboutonDéclarationFiscale.setIcon(IconeBoutonDéclarationFiscale);\r\n\t\tmenu.add(boutonDéclarationFiscale);\r\n\t\t\r\n\t\tJButton boutonFinance = new JButton();\r\n\t\tImageIcon IconeBoutonFinance = new ImageIcon(\"ressources/finance.png\");\r\n\t\tboutonFinance.setIcon(IconeBoutonFinance);\r\n\t\tmenu.add(boutonFinance);\r\n\t}\r\n\r\n\tpublic JTextField getModifPrenom(){\r\n\t\treturn saisieModificationPrenom;\r\n\t}\r\n\tpublic JTextField getModifNom(){\r\n\t\treturn saisieModificationNom;\r\n\t}\r\n\tpublic JTextField getModifDateNaissance(){\r\n\t\treturn saisieModificationDateNaissance;\r\n\t}\r\n\tpublic JTextField getModifTelephone(){\r\n\t\treturn saisieModificationTelephone;\r\n\t}\r\n\tpublic JTextField getModifEmail(){\r\n\t\treturn saisieModificationEmail;\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/vue/IHMDetailsLocataire.java b/src/main/java/vue/IHMDetailsLocataire.java
+--- a/src/main/java/vue/IHMDetailsLocataire.java	(revision 737556e0d8f66761c7cf36b891234ee0d0258201)
++++ b/src/main/java/vue/IHMDetailsLocataire.java	(date 1733308595884)
+@@ -8,6 +8,7 @@
+ import java.awt.event.ActionListener;
+ import java.awt.event.WindowAdapter;
+ import java.awt.event.WindowEvent;
++import java.time.LocalDate;
+ 
+ import javax.swing.ImageIcon;
+ import javax.swing.JButton;
+@@ -40,7 +41,7 @@
+ 			public void run() {
+ 				try {
+ 					Locataire l1 = new Locataire("DUDU", "Dupont", "Dudule", null,
+-							null, null, null, null,
++							LocalDate.of(2004, 4, 9), null, null, null,
+ 							null, null, null, null, 0);
+ 					IHMDetailsLocataire frame = new IHMDetailsLocataire(l1);
+ 					frame.setVisible(true);
+@@ -59,10 +60,9 @@
+ 	 */
+ 	@SuppressWarnings("rawtypes")
+ 	public IHMDetailsLocataire(Locataire locataire) {
+-		//this.locataire = locataire;
+-		this.locataire = daoLoc.getById("DUDU").get();
++		this.locataire = locataire;
++		// this.locataire = daoLoc.getById("DUDU").get();
+ 		setTitle("Détail du locataire");
+-		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, this.locataire);
+ 		setBounds(100, 100, 450, 300);
+ 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+ 		getContentPane().setLayout(new BorderLayout(0, 0));
+@@ -164,6 +164,8 @@
+ 		
+ 		JPanel panel_4 = new JPanel();
+ 		panelBasDePage.add(panel_4);
++
++		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, this.locataire);
+ 		
+ 		JButton boutonAnnuler = new JButton("Annuler");
+ 		boutonAnnuler.addActionListener(new ActionListener() {
+Index: .idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml b/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml
+--- a/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml	(revision 737556e0d8f66761c7cf36b891234ee0d0258201)
++++ b/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml	(date 1733308596063)
+@@ -83,9 +83,9 @@
+     </schema>
+     <schema id="27" parent="1" name="PUBLIC">
+       <AutoIntrospectionLevel>1</AutoIntrospectionLevel>
+-      <LastIntrospectionL1Timestamp>2024-12-02.10:56:07</LastIntrospectionL1Timestamp>
++      <LastIntrospectionL1Timestamp>2024-12-04.11:22:51</LastIntrospectionL1Timestamp>
+       <LastIntrospectionLevel>1</LastIntrospectionLevel>
+-      <LastIntrospectionLocalTimestamp>2024-12-02.08:56:23</LastIntrospectionLocalTimestamp>
++      <LastIntrospectionLocalTimestamp>2024-12-04.09:22:59</LastIntrospectionLocalTimestamp>
+       <ObjectId>1</ObjectId>
+     </schema>
+     <schema id="28" parent="1" name="REMOTE_SCHEDULER_AGENT">
+@@ -95,11 +95,11 @@
+       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
+       <CreatedTimestamp>2024-11-22.11:10:33</CreatedTimestamp>
+       <Current>1</Current>
+-      <LastIntrospectionL1Timestamp>2024-12-02.10:56:07</LastIntrospectionL1Timestamp>
+-      <LastIntrospectionL2Timestamp>2024-12-02.10:56:07</LastIntrospectionL2Timestamp>
+-      <LastIntrospectionL3Timestamp>2024-12-02.10:56:07</LastIntrospectionL3Timestamp>
++      <LastIntrospectionL1Timestamp>2024-12-04.11:22:51</LastIntrospectionL1Timestamp>
++      <LastIntrospectionL2Timestamp>2024-12-04.11:22:51</LastIntrospectionL2Timestamp>
++      <LastIntrospectionL3Timestamp>2024-12-04.11:22:51</LastIntrospectionL3Timestamp>
+       <LastIntrospectionLevel>3</LastIntrospectionLevel>
+-      <LastIntrospectionLocalTimestamp>2024-12-02.08:56:28</LastIntrospectionLocalTimestamp>
++      <LastIntrospectionLocalTimestamp>2024-12-04.09:22:59</LastIntrospectionLocalTimestamp>
+       <LastIntrospectionVersion>200820</LastIntrospectionVersion>
+       <ModifiedTimestamp>2024-11-22.11:10:33</ModifiedTimestamp>
+       <ObjectId>109</ObjectId>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"bc544956-0a41-4644-9cab-08483f3cfd05\" name=\"Changes\" comment=\"[CODE] changed the image source path.\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/InputData.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/dao/InputData.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Assurance.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Assurance.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Bail.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Bail.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Charge.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Charge.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Compteur.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Compteur.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Diagnostic.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Diagnostic.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/FactureTravail.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/FactureTravail.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Locataire.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Locataire.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Logement.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Logement.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/modele/Loyer.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/modele/Loyer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"main\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitLabMergeRequestFiltersHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPENED&quot;,\r\n    &quot;assignee&quot;: {\r\n      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,\r\n      &quot;username&quot;: &quot;khv4609a&quot;,\r\n      &quot;fullname&quot;: &quot;Koh Virgil-Shaun&quot;\r\n    }\r\n  }\r\n}</component>\r\n  <component name=\"GitLabMergeRequestsSettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;first&quot;: &quot;https://gitlab.info.iut-tlse3.fr/pxn4923a/saea3.01.git&quot;,\r\n    &quot;second&quot;: &quot;4997c5cf-4442-4385-abae-8d629429f21d&quot;\r\n  }\r\n}</component>\r\n  <component name=\"PhpDebugGeneral\" listening_started=\"true\" />\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2pcKuHGFuwbyttfQlaZnOaolq1j\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.IHMAccueil.executor\": \"Run\",\r\n    \"Application.IHMAjouterBien.executor\": \"Run\",\r\n    \"Application.IHMDetailsLocataire.executor\": \"Run\",\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"JUnit.TestDAOBienImmobilier.executor\": \"Run\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"Virgil\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/vsk49/Downloads/ojdbc11.jar\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.2678161\",\r\n    \"settings.editor.selected.configurable\": \"Errors\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"oracle\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"bc544956-0a41-4644-9cab-08483f3cfd05\" name=\"Changes\" comment=\"\" />\r\n      <created>1733060148189</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1733060148189</updated>\r\n      <workItem from=\"1733060148832\" duration=\"117000\" />\r\n      <workItem from=\"1733060276552\" duration=\"2349000\" />\r\n      <workItem from=\"1733062693667\" duration=\"1701000\" />\r\n      <workItem from=\"1733064417168\" duration=\"4953000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"[CONFIG] fixed the whole Maven project structure.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1733065092750</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1733065092750</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"WorkInProgress\" />\r\n    <MESSAGE value=\"[CONFIG] fixed the whole Maven project structure.\" />\r\n    <MESSAGE value=\"[CODE] changed the image source path.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"[CODE] changed the image source path.\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 737556e0d8f66761c7cf36b891234ee0d0258201)
++++ b/.idea/workspace.xml	(date 1733308616084)
+@@ -4,27 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] changed the image source path.">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
++    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] l'ajout des entetes des fonctionnalites principales, testing IHMDetailsLocataire">
++      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Eau.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Assurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Assurance.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Bail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Bail.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Charge.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Diagnostic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Diagnostic.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -133,6 +120,7 @@
+       <workItem from="1733060276552" duration="2349000" />
+       <workItem from="1733062693667" duration="1701000" />
+       <workItem from="1733064417168" duration="4953000" />
++      <workItem from="1733302666817" duration="4629000" />
+     </task>
+     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
+       <option name="closed" value="true" />
+@@ -142,11 +130,30 @@
+       <option name="project" value="LOCAL" />
+       <updated>1733065092750</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="[CODE] l'ajout des entetes des fonctionnalites principales, testing IHMDetailsLocataire">
++      <option name="closed" value="true" />
++      <created>1733148531114</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1733148531114</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="WorkInProgress" />
+Index: src/main/java/controleur/controleurDetailsLocataire.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controleur;\r\n\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.time.format.DateTimeFormatter;\r\n\r\nimport javax.swing.JButton;\r\n\r\nimport modele.Locataire;\r\nimport vue.IHMDetailsLocataire;\r\n\r\npublic class controleurDetailsLocataire implements ActionListener {\r\n\r\n\tprivate IHMDetailsLocataire vue;\r\n\tprivate Locataire locataire;\r\n\t\r\n\tpublic controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {\r\n\t\tthis.vue = vue;\r\n\t\tthis.locataire = locataire;\r\n\t\tvue.getModifPrenom().setText(locataire.getPrenom());\r\n\t\tvue.getModifNom().setText(locataire.getNom());\r\n        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd MMMM yyyy\");\r\n\t\tString dateStr = locataire.getDateNaissance().format(formatter);\r\n\t\tvue.getModifDateNaissance().setText(dateStr);\r\n\t\tvue.getModifTelephone().setText(locataire.getTelephone());\r\n\t\tvue.getModifEmail().setText(locataire.getEmail());\r\n\t}\r\n\t\r\n\t@Override\r\n\tpublic void actionPerformed(ActionEvent e) {\r\n\t\tJButton actionCommand = (JButton) e.getSource();\r\n        switch (actionCommand.getText()) {\r\n        case \"Annuler\" :\r\n\t\t\tbreak;\r\n        case \"Réinitialiser\" :\r\n\t\t\tbreak;\r\n        case \"Valider\" :\r\n        }\r\n\t}\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controleur/controleurDetailsLocataire.java b/src/main/java/controleur/controleurDetailsLocataire.java
+--- a/src/main/java/controleur/controleurDetailsLocataire.java	(revision 737556e0d8f66761c7cf36b891234ee0d0258201)
++++ b/src/main/java/controleur/controleurDetailsLocataire.java	(date 1733308595896)
+@@ -17,7 +17,7 @@
+ 	public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
+ 		this.vue = vue;
+ 		this.locataire = locataire;
+-		vue.getModifPrenom().setText(locataire.getPrenom());
++		this.vue.getModifPrenom().setText(locataire.getPrenom());
+ 		vue.getModifNom().setText(locataire.getNom());
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+ 		String dateStr = locataire.getDateNaissance().format(formatter);
