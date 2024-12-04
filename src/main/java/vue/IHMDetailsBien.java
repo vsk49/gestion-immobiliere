@@ -10,21 +10,29 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Panel;
+import java.util.Objects;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
+import java.awt.FlowLayout;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingConstants;
 
 public class IHMDetailsBien extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	private JTextField textField_8;
+	private JTextField textField_9;
+	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+	private JTextField textField_13;
+	private JTextField textField_14;
+	private JTextField textField_15;
+	private JTable tableLocataires;
 
 	/**
 	 * Launch the application.
@@ -46,7 +54,7 @@ public class IHMDetailsBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsBien() {
-		setTitle("Détail de bail");
+		setTitle("Détail du bien");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -55,138 +63,222 @@ public class IHMDetailsBien extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.WEST);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelGauche = new JPanel();
+		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
+		contentPane.add(panelGauche, BorderLayout.WEST);
+		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel.add(lblNewLabel);
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
+		JButton BoutonGLocataires = new JButton();
+		BoutonGLocataires.setIcon(iconeLocataires);
+		panelGauche.add(BoutonGLocataires);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		panel.add(lblNewLabel_2);
+		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
+		JButton BoutonGBaux = new JButton();
+		BoutonGBaux.setIcon(iconeBaux);
+		panelGauche.add(BoutonGBaux);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		panel.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		panel.add(lblNewLabel_4);
+		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
+		JButton BoutonGDeclFisc = new JButton();
+		BoutonGDeclFisc.setIcon(iconeDeclFisc);
+		panelGauche.add(BoutonGDeclFisc);
+
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
+		JButton BoutonGFinances = new JButton();
+		BoutonGFinances.setIcon(iconeFinances);
+		panelGauche.add(BoutonGFinances);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+		JPanel panelMain = new JPanel();
+		panelMain.setBorder(new EmptyBorder(0, 0, 0, 5));
+		contentPane.add(panelMain, BorderLayout.CENTER);
+		panelMain.setLayout(new BorderLayout(0, 0));
 		
-		Panel premièrePartieFormulaire = new Panel();
-		panel_1.add(premièrePartieFormulaire);
-		premièrePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		JPanel panelFormulaire = new JPanel();
+		panelMain.add(panelFormulaire, BorderLayout.NORTH);
+		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel lblNewLabel_5 = new JLabel("Adresse :");
-		premièrePartieFormulaire.add(lblNewLabel_5);
+		Panel premierePartieFormulaire = new Panel();
+		panelFormulaire.add(premierePartieFormulaire);
+		premierePartieFormulaire.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		premièrePartieFormulaire.add(textField);
+		JPanel panelLabelsPartie1 = new JPanel();
+		premierePartieFormulaire.add(panelLabelsPartie1);
+		panelLabelsPartie1.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel labelVille = new JLabel("Ville :");
-		premièrePartieFormulaire.add(labelVille);
+		JPanel panelLabelAdresse = new JPanel();
+		panelLabelsPartie1.add(panelLabelAdresse);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		premièrePartieFormulaire.add(textField_1);
+		JLabel LabelAdresse_1_2 = new JLabel("Adresse :");
+		panelLabelAdresse.add(LabelAdresse_1_2);
 		
-		JLabel labelCodePostal = new JLabel("Code postale :");
-		premièrePartieFormulaire.add(labelCodePostal);
+		JPanel panelLabelVille = new JPanel();
+		panelLabelsPartie1.add(panelLabelVille);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		premièrePartieFormulaire.add(textField_2);
+		JLabel labelVille_1_2 = new JLabel("Ville :");
+		panelLabelVille.add(labelVille_1_2);
 		
-		JLabel labelEtage = new JLabel("Etage :");
-		premièrePartieFormulaire.add(labelEtage);
+		JPanel panelLabelCodepostal = new JPanel();
+		panelLabelsPartie1.add(panelLabelCodepostal);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		premièrePartieFormulaire.add(textField_3);
+		JLabel labelCodepostal_1_2 = new JLabel("Code postale :");
+		panelLabelCodepostal.add(labelCodepostal_1_2);
 		
-		Panel deuxièmePartieFormulaire = new Panel();
-		panel_1.add(deuxièmePartieFormulaire);
-		deuxièmePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		JPanel panelLabelEtage = new JPanel();
+		panelLabelsPartie1.add(panelLabelEtage);
 		
-		JLabel labelType = new JLabel("Type de bien :");
-		deuxièmePartieFormulaire.add(labelType);
+		JLabel labelEtage_1_2 = new JLabel("Etage :");
+		panelLabelEtage.add(labelEtage_1_2);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		deuxièmePartieFormulaire.add(textField_4);
+		JPanel panelLabelValeurPartie1 = new JPanel();
+		premierePartieFormulaire.add(panelLabelValeurPartie1);
+		panelLabelValeurPartie1.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panelLabelValeurAdresse = new JPanel();
+		panelLabelValeurPartie1.add(panelLabelValeurAdresse);
+		
+		JLabel LabelValeurAdresse = new JLabel("");
+		panelLabelValeurAdresse.add(LabelValeurAdresse);
+		
+		JPanel panelLabelValeurVille = new JPanel();
+		panelLabelValeurPartie1.add(panelLabelValeurVille);
+		
+		JLabel LabelValeurVille = new JLabel("");
+		panelLabelValeurVille.add(LabelValeurVille);
+		
+		JPanel panelLabelValeurCodepostal = new JPanel();
+		panelLabelValeurPartie1.add(panelLabelValeurCodepostal);
+		
+		JLabel LabelValeurCodepostal = new JLabel("");
+		panelLabelValeurCodepostal.add(LabelValeurCodepostal);
+		
+		JPanel panelLabelValeurEtage = new JPanel();
+		panelLabelValeurPartie1.add(panelLabelValeurEtage);
+		
+		JLabel LabelValeurEtage = new JLabel("");
+		panelLabelValeurEtage.add(LabelValeurEtage);
+		
+		Panel deuxiemePartieFormulaire = new Panel();
+		panelFormulaire.add(deuxiemePartieFormulaire);
+		deuxiemePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JPanel panelLabelsPartie2 = new JPanel();
+		deuxiemePartieFormulaire.add(panelLabelsPartie2);
+		panelLabelsPartie2.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panelLabelTypedebien = new JPanel();
+		panelLabelsPartie2.add(panelLabelTypedebien);
+		
+		JLabel LabelTypedebien = new JLabel("Type de bien :");
+		panelLabelTypedebien.add(LabelTypedebien);
+		
+		JPanel panelLabelSurface = new JPanel();
+		panelLabelsPartie2.add(panelLabelSurface);
 		
 		JLabel labelSurface = new JLabel("Surface :");
-		deuxièmePartieFormulaire.add(labelSurface);
+		panelLabelSurface.add(labelSurface);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		deuxièmePartieFormulaire.add(textField_5);
+		JPanel panelLabelNbPieces = new JPanel();
+		panelLabelsPartie2.add(panelLabelNbPieces);
 		
-		JLabel labelMail_1 = new JLabel("Nombre de pièces :");
-		deuxièmePartieFormulaire.add(labelMail_1);
+		JLabel labelNbPieces = new JLabel("Nombre de pièces :");
+		panelLabelNbPieces.add(labelNbPieces);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		deuxièmePartieFormulaire.add(textField_6);
+		JPanel panelLabelStatut = new JPanel();
+		panelLabelsPartie2.add(panelLabelStatut);
 		
 		JLabel labelStatut = new JLabel("Statut :");
-		deuxièmePartieFormulaire.add(labelStatut);
+		panelLabelStatut.add(labelStatut);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		deuxièmePartieFormulaire.add(textField_7);
+		JPanel panelLabelValeurPartie2 = new JPanel();
+		deuxiemePartieFormulaire.add(panelLabelValeurPartie2);
+		panelLabelValeurPartie2.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_3 = new JPanel();
-		contentPane.add(panel_3, BorderLayout.SOUTH);
-		panel_3.setLayout(new GridLayout(2, 2, 0, 0));
+		JPanel panelLabelValeurTypedebien = new JPanel();
+		panelLabelValeurPartie2.add(panelLabelValeurTypedebien);
 		
-		JPanel panel_5 = new JPanel();
-		panel_3.add(panel_5);
-		panel_5.setLayout(new GridLayout(2, 2, 0, 0));
+		JLabel LabelValeurTypedebien = new JLabel("");
+		panelLabelValeurTypedebien.add(LabelValeurTypedebien);
 		
-		JLabel labelDocsLiéAuBien = new JLabel("Liste des documents liés aux biens :");
-		panel_5.add(labelDocsLiéAuBien);
+		JPanel panelLabelValeurSurface = new JPanel();
+		panelLabelValeurPartie2.add(panelLabelValeurSurface);
 		
-		JPanel panel_6 = new JPanel();
-		panel_5.add(panel_6);
-		panel_6.setLayout(new GridLayout(2, 2, 0, 0));
+		JLabel LabelValeurSurface = new JLabel("");
+		panelLabelValeurSurface.add(LabelValeurSurface);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Fichier Bail");
-		panel_6.add(lblNewLabel_2_1);
+		JPanel panelLabelValeurNbPieces = new JPanel();
+		panelLabelValeurPartie2.add(panelLabelValeurNbPieces);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Fichier Diagnostics");
-		panel_6.add(lblNewLabel_3_1);
+		JLabel LabelValeurNbPieces = new JLabel("");
+		panelLabelValeurNbPieces.add(LabelValeurNbPieces);
 		
-		JPanel panel_4 = new JPanel();
-		panel_3.add(panel_4);
+		JPanel panelLabelValeurStatut = new JPanel();
+		panelLabelValeurPartie2.add(panelLabelValeurStatut);
+		
+		JLabel LabelValeurStatut = new JLabel("");
+		panelLabelValeurStatut.add(LabelValeurStatut);
+		
+		JPanel panelDocsEtLocataires = new JPanel();
+		panelDocsEtLocataires.setBorder(new EmptyBorder(10, 0, 10, 0));
+		panelMain.add(panelDocsEtLocataires, BorderLayout.CENTER);
+		panelDocsEtLocataires.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panelListeLocataire = new JPanel();
+		panelListeLocataire.setBorder(new EmptyBorder(0, 0, 0, 5));
+		panelDocsEtLocataires.add(panelListeLocataire, BorderLayout.WEST);
+		panelListeLocataire.setLayout(new BorderLayout(0, 0));
+		
+		JLabel LabelLocataire = new JLabel("Liste des locataires :");
+		LabelLocataire.setVerticalAlignment(SwingConstants.BOTTOM);
+		panelListeLocataire.add(LabelLocataire, BorderLayout.NORTH);
+		
+		tableLocataires = new JTable();
+		tableLocataires.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column"
+			}
+		));
+		panelListeLocataire.add(tableLocataires);
+		
+		JPanel panelDocuments_1 = new JPanel();
+		panelDocuments_1.setBorder(new EmptyBorder(0, 0, 0, 5));
+		panelDocsEtLocataires.add(panelDocuments_1, BorderLayout.EAST);
+		panelDocuments_1.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JLabel labelDocsLieAuBien_1 = new JLabel("Liste des documents liés aux biens :");
+		labelDocsLieAuBien_1.setVerticalAlignment(SwingConstants.BOTTOM);
+		labelDocsLieAuBien_1.setHorizontalAlignment(SwingConstants.LEFT);
+		panelDocuments_1.add(labelDocsLieAuBien_1);
+		
+		JPanel panelListeDocuments_1 = new JPanel();
+		panelDocuments_1.add(panelListeDocuments_1);
+		panelListeDocuments_1.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		
+		JButton btnNewButton_2 = new JButton("Exemple1.pdf");
+		panelListeDocuments_1.add(btnNewButton_2);
+		
+		JButton btnNewButton_1_1 = new JButton("Exemple2.pdf");
+		panelListeDocuments_1.add(btnNewButton_1_1);
+		
+		JPanel panelBouton = new JPanel();
+		panelMain.add(panelBouton, BorderLayout.SOUTH);
 		
 		JButton boutonAnnuler = new JButton("Annuler");
-		panel_4.add(boutonAnnuler);
+		panelBouton.add(boutonAnnuler);
 		
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
-		panel_4.add(BoutonRéinitialiser);
+		panelBouton.add(BoutonRéinitialiser);
 		
 		JButton boutonValider = new JButton("Valider");
-		panel_4.add(boutonValider);
-		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.EAST);
-		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JLabel labelChoixLocataire = new JLabel("Ajouter un locataire (facultatif) :");
-		panel_2.add(labelChoixLocataire);
-		
-		JComboBox comboBox = new JComboBox();
-		panel_2.add(comboBox);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("");
-		panel_2.add(lblNewLabel_1_1);
+		panelBouton.add(boutonValider);
 	}
 
 }
