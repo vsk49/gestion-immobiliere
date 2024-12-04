@@ -17,15 +17,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JSpinner;
+import java.awt.Font;
+import java.awt.FlowLayout;
 
 public class IHMAjouterLocataire extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JTextField saisieNom;
-	private JTextField saisiePrenom;
-	private JTextField saisieDateDeNaissance;
-	private JTextField saisieTelephone;
-	private JTextField saisieEmail;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textFieldTelephobe;
+	private JTextField textFieldEmail;
 
 
 	/**
@@ -49,7 +52,7 @@ public class IHMAjouterLocataire extends JFrame {
 	 */
 	public IHMAjouterLocataire() {
 		setTitle("Ajout de locataire");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 513, 320);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -80,27 +83,54 @@ public class IHMAjouterLocataire extends JFrame {
 		menu.add(BoutonGFinances);
 		
 		JLabel labelAjouterBien = new JLabel("Ajouter un locataire");
+		labelAjouterBien.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		labelAjouterBien.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel panelBasDePage = new JPanel();
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JPanel panelDocuments = new JPanel();
-		panelBasDePage.add(panelDocuments);
-		panelDocuments.setLayout(new GridLayout(2, 2, 0, 0));
+		JPanel panelBienEtDocuments = new JPanel();
+		panelBienEtDocuments.setBorder(new EmptyBorder(5, 0, 0, 0));
+		panelBasDePage.add(panelBienEtDocuments);
+		panelBienEtDocuments.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel labelDocsLiéAuLocataire = new JLabel("Liste des documents liés au locataire :");
-		panelDocuments.add(labelDocsLiéAuLocataire);
+		JPanel panelChoixBien = new JPanel();
+		panelChoixBien.setBorder(new EmptyBorder(0, 5, 0, 0));
+		panelBienEtDocuments.add(panelChoixBien);
+		panelChoixBien.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JPanel panelFichiers = new JPanel();
-		panelDocuments.add(panelFichiers);
-		panelFichiers.setLayout(new GridLayout(2, 2, 0, 0));
+		JPanel panelLabelBien = new JPanel();
+		FlowLayout fl_panelLabelBien = (FlowLayout) panelLabelBien.getLayout();
+		panelChoixBien.add(panelLabelBien);
 		
-		JLabel labelFichierBail = new JLabel("Fichier Bail");
-		panelFichiers.add(labelFichierBail);
+		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
+		panelLabelBien.add(labelChoixBien);
 		
-		JLabel labelFeuillePaie = new JLabel("Feuille de paie ");
-		panelFichiers.add(labelFeuillePaie);
+		JPanel panelComboboxBien = new JPanel();
+		FlowLayout fl_panelComboboxBien = (FlowLayout) panelComboboxBien.getLayout();
+		panelChoixBien.add(panelComboboxBien);
+		
+		JComboBox comboBoxBien = new JComboBox();
+		panelComboboxBien.add(comboBoxBien);
+		
+		JPanel panelFichierDocuments = new JPanel();
+		panelBienEtDocuments.add(panelFichierDocuments);
+		panelFichierDocuments.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panelLabelEtAjoutDocuments = new JPanel();
+		panelFichierDocuments.add(panelLabelEtAjoutDocuments);
+		
+		JLabel LabelAjoutDocument = new JLabel("Documents location");
+		panelLabelEtAjoutDocuments.add(LabelAjoutDocument);
+		
+		JButton BoutonAjouterDocuments = new JButton("Ajouter un document");
+		panelLabelEtAjoutDocuments.add(BoutonAjouterDocuments);
+		
+		JPanel panelListeDocuments = new JPanel();
+		panelFichierDocuments.add(panelListeDocuments);
+		
+		JButton BoutonDocumentExemple = new JButton("Exemple.pdf");
+		panelListeDocuments.add(BoutonDocumentExemple);
 		
 		JPanel panelbouton = new JPanel();
 		panelBasDePage.add(panelbouton);
@@ -126,64 +156,98 @@ public class IHMAjouterLocataire extends JFrame {
 		panelBody.add(labelAjouterBien, BorderLayout.NORTH);
 		
 		JPanel panelFormulaire = new JPanel();
+		panelFormulaire.setBorder(new EmptyBorder(15, 0, 0, 0));
 		panelBody.add(panelFormulaire);
 		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		Panel panelPremièrePartieFormulaire = new Panel();
-		panelFormulaire.add(panelPremièrePartieFormulaire);
-		panelPremièrePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		Panel panelPremierePartieFormulaire = new Panel();
+		panelFormulaire.add(panelPremierePartieFormulaire);
+		panelPremierePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel labelNom = new JLabel("Nom :");
-		panelPremièrePartieFormulaire.add(labelNom);
+		JPanel panelLabelsPartie1 = new JPanel();
+		panelPremierePartieFormulaire.add(panelLabelsPartie1);
+		panelLabelsPartie1.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		saisieNom = new JTextField();
-		saisieNom.setColumns(10);
-		panelPremièrePartieFormulaire.add(saisieNom);
+		JPanel panel_7 = new JPanel();
+		panelLabelsPartie1.add(panel_7);
 		
-		JLabel labelPrenom = new JLabel("Prenom :");
-		panelPremièrePartieFormulaire.add(labelPrenom);
+		JLabel labelNom_1 = new JLabel("Nom :");
+		panel_7.add(labelNom_1);
 		
-		saisiePrenom = new JTextField();
-		saisiePrenom.setColumns(10);
-		panelPremièrePartieFormulaire.add(saisiePrenom);
+		JPanel panel_8 = new JPanel();
+		panelLabelsPartie1.add(panel_8);
 		
-		JLabel labelCodePostal = new JLabel("Date de naissance :");
-		panelPremièrePartieFormulaire.add(labelCodePostal);
+		JLabel labelPrenom_1 = new JLabel("Prenom :");
+		panel_8.add(labelPrenom_1);
 		
-		saisieDateDeNaissance = new JTextField();
-		saisieDateDeNaissance.setColumns(10);
-		panelPremièrePartieFormulaire.add(saisieDateDeNaissance);
+		JPanel panel_9 = new JPanel();
+		panelLabelsPartie1.add(panel_9);
+		
+		JLabel labelCodePostal_1 = new JLabel("Date de naissance :");
+		panel_9.add(labelCodePostal_1);
+		
+		JPanel panelTextfieldPartie1 = new JPanel();
+		panelPremierePartieFormulaire.add(panelTextfieldPartie1);
+		panelTextfieldPartie1.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel_10 = new JPanel();
+		panelTextfieldPartie1.add(panel_10);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		panel_10.add(textField);
+		
+		JPanel panel_11 = new JPanel();
+		panelTextfieldPartie1.add(panel_11);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		panel_11.add(textField_1);
+		
+		JPanel panel_12 = new JPanel();
+		panelTextfieldPartie1.add(panel_12);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		panel_12.add(textField_2);
 		
 		Panel panelDeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDeuxièmePartieFormulaire);
 		panelDeuxièmePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JLabel labelTelephone = new JLabel("Téléphone :");
-		panelDeuxièmePartieFormulaire.add(labelTelephone);
+		JPanel panelLabelsPartie2 = new JPanel();
+		panelDeuxièmePartieFormulaire.add(panelLabelsPartie2);
+		panelLabelsPartie2.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		saisieTelephone = new JTextField();
-		saisieTelephone.setColumns(10);
-		panelDeuxièmePartieFormulaire.add(saisieTelephone);
+		JPanel panelTelephone = new JPanel();
+		panelLabelsPartie2.add(panelTelephone);
+		
+		JLabel labelTelephone = new JLabel("Téléphone :");
+		panelTelephone.add(labelTelephone);
+		
+		JPanel panelEmail = new JPanel();
+		panelLabelsPartie2.add(panelEmail);
 		
 		JLabel labelEmail = new JLabel("Email :");
-		panelDeuxièmePartieFormulaire.add(labelEmail);
+		panelEmail.add(labelEmail);
 		
-		saisieEmail = new JTextField();
-		saisieEmail.setColumns(10);
-		panelDeuxièmePartieFormulaire.add(saisieEmail);
+		JPanel panelTextfieldPartie2 = new JPanel();
+		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
+		panelTextfieldPartie2.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelSelectionBien = new JPanel();
-		panelBody.add(panelSelectionBien,BorderLayout.EAST);
-		panelSelectionBien.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelTextfieldTelephone = new JPanel();
+		panelTextfieldPartie2.add(panelTextfieldTelephone);
 		
-		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
-		panelSelectionBien.add(labelChoixBien);
+		textFieldTelephobe = new JTextField();
+		textFieldTelephobe.setColumns(10);
+		panelTextfieldTelephone.add(textFieldTelephobe);
 		
-		JComboBox listeDeroulanteBien = new JComboBox();
-		panelSelectionBien.add(listeDeroulanteBien);
+		JPanel panelTextfieldEmail = new JPanel();
+		panelTextfieldPartie2.add(panelTextfieldEmail);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		panelSelectionBien.add(lblNewLabel_1);
+		textFieldEmail = new JTextField();
+		textFieldEmail.setColumns(10);
+		panelTextfieldEmail.add(textFieldEmail);
 	}
 
 }

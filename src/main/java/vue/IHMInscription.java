@@ -5,23 +5,20 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
-import javax.swing.BoxLayout;
-import java.awt.Component;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import java.awt.GridLayout;
 import javax.swing.JTextField;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import java.awt.Font;
 
 public class IHMInscription extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField ChampEmail;
-	private JTextField ChampMotdepasse;
+	private JTextField textFieldMail;
+	private JTextField textFieldMotdepasse;
 
 	/**
 	 * Launch the application.
@@ -45,51 +42,60 @@ public class IHMInscription extends JFrame {
 	public IHMInscription() {
 		setTitle("Inscription");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 306, 340);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel LabelTitre = new JLabel("Inscription");
-		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(LabelTitre);
+		JLabel LabelInscription = new JLabel("Inscription");
+		LabelInscription.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		LabelInscription.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(LabelInscription);
 		
 		JPanel panelMain = new JPanel();
 		contentPane.add(panelMain);
 		panelMain.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelMail = new JPanel();
-		panelMain.add(panelMail);
-		panelMail.setLayout(new GridLayout(2, 1, 0, 0));
+		JPanel panelEmail = new JPanel();
+		panelMain.add(panelEmail);
+		panelEmail.setLayout(new GridLayout(2, 1, 0, 0));
 		
-		JLabel LabelEmail = new JLabel("Adresse Mail :");
-		panelMail.add(LabelEmail);
+		JLabel LabelMail = new JLabel("Adresse Mail :");
+		LabelMail.setHorizontalAlignment(SwingConstants.CENTER);
+		panelEmail.add(LabelMail);
 		
-		ChampEmail = new JTextField();
-		panelMail.add(ChampEmail);
-		ChampEmail.setColumns(10);
+		JPanel paneltextFieldMail = new JPanel();
+		panelEmail.add(paneltextFieldMail);
+		
+		textFieldMail = new JTextField();
+		paneltextFieldMail.add(textFieldMail);
+		textFieldMail.setColumns(10);
 		
 		JPanel panelMotdepasse = new JPanel();
 		panelMain.add(panelMotdepasse);
 		panelMotdepasse.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		JLabel LabelMotdepasse = new JLabel("Mot de Passe :");
+		LabelMotdepasse.setHorizontalAlignment(SwingConstants.CENTER);
 		panelMotdepasse.add(LabelMotdepasse);
 		
-		ChampMotdepasse = new JTextField();
-		panelMotdepasse.add(ChampMotdepasse);
-		ChampMotdepasse.setColumns(10);
+		JPanel paneltextFieldMotdepasse = new JPanel();
+		panelMotdepasse.add(paneltextFieldMotdepasse);
+		
+		textFieldMotdepasse = new JTextField();
+		paneltextFieldMotdepasse.add(textFieldMotdepasse);
+		textFieldMotdepasse.setColumns(10);
 		
 		JPanel panelBouton = new JPanel();
 		contentPane.add(panelBouton);
+		panelBouton.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
 		
 		JButton BoutonAnnuler = new JButton("Annuler");
+		panelBouton.add(BoutonAnnuler);
 		
 		JButton BoutonValider = new JButton("Valider");
-		panelBouton.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
-		panelBouton.add(BoutonAnnuler);
 		panelBouton.add(BoutonValider);
 	}
 
