@@ -212,18 +212,18 @@ public class IHMDetailsLocataire extends JFrame {
 	}
 
 	public JTextField getModifPrenom(){
-		return saisieModificationPrenom;
+		return this.saisieModificationPrenom;
 	}
 	public JTextField getModifNom(){
-		return saisieModificationNom;
+		return this.saisieModificationNom;
 	}
 	public JTextField getModifDateNaissance(){
-		return saisieModificationDateNaissance;
+		return this.saisieModificationDateNaissance;
 	}
 	public JTextField getModifTelephone(){
-		return saisieModificationTelephone;
+		return this.saisieModificationTelephone;
 	}
 	public JTextField getModifEmail(){
-		return saisieModificationEmail;
+		return this.saisieModificationEmail;
 	}
 }
