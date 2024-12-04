@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[TEST] solving pipeline errors." />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[TEST] configure .gitlab-ci.yml according to maven structure." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733309359701</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[TEST] configure .gitlab-ci.yml according to maven structure.">
+      <option name="closed" value="true" />
+      <created>1733309776140</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733309776140</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +189,7 @@
     <MESSAGE value="[CODE] changed the image source path." />
     <MESSAGE value="[TEST] IHMDetailsLocataire" />
     <MESSAGE value="[TEST] solving pipeline errors." />
-    <option name="LAST_COMMIT_MESSAGE" value="[TEST] solving pipeline errors." />
+    <MESSAGE value="[TEST] configure .gitlab-ci.yml according to maven structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="[TEST] configure .gitlab-ci.yml according to maven structure." />
   </component>
 </project>
