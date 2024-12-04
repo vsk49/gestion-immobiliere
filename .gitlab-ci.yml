@@ -3,30 +3,36 @@ stages:
   - test
   - deploy
 
-# Define a Maven build stage
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
 build:
   stage: build
-  image: maven:3.9-eclipse-temurin-17
+  image: maven:3.9-eclipse-temurin-17  # Use Java 17 (or change to Java 8 if needed)
   script:
-    - echo "Building the project..."
+    - echo "Starting the Maven build..."
     - mvn clean package
   artifacts:
     paths:
-      - target/*.jar
-    when: always
+      - target/*.jar  # Ensure the built JAR is available as an artifact
+    expire_in: 1 week  # Optional: Define how long to keep artifacts
 
-# Define a Maven test stage
 test:
   stage: test
   image: maven:3.9-eclipse-temurin-17
   script:
-    - echo "Running tests..."
+    - echo "Running unit tests..."
     - mvn test
+  artifacts:
+    when: always
+    paths:
+      - target/surefire-reports/  # Store test reports
+    expire_in: 1 week
 
-# Optional deployment stage (can be customized later)
 deploy:
   stage: deploy
-  image: maven:3.9-eclipse-temurin-17
+  image: alpine:latest
   script:
-    - echo "Deploying the project..."
-    - echo "No deployment configured yet!"
+    - echo "Deploying the application..."
+    # Replace this with your deployment script
+    - echo "Deployment complete."
