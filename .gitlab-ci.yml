@@ -15,7 +15,7 @@ build:
   image: maven:3.9-eclipse-temurin-17  # Use Java 17 (or change to Java 8 if needed)
   script:
     - echo "Starting the Maven build..."
-    - mvn clean package -X
+    - mvn clean package -B
   artifacts:
     paths:
       - target/*.jar  # Ensure the built JAR is available as an artifact
@@ -26,7 +26,7 @@ test:
   image: maven:3.9-eclipse-temurin-17
   script:
     - echo "Running unit tests..."
-    - mvn test -X
+    - mvn test -B
   artifacts:
     when: always
     paths:
