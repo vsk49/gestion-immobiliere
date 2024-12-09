@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="Trying again." />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="Trying again (1)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Electricite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modele/TaxeFonciere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCharge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCharge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Charge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Eau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Eau.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +124,8 @@
       <workItem from="1733062693667" duration="1701000" />
       <workItem from="1733064417168" duration="4953000" />
       <workItem from="1733302666817" duration="4629000" />
+      <workItem from="1733730439404" duration="8291000" />
+      <workItem from="1733752869377" duration="507000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -162,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733311078739</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Trying again (1)">
+      <option name="closed" value="true" />
+      <created>1733311261576</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733311261576</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +229,7 @@
     <MESSAGE value="[TEST] configure .gitlab-ci.yml according to maven structure." />
     <MESSAGE value="[TEST] configure pom.xml to fix pipeline." />
     <MESSAGE value="Trying again." />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying again." />
+    <MESSAGE value="Trying again (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying again (1)" />
   </component>
 </project>
