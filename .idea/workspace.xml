@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="Trying again (1)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Electricite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modele/TaxeFonciere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCharge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCharge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Charge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Eau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Eau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCConnexion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +118,7 @@
       <workItem from="1733064417168" duration="4953000" />
       <workItem from="1733302666817" duration="4629000" />
       <workItem from="1733730439404" duration="8291000" />
-      <workItem from="1733752869377" duration="507000" />
+      <workItem from="1733752869377" duration="1603000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -183,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733311261576</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite">
+      <option name="closed" value="true" />
+      <created>1733753575430</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733753575430</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +231,7 @@
     <MESSAGE value="[TEST] configure pom.xml to fix pipeline." />
     <MESSAGE value="Trying again." />
     <MESSAGE value="Trying again (1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying again (1)" />
+    <MESSAGE value="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite" />
   </component>
 </project>
