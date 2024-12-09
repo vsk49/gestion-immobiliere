@@ -140,7 +140,7 @@ public class IHMAjouterBail extends JFrame {
 		JLabel LabelDocuments = new JLabel("Documents du bail");
 		panelTitreEtAjoutDocs.add(LabelDocuments);
 		
-		JButton btnNewButton = new JButton("Ajout nouveau locataire");
+		JButton btnNewButton = new JButton("Ajout nouveau bail");
 		panelTitreEtAjoutDocs.add(btnNewButton);
 		
 		JPanel panelListeDocuments = new JPanel();
