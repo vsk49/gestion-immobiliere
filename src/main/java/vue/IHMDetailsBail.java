@@ -3,16 +3,24 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.util.Objects;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class IHMDetailsBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable tableLocataires;
 
 	/**
 	 * Launch the application.
@@ -35,63 +43,120 @@ public class IHMDetailsBail extends JFrame {
 	 */
 	public IHMDetailsBail() {
 		setTitle("Détail du bail");
-setLayout(new BorderLayout(0, 0));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
 		
-		JPanel panel = new JPanel();
-		add(panel, BorderLayout.WEST);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JLabel imageLocataire = new JLabel("image Locataire");
-		panel.add(imageLocataire);
+		JPanel panelGauche = new JPanel();
+		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
+		contentPane.add(panelGauche, BorderLayout.WEST);
+		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel imageBien = new JLabel("Image Bien");
-		panel.add(imageBien);
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
+		JButton BoutonGLocataires = new JButton();
+		BoutonGLocataires.setIcon(iconeLocataires);
+		panelGauche.add(BoutonGLocataires);
 		
-		JLabel ImageBaux = new JLabel("Image Baux");
-		panel.add(ImageBaux);
 		
-		JLabel ImageDéclarationFiscale = new JLabel("Image Déclaration Fiscale");
-		panel.add(ImageDéclarationFiscale);
+		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
+		JButton BoutonGBiens = new JButton();
+		BoutonGBiens.setIcon(iconeBiens);
+		panelGauche.add(BoutonGBiens);
 		
-		JLabel ImageFinance = new JLabel("Image Finance");
-		panel.add(ImageFinance);
 		
-		JLabel labelDetailBail = new JLabel("Détails du bail ");
-		add(labelDetailBail, BorderLayout.NORTH);
-		
-		JPanel panel_1 = new JPanel();
-		add(panel_1, BorderLayout.CENTER);
-		
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2);
-		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JLabel lienBien = new JLabel("Bien lié au bail");
-		panel_2.add(lienBien);
-		
-		JLabel lienLocataire = new JLabel("Locataire lié au bail ");
-		panel_2.add(lienLocataire);
-		
-		JPanel panel_3 = new JPanel();
-		panel_1.add(panel_3);
-		panel_3.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panel_5 = new JPanel();
-		panel_3.add(panel_5);
-		panel_5.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JLabel labelDocsLiéAuBien = new JLabel("Liste des documents liés aux biens :");
-		panel_5.add(labelDocsLiéAuBien);
-		
-		JPanel panel_6 = new JPanel();
-		panel_5.add(panel_6);
-		panel_6.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JLabel lblNewLabel_2 = new JLabel("Fichier du bail");
-		panel_6.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Fiche de paie");
-		panel_6.add(lblNewLabel_3);
-	}
+		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
+		JButton BoutonGDeclFisc = new JButton();
+		BoutonGDeclFisc.setIcon(iconeDeclFisc);
+		panelGauche.add(BoutonGDeclFisc);
 
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
+		JButton BoutonGFinances = new JButton();
+		BoutonGFinances.setIcon(iconeFinances);
+		panelGauche.add(BoutonGFinances);
+		
+		JPanel panelMain = new JPanel();
+		panelMain.setBorder(new EmptyBorder(0, 0, 0, 5));
+		contentPane.add(panelMain);
+		panelMain.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panelBouton = new JPanel();
+		panelMain.add(panelBouton, BorderLayout.SOUTH);
+		
+		JButton boutonModifier = new JButton("Modifier");
+		panelBouton.add(boutonModifier);
+		
+		JButton boutonRetour = new JButton("Retour");
+		panelBouton.add(boutonRetour);
+		
+		JLabel LabelTitre = new JLabel("Détail du bail");
+		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		panelMain.add(LabelTitre, BorderLayout.NORTH);
+		
+		JPanel panelCenter = new JPanel();
+		panelMain.add(panelCenter, BorderLayout.CENTER);
+		panelCenter.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panelBienEtDocuments = new JPanel();
+		panelCenter.add(panelBienEtDocuments);
+		panelBienEtDocuments.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JPanel panelBien = new JPanel();
+		panelBienEtDocuments.add(panelBien);
+		panelBien.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JLabel LabelBien = new JLabel("Le bien");
+		LabelBien.setHorizontalAlignment(SwingConstants.CENTER);
+		panelBien.add(LabelBien);
+		
+		JPanel panelBoutonBien = new JPanel();
+		panelBien.add(panelBoutonBien);
+		
+		JButton BoutonBien = new JButton("");
+		panelBoutonBien.add(BoutonBien);
+		
+		JPanel panelDocuments = new JPanel();
+		panelBienEtDocuments.add(panelDocuments);
+		panelDocuments.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JLabel labelDocuments = new JLabel("Les documents associés à ce bail");
+		labelDocuments.setHorizontalAlignment(SwingConstants.CENTER);
+		panelDocuments.add(labelDocuments);
+		
+		JPanel panelBoutonDocuments = new JPanel();
+		panelDocuments.add(panelBoutonDocuments);
+		
+		JButton BoutonDocumentBail = new JButton("Bail.pdf");
+		panelBoutonDocuments.add(BoutonDocumentBail);
+		
+		JButton BoutonDocumentFeuillepaie = new JButton("Feuille de paie.pdf");
+		panelBoutonDocuments.add(BoutonDocumentFeuillepaie);
+		
+		JPanel panelLocataires = new JPanel();
+		panelCenter.add(panelLocataires);
+		panelLocataires.setLayout(new BorderLayout(0, 0));
+		
+		JLabel LabelLocataires = new JLabel("Liste des locataires");
+		LabelLocataires.setHorizontalAlignment(SwingConstants.CENTER);
+		panelLocataires.add(LabelLocataires, BorderLayout.NORTH);
+		
+		JPanel panelTableLocataires = new JPanel();
+		panelLocataires.add(panelTableLocataires, BorderLayout.CENTER);
+		
+		tableLocataires = new JTable();
+		tableLocataires.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Nom", "Prenom", "Sexe", "\u00C2ge"},
+				{null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column"
+			}
+		));
+		panelTableLocataires.add(tableLocataires);
+	}
 }
