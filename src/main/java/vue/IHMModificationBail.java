@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.CardLayout;
 import java.awt.Component;
 
-public class IHMAjouterBail extends JFrame {
+public class IHMModificationBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -36,7 +36,7 @@ public class IHMAjouterBail extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IHMAjouterBail frame = new IHMAjouterBail();
+					IHMModificationBail frame = new IHMModificationBail();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,8 +48,8 @@ public class IHMAjouterBail extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMAjouterBail() {
-		setTitle("Ajouter un bail");
+	public IHMModificationBail() {
+		setTitle("Modification d'un bail");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -91,7 +91,7 @@ public class IHMAjouterBail extends JFrame {
 		JPanel panelTitre = new JPanel();
 		panelBody.add(panelTitre, BorderLayout.NORTH);
 		
-		JLabel LabelTitre = new JLabel("Ajout d'un bail");
+		JLabel LabelTitre = new JLabel("Modification d'un bail");
 		panelTitre.add(LabelTitre);
 		
 		JPanel panelBoutons = new JPanel();
@@ -100,7 +100,7 @@ public class IHMAjouterBail extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
-
+		
 		JButton ButtonReinitialiser = new JButton("Reinitialiser");
 		panelBoutons.add(ButtonReinitialiser);
 		
