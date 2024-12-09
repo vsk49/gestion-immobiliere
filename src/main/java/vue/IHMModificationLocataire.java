@@ -21,9 +21,14 @@ import javax.swing.JSpinner;
 import java.awt.Font;
 import java.awt.FlowLayout;
 
-public class IHMDetailsLocataire extends JFrame {
+public class IHMModificationLocataire extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textFieldTelephobe;
+	private JTextField textFieldEmail;
 
 
 	/**
@@ -33,7 +38,7 @@ public class IHMDetailsLocataire extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IHMDetailsLocataire frame = new IHMDetailsLocataire();
+					IHMModificationLocataire frame = new IHMModificationLocataire();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,8 +50,8 @@ public class IHMDetailsLocataire extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMDetailsLocataire() {
-		setTitle("Détails du locataire");
+	public IHMModificationLocataire() {
+		setTitle("Modification du locataire");
 		setBounds(100, 100, 513, 320);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -77,9 +82,9 @@ public class IHMDetailsLocataire extends JFrame {
 		BoutonGFinances.setIcon(iconeFinances);
 		menu.add(BoutonGFinances);
 		
-		JLabel labelAjouterBien = new JLabel("Détails du locataire ");
-		labelAjouterBien.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		labelAjouterBien.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel labelModifierLocataire = new JLabel("Modification du locataire");
+		labelModifierLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		labelModifierLocataire.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel panelBasDePage = new JPanel();
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
@@ -98,7 +103,7 @@ public class IHMDetailsLocataire extends JFrame {
 		FlowLayout fl_panelLabelBien = (FlowLayout) panelLabelBien.getLayout();
 		panelChoixBien.add(panelLabelBien);
 		
-		JLabel labelChoixBien = new JLabel("Bien du locataire");
+		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
 		panelLabelBien.add(labelChoixBien);
 		
 		JPanel panelComboboxBien = new JPanel();
@@ -115,8 +120,11 @@ public class IHMDetailsLocataire extends JFrame {
 		JPanel panelLabelEtAjoutDocuments = new JPanel();
 		panelFichierDocuments.add(panelLabelEtAjoutDocuments);
 		
-		JLabel LabelAjoutDocument = new JLabel("Documents location :");
+		JLabel LabelAjoutDocument = new JLabel("Documents location");
 		panelLabelEtAjoutDocuments.add(LabelAjoutDocument);
+		
+		JButton BoutonAjouterDocuments = new JButton("Ajouter un document");
+		panelLabelEtAjoutDocuments.add(BoutonAjouterDocuments);
 		
 		JPanel panelListeDocuments = new JPanel();
 		panelFichierDocuments.add(panelListeDocuments);
@@ -127,22 +135,25 @@ public class IHMDetailsLocataire extends JFrame {
 		JPanel panelbouton = new JPanel();
 		panelBasDePage.add(panelbouton);
 		
-		JButton boutonRetour = new JButton("Retour");
-		boutonRetour.addActionListener(new ActionListener() {
+		JButton boutonAnnuler = new JButton("Annuler");
+		boutonAnnuler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panelbouton.add(boutonRetour);
+		panelbouton.add(boutonAnnuler);
 		
-		JButton boutonModifier = new JButton("Modifier");
-		panelbouton.add(boutonModifier);
+		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
+		panelbouton.add(BoutonRéinitialiser);
+		
+		JButton boutonValider = new JButton("Valider");
+		panelbouton.add(boutonValider);
 		
 		JPanel panelBody = new JPanel();
 		getContentPane().add(panelBody, BorderLayout.CENTER);
 		panelBody.setLayout(new BorderLayout(0, 0));
 		
 		panelBody.add(panelBasDePage, BorderLayout.SOUTH);
-		panelBody.add(labelAjouterBien, BorderLayout.NORTH);
+		panelBody.add(labelModifierLocataire, BorderLayout.NORTH);
 		
 		JPanel panelFormulaire = new JPanel();
 		panelFormulaire.setBorder(new EmptyBorder(15, 0, 0, 0));
@@ -182,21 +193,23 @@ public class IHMDetailsLocataire extends JFrame {
 		JPanel panel_10 = new JPanel();
 		panelTextfieldPartie1.add(panel_10);
 		
-		JLabel labelContenuNom = new JLabel("New label");
-		labelContenuNom.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_10.add(labelContenuNom);
+		textField = new JTextField();
+		textField.setColumns(10);
+		panel_10.add(textField);
 		
 		JPanel panel_11 = new JPanel();
 		panelTextfieldPartie1.add(panel_11);
 		
-		JLabel labelContenuPrenom = new JLabel("New label");
-		panel_11.add(labelContenuPrenom);
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		panel_11.add(textField_1);
 		
 		JPanel panel_12 = new JPanel();
 		panelTextfieldPartie1.add(panel_12);
 		
-		JLabel labelContenuDateDeNaissance = new JLabel("New label");
-		panel_12.add(labelContenuDateDeNaissance);
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		panel_12.add(textField_2);
 		
 		Panel panelDeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDeuxièmePartieFormulaire);
@@ -225,14 +238,16 @@ public class IHMDetailsLocataire extends JFrame {
 		JPanel panelTextfieldTelephone = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldTelephone);
 		
-		JLabel labelContenuTelephone = new JLabel("New label");
-		panelTextfieldTelephone.add(labelContenuTelephone);
+		textFieldTelephobe = new JTextField();
+		textFieldTelephobe.setColumns(10);
+		panelTextfieldTelephone.add(textFieldTelephobe);
 		
 		JPanel panelTextfieldEmail = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldEmail);
 		
-		JLabel labelContenuEmail = new JLabel("New label");
-		panelTextfieldEmail.add(labelContenuEmail);
+		textFieldEmail = new JTextField();
+		textFieldEmail.setColumns(10);
+		panelTextfieldEmail.add(textFieldEmail);
 	}
 
 }
