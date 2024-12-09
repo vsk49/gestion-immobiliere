@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] l'ajout des entetes des fonctionnalites principales, testing IHMDetailsLocataire" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] pom.xml added plugin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +113,8 @@
       <workItem from="1733062693667" duration="1701000" />
       <workItem from="1733064417168" duration="4953000" />
       <workItem from="1733302666817" duration="4629000" />
+      <workItem from="1733730439404" duration="8291000" />
+      <workItem from="1733752869377" duration="3896000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -130,13 +132,97 @@
       <option name="project" value="LOCAL" />
       <updated>1733148531114</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[TEST] solving pipeline errors.">
+      <option name="closed" value="true" />
+      <created>1733309359701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733309359701</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[TEST] configure .gitlab-ci.yml according to maven structure.">
+      <option name="closed" value="true" />
+      <created>1733309776140</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733309776140</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[TEST] configure pom.xml to fix pipeline.">
+      <option name="closed" value="true" />
+      <created>1733310228610</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733310228610</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Trying again.">
+      <option name="closed" value="true" />
+      <created>1733311078739</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733311078739</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Trying again (1)">
+      <option name="closed" value="true" />
+      <created>1733311261576</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733311261576</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite">
+      <option name="closed" value="true" />
+      <created>1733753575430</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733753575430</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[CONFIG] pom.xml added plugin">
+      <option name="closed" value="true" />
+      <created>1733754983630</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733754983630</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[CONFIG] pom.xml added plugin">
+      <option name="closed" value="true" />
+      <created>1733756646204</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733756646204</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Virgil" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -152,6 +238,13 @@
     <MESSAGE value="[CONFIG] fixed the whole Maven project structure." />
     <MESSAGE value="[CODE] changed the image source path." />
     <MESSAGE value="[TEST] IHMDetailsLocataire" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TEST] IHMDetailsLocataire" />
+    <MESSAGE value="[TEST] solving pipeline errors." />
+    <MESSAGE value="[TEST] configure .gitlab-ci.yml according to maven structure." />
+    <MESSAGE value="[TEST] configure pom.xml to fix pipeline." />
+    <MESSAGE value="Trying again." />
+    <MESSAGE value="Trying again (1)" />
+    <MESSAGE value="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite" />
+    <MESSAGE value="[CONFIG] pom.xml added plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] pom.xml added plugin" />
   </component>
 </project>

@@ -5,21 +5,22 @@ import java.time.LocalDate;
 public class Compteur {
 
 	private int idCompteur;
-	private String numero;
+	private String numeroCompteur;
 	private TypeCompteur typeCompteur;
 	private int indexAncien;
 	private int indexActuel;
 	private LocalDate dateReleveEntree;
 	private int volumeEauConsommee;
 
-	public Compteur(int idCompteur, String numero, TypeCompteur typeCompteur, int indexAncien, int indexActuel,
-			LocalDate dateReleveEntree) {
+	public Compteur(int idCompteur, String numeroCompteur, TypeCompteur typeCompteur, int indexAncien,
+					int indexActuel, LocalDate dateReleveEntree, int volumeEauConsommee) {
 		this.idCompteur = idCompteur;
-		this.numero = numero;
+		this.numeroCompteur = numeroCompteur;
 		this.typeCompteur = typeCompteur;
 		this.indexAncien = indexAncien;
 		this.indexActuel = indexActuel;
 		this.dateReleveEntree = dateReleveEntree;
+		this.volumeEauConsommee = volumeEauConsommee;
 	}
 
 	public int getIdCompteur() {
@@ -27,7 +28,7 @@ public class Compteur {
 	}
 	
 	public String getNumero() {
-		return this.numero;
+		return this.numeroCompteur;
 	}
 	
 	public TypeCompteur getTypeCompteur() {
@@ -46,20 +47,25 @@ public class Compteur {
 		return this.indexActuel - this.indexAncien;
 	}
 
-	public void setIndexActuel(int indexActuel) {
-		this.indexActuel = indexActuel;
+	public void modifierIndexes(int nouveauIndex) {
+		this.indexAncien = this.indexActuel;
+		this.indexActuel = nouveauIndex;
 	}
 	
 	public LocalDate getDateReleveEntree() {
 		return this.dateReleveEntree;
 	}
 
+	public int getVolumeEauConsommee() {
+		return this.volumeEauConsommee;
+	}
+
 	public void ajouterReleve() {
 
 	}
 
-	public void remplacerCompteur(String numero, TypeCompteur typeCompteur) {
-		this.numero = numero;
+	public void remplacerCompteur(String numeroCompteur, TypeCompteur typeCompteur) {
+		this.numeroCompteur = numeroCompteur;
 		this.typeCompteur = typeCompteur;
 	}
 

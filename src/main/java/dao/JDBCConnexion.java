@@ -1,10 +1,12 @@
 package dao;
 
+import java.io.Serial;
 import java.sql.*;
 import oracle.jdbc.pool.OracleDataSource;
 
 public class JDBCConnexion extends OracleDataSource {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	private static Connection connexion;
 
