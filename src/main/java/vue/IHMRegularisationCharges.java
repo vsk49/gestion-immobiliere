@@ -88,6 +88,7 @@ public class IHMRegularisationCharges extends JFrame {
 		BoutonGDeclFisc.addActionListener(controleur);
 
 		JPanel panelBody = new JPanel();
+		panelBody.setBorder(new EmptyBorder(0, 5, 0, 0));
 		contentPane.add(panelBody, BorderLayout.CENTER);
 		panelBody.setLayout(new BorderLayout(0, 0));
 		
