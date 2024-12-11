@@ -9,6 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import vue.IHMGestionBaux;
+
 public class IHMDetailsBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -35,7 +41,17 @@ public class IHMDetailsBail extends JFrame {
 	 */
 	public IHMDetailsBail() {
 		setTitle("Détail du bail");
-setLayout(new BorderLayout(0, 0));
+		setLayout(new BorderLayout(0, 0));
+
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+                vueGestionBaux.setVisible(true);
+
+                dispose();
+            }
+        });
 		
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.WEST);

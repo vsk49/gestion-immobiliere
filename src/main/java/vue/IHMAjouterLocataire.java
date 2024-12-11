@@ -6,6 +6,8 @@ import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -56,6 +58,17 @@ public class IHMAjouterLocataire extends JFrame {
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
+		
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+                vueGestionLocataires.setVisible(true);
+
+                dispose();
+            }
+        });
+
 		JPanel menu = new JPanel();
 		getContentPane().add(menu, BorderLayout.WEST);
 		menu.setLayout(new GridLayout(0, 1, 0, 0));

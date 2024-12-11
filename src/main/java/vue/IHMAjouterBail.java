@@ -22,6 +22,10 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import vue.IHMGestionBaux;
 
 public class IHMAjouterBail extends JFrame {
 
@@ -50,14 +54,22 @@ public class IHMAjouterBail extends JFrame {
 	 */
 	public IHMAjouterBail() {
 		setTitle("Ajouter un bail");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+                vueGestionBaux.setVisible(true);
+
+                dispose();
+            }
+        });
+
 		JPanel panelGauche = new JPanel();
 		contentPane.add(panelGauche, BorderLayout.WEST);
 		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
