@@ -19,6 +19,9 @@ import javax.swing.JTable;
 import java.awt.FlowLayout;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.SwingConstants;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import vue.IHMGestionBiens;
 
 public class IHMDetailsBien extends JFrame {
 
@@ -55,10 +58,19 @@ public class IHMDetailsBien extends JFrame {
 	 */
 	public IHMDetailsBien() {
 		setTitle("Détail du bien");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+                vueGestionBiens.setVisible(true);
+
+                dispose();
+            }
+        });
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
