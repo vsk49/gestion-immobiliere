@@ -1,23 +1,29 @@
 package vue;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.util.Objects;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class IHMGestionBiens extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTable table;
 	private JTextField textField;
+	private JTable tableBaux;
 
 	/**
 	 * Launch the application.
@@ -37,61 +43,96 @@ public class IHMGestionBiens extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @return 
 	 */
 	public IHMGestionBiens() {
-		setTitle("Gestion des biens");
+		setTitle("Gestion des Biens");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.WEST);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelGauche = new JPanel();
+		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
+		contentPane.add(panelGauche, BorderLayout.WEST);
+		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel.add(lblNewLabel);
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
+		JButton BoutonGLocataires = new JButton();
+		BoutonGLocataires.setIcon(iconeLocataires);
+		panelGauche.add(BoutonGLocataires);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		panel.add(lblNewLabel_2);
+		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
+		JButton BoutonGBaux = new JButton();
+		BoutonGBaux.setIcon(iconeBaux);
+		panelGauche.add(BoutonGBaux);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		panel.add(lblNewLabel_3);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
+		JButton BoutonGDeclFisc = new JButton();
+		BoutonGDeclFisc.setIcon(iconeDeclFisc);
+		panelGauche.add(BoutonGDeclFisc);
+
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
+		JButton BoutonGFinances = new JButton();
+		BoutonGFinances.setIcon(iconeFinances);
+		panelGauche.add(BoutonGFinances);
 		
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2, BorderLayout.NORTH);
+		JPanel panelCentre = new JPanel();
+		contentPane.add(panelCentre, BorderLayout.CENTER);
+		panelCentre.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_4 = new JLabel("Gestion des biens");
-		panel_2.add(lblNewLabel_4);
+		JPanel panelParamRecherche = new JPanel();
+		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
+		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		textField = new JTextField();
-		panel_2.add(textField);
 		textField.setColumns(10);
+		panelParamRecherche.add(textField);
 		
-		JComboBox comboBox = new JComboBox();
-		panel_2.add(comboBox);
+		JButton BoutonRecherche = new JButton("Chercher");
+		panelParamRecherche.add(BoutonRecherche);
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		panel_2.add(lblNewLabel_5);
+		JComboBox comboBoxFiltre = new JComboBox();
+		panelParamRecherche.add(comboBoxFiltre);
 		
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		panel_2.add(lblNewLabel_6);
+		ImageIcon iconeFiltre = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("IconeLoupe.png")));
+		JLabel LabelimageFiltre = new JLabel();
+		LabelimageFiltre.setIcon(iconeFiltre);
+		panelParamRecherche.add(LabelimageFiltre);
 		
-		JPanel panel_3 = new JPanel();
-		panel_1.add(panel_3, BorderLayout.CENTER);
+		tableBaux = new JTable();
+		tableBaux.setModel(new DefaultTableModel(
+				new Object[][] {
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+					{null, null, null, null},
+				},
+				new String[] {
+					"New column", "New column", "New column", "New column"
+				}));
+		panelCentre.add(tableBaux, BorderLayout.CENTER);
 		
-		table = new JTable();
-		panel_3.add(table);
+		JLabel LabelTitre = new JLabel("Gestion des biens");
+		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(LabelTitre, BorderLayout.NORTH);
 	}
-
 }
