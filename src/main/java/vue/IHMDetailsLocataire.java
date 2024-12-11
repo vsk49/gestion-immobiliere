@@ -20,6 +20,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JSpinner;
 import java.awt.Font;
 import java.awt.FlowLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class IHMDetailsLocataire extends JFrame {
 
@@ -51,6 +53,16 @@ public class IHMDetailsLocataire extends JFrame {
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+                vueGestionLocataires.setVisible(true);
+
+                dispose();
+            }
+        });
+
 		JPanel menu = new JPanel();
 		getContentPane().add(menu, BorderLayout.WEST);
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
@@ -233,6 +245,23 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		JLabel labelContenuEmail = new JLabel("New label");
 		panelTextfieldEmail.add(labelContenuEmail);
+
+		public JLabel getModifPrenom(){
+			return this.labelContenuPrenom;
+		}
+		public JLabel getModifNom(){
+			return this.labelContenuNom;
+		}
+		public JLabel getModifDateNaissance(){
+			return this.labelContenuDateDeNaissance;
+		}
+		public JLabel getModifTelephone(){
+			return this.labelContenuTelephone;
+		}
+		public JLabel getModifEmail(){
+			return this.labelContenuEmail;
+		}
+	
 	}
 
 }
