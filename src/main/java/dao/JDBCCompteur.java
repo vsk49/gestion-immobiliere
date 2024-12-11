@@ -18,15 +18,15 @@ public class JDBCCompteur implements DAOCompteur {
 			ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery("SELECT * FROM Compteur");
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
-				Compteur c = new Compteur(resultat.getInt("idCompteur"), resultat.getString("numero"),
+				Compteur c = new Compteur(resultat.getInt("idCompteur"), resultat.getString("numeroCompteur"),
 						TypeCompteur.valueOf(resultat.getString("typeCompteur")), resultat.getInt("indexAncien"),
-						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
+						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate(),
+						resultat.getInt("volumeEauConsommee"));
 				compteurs.add(c);
 				enregistrementExiste = resultat.next();
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return compteurs;
 	}
@@ -43,12 +43,12 @@ public class JDBCCompteur implements DAOCompteur {
 			if (enregistrementExiste) {
 				Compteur c = new Compteur(resultat.getInt("idCompteur"), resultat.getString("numero"),
 						TypeCompteur.valueOf(resultat.getString("typeCompteur")), resultat.getInt("indexAncien"),
-						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
-				conteneur = Optional.ofNullable(c);
+						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate(),
+						resultat.getInt("volumeEauConsommee"));
+				conteneur = Optional.of(c);
 			}
-			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return conteneur;
 	}
@@ -57,7 +57,7 @@ public class JDBCCompteur implements DAOCompteur {
 	public boolean insert(Compteur t) {
 		boolean resultat = false;
 		try {
-			String insertion = "INSERT INTO Compteur VALUES (?, ?, ?, ?, ?, ?)";
+			String insertion = "INSERT INTO Compteur VALUES (?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
 
 			statement.setInt(1, t.getIdCompteur());
@@ -66,13 +66,14 @@ public class JDBCCompteur implements DAOCompteur {
 			statement.setInt(4, t.getIndexAncien());
 			statement.setInt(5, t.getIndexActuel());
 			statement.setDate(6, Date.valueOf(t.getDateReleveEntree()));
+			statement.setInt(7, t.getVolumeEauConsommee());
 
 			statement.executeUpdate();
 			System.out.println("Le compteur numero " + t.getNumero() + " a été ajouté.");
 			resultat = true;
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -92,7 +93,7 @@ public class JDBCCompteur implements DAOCompteur {
 			resultat = true;
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -111,7 +112,7 @@ public class JDBCCompteur implements DAOCompteur {
 			resultat = true;
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -128,12 +129,13 @@ public class JDBCCompteur implements DAOCompteur {
 			if (enregistrementExiste) {
 				Compteur c = new Compteur(resultat.getInt("idCompteur"), resultat.getString("numero"),
 						TypeCompteur.valueOf(resultat.getString("typeCompteur")), resultat.getInt("indexAncien"),
-						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
-				conteneur = Optional.ofNullable(c);
+						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate(),
+						resultat.getInt("volumeEauConsommee"));
+				conteneur = Optional.of(c);
 			}
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return conteneur;
 	}
@@ -150,12 +152,13 @@ public class JDBCCompteur implements DAOCompteur {
 			if (enregistrementExiste) {
 				Compteur c = new Compteur(resultat.getInt("idCompteur"), resultat.getString("numero"),
 						TypeCompteur.valueOf(resultat.getString("typeCompteur")), resultat.getInt("indexAncien"),
-						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate());
-				conteneur = Optional.ofNullable(c);
+						resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate(),
+						resultat.getInt("volumeEauConsommee"));
+				conteneur = Optional.of(c);
 			}
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return conteneur;
 	}

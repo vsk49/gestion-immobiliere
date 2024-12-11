@@ -19,13 +19,12 @@ public class JDBCCharge implements DAOCharge {
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
 				Charge c = new Charge(resultat.getInt("idCharge"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDate("dateFin").toLocalDate(), resultat.getDouble("montantEau"),
-						resultat.getDouble("montantCoPropriete"), resultat.getDouble("montantElectricite"));
+						resultat.getDate("dateFin").toLocalDate());
 				charges.add(c);
 				enregistrementExiste = resultat.next();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return charges;
 	}
@@ -41,12 +40,11 @@ public class JDBCCharge implements DAOCharge {
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
 				Charge c = new Charge(resultat.getInt("idCharge"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDate("dateFin").toLocalDate(), resultat.getDouble("montantEau"),
-						resultat.getDouble("montantCoPropriete"), resultat.getDouble("montantElectricite"));
-				charge = Optional.ofNullable(c);
+						resultat.getDate("dateFin").toLocalDate());
+				charge = Optional.of(c);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return charge;
 	}
@@ -55,19 +53,16 @@ public class JDBCCharge implements DAOCharge {
 	public boolean insert(Charge t) {
 		boolean resultat = false;
 		try {
-			String insertion = "INSERT INTO Charge VALUES (?, ?, ?, ?, ?, ?)";
+			String insertion = "INSERT INTO Charge (idCharge, dateDebut, dateFin) VALUES (?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
 			statement.setInt(1, t.getIdCharge());
 			statement.setDate(2, Date.valueOf(t.getDateDebut()));
 			statement.setDate(3, Date.valueOf(t.getDateFin()));
-			statement.setDouble(4, t.getMontantEau());
-			statement.setDouble(5, t.getMontantCoPropriete());
-			statement.setDouble(6, t.getMontantElectricite());
 			statement.executeUpdate();
 			System.out.println("La charge concernant a ete ajoutee.");
 			resultat = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -76,15 +71,15 @@ public class JDBCCharge implements DAOCharge {
 	public boolean update(Charge t) {
 		boolean resultat = false;
 		try {
-			String misAJour = "UPDATE Charge SET montantEau = ? WHERE idCharge = ?";
+			String misAJour = "UPDATE Charge SET idCharge = ? WHERE idCharge = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
-			statement.setDouble(1, t.getMontantEau());
+			statement.setDouble(1, t.getIdCharge());
 			statement.setInt(2, t.getIdCharge());
 			statement.executeUpdate();
 			System.out.println("La charge concernant a ete mise a jour.");
 			resultat = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -100,7 +95,7 @@ public class JDBCCharge implements DAOCharge {
 			System.out.println("La charge concernant a ete supprimee.");
 			resultat = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -116,13 +111,12 @@ public class JDBCCharge implements DAOCharge {
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
 				Charge c = new Charge(resultat.getInt("idCharge"), resultat.getDate("dateDebut").toLocalDate(),
-						resultat.getDate("dateFin").toLocalDate(), resultat.getDouble("montantEau"),
-						resultat.getDouble("montantCoPropriete"), resultat.getDouble("montantElectricite"));
+						resultat.getDate("dateFin").toLocalDate());
 				charges.add(c);
 				enregistrementExiste = resultat.next();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return charges;
 	}

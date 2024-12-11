@@ -22,12 +22,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-import vue.IHMGestionBaux;
-
-public class IHMAjouterBail extends JFrame {
+public class IHMModificationBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -40,7 +36,7 @@ public class IHMAjouterBail extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IHMAjouterBail frame = new IHMAjouterBail();
+					IHMModificationBail frame = new IHMModificationBail();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,24 +48,16 @@ public class IHMAjouterBail extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMAjouterBail() {
-		setTitle("Ajouter un bail");
+	public IHMModificationBail() {
+		setTitle("Modification d'un bail");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-                vueGestionBaux.setVisible(true);
-
-                dispose();
-            }
-        });
-
 		JPanel panelGauche = new JPanel();
 		contentPane.add(panelGauche, BorderLayout.WEST);
 		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
@@ -103,7 +91,7 @@ public class IHMAjouterBail extends JFrame {
 		JPanel panelTitre = new JPanel();
 		panelBody.add(panelTitre, BorderLayout.NORTH);
 		
-		JLabel LabelTitre = new JLabel("Ajout d'un bail");
+		JLabel LabelTitre = new JLabel("Modification d'un bail");
 		panelTitre.add(LabelTitre);
 		
 		JPanel panelBoutons = new JPanel();
@@ -112,7 +100,7 @@ public class IHMAjouterBail extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
-
+		
 		JButton ButtonReinitialiser = new JButton("Reinitialiser");
 		panelBoutons.add(ButtonReinitialiser);
 		
