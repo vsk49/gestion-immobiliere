@@ -271,14 +271,11 @@ public class IHMDetailsBien extends JFrame {
 		JPanel panelBouton = new JPanel();
 		panelMain.add(panelBouton, BorderLayout.SOUTH);
 		
-		JButton boutonAnnuler = new JButton("Annuler");
-		panelBouton.add(boutonAnnuler);
+		JButton boutonRetour = new JButton("Retour");
+		panelBouton.add(boutonRetour);
 		
-		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
-		panelBouton.add(BoutonRéinitialiser);
-		
-		JButton boutonValider = new JButton("Valider");
-		panelBouton.add(boutonValider);
+		JButton boutonModifier = new JButton("Modifier");
+		panelBouton.add(boutonModifier);
 	}
 
 }

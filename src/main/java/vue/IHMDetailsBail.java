@@ -102,11 +102,11 @@ public class IHMDetailsBail extends JFrame {
 		JPanel panelBouton = new JPanel();
 		panelMain.add(panelBouton, BorderLayout.SOUTH);
 		
-		JButton boutonModifier = new JButton("Modifier");
-		panelBouton.add(boutonModifier);
-		
 		JButton boutonRetour = new JButton("Retour");
 		panelBouton.add(boutonRetour);
+
+		JButton boutonModifier = new JButton("Modifier");
+		panelBouton.add(boutonModifier);
 		
 		JLabel LabelTitre = new JLabel("Détail du bail");
 		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);

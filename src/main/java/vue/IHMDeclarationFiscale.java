@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -173,6 +175,15 @@ public class IHMDeclarationFiscale extends JFrame {
 		PanelBas.add(panelTable);
 		
 		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Label travaux", "Co\u00FBt", "Date d\u00E9but", "Dur\u00E9e", "Date de fin"},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column"
+			}
+		));
 		panelTable.add(table);
 	}
 
