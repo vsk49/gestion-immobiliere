@@ -7,12 +7,10 @@ import javax.swing.JButton;
 
 
 import vue.IHMDetailsBien;
-import vue.IHMConnexion;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
 import vue.IHMGestionBaux;
 import vue.IHMGestionLocataires;
-import vue.IHMInscription;
 import vue.IHMModificationBien;
 
 public class controleurModificationBien implements ActionListener{

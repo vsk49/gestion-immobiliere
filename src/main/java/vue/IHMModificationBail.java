@@ -11,19 +11,13 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.util.Objects;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 import java.awt.FlowLayout;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-import java.awt.CardLayout;
-import java.awt.Component;
 
-import controleur.controleurInscription;
 import controleur.controleurModificationBail;
 
 public class IHMModificationBail extends JFrame {

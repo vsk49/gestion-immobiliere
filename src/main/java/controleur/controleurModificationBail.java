@@ -7,12 +7,10 @@ import javax.swing.JButton;
 
 
 import vue.IHMDetailsBail;
-import vue.IHMConnexion;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMInscription;
 import vue.IHMModificationBail;
 
 public class controleurModificationBail implements ActionListener{

@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controleur.controleurGestionBaux;
 import controleur.controleurGestionBiens;
 
 import java.awt.FlowLayout;
@@ -118,6 +117,13 @@ public class IHMGestionBiens extends JFrame {
 		JLabel LabelimageFiltre = new JLabel();
 		LabelimageFiltre.setIcon(iconeFiltre);
 		panelParamRecherche.add(LabelimageFiltre);
+
+		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
+		JButton BoutonGestionAjout = new JButton();
+		BoutonGestionAjout.setIcon(iconeGestionAjout);
+		panelParamRecherche.add(BoutonGestionAjout);
+		BoutonGestionAjout.setActionCommand("Ajout");
+		BoutonGestionAjout.addActionListener(controleur);
 		
 		tableBaux = new JTable();
 		tableBaux.setModel(new DefaultTableModel(

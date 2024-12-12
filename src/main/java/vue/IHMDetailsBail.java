@@ -21,7 +21,6 @@ import controleur.controleurDetailsBail;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import vue.IHMGestionBaux;
 
 public class IHMDetailsBail extends JFrame {
 

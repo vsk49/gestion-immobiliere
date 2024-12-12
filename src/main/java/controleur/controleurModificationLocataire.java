@@ -10,7 +10,6 @@ import vue.IHMDetailsLocataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
 import vue.IHMGestionBaux;
-import vue.IHMInscription;
 import vue.IHMGestionBiens;
 import vue.IHMModificationLocataire;
 

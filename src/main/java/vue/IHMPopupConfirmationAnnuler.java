@@ -8,19 +8,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 
 import java.awt.FlowLayout;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-import java.awt.CardLayout;
-import java.awt.Component;
-import javax.swing.JSpinner;
 import java.awt.Font;
 
 public class IHMPopupConfirmationAnnuler extends JFrame {

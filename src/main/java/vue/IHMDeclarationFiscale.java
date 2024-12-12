@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.util.Objects;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 import java.awt.FlowLayout;
@@ -22,7 +21,6 @@ import javax.swing.JTextField;
 import javax.swing.JTable;
 
 import controleur.controleurDeclarationFiscale;
-import controleur.controleurGestionBiens;
 
 public class IHMDeclarationFiscale extends JFrame {
 

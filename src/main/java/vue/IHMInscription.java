@@ -13,7 +13,6 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.Font;
 
-import controleur.controleurConnexion;
 import controleur.controleurInscription;
 
 public class IHMInscription extends JFrame {

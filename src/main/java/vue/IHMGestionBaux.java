@@ -20,10 +20,6 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 
 import controleur.controleurGestionBaux;
-import vue.IHMDeclarationFiscale;
-import vue.IHMRegularisationCharges;
-import vue.IHMGestionBiens;
-import vue.IHMGestionLocataires;
 
 public class IHMGestionBaux extends JFrame {
 
@@ -119,6 +115,14 @@ public class IHMGestionBaux extends JFrame {
 		JLabel LabelimageFiltre = new JLabel();
 		LabelimageFiltre.setIcon(iconeFiltre);
 		panelParamRecherche.add(LabelimageFiltre);
+
+		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
+		JButton BoutonGestionAjout = new JButton();
+		BoutonGestionAjout.setIcon(iconeGestionAjout);
+		panelParamRecherche.add(BoutonGestionAjout);
+		BoutonGestionAjout.setActionCommand("Ajout");
+		BoutonGestionAjout.addActionListener(controleur);
+		
 		
 		tableBaux = new JTable();
 		tableBaux.setModel(new DefaultTableModel(

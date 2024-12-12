@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
-import vue.IHMAjouterLocataire;
-import vue.IHMConnexion;
+
 import vue.IHMGestionBaux;
-import vue.IHMDetailsLocataire;
+import vue.IHMAjouterBail;
+import vue.IHMAjouterLocataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
 import vue.IHMGestionBiens;
@@ -47,7 +47,11 @@ public class controleurGestionLocataires implements ActionListener{
             vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
             break;
+        case "Ajout" :
+            IHMAjouterLocataire vueAjouterLocataire = new IHMAjouterLocataire();
+            vueAjouterLocataire.setVisible(true);
+            this.vue.setVisible(false);
+            break;
         }
     }
-    
 }

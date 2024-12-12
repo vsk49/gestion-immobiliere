@@ -117,6 +117,13 @@ public class IHMGestionLocataires extends JFrame {
 		JLabel LabelimageFiltre = new JLabel();
 		LabelimageFiltre.setIcon(iconeFiltre);
 		panelParamRecherche.add(LabelimageFiltre);
+
+		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
+		JButton BoutonGestionAjout = new JButton();
+		BoutonGestionAjout.setIcon(iconeGestionAjout);
+		panelParamRecherche.add(BoutonGestionAjout);
+		BoutonGestionAjout.setActionCommand("Ajout");
+		BoutonGestionAjout.addActionListener(controleur);
 		
 		tableBaux = new JTable();
 		tableBaux.setModel(new DefaultTableModel(

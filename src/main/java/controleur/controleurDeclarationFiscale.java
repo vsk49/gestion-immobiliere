@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
-import vue.IHMConnexion;
+
 import vue.IHMGestionBaux;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;

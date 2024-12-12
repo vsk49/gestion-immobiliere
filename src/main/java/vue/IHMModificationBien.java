@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -20,7 +18,6 @@ import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-import controleur.controleurModificationBail;
 import controleur.controleurModificationBien;
 
 public class IHMModificationBien extends JFrame {
