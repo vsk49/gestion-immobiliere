@@ -23,6 +23,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.CardLayout;
 import java.awt.Component;
 
+import controleur.controleurInscription;
+import controleur.controleurModificationBail;
+
 public class IHMModificationBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -49,6 +52,7 @@ public class IHMModificationBail extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMModificationBail() {
+		controleurModificationBail controleur = new controleurModificationBail(this);
 		setTitle("Modification d'un bail");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -66,23 +70,31 @@ public class IHMModificationBail extends JFrame {
 		JButton BoutonGLocataires = new JButton();
 		BoutonGLocataires.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		contentPane.add(panelBody, BorderLayout.CENTER);
@@ -100,12 +112,16 @@ public class IHMModificationBail extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
+		ButtonAnnuler.setActionCommand("Annuler");
+		ButtonAnnuler.addActionListener(controleur);
 		
 		JButton ButtonReinitialiser = new JButton("Reinitialiser");
 		panelBoutons.add(ButtonReinitialiser);
 		
 		JButton ButtonValider = new JButton("Valider");
 		panelBoutons.add(ButtonValider);
+		ButtonValider.setActionCommand("Valider");
+		ButtonValider.addActionListener(controleur);
 		
 		JPanel PanelMain = new JPanel();
 		panelBody.add(PanelMain, BorderLayout.CENTER);

@@ -21,6 +21,8 @@ import javax.swing.JSpinner;
 import java.awt.Font;
 import java.awt.FlowLayout;
 
+import controleur.controleurModificationLocataire;
+
 public class IHMModificationLocataire extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -51,6 +53,7 @@ public class IHMModificationLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMModificationLocataire() {
+		controleurModificationLocataire controleur = new controleurModificationLocataire(this);
 		setTitle("Modification du locataire");
 		setBounds(100, 100, 513, 320);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -61,26 +64,34 @@ public class IHMModificationLocataire extends JFrame {
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
-		JButton BoutonGBien = new JButton();
-		BoutonGBien.setIcon(iconeBiens);
-		menu.add(BoutonGBien);
+		JButton BoutonGBiens = new JButton();
+		BoutonGBiens.setIcon(iconeBiens);
+		menu.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		menu.add(BoutonGBaux);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		menu.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		menu.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JLabel labelModifierLocataire = new JLabel("Modification du locataire");
 		labelModifierLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -136,10 +147,10 @@ public class IHMModificationLocataire extends JFrame {
 		panelBasDePage.add(panelbouton);
 		
 		JButton boutonAnnuler = new JButton("Annuler");
-		boutonAnnuler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		panelbouton.add(boutonAnnuler);
+		boutonAnnuler.setActionCommand("Annuler");
+		boutonAnnuler.addActionListener(controleur);
+		
 		panelbouton.add(boutonAnnuler);
 		
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
@@ -147,6 +158,8 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JButton boutonValider = new JButton("Valider");
 		panelbouton.add(boutonValider);
+		boutonAnnuler.setActionCommand("Valider");
+		boutonAnnuler.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		getContentPane().add(panelBody, BorderLayout.CENTER);
