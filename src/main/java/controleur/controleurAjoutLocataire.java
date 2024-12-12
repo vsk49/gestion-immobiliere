@@ -5,21 +5,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-
-
-import vue.IHMDetailsBail;
-import vue.IHMModificationBail;
+import vue.IHMAjouterLocataire;
+import vue.IHMDeclarationFiscale;
+import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMGestionBaux;
 import vue.IHMRegularisationCharges;
-import vue.IHMDeclarationFiscale;
 
-public class controleurDetailsBail implements ActionListener{
-
-    private IHMDetailsBail vue;
+public class controleurAjoutLocataire implements ActionListener{
     
-    public void controleurDetailsBail (IHMDetailsBail vue) {
+    private IHMAjouterLocataire vue;
+    
+    public void controleurAjoutLocataire (IHMAjouterLocataire vue) {
         this.vue = vue;
     }
 
@@ -37,27 +34,23 @@ public class controleurDetailsBail implements ActionListener{
             vueRegularisationCharges.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "Retour" :
-			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-            vueGestionBaux.setVisible(true);
-            this.vue.setVisible(false);
-            break;
 		case "biens" :
             IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
             vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "locataires" :
-            IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-            vueGestionLocataires.setVisible(true);
+        case "baux" :
+            IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+            vueGestionBaux.setVisible(true);
             this.vue.setVisible(false);
             break;
-		case "Modifier" :
-			IHMModificationBail vueModificationBien = new IHMModificationBail();
-            vueModificationBien.setVisible(true);
+		case "Valider" :
+        case "Annuler" :
+			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+            vueGestionLocataires.setVisible(true);
             this.vue.setVisible(false);
             break;
         }
     }
-    
+
 }

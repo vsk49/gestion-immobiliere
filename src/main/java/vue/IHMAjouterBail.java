@@ -27,6 +27,8 @@ import java.awt.event.WindowEvent;
 
 import vue.IHMGestionBaux;
 
+import controleur.controleurAjoutBail;
+
 public class IHMAjouterBail extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -53,6 +55,7 @@ public class IHMAjouterBail extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterBail() {
+		controleurAjoutBail controleur = new controleurAjoutBail();
 		setTitle("Ajouter un bail");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -78,23 +81,31 @@ public class IHMAjouterBail extends JFrame {
 		JButton BoutonGLocataires = new JButton();
 		BoutonGLocataires.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		contentPane.add(panelBody, BorderLayout.CENTER);
@@ -112,12 +123,16 @@ public class IHMAjouterBail extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
+		ButtonAnnuler.setActionCommand("Annuler");
+		ButtonAnnuler.addActionListener(controleur);
 
 		JButton ButtonReinitialiser = new JButton("Reinitialiser");
 		panelBoutons.add(ButtonReinitialiser);
 		
 		JButton ButtonValider = new JButton("Valider");
 		panelBoutons.add(ButtonValider);
+		ButtonValider.setActionCommand("Valider");
+		ButtonValider.addActionListener(controleur);
 		
 		JPanel PanelMain = new JPanel();
 		panelBody.add(PanelMain, BorderLayout.CENTER);

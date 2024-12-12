@@ -5,21 +5,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-
-
-import vue.IHMDetailsBail;
-import vue.IHMModificationBail;
+import vue.IHMAjouterBail;
+import vue.IHMDeclarationFiscale;
+import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMGestionBaux;
 import vue.IHMRegularisationCharges;
-import vue.IHMDeclarationFiscale;
 
-public class controleurDetailsBail implements ActionListener{
-
-    private IHMDetailsBail vue;
+public class controleurAjoutBien implements ActionListener{
     
-    public void controleurDetailsBail (IHMDetailsBail vue) {
+    private IHMAjouterBail vue;
+    
+    public void controleurAjoutBien (IHMAjouterBail vue) {
         this.vue = vue;
     }
 
@@ -37,14 +34,9 @@ public class controleurDetailsBail implements ActionListener{
             vueRegularisationCharges.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "Retour" :
-			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+        case "baux" :
+            IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
             vueGestionBaux.setVisible(true);
-            this.vue.setVisible(false);
-            break;
-		case "biens" :
-            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-            vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
             break;
         case "locataires" :
@@ -52,12 +44,13 @@ public class controleurDetailsBail implements ActionListener{
             vueGestionLocataires.setVisible(true);
             this.vue.setVisible(false);
             break;
-		case "Modifier" :
-			IHMModificationBail vueModificationBien = new IHMModificationBail();
-            vueModificationBien.setVisible(true);
+        case "Valider" :
+        case "Annuler" :
+            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+            vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
             break;
         }
     }
-    
+
 }

@@ -18,6 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controleur.controleurAjoutBien;
+
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -54,6 +57,7 @@ public class IHMAjouterBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
+		controleurAjoutBien controleur = new controleurAjoutBien();
 		setTitle("Ajout de bien");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -75,26 +79,34 @@ public class IHMAjouterBien extends JFrame {
 		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
-		JButton BoutonGLocataire = new JButton();
-		BoutonGLocataire.setIcon(iconeLocataires);
-		panelGauche.add(BoutonGLocataire);
+		JButton BoutonGLocataires = new JButton();
+		BoutonGLocataires.setIcon(iconeLocataires);
+		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		getContentPane().add(panelBody, BorderLayout.CENTER);
@@ -288,12 +300,16 @@ public class IHMAjouterBien extends JFrame {
 		
 		JButton boutonAnnuler = new JButton("Annuler");
 		panelBoutons.add(boutonAnnuler);
+		boutonAnnuler.setActionCommand("Annuler");
+		boutonAnnuler.addActionListener(controleur);
 		
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
 		panelBoutons.add(BoutonRéinitialiser);
 		
 		JButton boutonValider = new JButton("Valider");
 		panelBoutons.add(boutonValider);
+		boutonValider.setActionCommand("Valider");
+		boutonValider.addActionListener(controleur);
 	}
 
 }

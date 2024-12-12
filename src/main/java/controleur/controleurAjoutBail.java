@@ -5,21 +5,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-
-
-import vue.IHMDetailsBail;
-import vue.IHMModificationBail;
+import vue.IHMAjouterBail;
+import vue.IHMDeclarationFiscale;
+import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMGestionBaux;
 import vue.IHMRegularisationCharges;
-import vue.IHMDeclarationFiscale;
 
-public class controleurDetailsBail implements ActionListener{
-
-    private IHMDetailsBail vue;
+public class controleurAjoutBail implements ActionListener{
     
-    public void controleurDetailsBail (IHMDetailsBail vue) {
+    private IHMAjouterBail vue;
+    
+    public void controleurAjouterBail (IHMAjouterBail vue) {
         this.vue = vue;
     }
 
@@ -37,7 +34,8 @@ public class controleurDetailsBail implements ActionListener{
             vueRegularisationCharges.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "Retour" :
+        case "Annuler" :
+        case "Valider" :
 			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
             vueGestionBaux.setVisible(true);
             this.vue.setVisible(false);
@@ -52,12 +50,6 @@ public class controleurDetailsBail implements ActionListener{
             vueGestionLocataires.setVisible(true);
             this.vue.setVisible(false);
             break;
-		case "Modifier" :
-			IHMModificationBail vueModificationBien = new IHMModificationBail();
-            vueModificationBien.setVisible(true);
-            this.vue.setVisible(false);
-            break;
         }
     }
-    
 }
