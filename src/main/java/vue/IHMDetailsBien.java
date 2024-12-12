@@ -23,6 +23,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import vue.IHMGestionBiens;
 
+import controleur.controleurDetailsBiens;
+
 public class IHMDetailsBien extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -57,6 +59,7 @@ public class IHMDetailsBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsBien() {
+		controleurDetailsBiens controleur = new controleurDetailsBiens();
 		setTitle("Détail du bien");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -84,23 +87,31 @@ public class IHMDetailsBien extends JFrame {
 		JButton BoutonGLocataires = new JButton();
 		BoutonGLocataires.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelMain = new JPanel();
 		panelMain.setBorder(new EmptyBorder(0, 0, 0, 5));
@@ -285,9 +296,13 @@ public class IHMDetailsBien extends JFrame {
 		
 		JButton boutonRetour = new JButton("Retour");
 		panelBouton.add(boutonRetour);
+		boutonRetour.setActionCommand("Retour");
+		boutonRetour.addActionListener(controleur);
 		
 		JButton boutonModifier = new JButton("Modifier");
 		panelBouton.add(boutonModifier);
+		boutonModifier.setActionCommand("Modifier");
+		boutonModifier.addActionListener(controleur);
 	}
 
 }

@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controleur.controleurDetailsBail;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -48,6 +49,7 @@ public class IHMDetailsBail extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsBail() {
+		controleurDetailsBail controleur = new controleurDetailsBail();
 		setTitle("Détail du bail");
 		setLayout(new BorderLayout(0, 0));
 		setBounds(100, 100, 450, 300);
@@ -76,23 +78,31 @@ public class IHMDetailsBail extends JFrame {
 		JButton BoutonGLocataires = new JButton();
 		BoutonGLocataires.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelMain = new JPanel();
 		panelMain.setBorder(new EmptyBorder(0, 0, 0, 5));
@@ -104,9 +114,13 @@ public class IHMDetailsBail extends JFrame {
 		
 		JButton boutonRetour = new JButton("Retour");
 		panelBouton.add(boutonRetour);
+		boutonRetour.setActionCommand("Retour");
+		boutonRetour.addActionListener(controleur);
 
 		JButton boutonModifier = new JButton("Modifier");
 		panelBouton.add(boutonModifier);
+		boutonModifier.setActionCommand("Modifier");
+		boutonModifier.addActionListener(controleur);
 		
 		JLabel LabelTitre = new JLabel("Détail du bail");
 		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
