@@ -15,6 +15,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import controleur.controleurGestionLocataires;
+
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -46,6 +49,7 @@ public class IHMGestionLocataires extends JFrame {
 	 * @return 
 	 */
 	public IHMGestionLocataires() {
+		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -65,23 +69,31 @@ public class IHMGestionLocataires extends JFrame {
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelCentre = new JPanel();
 		contentPane.add(panelCentre, BorderLayout.CENTER);

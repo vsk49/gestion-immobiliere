@@ -11,6 +11,8 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.Objects;
+
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
@@ -18,6 +20,9 @@ import java.awt.FlowLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTable;
+
+import controleur.controleurDeclarationFiscale;
+import controleur.controleurGestionBiens;
 
 public class IHMDeclarationFiscale extends JFrame {
 
@@ -47,6 +52,7 @@ public class IHMDeclarationFiscale extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDeclarationFiscale() {
+		controleurDeclarationFiscale controleur = new controleurDeclarationFiscale(this);
 		setTitle("Déclaration fiscale");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -60,25 +66,34 @@ public class IHMDeclarationFiscale extends JFrame {
 		contentPane.add(panelGauche, BorderLayout.WEST);
 		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		ImageIcon iconeLocataires = new ImageIcon("ressources/locataires.png");
-		JLabel LabelGLocataire = new JLabel();
-		LabelGLocataire.setIcon(iconeLocataires);
-		panelGauche.add(LabelGLocataire);
+		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
+		JButton BoutonGLocataires = new JButton();
+		BoutonGLocataires.setIcon(iconeLocataires);
+		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
-		ImageIcon iconeBiens = new ImageIcon("ressources/biens50.png");
-		JLabel LabelGBiens = new JLabel();
-		LabelGBiens.setIcon(iconeBiens);
-		panelGauche.add(LabelGBiens);
 		
-		ImageIcon iconeBaux = new ImageIcon("ressources/baux.png");
-		JLabel LabelGBaux = new JLabel();
-		LabelGBaux.setIcon(iconeBaux);
-		panelGauche.add(LabelGBaux);
-		
-		ImageIcon iconeFinances = new ImageIcon("ressources/finance.png");
-		JLabel LabelGFinances = new JLabel();
-		LabelGFinances.setIcon(iconeFinances);
-		panelGauche.add(LabelGFinances);
+		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
+		JButton BoutonGBiens = new JButton();
+		BoutonGBiens.setIcon(iconeBiens);
+		panelGauche.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("baux");
+		BoutonGBiens.addActionListener(controleur);
+
+		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
+		JButton BoutonGBaux = new JButton();
+		BoutonGBaux.setIcon(iconeBaux);
+		panelGauche.add(BoutonGBaux);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
+
+		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
+		JButton BoutonGFinances = new JButton();
+		BoutonGFinances.setIcon(iconeFinances);
+		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		contentPane.add(panelBody, BorderLayout.CENTER);

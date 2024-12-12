@@ -19,6 +19,12 @@ import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
+import controleur.controleurGestionBaux;
+import vue.IHMDeclarationFiscale;
+import vue.IHMRegularisationCharges;
+import vue.IHMGestionBiens;
+import vue.IHMGestionLocataires;
+
 public class IHMGestionBaux extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -45,6 +51,7 @@ public class IHMGestionBaux extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMGestionBaux() {
+		controleurGestionBaux controleur = new controleurGestionBaux(this);
 		setTitle("Gestion des baux");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,23 +71,31 @@ public class IHMGestionBaux extends JFrame {
 		JButton BoutonGLocataires = new JButton();
 		BoutonGLocataires.setIcon(iconeLocataires);
 		panelGauche.add(BoutonGLocataires);
+		BoutonGLocataires.setActionCommand("locataires");
+		BoutonGLocataires.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		panelGauche.add(BoutonGDeclFisc);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		panelGauche.add(BoutonGFinances);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
 		
 		JPanel panelCentre = new JPanel();
 		contentPane.add(panelCentre, BorderLayout.CENTER);
