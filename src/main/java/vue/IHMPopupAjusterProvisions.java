@@ -9,6 +9,9 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
@@ -21,6 +24,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JSpinner;
+
+import vue.IHMRegularisationCharges;
 
 public class IHMPopupAjusterProvisions extends JFrame {
 
@@ -48,8 +53,18 @@ public class IHMPopupAjusterProvisions extends JFrame {
 	 */
 	public IHMPopupAjusterProvisions() {
 		setTitle("Ajuster montant provisions");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
+                vueRegularisationCharges.setVisible(true);
+
+                dispose();
+            }
+        });
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

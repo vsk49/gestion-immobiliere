@@ -173,6 +173,8 @@ public class IHMRegularisationCharges extends JFrame {
 		
 		JButton AjusterProvision = new JButton("Ajuster les provisions");
 		panelAjusterProvisions.add(AjusterProvision);
+		AjusterProvision.setActionCommand("provisions");
+		AjusterProvision.addActionListener(controleur);
 		
 		JPanel panelResultat = new JPanel();
 		PanelMain.add(panelResultat);

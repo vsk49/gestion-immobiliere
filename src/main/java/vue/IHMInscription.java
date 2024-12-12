@@ -13,6 +13,9 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.Font;
 
+import controleur.controleurConnexion;
+import controleur.controleurInscription;
+
 public class IHMInscription extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -40,6 +43,7 @@ public class IHMInscription extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMInscription() {
+		controleurInscription controleur = new controleurInscription(this);
 		setTitle("Inscription");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 306, 340);
@@ -94,9 +98,13 @@ public class IHMInscription extends JFrame {
 		
 		JButton BoutonAnnuler = new JButton("Annuler");
 		panelBouton.add(BoutonAnnuler);
+		BoutonAnnuler.setActionCommand("Annuler");
+		BoutonAnnuler.addActionListener(controleur);
 		
 		JButton BoutonValider = new JButton("Valider");
 		panelBouton.add(BoutonValider);
+		BoutonValider.setActionCommand("Valider");
+		BoutonValider.addActionListener(controleur);
 	}
 
 }

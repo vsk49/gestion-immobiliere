@@ -8,6 +8,7 @@ import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMRegularisationCharges;
+import vue.IHMPopupAjusterProvisions;
 
 public class controleurRegularisationCharges implements ActionListener {
     private IHMRegularisationCharges vue;
@@ -38,6 +39,11 @@ public class controleurRegularisationCharges implements ActionListener {
         case "declarations fiscales" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
+            this.vue.setVisible(false);
+            break;
+        case "provisions" :
+            IHMPopupAjusterProvisions vuePopupAjusterProvisions = new IHMPopupAjusterProvisions();
+            vuePopupAjusterProvisions.setVisible(true);
             this.vue.setVisible(false);
             break;
         }

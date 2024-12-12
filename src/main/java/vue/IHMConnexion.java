@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controleur.controleurConnexion;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
@@ -12,6 +15,7 @@ import javax.swing.JTextField;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.BorderLayout;
 
 public class IHMConnexion extends JFrame {
 
@@ -40,6 +44,7 @@ public class IHMConnexion extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMConnexion() {
+		controleurConnexion controleur = new controleurConnexion(this);
 		setTitle("Connexion");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 306, 340);
@@ -90,13 +95,27 @@ public class IHMConnexion extends JFrame {
 		
 		JPanel panelBouton = new JPanel();
 		contentPane.add(panelBouton);
-		panelBouton.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
+		panelBouton.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panelAnulerOuValider = new JPanel();
+		panelBouton.add(panelAnulerOuValider, BorderLayout.NORTH);
 		
 		JButton BoutonAnnuler = new JButton("Annuler");
-		panelBouton.add(BoutonAnnuler);
+		panelAnulerOuValider.add(BoutonAnnuler);
+		BoutonAnnuler.setActionCommand("Annuler");
+		BoutonAnnuler.addActionListener(controleur);
 		
 		JButton BoutonValider = new JButton("Valider");
-		panelBouton.add(BoutonValider);
+		panelAnulerOuValider.add(BoutonValider);
+		BoutonValider.setActionCommand("Valider");
+		BoutonValider.addActionListener(controleur);
+		
+		JPanel panelInscription = new JPanel();
+		panelBouton.add(panelInscription);
+		
+		JButton BoutonInscription = new JButton("Pas de compte ?");
+		panelInscription.add(BoutonInscription);
+		BoutonInscription.setActionCommand("Inscription");
+		BoutonInscription.addActionListener(controleur);
 	}
-
 }
