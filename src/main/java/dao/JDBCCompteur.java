@@ -66,7 +66,7 @@ public class JDBCCompteur implements DAOCompteur {
 			statement.setInt(4, t.getIndexAncien());
 			statement.setInt(5, t.getIndexActuel());
 			statement.setDate(6, Date.valueOf(t.getDateReleveEntree()));
-			statement.setInt(7, t.getVolumeEauConsommee());
+			statement.setInt(7, t.getConsommation());
 
 			statement.executeUpdate();
 			System.out.println("Le compteur numero " + t.getNumero() + " a été ajouté.");
@@ -144,7 +144,7 @@ public class JDBCCompteur implements DAOCompteur {
 	public Optional<Compteur> getByBienLouable(BienLouable bien) {
 		Optional<Compteur> conteneur = Optional.empty();
 		try {
-			String requete = "SELECT * FROM Compteur where idBienLouable = ?";
+			String requete = "SELECT * FROM Compteur where idBienImmobilier = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setInt(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();

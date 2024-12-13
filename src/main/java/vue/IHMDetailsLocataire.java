@@ -4,8 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -14,10 +13,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
-import javax.swing.JSpinner;
 import java.awt.Font;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
@@ -25,23 +22,27 @@ import java.awt.event.WindowEvent;
 
 public class IHMDetailsLocataire extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
+	private JLabel labelContenuPrenom;
+	private JLabel labelContenuNom;
+	private JLabel labelContenuDateDeNaissance;
+	private JLabel labelContenuTelephone;
+	private JLabel labelContenuEmail;
 
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMDetailsLocataire frame = new IHMDetailsLocataire();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                IHMDetailsLocataire frame = new IHMDetailsLocataire();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
+            }
+        });
 	}
 
 	/**
@@ -117,7 +118,7 @@ public class IHMDetailsLocataire extends JFrame {
 		FlowLayout fl_panelComboboxBien = (FlowLayout) panelComboboxBien.getLayout();
 		panelChoixBien.add(panelComboboxBien);
 		
-		JComboBox comboBoxBien = new JComboBox();
+		JComboBox<String> comboBoxBien = new JComboBox<>();
 		panelComboboxBien.add(comboBoxBien);
 		
 		JPanel panelFichierDocuments = new JPanel();
@@ -140,10 +141,8 @@ public class IHMDetailsLocataire extends JFrame {
 		panelBasDePage.add(panelbouton);
 		
 		JButton boutonRetour = new JButton("Retour");
-		boutonRetour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		boutonRetour.addActionListener(e -> {
+        });
 		panelbouton.add(boutonRetour);
 		
 		JButton boutonModifier = new JButton("Modifier");
@@ -194,20 +193,20 @@ public class IHMDetailsLocataire extends JFrame {
 		JPanel panel_10 = new JPanel();
 		panelTextfieldPartie1.add(panel_10);
 		
-		JLabel labelContenuNom = new JLabel("New label");
+		this.labelContenuNom = new JLabel("New label");
 		labelContenuNom.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_10.add(labelContenuNom);
 		
 		JPanel panel_11 = new JPanel();
 		panelTextfieldPartie1.add(panel_11);
 		
-		JLabel labelContenuPrenom = new JLabel("New label");
+		this.labelContenuPrenom = new JLabel("New label");
 		panel_11.add(labelContenuPrenom);
 		
 		JPanel panel_12 = new JPanel();
 		panelTextfieldPartie1.add(panel_12);
 		
-		JLabel labelContenuDateDeNaissance = new JLabel("New label");
+		this.labelContenuDateDeNaissance = new JLabel("New label");
 		panel_12.add(labelContenuDateDeNaissance);
 		
 		Panel panelDeuxièmePartieFormulaire = new Panel();
@@ -237,31 +236,34 @@ public class IHMDetailsLocataire extends JFrame {
 		JPanel panelTextfieldTelephone = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldTelephone);
 		
-		JLabel labelContenuTelephone = new JLabel("New label");
+		this.labelContenuTelephone = new JLabel("New label");
 		panelTextfieldTelephone.add(labelContenuTelephone);
 		
 		JPanel panelTextfieldEmail = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldEmail);
 		
-		JLabel labelContenuEmail = new JLabel("New label");
+		this.labelContenuEmail = new JLabel("New label");
 		panelTextfieldEmail.add(labelContenuEmail);
+	}
 
-		public JLabel getModifPrenom(){
-			return this.labelContenuPrenom;
-		}
-		public JLabel getModifNom(){
-			return this.labelContenuNom;
-		}
-		public JLabel getModifDateNaissance(){
-			return this.labelContenuDateDeNaissance;
-		}
-		public JLabel getModifTelephone(){
-			return this.labelContenuTelephone;
-		}
-		public JLabel getModifEmail(){
-			return this.labelContenuEmail;
-		}
-	
+	public JLabel getModifPrenom() {
+		return this.labelContenuPrenom;
+	}
+
+	public JLabel getModifNom(){
+		return this.labelContenuNom;
+	}
+
+	public JLabel getModifDateNaissance(){
+		return this.labelContenuDateDeNaissance;
+	}
+
+	public JLabel getModifTelephone(){
+		return this.labelContenuTelephone;
+	}
+
+	public JLabel getModifEmail(){
+		return this.labelContenuEmail;
 	}
 
 }

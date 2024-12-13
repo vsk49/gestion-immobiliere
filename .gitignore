@@ -1,8 +1,10 @@
 /bin/
-.metadata/
+/.metadata/
 .jar
 .classpath
 .project
 .settings/
 .runtime/
 /target/
+/.idea/
+/.vscode/

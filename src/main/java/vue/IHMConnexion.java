@@ -12,32 +12,30 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.BorderLayout;
+import java.io.Serial;
 
 public class IHMConnexion extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField textFieldMail;
+    private JTextField textFieldMail;
 	private JTextField textFieldMotdepasse;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMConnexion frame = new IHMConnexion();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                IHMConnexion frame = new IHMConnexion();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("Erreur lors de l'ouverture de la fenêtre de connexion");
+            }
+        });
 	}
 
 	/**
@@ -48,7 +46,7 @@ public class IHMConnexion extends JFrame {
 		setTitle("Connexion");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 306, 340);
-		contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -73,7 +71,7 @@ public class IHMConnexion extends JFrame {
 		
 		JPanel paneltextFieldMail = new JPanel();
 		panelEmail.add(paneltextFieldMail);
-		
+
 		textFieldMail = new JTextField();
 		paneltextFieldMail.add(textFieldMail);
 		textFieldMail.setColumns(10);

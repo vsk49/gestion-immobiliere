@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -19,10 +20,10 @@ import controleur.controleurAccueil;
 
 public class IHMAccueil extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 
-	/**
+    /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -31,7 +32,7 @@ public class IHMAccueil extends JFrame {
                 IHMAccueil frame = new IHMAccueil();
                 frame.setVisible(true);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Erreur lors de l'ouverture de la fenêtre d'accueil");
             }
         });
 	}
@@ -44,11 +45,11 @@ public class IHMAccueil extends JFrame {
 		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 600, 450);
-		this.contentPane = new JPanel();
-		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        JPanel contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		this.setContentPane(this.contentPane);
-		this.contentPane.setLayout(new BorderLayout(0, 0));
+		this.setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelTitre = new JPanel();
 		contentPane.add(panelTitre, BorderLayout.NORTH);

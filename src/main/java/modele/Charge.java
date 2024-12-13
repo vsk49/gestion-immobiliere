@@ -7,6 +7,7 @@ public class Charge {
 	private int idCharge;
 	private LocalDate dateDebut;
 	private LocalDate dateFin;
+	// private Compteur compteur;
 
 	public Charge(int idCharge, LocalDate dateDebut, LocalDate dateFin) {
 		this.idCharge = idCharge;

@@ -9,9 +9,9 @@ public class Batiment extends BienImmobilier {
 	private List<BienLouable> biensLouables;
 
 	public Batiment(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, double montantTaxesFoncieres, int ICCDateDebut) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, montantTaxesFoncieres,
-				ICCDateDebut);
+			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, Compteur compteurGeneral) {
+		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, taxesFoncieres,
+				ICCDateDebut, compteurGeneral);
 		this.biensLouables = new ArrayList<>();
 	}
 	
