@@ -10,17 +10,17 @@ public class Compteur {
 	private int indexAncien;
 	private int indexActuel;
 	private LocalDate dateReleveEntree;
-	private int volumeEauConsommee;
+	private int consommation;
 
 	public Compteur(int idCompteur, String numeroCompteur, TypeCompteur typeCompteur, int indexAncien,
-					int indexActuel, LocalDate dateReleveEntree, int volumeEauConsommee) {
+					int indexActuel, LocalDate dateReleveEntree, int consommation) {
 		this.idCompteur = idCompteur;
 		this.numeroCompteur = numeroCompteur;
 		this.typeCompteur = typeCompteur;
 		this.indexAncien = indexAncien;
 		this.indexActuel = indexActuel;
 		this.dateReleveEntree = dateReleveEntree;
-		this.volumeEauConsommee = volumeEauConsommee;
+		this.consommation = consommation;
 	}
 
 	public int getIdCompteur() {
@@ -43,7 +43,7 @@ public class Compteur {
 		return this.indexActuel;
 	}
 	
-	public int getConsommation() {
+	public int variationIndex() {
 		return this.indexActuel - this.indexAncien;
 	}
 
@@ -56,8 +56,8 @@ public class Compteur {
 		return this.dateReleveEntree;
 	}
 
-	public int getVolumeEauConsommee() {
-		return this.volumeEauConsommee;
+	public int getConsommation() {
+		return this.consommation;
 	}
 
 	public void ajouterReleve() {

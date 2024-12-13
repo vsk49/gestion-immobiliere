@@ -2,6 +2,7 @@ package modele;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BienImmobilier {
@@ -12,27 +13,29 @@ public class BienImmobilier {
 	private int codePostal;
 	private String ville;
 	private LocalDate dateAnniversaire;
-	private double montantTaxesFoncieres;
+	private TaxeFonciere taxesFoncieres;
 	private int ICCDateDebut;
+	private Compteur compteurGeneral;
 	private List<Locataire> locataires;
 	private List<Assurance> assurances;
 	private List<Bail> baux;
 	private List<Diagnostic> diagnostics;
 
 	public BienImmobilier(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, double montantTaxesFoncieres, int ICCDateDebut) {
+			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, Compteur compteurGeneral) {
 		this.idBienImmobilier = idBienImmobilier;
 		this.numeroFiscal = numeroFiscal;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.dateAnniversaire = dateAnniversaire;
-		this.montantTaxesFoncieres = montantTaxesFoncieres;
+		this.taxesFoncieres = taxesFoncieres;
 		this.ICCDateDebut = ICCDateDebut;
 		this.locataires = new ArrayList<>();
 		this.assurances = new ArrayList<>();
 		this.baux = new ArrayList<>();
 		this.diagnostics = new ArrayList<>();
+		this.compteurGeneral = compteurGeneral;
 	}
 
 	public int getIdBienImmobilier() {
@@ -59,8 +62,8 @@ public class BienImmobilier {
 		return dateAnniversaire;
 	}
 
-	public double getMontantTaxesFoncieres() {
-		return montantTaxesFoncieres;
+	public TaxeFonciere getTaxesFoncieres() {
+		return taxesFoncieres;
 	}
 
 	public int getICCDateDebut() {
@@ -84,21 +87,15 @@ public class BienImmobilier {
 	}
 
 	public void ajouterLocataire(Locataire... l) {
-		for (Locataire locataire : l) {
-			this.locataires.add(locataire);
-		}
+        this.locataires.addAll(Arrays.asList(l));
 	}
 
 	public void ajouterAssurance(Assurance... a) {
-		for (Assurance assurance : a) {
-			this.assurances.add(assurance);
-		}
+        this.assurances.addAll(Arrays.asList(a));
 	}
 
 	public void ajouterBail(Bail... b) {
-		for (Bail bail : b) {
-			this.baux.add(bail);
-		}
+        this.baux.addAll(Arrays.asList(b));
 	}
 	
 	public void setICCDateDebut(int nouveauICC) {
@@ -108,5 +105,17 @@ public class BienImmobilier {
 	public void calculerRevenusFonciers() {
 
 	}
-	
+
+    public Compteur getCompteurGeneral() {
+        return compteurGeneral;
+    }
+
+	public void changerCompteur(int indexActuel) {
+		this.getCompteurGeneral().modifierIndexes(indexActuel);
+	}
+
+	public double calculerPrixMoyenConsommation() {
+		return 0;
+	}
+
 }
