@@ -3,6 +3,7 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import vue.IHMAccueil;
 import vue.IHMDeclarationFiscale;
 import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
@@ -44,6 +45,12 @@ public class controleurRegularisationCharges implements ActionListener {
         case "provisions" :
             IHMPopupAjusterProvisions vuePopupAjusterProvisions = new IHMPopupAjusterProvisions();
             vuePopupAjusterProvisions.setVisible(true);
+            this.vue.setVisible(false);
+            break;
+        case "Annuler" :
+        case "Valider" :
+            IHMAccueil vueAccueil = new IHMAccueil();
+            vueAccueil.setVisible(true);
             this.vue.setVisible(false);
             break;
         }

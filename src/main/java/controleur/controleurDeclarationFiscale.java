@@ -8,6 +8,7 @@ import javax.swing.JButton;
 
 
 import vue.IHMGestionBaux;
+import vue.IHMAccueil;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
 import vue.IHMGestionBiens;
@@ -43,6 +44,12 @@ public class controleurDeclarationFiscale implements ActionListener{
         case "locataires" :
             IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
             vueGestionLocataires.setVisible(true);
+            this.vue.setVisible(false);
+            break;
+        case "Annuler" :
+        case "Valider" :
+            IHMAccueil vueAccueil = new IHMAccueil();
+            vueAccueil.setVisible(true);
             this.vue.setVisible(false);
             break;
         }

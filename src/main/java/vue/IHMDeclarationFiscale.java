@@ -109,9 +109,13 @@ public class IHMDeclarationFiscale extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
+		ButtonAnnuler.setActionCommand("Annuler");
+		ButtonAnnuler.addActionListener(controleur);
 		
 		JButton ButtonValider = new JButton("Valider");
 		panelBoutons.add(ButtonValider);
+		ButtonValider.setActionCommand("Valider");
+		ButtonValider.addActionListener(controleur);
 		
 		JPanel PanelMain = new JPanel();
 		panelBody.add(PanelMain, BorderLayout.CENTER);

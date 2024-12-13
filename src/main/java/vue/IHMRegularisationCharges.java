@@ -104,11 +104,13 @@ public class IHMRegularisationCharges extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
-		ButtonAnnuler.setActionCommand("annuler");
+		ButtonAnnuler.setActionCommand("Annuler");
+		ButtonAnnuler.addActionListener(controleur);
 		
 		JButton ButtonValider = new JButton("Valider");
 		panelBoutons.add(ButtonValider);
-		ButtonValider.setActionCommand("valider");
+		ButtonValider.setActionCommand("Valider");
+		ButtonValider.addActionListener(controleur);
 		
 		JPanel PanelMain = new JPanel();
 		panelBody.add(PanelMain, BorderLayout.CENTER);

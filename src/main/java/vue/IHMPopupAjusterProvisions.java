@@ -16,7 +16,8 @@ import java.awt.event.WindowEvent;
 import java.awt.FlowLayout;
 import javax.swing.JSpinner;
 
-import vue.IHMRegularisationCharges;
+import controleur.controleurPopupAjusterProvisions;
+import controleur.controleurRegularisationCharges;
 
 public class IHMPopupAjusterProvisions extends JFrame {
 
@@ -43,6 +44,7 @@ public class IHMPopupAjusterProvisions extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMPopupAjusterProvisions() {
+		controleurPopupAjusterProvisions controleur = new controleurPopupAjusterProvisions(this);
 		setTitle("Ajuster montant provisions");
 		setBounds(100, 100, 450, 300);
 
@@ -78,9 +80,13 @@ public class IHMPopupAjusterProvisions extends JFrame {
 		
 		JButton ButtonAnnuler = new JButton("Annuler");
 		panelBoutons.add(ButtonAnnuler);
+		ButtonAnnuler.setActionCommand("Annuler");
+		ButtonAnnuler.addActionListener(controleur);
 		
 		JButton ButtonValider = new JButton("Valider");
 		panelBoutons.add(ButtonValider);
+		ButtonValider.setActionCommand("Valider");
+		ButtonValider.addActionListener(controleur);
 		
 		JPanel PanelMain = new JPanel();
 		panelBody.add(PanelMain, BorderLayout.CENTER);
