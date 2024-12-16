@@ -54,7 +54,8 @@ public class IHMAjouterLocataire extends JFrame {
 	public IHMAjouterLocataire() {
 		controleurAjoutLocataire controleur = new controleurAjoutLocataire();
 		setTitle("Ajout de locataire");
-		setBounds(100, 100, 513, 320);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		

@@ -52,7 +52,8 @@ public class IHMGestionBiens extends JFrame {
 		controleurGestionBiens controleur = new controleurGestionBiens(this);
 		setTitle("Gestion des Biens");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel contentPane = new JPanel();

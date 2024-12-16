@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.io.Serial;
 import java.util.Objects;
@@ -44,7 +46,8 @@ public class IHMAccueil extends JFrame {
 		controleurAccueil controleur = new controleurAccueil(this);
 		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(100, 100, 600, 450);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
         JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

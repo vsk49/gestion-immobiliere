@@ -50,7 +50,8 @@ public class IHMDetailsLocataire extends JFrame {
 	 */
 	public IHMDetailsLocataire() {
 		setTitle("Détails du locataire");
-		setBounds(100, 100, 513, 320);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
