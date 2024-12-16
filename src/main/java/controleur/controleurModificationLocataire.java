@@ -2,10 +2,13 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 import javax.swing.JButton;
 
 
+import modele.Genre;
+import modele.Locataire;
 import vue.IHMDetailsLocataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
@@ -13,7 +16,7 @@ import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMModificationLocataire;
 
-public class controleurModificationLocataire implements ActionListener{
+public class controleurModificationLocataire implements ActionListener {
 
     private IHMModificationLocataire vue;
 
@@ -27,7 +30,11 @@ public class controleurModificationLocataire implements ActionListener{
         switch (actionCommand.getActionCommand()) {
         case "Valider" :
         case "Annuler" :
-            IHMDetailsLocataire vueDetailsLocataire = new IHMDetailsLocataire();
+            Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
+                    LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
+                    "Enseignant", "0123456789", "francois.dupont@gmail.com",
+                    null, null, 1.0);
+            IHMDetailsLocataire vueDetailsLocataire = new IHMDetailsLocataire(l);
             vueDetailsLocataire.setVisible(true);
             this.vue.setVisible(false);
             break;

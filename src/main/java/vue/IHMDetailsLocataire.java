@@ -1,5 +1,8 @@
 package vue;
 
+import modele.Genre;
+import modele.Locataire;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -42,7 +45,11 @@ public class IHMDetailsLocataire extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
             try {
-                IHMDetailsLocataire frame = new IHMDetailsLocataire();
+				Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
+						LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
+						"Enseignant", "0123456789", "francois.dupont@gmail.com",
+						null, null, 1.0);
+                IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
                 frame.setVisible(true);
             } catch (Exception e) {
                 System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
@@ -53,9 +60,7 @@ public class IHMDetailsLocataire extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMDetailsLocataire() {
-		Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
-		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, loc);
+	public IHMDetailsLocataire(Locataire locataire) {
 		setTitle("Détails du locataire");
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);

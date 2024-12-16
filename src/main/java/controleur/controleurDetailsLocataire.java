@@ -16,13 +16,13 @@ public class controleurDetailsLocataire implements ActionListener {
 	public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
 		this.vue = vue;
 		this.locataire = locataire;
-//		this.vue.getModifPrenom().setText(locataire.getPrenom());
-//		vue.getModifNom().setText(locataire.getNom());
-//      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-//		String dateStr = locataire.getDateNaissance().format(formatter);
-//		vue.getModifDateNaissance().setText(dateStr);
-//		vue.getModifTelephone().setText(locataire.getTelephone());
-//		vue.getModifEmail().setText(locataire.getEmail());
+		this.vue.getModifPrenom().setText(locataire.getPrenom());
+		vue.getModifNom().setText(locataire.getNom());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+		String dateStr = locataire.getDateNaissance().format(formatter);
+		vue.getModifDateNaissance().setText(dateStr);
+		vue.getModifTelephone().setText(locataire.getTelephone());
+		vue.getModifEmail().setText(locataire.getEmail());
 	}
 	
 	@Override
