@@ -15,10 +15,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
+
 import java.awt.Font;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.time.LocalDate;
+
+import controleur.controleurDetailsLocataire;
+import modele.Genre;
+
+import modele.Locataire;
+import modele.Genre;
 
 public class IHMDetailsLocataire extends JFrame {
 
@@ -49,6 +57,8 @@ public class IHMDetailsLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire() {
+		Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
+		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, loc);
 		setTitle("Détails du locataire");
 		setBounds(100, 100, 513, 320);
 		getContentPane().setLayout(new BorderLayout(0, 0));
