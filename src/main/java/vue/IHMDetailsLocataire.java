@@ -5,8 +5,12 @@ import modele.Locataire;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.Serial;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -17,12 +21,12 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.FlowLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import javax.swing.border.EmptyBorder;
+
+import controleur.controleurDetailsLocataire;
+import modele.Genre;
+import modele.Locataire;
 
 public class IHMDetailsLocataire extends JFrame {
 
@@ -58,7 +62,8 @@ public class IHMDetailsLocataire extends JFrame {
 	 */
 	public IHMDetailsLocataire(Locataire locataire) {
 		setTitle("Détails du locataire");
-		setBounds(100, 100, 513, 320);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
