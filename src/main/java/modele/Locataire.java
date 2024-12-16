@@ -30,6 +30,13 @@ public class Locataire {
 	private JDBCCharge donneesCharges = new JDBCCharge();
 	private JDBCLocataire donneesLocataire = new JDBCLocataire();
 
+	public Locataire() {
+		this.cautions = new ArrayList<>();
+		this.baux = new ArrayList<>();
+		this.biens = new ArrayList<>();
+		this.charges = new ArrayList<>();
+	}
+
 	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
 			LocalDate dateDepart, double quotite) {
@@ -137,7 +144,9 @@ public class Locataire {
 	}
 
 	public void setPrenom(String prenom){
-		this.prenom = prenom;
+		this.prenom = prenom;}
+	public List<Locataire> getAllLocataires() {
+		return this.donneesLocataire.getAll();
 	}
 	
 	public void setNom(String nom){

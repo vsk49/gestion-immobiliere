@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 
 import javax.swing.JButton;
 
+import modele.Genre;
 import modele.Locataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
@@ -15,7 +17,7 @@ import vue.IHMGestionBiens;
 import vue.IHMModificationLocataire;
 import vue.IHMRegularisationCharges;
 
-public class controleurModificationLocataire implements ActionListener{
+public class controleurModificationLocataire implements ActionListener {
 
     private IHMModificationLocataire vue;
     private Locataire locataire;
