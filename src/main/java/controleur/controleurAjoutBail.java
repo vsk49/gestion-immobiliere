@@ -34,13 +34,12 @@ public class controleurAjoutBail implements ActionListener{
             vueRegularisationCharges.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "Annuler" :
         case "Valider" :
-			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+            IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
             vueGestionBaux.setVisible(true);
             this.vue.setVisible(false);
             break;
-		case "biens" :
+        case "biens" :
             IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
             vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
@@ -50,6 +49,7 @@ public class controleurAjoutBail implements ActionListener{
             vueGestionLocataires.setVisible(true);
             this.vue.setVisible(false);
             break;
+        case "Annuler" :
         }
     }
 }

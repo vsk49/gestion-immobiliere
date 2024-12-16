@@ -2,13 +2,16 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
+import java.time.format.DateTimeFormatter;
 
 import modele.Locataire;
+import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
+import vue.IHMGestionBaux;
+import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMModificationLocataire;
+import vue.IHMRegularisationCharges;
 
 public class controleurDetailsLocataire implements ActionListener {
 
@@ -18,27 +21,48 @@ public class controleurDetailsLocataire implements ActionListener {
 	public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
 		this.vue = vue;
 		this.locataire = locataire;
-//		this.vue.getModifPrenom().setText(locataire.getPrenom());
-//		vue.getModifNom().setText(locataire.getNom());
-//      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-//		String dateStr = locataire.getDateNaissance().format(formatter);
-//		vue.getModifDateNaissance().setText(dateStr);
-//		vue.getModifTelephone().setText(locataire.getTelephone());
-//		vue.getModifEmail().setText(locataire.getEmail());
+		this.vue.getModifPrenom().setText(locataire.getPrenom());
+		vue.getModifNom().setText(locataire.getNom());
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+		String dateStr = locataire.getDateNaissance().format(formatter);
+		vue.getModifDateNaissance().setText(dateStr);
+		vue.getModifTelephone().setText(locataire.getTelephone());
+		vue.getModifEmail().setText(locataire.getEmail());
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton actionCommand = (JButton) e.getSource();
-        switch (actionCommand.getText()) {
-        case "Retour" :
-			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-			this.vue.setVisible(false);
-			vueGestionLocataires.setVisible(true);
-        case "Modifier" :
-			IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire();
-			this.vue.setVisible(false);
-			vueModificationLocataire.setVisible(true);
+		String actionCommand = e.getActionCommand();
+        switch (actionCommand) {
+			case "declarationFiscale" :
+				IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
+				vueDeclarationFiscale.setVisible(true);
+				this.vue.setVisible(false);
+				break;
+			case "finances" :
+				IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
+				vueRegularisationCharges.setVisible(true);
+				this.vue.setVisible(false);
+				break;
+			case "baux" :
+				IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+				vueGestionBaux.setVisible(true);
+				this.vue.setVisible(false);
+				break;
+			case "biens" :
+				System.out.println("biens cliqués");
+				IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+				vueGestionBiens.setVisible(true);
+				this.vue.setVisible(false);
+				break;
+			case "Retour" :
+				IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+				this.vue.setVisible(false);
+				vueGestionLocataires.setVisible(true);
+			case "Modifier" :
+				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
+				vueModificationLocataire.setVisible(true);
+				this.vue.setVisible(false);
         }
 	}
 

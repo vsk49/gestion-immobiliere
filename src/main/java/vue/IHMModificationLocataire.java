@@ -36,6 +36,7 @@ public class IHMModificationLocataire extends JFrame {
 	private JTextField textFieldTelephone;
 	private JTextField textFieldEmail;
 	private Locataire locataire;
+	private controleurModificationLocataire controleur;
 
 
 	/**
@@ -59,9 +60,7 @@ public class IHMModificationLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMModificationLocataire(Locataire locataire) {
-		this.locataire = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
-		//this.locataire = locataire;
-		controleurModificationLocataire controleur = new controleurModificationLocataire(this, this.locataire);
+		this.locataire = locataire;
 		setTitle("Modification du locataire");
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
@@ -279,7 +278,8 @@ public class IHMModificationLocataire extends JFrame {
 		textFieldEmail = new JTextField();
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
-
+		
+		this.controleur = new controleurModificationLocataire(this, this.locataire);
 	}
 
 	public JTextField getModifPrenom() {
