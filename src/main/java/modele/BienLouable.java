@@ -8,18 +8,16 @@ public class BienLouable extends BienImmobilier {
 
 	private double surface;
 	private int nbPieces;
-	private Compteur compteur;
 	private List<FactureTravail> facturesTravaux;
 	private List<Loyer> loyers;
 
 	public BienLouable(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, double montantTaxesFoncieres, int ICCDateDebut, double surface, int nbPieces,
+			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, double surface, int nbPieces,
 			Compteur compteur) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, montantTaxesFoncieres,
-				ICCDateDebut);
+		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, taxesFoncieres,
+				ICCDateDebut, compteur);
 		this.surface = surface;
 		this.nbPieces = nbPieces;
-		this.compteur = compteur;
 		this.facturesTravaux = new ArrayList<>();
 		this.loyers = new ArrayList<>();
 	}
@@ -38,14 +36,6 @@ public class BienLouable extends BienImmobilier {
 
 	public List<Loyer> getLoyers() {
 		return this.loyers;
-	}
-
-	public void changerCompteur(int indexActuel) {
-		this.compteur.modifierIndexes(indexActuel);
-	}
-
-	public Compteur getCompteur(){
-		return this.compteur;
 	}
 
 }

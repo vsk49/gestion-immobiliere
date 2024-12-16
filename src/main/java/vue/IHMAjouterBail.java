@@ -50,7 +50,8 @@ public class IHMAjouterBail extends JFrame {
 	public IHMAjouterBail() {
 		controleurAjoutBail controleur = new controleurAjoutBail();
 		setTitle("Ajouter un bail");
-		setBounds(100, 100, 450, 300);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

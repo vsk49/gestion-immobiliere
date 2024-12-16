@@ -3,23 +3,14 @@ package dao;
 import java.sql.*;
 
 public class CreateBD {
-
-	public static void main(String[] args) {
-		try {
-			@SuppressWarnings("unused")
-			CreateBD monBD = new CreateBD();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public CreateBD() {
+	public static void main(String[] args) {
 		try {
 			Connection connexion = JDBCConnexion.getConnexion();
 			createTablesBD(connexion);
 			JDBCConnexion.closeConnexion();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 	}
 	
@@ -30,7 +21,7 @@ public class CreateBD {
 		try {
 			requeteSQL = connexion.createStatement();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 			System.exit(-1);
 		}
 		
@@ -38,85 +29,85 @@ public class CreateBD {
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Caution");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Charge");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Locataire");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Garage");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Logement");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Compteur");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE FactureTravail");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Loyer");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE BienLouable");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Batiment");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Bail");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Assurance");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE Diagnostic");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		try {
 			requeteSQL.executeUpdate("DROP TABLE BienImmobilier");
         } catch (SQLException e) {
-            e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
 		
 		// creation des tables
@@ -140,7 +131,7 @@ public class CreateBD {
 			);
 			System.out.println("Table Locataire created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -152,13 +143,12 @@ public class CreateBD {
 				+ "codePostal NUMBER(5), "
 				+ "ville VARCHAR(50), "
 				+ "dateAnniversaire DATE, "
-				+ "montantTaxesFoncieres BINARY_DOUBLE, "
 				+ "ICCDateDebut NUMBER(4)"
 				+ ")"
 			);
 			System.out.println("Table BienImmobilier created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -176,7 +166,7 @@ public class CreateBD {
 		    );
 		    System.out.println("Table Bail created.");
 		} catch (SQLException e) {
-		    e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -191,7 +181,7 @@ public class CreateBD {
 			);
 			System.out.println("Table BienLouable created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -209,7 +199,7 @@ public class CreateBD {
 			);
 			System.out.println("Table Loyer created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -221,13 +211,13 @@ public class CreateBD {
 				+ "indexAncien NUMBER(4) NOT NULL, "
 				+ "indexActuel NUMBER(4), "
 				+ "dateReleveEntree DATE, "
-				+ "idBienLouable INTEGER, "
-				+ "FOREIGN KEY (idBienLouable) REFERENCES BienLouable(idBienLouable)"
+				+ "idBienImmobilier INTEGER, "
+				+ "FOREIGN KEY (idBienImmobilier) REFERENCES BienImmobilier(idBienImmobilier)"
 				+ ")"
 				);
 			System.out.println("Table Compteur created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -247,7 +237,7 @@ public class CreateBD {
 				);
 			System.out.println("Table FactureTravail created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -266,7 +256,7 @@ public class CreateBD {
 				);
 			System.out.println("Table Assurance created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -286,7 +276,7 @@ public class CreateBD {
 				);
 			System.out.println("Table Diagnostic created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -313,7 +303,7 @@ public class CreateBD {
 				);
 			System.out.println("Table Caution created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -331,7 +321,7 @@ public class CreateBD {
 			);
 			System.out.println("Table Charge created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -345,7 +335,7 @@ public class CreateBD {
 			);
 			System.out.println("Table Logement created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -358,7 +348,7 @@ public class CreateBD {
 			);
 			System.out.println("Table Garage created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 		try {
@@ -369,7 +359,7 @@ public class CreateBD {
 			);
 			System.out.println("Table Batiment created.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		
 	}
