@@ -60,7 +60,8 @@ public class IHMDetailsLocataire extends JFrame {
 		Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
 		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, loc);
 		setTitle("Détails du locataire");
-		setBounds(100, 100, 513, 320);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		

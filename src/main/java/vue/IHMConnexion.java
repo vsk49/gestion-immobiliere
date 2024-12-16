@@ -45,7 +45,8 @@ public class IHMConnexion extends JFrame {
 		controleurConnexion controleur = new controleurConnexion(this);
 		setTitle("Connexion");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 306, 340);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setVisible(true);
         JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
