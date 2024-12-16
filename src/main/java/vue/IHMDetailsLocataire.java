@@ -1,10 +1,14 @@
 package vue;
 
+import modele.Genre;
+import modele.Locataire;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
 import java.io.Serial;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -37,7 +41,11 @@ public class IHMDetailsLocataire extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
             try {
-                IHMDetailsLocataire frame = new IHMDetailsLocataire();
+				Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
+						LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
+						"Enseignant", "0123456789", "francois.dupont@gmail.com",
+						null, null, 1.0);
+                IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
                 frame.setVisible(true);
             } catch (Exception e) {
                 System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
@@ -48,7 +56,7 @@ public class IHMDetailsLocataire extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMDetailsLocataire() {
+	public IHMDetailsLocataire(Locataire locataire) {
 		setTitle("Détails du locataire");
 		setBounds(100, 100, 513, 320);
 		getContentPane().setLayout(new BorderLayout(0, 0));

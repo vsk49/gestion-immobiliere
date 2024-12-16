@@ -3,6 +3,7 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -24,30 +25,26 @@ import java.awt.Font;
 
 public class IHMGestionLocataires extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTable tableBaux;
 
-	/**
+    /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMGestionLocataires frame = new IHMGestionLocataires();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                IHMGestionLocataires frame = new IHMGestionLocataires();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
 	}
 
 	/**
 	 * Create the frame.
-	 * @return 
-	 */
+     */
 	public IHMGestionLocataires() {
 		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");
@@ -102,15 +99,15 @@ public class IHMGestionLocataires extends JFrame {
 		JPanel panelParamRecherche = new JPanel();
 		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		textField = new JTextField();
+
+        JTextField textField = new JTextField();
 		textField.setColumns(10);
 		panelParamRecherche.add(textField);
 		
 		JButton BoutonRecherche = new JButton("Chercher");
 		panelParamRecherche.add(BoutonRecherche);
 		
-		JComboBox comboBoxFiltre = new JComboBox();
+		JComboBox<String> comboBoxFiltre = new JComboBox<>();
 		panelParamRecherche.add(comboBoxFiltre);
 		
 		ImageIcon iconeFiltre = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("IconeLoupe.png")));
@@ -124,8 +121,18 @@ public class IHMGestionLocataires extends JFrame {
 		panelParamRecherche.add(BoutonGestionAjout);
 		BoutonGestionAjout.setActionCommand("Ajout");
 		BoutonGestionAjout.addActionListener(controleur);
+
+		JTable tableBaux = this.getTableLocataires();
+		panelCentre.add(tableBaux, BorderLayout.CENTER);
 		
-		tableBaux = new JTable();
+		JLabel LabelTitre = new JLabel("Gestion des locataires");
+		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(LabelTitre, BorderLayout.NORTH);
+	}
+
+	public JTable getTableLocataires() {
+		JTable tableBaux = new JTable();
 		tableBaux.setModel(new DefaultTableModel(
 				new Object[][] {
 					{null, null, null, null},
@@ -147,11 +154,7 @@ public class IHMGestionLocataires extends JFrame {
 				new String[] {
 					"New column", "New column", "New column", "New column"
 				}));
-		panelCentre.add(tableBaux, BorderLayout.CENTER);
-		
-		JLabel LabelTitre = new JLabel("Gestion des locataires");
-		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(LabelTitre, BorderLayout.NORTH);
+		return tableBaux;
 	}
+
 }
