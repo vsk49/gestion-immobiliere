@@ -2,9 +2,14 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.Serial;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -13,20 +18,12 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
-
-import java.awt.Font;
-import java.awt.FlowLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.time.LocalDate;
+import javax.swing.border.EmptyBorder;
 
 import controleur.controleurDetailsLocataire;
 import modele.Genre;
-
 import modele.Locataire;
-import modele.Genre;
 
 public class IHMDetailsLocataire extends JFrame {
 
