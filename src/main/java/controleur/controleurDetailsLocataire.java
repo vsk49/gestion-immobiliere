@@ -7,6 +7,8 @@ import javax.swing.JButton;
 
 import modele.Locataire;
 import vue.IHMDetailsLocataire;
+import vue.IHMGestionLocataires;
+import vue.IHMModificationLocataire;
 
 public class controleurDetailsLocataire implements ActionListener {
 
@@ -29,11 +31,14 @@ public class controleurDetailsLocataire implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton actionCommand = (JButton) e.getSource();
         switch (actionCommand.getText()) {
-        case "Annuler" :
-			break;
-        case "Réinitialiser" :
-			break;
-        case "Valider" :
+        case "Retour" :
+			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+			this.vue.setVisible(false);
+			vueGestionLocataires.setVisible(true);
+        case "Modifier" :
+			IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire();
+			this.vue.setVisible(false);
+			vueModificationLocataire.setVisible(true);
         }
 	}
 

@@ -34,6 +34,7 @@ public class IHMDetailsLocataire extends JFrame {
 	private JLabel labelContenuDateDeNaissance;
 	private JLabel labelContenuTelephone;
 	private JLabel labelContenuEmail;
+	private Locataire locataire;
 
 
 	/**
@@ -53,8 +54,9 @@ public class IHMDetailsLocataire extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMDetailsLocataire() {
+	public IHMDetailsLocataire(Locataire locataire) {
 		Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
+		//this.locataire = locataire;
 		controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, loc);
 		setTitle("Détails du locataire");
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -149,12 +151,12 @@ public class IHMDetailsLocataire extends JFrame {
 		panelBasDePage.add(panelbouton);
 		
 		JButton boutonRetour = new JButton("Retour");
-		boutonRetour.addActionListener(e -> {
-        });
 		panelbouton.add(boutonRetour);
+		boutonRetour.addActionListener(controleur);
 		
 		JButton boutonModifier = new JButton("Modifier");
 		panelbouton.add(boutonModifier);
+		boutonModifier.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		getContentPane().add(panelBody, BorderLayout.CENTER);

@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import dao.JDBCCharge;
+import dao.JDBCLocataire;
 
 public class Locataire {
 
@@ -27,6 +28,7 @@ public class Locataire {
 	private List<BienImmobilier> biens;
 	private List<Charge> charges;
 	private JDBCCharge donneesCharges = new JDBCCharge();
+	private JDBCLocataire donneesLocataire = new JDBCLocataire();
 
 	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
@@ -133,5 +135,28 @@ public class Locataire {
 	public void archiverLocataire() {
 		this.dateDepart = LocalDate.now();
 	}
+
+	public void setPrenom(String prenom){
+		this.prenom = prenom;
+	}
 	
+	public void setNom(String nom){
+		this.nom = nom;
+	}
+
+	public void setDateNaissance(LocalDate date){
+		this.dateNaissance = date;
+	}
+
+	public void setTelephone(String tel){
+		this.telephone = tel;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public void updateDetailsLocataire () {
+		this.donneesLocataire.update(this);
+	}
 }

@@ -2,35 +2,41 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.JButton;
 
-
-import vue.IHMDetailsLocataire;
+import modele.Locataire;
 import vue.IHMDeclarationFiscale;
-import vue.IHMRegularisationCharges;
+import vue.IHMDetailsLocataire;
 import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMModificationLocataire;
+import vue.IHMRegularisationCharges;
 
 public class controleurModificationLocataire implements ActionListener{
 
     private IHMModificationLocataire vue;
+    private Locataire locataire;
+    private Locataire locModifie;
 
-    public controleurModificationLocataire (IHMModificationLocataire vue) {
+    public controleurModificationLocataire (IHMModificationLocataire vue, Locataire locataire) {
         this.vue = vue;
+		this.locataire = locataire;
+	// 	this.vue.getModifPrenom().setText(locataire.getPrenom());
+	// 	vue.getModifNom().setText(locataire.getNom());
+    //  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+	// 	String dateStr = locataire.getDateNaissance().format(formatter);
+	// 	vue.getModifDateNaissance().setText(dateStr);
+	// 	vue.getModifTelephone().setText(locataire.getTelephone());
+	// 	vue.getModifEmail().setText(locataire.getEmail());
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton actionCommand = (JButton) e.getSource();
         switch (actionCommand.getActionCommand()) {
-        case "Valider" :
-        case "Annuler" :
-            IHMDetailsLocataire vueDetailsLocataire = new IHMDetailsLocataire();
-            vueDetailsLocataire.setVisible(true);
-            this.vue.setVisible(false);
-            break;
         case "DeclarationFiscale" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
@@ -51,6 +57,27 @@ public class controleurModificationLocataire implements ActionListener{
             vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
             break;
+        case "Reinitialiser" :
+        	this.vue.getModifPrenom().setText(locataire.getPrenom());
+        	vue.getModifNom().setText(locataire.getNom());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        	String dateStr = locataire.getDateNaissance().format(formatter);
+        	vue.getModifDateNaissance().setText(dateStr);
+        	vue.getModifTelephone().setText(locataire.getTelephone());
+        	vue.getModifEmail().setText(locataire.getEmail());
+        case "Annuler" :
+            IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
+            vueDetailLocataire.setVisible(true);
+            this.vue.setVisible(false);
+        case "Valider" :
+            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            LocalDate dateNaissance = LocalDate.parse(this.vue.getModifDateNaissance().getText(), formatter2);
+            this.locataire.setNom(this.vue.getModifNom().getText());
+            this.locataire.setPrenom(this.vue.getModifPrenom().getText());
+            this.locataire.setDateNaissance(dateNaissance);
+            this.locataire.setEmail(this.vue.getModifEmail().getText());
+            this.locataire.setTelephone(this.vue.getModifTelephone().getText());
+            this.locataire.updateDetailsLocataire();
         }
     }
     
