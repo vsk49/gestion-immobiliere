@@ -50,15 +50,15 @@ public class controleurDetailsLocataire implements ActionListener {
 				this.vue.setVisible(false);
 				break;
 			case "biens" :
-				System.out.println("biens cliqués");
 				IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-				vueGestionBiens.setVisible(true);
 				this.vue.setVisible(false);
+				vueGestionBiens.setVisible(true);
 				break;
 			case "Retour" :
 				IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-				this.vue.setVisible(false);
+				this.vue.dispose();
 				vueGestionLocataires.setVisible(true);
+				break;
 			case "Modifier" :
 				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
 				vueModificationLocataire.setVisible(true);

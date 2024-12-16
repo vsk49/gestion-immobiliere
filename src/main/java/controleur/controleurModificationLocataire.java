@@ -4,11 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
 
 import javax.swing.JButton;
 
-import modele.Genre;
 import modele.Locataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
@@ -67,10 +65,12 @@ public class controleurModificationLocataire implements ActionListener {
                 vue.getModifDateNaissance().setText(dateStr);
                 vue.getModifTelephone().setText(locataire.getTelephone());
                 vue.getModifEmail().setText(locataire.getEmail());
+                break;
             case "Annuler" :
                 IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
+                this.vue.dispose();
                 vueDetailLocataire.setVisible(true);
-                this.vue.setVisible(false);
+                break;
             case "Valider" :
                 DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd MMMM yyyy");
                 LocalDate dateNaissance = LocalDate.parse(this.vue.getModifDateNaissance().getText(), formatter2);
@@ -80,6 +80,9 @@ public class controleurModificationLocataire implements ActionListener {
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
                 this.locataire.updateDetailsLocataire();
+                IHMDetailsLocataire vueDetailLocataireModif = new IHMDetailsLocataire(this.locataire);
+                vueDetailLocataireModif.setVisible(true);
+                this.vue.dispose();
         }
     }
     

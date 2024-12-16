@@ -85,31 +85,23 @@ public class IHMModificationLocataire extends JFrame {
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		menu.add(BoutonGBiens);
-		BoutonGBiens.setActionCommand("biens");
-		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		menu.add(BoutonGBaux);
-		BoutonGBaux.setActionCommand("baux");
-		BoutonGBaux.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		menu.add(BoutonGDeclFisc);
-		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
-		BoutonGDeclFisc.addActionListener(controleur);
-
+		
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		menu.add(BoutonGFinances);
-		BoutonGFinances.setActionCommand("RegularisationCharges");
-		BoutonGFinances.addActionListener(controleur);
 		
 		JLabel labelModifierLocataire = new JLabel("Modification du locataire");
 		labelModifierLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -166,17 +158,14 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JButton boutonAnnuler = new JButton("Annuler");
 		panelbouton.add(boutonAnnuler);
-		boutonAnnuler.setActionCommand("Annuler");
 		
 		panelbouton.add(boutonAnnuler);
 		
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
 		panelbouton.add(BoutonRéinitialiser);
-		BoutonRéinitialiser.setActionCommand("Reinitialiser");
 		
 		JButton boutonValider = new JButton("Valider");
 		panelbouton.add(boutonValider);
-		boutonAnnuler.setActionCommand("Valider");
 		
 		JPanel panelBody = new JPanel();
 		getContentPane().add(panelBody, BorderLayout.CENTER);
@@ -280,6 +269,20 @@ public class IHMModificationLocataire extends JFrame {
 		panelTextfieldEmail.add(textFieldEmail);
 		
 		this.controleur = new controleurModificationLocataire(this, this.locataire);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
+		boutonAnnuler.setActionCommand("Annuler");
+		boutonAnnuler.addActionListener(controleur);
+		BoutonRéinitialiser.setActionCommand("Reinitialiser");
+		BoutonRéinitialiser.addActionListener(controleur);
+		boutonAnnuler.setActionCommand("Valider");
+		boutonAnnuler.addActionListener(controleur);
 	}
 
 	public JTextField getModifPrenom() {
