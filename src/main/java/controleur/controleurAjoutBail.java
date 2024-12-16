@@ -16,7 +16,7 @@ public class controleurAjoutBail implements ActionListener{
     
     private IHMAjouterBail vue;
     
-    public void controleurAjouterBail (IHMAjouterBail vue) {
+    public void controleurAjoutBail (IHMAjouterBail vue) {
         this.vue = vue;
     }
 

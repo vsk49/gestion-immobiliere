@@ -19,7 +19,7 @@ public class controleurDetailsBiens implements ActionListener{
 
     private IHMDetailsBien vue;
     
-    public void controleurDetailsBien (IHMDetailsBien vue) {
+    public void controleurDetailsBiens (IHMDetailsBien vue) {
         this.vue = vue;
     }
 
