@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG]">
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="j'ai pas valide mes changements">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +63,11 @@
     &quot;second&quot;: &quot;4997c5cf-4442-4385-abae-8d629429f21d&quot;
   }
 }</component>
-  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpDebugGeneral" listening_started="true">
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="9000" />
+    <xdebug_debug_ports port="53019" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -71,43 +79,107 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CreateBD.executor": "Run",
-    "Application.Eau.executor": "Run",
-    "Application.IHMAccueil.executor": "Run",
-    "Application.IHMAjouterBien.executor": "Run",
-    "Application.IHMConnexion.executor": "Run",
-    "Application.IHMDetailsLocataire.executor": "Run",
-    "Application.IHMGestionLocataires.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.TestDAOBienImmobilier.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Virgil",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/vsk49/Downloads/ojdbc11.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2678161",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CreateBD.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Eau.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMAccueil.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMAjouterBien.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMConnexion.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMDetailsLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMGestionLocataires.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InputData.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JDBCConnexion.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Virgil&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vsk49/Downloads/ojdbc11.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2678161&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Application.IHMGestionLocataires">
+    <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IHMGestionLocataires" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vue.IHMGestionLocataires" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.InputData" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCConnexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.JDBCConnexion" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.IHMGestionLocataires" />
+        <item itemvalue="Application.InputData" />
+        <item itemvalue="Application.CreateBD" />
+        <item itemvalue="Application.JDBCConnexion" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -138,7 +210,11 @@
       <workItem from="1734024750602" duration="13991000" />
       <workItem from="1734084173183" duration="647000" />
       <workItem from="1734093056713" duration="5109000" />
-      <workItem from="1734332842943" duration="5394000" />
+      <workItem from="1734332842943" duration="6781000" />
+      <workItem from="1734346335362" duration="2324000" />
+      <workItem from="1734349051699" duration="5265000" />
+      <workItem from="1734355829418" duration="8503000" />
+      <workItem from="1734395316597" duration="6722000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -228,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734095275946</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="j'ai pas valide mes changements">
+      <option name="closed" value="true" />
+      <created>1734342676605</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734342676605</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +362,7 @@
     <MESSAGE value="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite" />
     <MESSAGE value="[CONFIG] pom.xml added plugin" />
     <MESSAGE value="[CONFIG]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG]" />
+    <MESSAGE value="j'ai pas valide mes changements" />
+    <option name="LAST_COMMIT_MESSAGE" value="j'ai pas valide mes changements" />
   </component>
 </project>

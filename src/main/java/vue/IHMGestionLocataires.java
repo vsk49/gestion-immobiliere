@@ -3,6 +3,7 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.io.Serial;
 import java.util.Objects;
 
@@ -16,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 import controleur.controleurGestionLocataires;
 
@@ -27,10 +29,9 @@ public class IHMGestionLocataires extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
+	private final JTable tableLocataires;
+	private final JTextField champRecherche;
 
-    /**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
             try {
@@ -42,9 +43,6 @@ public class IHMGestionLocataires extends JFrame {
         });
 	}
 
-	/**
-	 * Create the frame.
-     */
 	public IHMGestionLocataires() {
 		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");
@@ -101,15 +99,21 @@ public class IHMGestionLocataires extends JFrame {
 		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        JTextField textField = new JTextField();
-		textField.setColumns(10);
-		panelParamRecherche.add(textField);
+        this.champRecherche = new JTextField();
+		this.champRecherche.setColumns(10);
+		panelParamRecherche.add(this.champRecherche);
 		
 		JButton BoutonRecherche = new JButton("Chercher");
 		panelParamRecherche.add(BoutonRecherche);
-		
-		JComboBox<String> comboBoxFiltre = new JComboBox<>();
+		BoutonRecherche.addActionListener(controleur);
+
+		JComboBox<String> comboBoxFiltre = new JComboBox<>(new String[] {
+				"Tous",
+				"Nationalite: Francaise",
+				"Nationalite: Etrangere",
+		});
 		panelParamRecherche.add(comboBoxFiltre);
+		comboBoxFiltre.addActionListener(controleur);
 		
 		ImageIcon iconeFiltre = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("IconeLoupe.png")));
 		JLabel LabelimageFiltre = new JLabel();
@@ -123,39 +127,29 @@ public class IHMGestionLocataires extends JFrame {
 		BoutonGestionAjout.setActionCommand("Ajout");
 		BoutonGestionAjout.addActionListener(controleur);
 
-		JTable tableBaux = this.getTableLocataires();
-		panelCentre.add(tableBaux, BorderLayout.CENTER);
+		this.tableLocataires = new JTable(new DefaultTableModel(new Object[]{"ID", "Nom", "Prenom", "Email"}, 0) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		});
+		JScrollPane scrollPane = new JScrollPane(this.tableLocataires);
+		panelCentre.add(scrollPane, BorderLayout.CENTER);
 		
 		JLabel LabelTitre = new JLabel("Gestion des locataires");
 		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(LabelTitre, BorderLayout.NORTH);
+
+		controleur.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
 	}
 
 	public JTable getTableLocataires() {
-		JTable tableBaux = new JTable();
-		tableBaux.setModel(new DefaultTableModel(
-				new Object[][] {
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-				},
-				new String[] {
-					"New column", "New column", "New column", "New column"
-				}));
-		return tableBaux;
+		return this.tableLocataires;
+	}
+
+	public JTextField getChampRecherche() {
+		return this.champRecherche;
 	}
 
 }
