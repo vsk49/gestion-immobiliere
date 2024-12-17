@@ -143,6 +143,8 @@ public class Locataire {
 		this.dateDepart = LocalDate.now();
 	}
 
+	public void setPrenom(String prenom){
+		this.prenom = prenom;}
 	public List<Locataire> getAllLocataires() {
 		return this.donneesLocataire.getAll();
 	}
@@ -156,4 +158,23 @@ public class Locataire {
 				.toList();
 	}
 	
+	public void setNom(String nom){
+		this.nom = nom;
+	}
+
+	public void setDateNaissance(LocalDate date){
+		this.dateNaissance = date;
+	}
+
+	public void setTelephone(String tel){
+		this.telephone = tel;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public void updateDetailsLocataire () {
+		this.donneesLocataire.update(this);
+	}
 }

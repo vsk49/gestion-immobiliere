@@ -37,6 +37,8 @@ public class IHMDetailsLocataire extends JFrame {
 	private JLabel labelContenuDateDeNaissance;
 	private JLabel labelContenuTelephone;
 	private JLabel labelContenuEmail;
+	private Locataire locataire;
+	private controleurDetailsLocataire controleur;
 
 
 	/**
@@ -61,6 +63,7 @@ public class IHMDetailsLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire(Locataire locataire) {
+		this.locataire = locataire;
 		setTitle("Détails du locataire");
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
@@ -82,9 +85,9 @@ public class IHMDetailsLocataire extends JFrame {
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
-		JButton BoutonGBien = new JButton();
-		BoutonGBien.setIcon(iconeBiens);
-		menu.add(BoutonGBien);
+		JButton BoutonGBiens = new JButton();
+		BoutonGBiens.setIcon(iconeBiens);
+		menu.add(BoutonGBiens);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
@@ -97,7 +100,8 @@ public class IHMDetailsLocataire extends JFrame {
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		menu.add(BoutonGDeclFisc);
-
+		
+		
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
@@ -154,8 +158,6 @@ public class IHMDetailsLocataire extends JFrame {
 		panelBasDePage.add(panelbouton);
 		
 		JButton boutonRetour = new JButton("Retour");
-		boutonRetour.addActionListener(e -> {
-        });
 		panelbouton.add(boutonRetour);
 		
 		JButton boutonModifier = new JButton("Modifier");
@@ -257,20 +259,34 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		this.labelContenuEmail = new JLabel("New label");
 		panelTextfieldEmail.add(labelContenuEmail);
+		
+		this.controleur = new controleurDetailsLocataire(this, locataire);
+		boutonModifier.setActionCommand("Modifier");
+		boutonModifier.addActionListener(controleur);
+		boutonRetour.setActionCommand("Retour");
+		boutonRetour.addActionListener(controleur);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
+		BoutonGDeclFisc.setActionCommand("declarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
+		BoutonGFinances.setActionCommand("finances");
+		BoutonGFinances.addActionListener(controleur);
 	}
-
+	
 	public JLabel getModifPrenom() {
 		return this.labelContenuPrenom;
 	}
-
+	
 	public JLabel getModifNom(){
 		return this.labelContenuNom;
 	}
-
+	
 	public JLabel getModifDateNaissance(){
 		return this.labelContenuDateDeNaissance;
 	}
-
+	
 	public JLabel getModifTelephone(){
 		return this.labelContenuTelephone;
 	}
@@ -278,5 +294,5 @@ public class IHMDetailsLocataire extends JFrame {
 	public JLabel getModifEmail(){
 		return this.labelContenuEmail;
 	}
-
+	
 }

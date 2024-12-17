@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -18,16 +19,24 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.FlowLayout;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import controleur.controleurModificationLocataire;
+import modele.Genre;
+import modele.Locataire;
+import vue.IHMDetailsLocataire;
 
 public class IHMModificationLocataire extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textFieldTelephobe;
+	private JTextField textFieldNom;
+	private JTextField textFieldPrenom;
+	private JTextField textFieldDateNaissance;
+	private JTextField textFieldTelephone;
 	private JTextField textFieldEmail;
+	private Locataire locataire;
+	private controleurModificationLocataire controleur;
 
 
 	/**
@@ -37,7 +46,8 @@ public class IHMModificationLocataire extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IHMModificationLocataire frame = new IHMModificationLocataire();
+					Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
+					IHMModificationLocataire frame = new IHMModificationLocataire(loc);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,13 +59,23 @@ public class IHMModificationLocataire extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IHMModificationLocataire() {
-		controleurModificationLocataire controleur = new controleurModificationLocataire(this);
+	public IHMModificationLocataire(Locataire locataire) {
+		this.locataire = locataire;
 		setTitle("Modification du locataire");
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
+
+		addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
+                vueDetailLocataire.setVisible(true);
+
+                dispose();
+            }
+        });
 		
 		JPanel menu = new JPanel();
 		getContentPane().add(menu, BorderLayout.WEST);
@@ -65,31 +85,23 @@ public class IHMModificationLocataire extends JFrame {
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		menu.add(BoutonGBiens);
-		BoutonGBiens.setActionCommand("biens");
-		BoutonGBiens.addActionListener(controleur);
 		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		menu.add(BoutonGBaux);
-		BoutonGBaux.setActionCommand("baux");
-		BoutonGBaux.addActionListener(controleur);
 		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		menu.add(BoutonGDeclFisc);
-		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
-		BoutonGDeclFisc.addActionListener(controleur);
-
+		
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
 		menu.add(BoutonGFinances);
-		BoutonGFinances.setActionCommand("RegularisationCharges");
-		BoutonGFinances.addActionListener(controleur);
 		
 		JLabel labelModifierLocataire = new JLabel("Modification du locataire");
 		labelModifierLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -146,8 +158,6 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JButton boutonAnnuler = new JButton("Annuler");
 		panelbouton.add(boutonAnnuler);
-		boutonAnnuler.setActionCommand("Annuler");
-		boutonAnnuler.addActionListener(controleur);
 		
 		panelbouton.add(boutonAnnuler);
 		
@@ -156,8 +166,6 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JButton boutonValider = new JButton("Valider");
 		panelbouton.add(boutonValider);
-		boutonAnnuler.setActionCommand("Valider");
-		boutonAnnuler.addActionListener(controleur);
 		
 		JPanel panelBody = new JPanel();
 		getContentPane().add(panelBody, BorderLayout.CENTER);
@@ -204,23 +212,23 @@ public class IHMModificationLocataire extends JFrame {
 		JPanel panel_10 = new JPanel();
 		panelTextfieldPartie1.add(panel_10);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		panel_10.add(textField);
+		textFieldNom = new JTextField();
+		textFieldNom.setColumns(10);
+		panel_10.add(textFieldNom);
 		
 		JPanel panel_11 = new JPanel();
 		panelTextfieldPartie1.add(panel_11);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		panel_11.add(textField_1);
+		textFieldPrenom = new JTextField();
+		textFieldPrenom.setColumns(10);
+		panel_11.add(textFieldPrenom);
 		
 		JPanel panel_12 = new JPanel();
 		panelTextfieldPartie1.add(panel_12);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		panel_12.add(textField_2);
+		textFieldDateNaissance = new JTextField();
+		textFieldDateNaissance.setColumns(10);
+		panel_12.add(textFieldDateNaissance);
 		
 		Panel panelDeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDeuxièmePartieFormulaire);
@@ -249,9 +257,9 @@ public class IHMModificationLocataire extends JFrame {
 		JPanel panelTextfieldTelephone = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldTelephone);
 		
-		textFieldTelephobe = new JTextField();
-		textFieldTelephobe.setColumns(10);
-		panelTextfieldTelephone.add(textFieldTelephobe);
+		textFieldTelephone = new JTextField();
+		textFieldTelephone.setColumns(10);
+		panelTextfieldTelephone.add(textFieldTelephone);
 		
 		JPanel panelTextfieldEmail = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldEmail);
@@ -259,6 +267,38 @@ public class IHMModificationLocataire extends JFrame {
 		textFieldEmail = new JTextField();
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
+		
+		this.controleur = new controleurModificationLocataire(this, this.locataire);
+		BoutonGBiens.setActionCommand("biens");
+		BoutonGBiens.addActionListener(controleur);
+		BoutonGBaux.setActionCommand("baux");
+		BoutonGBaux.addActionListener(controleur);
+		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
+		BoutonGDeclFisc.addActionListener(controleur);
+		BoutonGFinances.setActionCommand("RegularisationCharges");
+		BoutonGFinances.addActionListener(controleur);
+		boutonAnnuler.setActionCommand("Annuler");
+		boutonAnnuler.addActionListener(controleur);
+		BoutonRéinitialiser.setActionCommand("Reinitialiser");
+		BoutonRéinitialiser.addActionListener(controleur);
+		boutonAnnuler.setActionCommand("Valider");
+		boutonAnnuler.addActionListener(controleur);
+	}
+
+	public JTextField getModifPrenom() {
+		return this.textFieldPrenom;
+	}
+	public JTextField getModifNom(){
+		return this.textFieldNom;
+	}
+	public JTextField getModifDateNaissance(){
+		return this.textFieldDateNaissance;
+	}
+	public JTextField getModifTelephone(){
+		return this.textFieldTelephone;
+	}
+	public JTextField getModifEmail(){
+		return this.textFieldEmail;
 	}
 
 }
