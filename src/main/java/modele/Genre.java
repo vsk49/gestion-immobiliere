@@ -1,5 +1,17 @@
 package modele;
 
 public enum Genre {
-    MASCULIN, FEMININ
+
+    MASCULIN("M"), FEMININ("F");
+
+    private final String genre;
+
+    Genre(String s) {
+        this.genre = s;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
 }

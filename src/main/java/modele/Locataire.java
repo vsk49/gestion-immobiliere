@@ -27,8 +27,7 @@ public class Locataire {
 	private List<Bail> baux; 
 	private List<BienImmobilier> biens;
 	private List<Charge> charges;
-	private JDBCCharge donneesCharges = new JDBCCharge();
-	private JDBCLocataire donneesLocataire = new JDBCLocataire();
+    private final JDBCLocataire donneesLocataire = new JDBCLocataire();
 
 	public Locataire() {
 		this.cautions = new ArrayList<>();
@@ -56,7 +55,8 @@ public class Locataire {
 		this.cautions = new ArrayList<>();
 		this.baux = new ArrayList<>();
 		this.biens = new ArrayList<>();
-		this.charges = this.donneesCharges.getByLocataire(this);
+        JDBCCharge donneesCharges = new JDBCCharge();
+        this.charges = donneesCharges.getByLocataire(this);
 	}
 
 	public boolean estLocataireAncien() {
@@ -147,6 +147,15 @@ public class Locataire {
 		this.prenom = prenom;}
 	public List<Locataire> getAllLocataires() {
 		return this.donneesLocataire.getAll();
+	}
+
+	public Locataire getLocatairesById(String idLocataire) {
+		return this.donneesLocataire.getById(idLocataire).orElseThrow();
+	}
+
+	public List<Locataire> getLocatairesByNom(String nom) {
+		return this.donneesLocataire.getAll().stream().filter(locataire -> locataire.getNom().equals(nom))
+				.toList();
 	}
 	
 	public void setNom(String nom){

@@ -124,7 +124,7 @@ public class CreateBD {
 				+ "profession VARCHAR(50), "
 				+ "telephone VARCHAR(15), "
 				+ "email VARCHAR(100), "
-				+ "dateEntree DATE NOT NULL, "
+				+ "dateEntree DATE, "
 				+ "dateDepart DATE, "
 				+ "quotite BINARY_DOUBLE CHECK (quotite >= 0 AND quotite <= 1)"
 				+ ")"
