@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import vue.IHMAccueil;
+import vue.IHMAjouterBail;
 import vue.IHMAjouterBien;
 import vue.IHMAjouterLocataire;
 import vue.IHMDeclarationFiscale;
@@ -37,9 +38,9 @@ public class controleurAccueil implements ActionListener {
 			this.vue.setVisible(false);
 			break;
         case "Ajouter un bail" :
-		//	IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
-		//	vueAjouterBail.setVisible(true);
-		//	this.vue.setVisible(false);
+			IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
+			vueAjouterBail.setVisible(true);
+			this.vue.setVisible(false);
 			break;
         case "Consulter les locataires" :
 			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();

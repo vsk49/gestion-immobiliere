@@ -11,7 +11,7 @@ public class InputData {
 	private static final JDBCLocataire donneesLocataires = new JDBCLocataire();
 
 	private static final Locataire[] locataires = {
-			new Locataire("YPOU", "--Poux Bories", "Yoan",
+			new Locataire("YPOU", "Poux--Bories", "Yoan",
 			Genre.MASCULIN, LocalDate.of(2004, 1, 23), "Toulouse",
 			"France", "Etudiant", "06 12 34 56 78",
 			"yoan.poux@gmail.com", LocalDate.of(2024, 5, 12), null, 0),
