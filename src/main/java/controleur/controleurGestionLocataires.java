@@ -6,11 +6,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modele.Locataire;
-import vue.*;
+import vue.IHMAjouterLocataire;
+import vue.IHMDeclarationFiscale;
+import vue.IHMDetailsLocataire;
+import vue.IHMGestionBaux;
+import vue.IHMGestionBiens;
+import vue.IHMGestionLocataires;
+import vue.IHMRegularisationCharges;
 
 public class controleurGestionLocataires extends MouseAdapter implements ActionListener {
 
@@ -46,43 +54,43 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
 
         if (e.getSource() instanceof JButton source) {
             switch (source.getActionCommand()) {
-                case "Ajout":
+                case "Ajout" -> {
                     IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
                     vueAjout.setVisible(true);
-                    break;
-                case "biens":
+                }
+                case "biens" -> {
                     IHMGestionBiens vueBiens = new IHMGestionBiens();
                     this.vue.dispose();
                     vueBiens.setVisible(true);
-                    break;
-                case "baux":
+                }
+                case "baux" -> {
                     IHMGestionBaux vueBaux = new IHMGestionBaux();
                     this.vue.dispose();
                     vueBaux.setVisible(true);
-                    break;
-                case "DeclarationFiscale":
+                }
+                case "DeclarationFiscale" -> {
                     IHMDeclarationFiscale vueDeclaration = new IHMDeclarationFiscale();
                     this.vue.dispose();
                     vueDeclaration.setVisible(true);
-                    break;
-                case "RegularisationCharges":
+                }
+                case "RegularisationCharges" -> {
                     IHMRegularisationCharges vueRegularisation = new IHMRegularisationCharges();
                     this.vue.dispose();
                     vueRegularisation.setVisible(true);
-                    break;
-                case "Chercher":
+                }
+                case "Chercher" -> {
                     String nom = this.vue.getChampRecherche().getText();
                     List<Locataire> locatairesTrouves = this.modele.getLocatairesByNom(nom);
                     tableModel.setRowCount(0);
                     for (Locataire locataire : locatairesTrouves) {
                         tableModel.addRow(new Object[]{
-                                locataire.getIdLocataire(),
-                                locataire.getNom(),
-                                locataire.getPrenom(),
-                                locataire.getEmail()
+                            locataire.getIdLocataire(),
+                            locataire.getNom(),
+                            locataire.getPrenom(),
+                            locataire.getEmail()
                         });
                     }
-                    break;
+                }
             }
         }
     }

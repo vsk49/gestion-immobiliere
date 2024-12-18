@@ -30,42 +30,42 @@ public class controleurAccueil implements ActionListener {
         case "Ajouter un locataire" :
 			IHMAjouterLocataire vueAjouterLocataire = new IHMAjouterLocataire();
 			vueAjouterLocataire.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Ajouter un bien" :
 			IHMAjouterBien vueAjouterBien = new IHMAjouterBien();
 			vueAjouterBien.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Ajouter un bail" :
 			IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
 			vueAjouterBail.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Consulter les locataires" :
 			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
 			vueGestionLocataires.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Consulter les biens" :
 			IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
 			vueGestionBiens.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Consulter les baux" :
 			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
 			vueGestionBaux.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Déclaration fiscale" :
 			IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
 			vueDeclarationFiscale.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 			break;
         case "Finances" :
 			IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
 			vueRegularisationCharges.setVisible(true);
-			this.vue.setVisible(false);
+			this.vue.dispose();
 		}
 	}
 }

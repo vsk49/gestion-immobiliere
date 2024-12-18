@@ -2,8 +2,12 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.Serial;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,18 +19,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.FlowLayout;
-
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import javax.swing.border.EmptyBorder;
 
 import controleur.controleurModificationLocataire;
 import modele.Genre;
 import modele.Locataire;
-import vue.IHMDetailsLocataire;
 
 public class IHMModificationLocataire extends JFrame {
 
