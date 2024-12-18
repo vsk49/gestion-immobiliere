@@ -2,6 +2,8 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.io.Serial;
@@ -13,17 +15,14 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
 
 import controleur.controleurGestionLocataires;
-
-import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
-import java.awt.Font;
 
 public class IHMGestionLocataires extends JFrame {
 
@@ -136,6 +135,7 @@ public class IHMGestionLocataires extends JFrame {
 		});
 		JScrollPane scrollPane = new JScrollPane(this.tableLocataires);
 		panelCentre.add(scrollPane, BorderLayout.CENTER);
+		this.tableLocataires.addMouseListener(controleur);
 		
 		JLabel LabelTitre = new JLabel("Gestion des locataires");
 		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
