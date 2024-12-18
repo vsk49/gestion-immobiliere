@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 
+import controleur.controleurAjoutLocataire;
 import controleur.controleurGestionLocataires;
 
 import java.awt.FlowLayout;

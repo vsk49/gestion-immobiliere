@@ -143,24 +143,13 @@ public class Locataire {
 		this.dateDepart = LocalDate.now();
 	}
 
-	public void setPrenom(String prenom){
-		this.prenom = prenom;}
-	public List<Locataire> getAllLocataires() {
-		return this.donneesLocataire.getAll();
-	}
+	public void setIdLocataire(String id) { this.idLocataire = id; }
 
-	public Locataire getLocatairesById(String idLocataire) {
-		return this.donneesLocataire.getById(idLocataire).orElseThrow();
-	}
-
-	public List<Locataire> getLocatairesByNom(String nom) {
-		return this.donneesLocataire.getAll().stream().filter(locataire -> locataire.getNom().equals(nom))
-				.toList();
-	}
-	
 	public void setNom(String nom){
 		this.nom = nom;
 	}
+
+	public void setPrenom(String prenom) { this.prenom = prenom; }
 
 	public void setDateNaissance(LocalDate date){
 		this.dateNaissance = date;
@@ -174,7 +163,25 @@ public class Locataire {
 		this.email = email;
 	}
 
-	public void updateDetailsLocataire () {
+	// partie DAO
+
+	public void enregistrerLocataire() { this.donneesLocataire.insert(this); }
+
+	public void mettreAJourLocataire() {
 		this.donneesLocataire.update(this);
 	}
+
+	public List<Locataire> getAllLocataires() {
+		return this.donneesLocataire.getAll();
+	}
+
+	public Locataire getLocatairesById(String idLocataire) {
+		return this.donneesLocataire.getById(idLocataire).orElseThrow();
+	}
+
+	public List<Locataire> getLocatairesByNom(String nom) {
+		return this.donneesLocataire.getAll().stream().filter(locataire -> locataire.getNom().equals(nom))
+				.toList();
+	}
+
 }
