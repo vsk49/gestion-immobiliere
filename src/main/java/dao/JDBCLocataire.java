@@ -28,13 +28,24 @@ public class JDBCLocataire implements DAOLocataire {
 	}
 
 	private static Locataire getLocataire(ResultSet resultat) throws SQLException {
-        return new Locataire(resultat.getString("idLocataire"), resultat.getString("nom"),
-                resultat.getString("prenom"), Genre.valueOf(resultat.getString("genre")),
-                resultat.getDate("dateNaissance").toLocalDate(), resultat.getString("lieuNaissance"),
-                resultat.getString("nationalite"), resultat.getString("profession"),
-                resultat.getString("telephone"), resultat.getString("email"),
-                resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-                resultat.getDouble("quotite"));
+		String genreString = resultat.getString("genre");
+		Genre genre = genreString.equals("M") ? Genre.MASCULIN : Genre.FEMININ;
+
+		return new Locataire(
+				resultat.getString("idLocataire"),
+				resultat.getString("nom"),
+				resultat.getString("prenom"),
+				genre,
+				resultat.getDate("dateNaissance").toLocalDate(),
+				resultat.getString("lieuNaissance"),
+				resultat.getString("nationalite"),
+				resultat.getString("profession"),
+				resultat.getString("telephone"),
+				resultat.getString("email"),
+				resultat.getDate("dateEntree").toLocalDate(),
+				resultat.getDate("dateDepart") != null ? resultat.getDate("dateDepart").toLocalDate() : null,
+				resultat.getDouble("quotite")
+		);
 	}
 
 	@Override
@@ -65,15 +76,15 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setString(1, t.getIdLocataire());
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
-			statement.setString(4, t.getGenre().name());
+			statement.setString(4, t.getGenre().getGenre());
 			statement.setDate(5, Date.valueOf(t.getDateNaissance()));
 			statement.setString(6, t.getLieuNaissance());
 			statement.setString(7, t.getNationalite());
 			statement.setString(8, t.getProfession());
 			statement.setString(9, t.getTelephone());
 			statement.setString(10, t.getEmail());
-			statement.setDate(11, Date.valueOf(t.getDateEntree()));
-			statement.setDate(12, Date.valueOf(t.getDateDepart()));
+			statement.setDate(11, t.getDateEntree() != null ? Date.valueOf(t.getDateEntree()) : null);
+			statement.setDate(12, t.getDateDepart() != null ? Date.valueOf(t.getDateDepart()) : null);
 			statement.setDouble(13, t.getQuotite());
 			statement.executeUpdate();
 			System.out.println("Le locataire a ete enregistre.");
@@ -115,30 +126,6 @@ public class JDBCLocataire implements DAOLocataire {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
-	}
-
-	@Override
-	public Optional<Locataire> getByNom(String nom) {
-		Optional<Locataire> locataire = Optional.empty();
-		try {
-			String requete = "SELECT * FROM Locataire WHERE nom = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setString(1, nom);
-			ResultSet resultat = statement.executeQuery();
-			boolean enregistrementExiste = resultat.next();
-			if (enregistrementExiste) {
-				Locataire l = new Locataire(resultat.getString("idLocataire"), nom, resultat.getString("prenom"),
-						Genre.valueOf(resultat.getString("genre")), resultat.getDate("dateNaissance").toLocalDate(),
-						resultat.getString("lieuNaissance"), resultat.getString("nationalite"),
-						resultat.getString("profession"), resultat.getString("telephone"), resultat.getString("email"),
-						resultat.getDate("dateEntree").toLocalDate(), resultat.getDate("dateDepart").toLocalDate(),
-						resultat.getDouble("quotite"));
-				locataire = Optional.of(l);
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
-		}
-		return locataire;
 	}
 
 }

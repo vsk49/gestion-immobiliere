@@ -49,6 +49,7 @@ public class IHMInscription extends JFrame {
 		controleurInscription controleur = new controleurInscription(this);
 		setTitle("Inscription");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 

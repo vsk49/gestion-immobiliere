@@ -57,6 +57,7 @@ public class IHMAjouterBien extends JFrame {
 	public IHMAjouterBien() {
 		controleurAjoutBien controleur = new controleurAjoutBien();
 		setTitle("Ajout de bien");
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));

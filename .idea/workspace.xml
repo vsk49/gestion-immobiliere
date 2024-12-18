@@ -4,33 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] .gitlab-ci.yml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAOTaxeFonciere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCTaxeFonciere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="j'ai pas valide mes changements">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_12_2024_11_36_am_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_12_2024_11_36_am__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_12_2024_11_38_am_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_12_2024_11_38_am__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienLouable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienLouable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Charge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Eau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Eau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Garage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Garage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMConnexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +63,11 @@
     &quot;second&quot;: &quot;4997c5cf-4442-4385-abae-8d629429f21d&quot;
   }
 }</component>
-  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpDebugGeneral" listening_started="true">
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="9000" />
+    <xdebug_debug_ports port="53019" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -98,6 +87,9 @@
     &quot;Application.IHMAjouterBien.executor&quot;: &quot;Run&quot;,
     &quot;Application.IHMConnexion.executor&quot;: &quot;Run&quot;,
     &quot;Application.IHMDetailsLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMGestionLocataires.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InputData.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JDBCConnexion.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.TestDAOBienImmobilier.executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
@@ -117,7 +109,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2678161&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -126,6 +118,68 @@
     ]
   }
 }</component>
+  <component name="RunManager" selected="Application.IHMGestionLocataires">
+    <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IHMGestionLocataires" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vue.IHMGestionLocataires" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.InputData" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCConnexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.JDBCConnexion" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.IHMGestionLocataires" />
+        <item itemvalue="Application.InputData" />
+        <item itemvalue="Application.CreateBD" />
+        <item itemvalue="Application.JDBCConnexion" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -155,7 +209,12 @@
       <workItem from="1733951778808" duration="2044000" />
       <workItem from="1734024750602" duration="13991000" />
       <workItem from="1734084173183" duration="647000" />
-      <workItem from="1734093056713" duration="1310000" />
+      <workItem from="1734093056713" duration="5109000" />
+      <workItem from="1734332842943" duration="6781000" />
+      <workItem from="1734346335362" duration="2324000" />
+      <workItem from="1734349051699" duration="5265000" />
+      <workItem from="1734355829418" duration="8503000" />
+      <workItem from="1734395316597" duration="6722000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -237,7 +296,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733756646204</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[CONFIG]">
+      <option name="closed" value="true" />
+      <created>1734095275946</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734095275946</updated>
+    </task>
+    <task id="LOCAL-00012" summary="j'ai pas valide mes changements">
+      <option name="closed" value="true" />
+      <created>1734342676605</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734342676605</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +361,8 @@
     <MESSAGE value="Trying again (1)" />
     <MESSAGE value="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite" />
     <MESSAGE value="[CONFIG] pom.xml added plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] pom.xml added plugin" />
+    <MESSAGE value="[CONFIG]" />
+    <MESSAGE value="j'ai pas valide mes changements" />
+    <option name="LAST_COMMIT_MESSAGE" value="j'ai pas valide mes changements" />
   </component>
 </project>

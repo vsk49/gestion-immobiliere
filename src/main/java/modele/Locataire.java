@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import dao.JDBCCharge;
+import dao.JDBCLocataire;
 
 public class Locataire {
 
@@ -26,7 +27,14 @@ public class Locataire {
 	private List<Bail> baux; 
 	private List<BienImmobilier> biens;
 	private List<Charge> charges;
-	private JDBCCharge donneesCharges = new JDBCCharge();
+    private final JDBCLocataire donneesLocataire = new JDBCLocataire();
+
+	public Locataire() {
+		this.cautions = new ArrayList<>();
+		this.baux = new ArrayList<>();
+		this.biens = new ArrayList<>();
+		this.charges = new ArrayList<>();
+	}
 
 	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
 			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
@@ -47,7 +55,8 @@ public class Locataire {
 		this.cautions = new ArrayList<>();
 		this.baux = new ArrayList<>();
 		this.biens = new ArrayList<>();
-		this.charges = this.donneesCharges.getByLocataire(this);
+        JDBCCharge donneesCharges = new JDBCCharge();
+        this.charges = donneesCharges.getByLocataire(this);
 	}
 
 	public boolean estLocataireAncien() {
@@ -133,5 +142,39 @@ public class Locataire {
 	public void archiverLocataire() {
 		this.dateDepart = LocalDate.now();
 	}
+
+	public void setPrenom(String prenom){
+		this.prenom = prenom;}
+	public List<Locataire> getAllLocataires() {
+		return this.donneesLocataire.getAll();
+	}
+
+	public Locataire getLocatairesById(String idLocataire) {
+		return this.donneesLocataire.getById(idLocataire).orElseThrow();
+	}
+
+	public List<Locataire> getLocatairesByNom(String nom) {
+		return this.donneesLocataire.getAll().stream().filter(locataire -> locataire.getNom().equals(nom))
+				.toList();
+	}
 	
+	public void setNom(String nom){
+		this.nom = nom;
+	}
+
+	public void setDateNaissance(LocalDate date){
+		this.dateNaissance = date;
+	}
+
+	public void setTelephone(String tel){
+		this.telephone = tel;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public void updateDetailsLocataire () {
+		this.donneesLocataire.update(this);
+	}
 }

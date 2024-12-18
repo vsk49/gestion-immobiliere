@@ -47,6 +47,7 @@ public class IHMRegularisationCharges extends JFrame {
 		controleurRegularisationCharges controleur = new controleurRegularisationCharges(this);
 		setTitle("Régularisation des charges");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		contentPane = new JPanel();
