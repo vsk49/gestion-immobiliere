@@ -115,11 +115,6 @@ public class IHMGestionLocataires extends JFrame {
 		});
 		panelParamRecherche.add(comboBoxFiltre);
 		comboBoxFiltre.addActionListener(controleur);
-		
-		ImageIcon iconeFiltre = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("IconeLoupe.png")));
-		JLabel LabelimageFiltre = new JLabel();
-		LabelimageFiltre.setIcon(iconeFiltre);
-		panelParamRecherche.add(LabelimageFiltre);
 
 		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
 		JButton BoutonGestionAjout = new JButton();
