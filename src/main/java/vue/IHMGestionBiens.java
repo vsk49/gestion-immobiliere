@@ -114,11 +114,6 @@ public class IHMGestionBiens extends JFrame {
 		
 		JComboBox comboBoxFiltre = new JComboBox();
 		panelParamRecherche.add(comboBoxFiltre);
-		
-		ImageIcon iconeFiltre = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("IconeLoupe.png")));
-		JLabel LabelimageFiltre = new JLabel();
-		LabelimageFiltre.setIcon(iconeFiltre);
-		panelParamRecherche.add(LabelimageFiltre);
 
 		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
 		JButton BoutonGestionAjout = new JButton();
