@@ -45,45 +45,52 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
         }
 
         if (e.getSource() instanceof JButton source) {
-            if (source.getActionCommand().equals("Ajout")) {
-                IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
-                vueAjout.setVisible(true);
-            } else if (source.getActionCommand().equals("biens")) {
-                IHMGestionBiens vueBiens = new IHMGestionBiens();
-                this.vue.dispose();
-                vueBiens.setVisible(true);
-            } else if (source.getActionCommand().equals("baux")) {
-                IHMGestionBaux vueBaux = new IHMGestionBaux();
-                this.vue.dispose();
-                vueBaux.setVisible(true);
-            } else if (source.getActionCommand().equals("DeclarationFiscale")) {
-                IHMDeclarationFiscale vueDeclaration = new IHMDeclarationFiscale();
-                this.vue.dispose();
-                vueDeclaration.setVisible(true);
-            } else if (source.getActionCommand().equals("RegularisationCharges")) {
-                IHMRegularisationCharges vueRegularisation = new IHMRegularisationCharges();
-                this.vue.dispose();
-                vueRegularisation.setVisible(true);
-            } else if (source.getActionCommand().equals("Chercher")) {
-                String nom = this.vue.getChampRecherche().getText();
-                List<Locataire> locatairesTrouves = this.modele.getLocatairesByNom(nom);
-                tableModel.setRowCount(0);
-                for (Locataire locataire : locatairesTrouves) {
-                    tableModel.addRow(new Object[]{
-                            locataire.getIdLocataire(),
-                            locataire.getNom(),
-                            locataire.getPrenom(),
-                            locataire.getEmail()
-                    });
-                }
+            switch (source.getActionCommand()) {
+                case "Ajout":
+                    IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
+                    vueAjout.setVisible(true);
+                    break;
+                case "biens":
+                    IHMGestionBiens vueBiens = new IHMGestionBiens();
+                    this.vue.dispose();
+                    vueBiens.setVisible(true);
+                    break;
+                case "baux":
+                    IHMGestionBaux vueBaux = new IHMGestionBaux();
+                    this.vue.dispose();
+                    vueBaux.setVisible(true);
+                    break;
+                case "DeclarationFiscale":
+                    IHMDeclarationFiscale vueDeclaration = new IHMDeclarationFiscale();
+                    this.vue.dispose();
+                    vueDeclaration.setVisible(true);
+                    break;
+                case "RegularisationCharges":
+                    IHMRegularisationCharges vueRegularisation = new IHMRegularisationCharges();
+                    this.vue.dispose();
+                    vueRegularisation.setVisible(true);
+                    break;
+                case "Chercher":
+                    String nom = this.vue.getChampRecherche().getText();
+                    List<Locataire> locatairesTrouves = this.modele.getLocatairesByNom(nom);
+                    tableModel.setRowCount(0);
+                    for (Locataire locataire : locatairesTrouves) {
+                        tableModel.addRow(new Object[]{
+                                locataire.getIdLocataire(),
+                                locataire.getNom(),
+                                locataire.getPrenom(),
+                                locataire.getEmail()
+                        });
+                    }
+                    break;
             }
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        JTable table = (JTable) e.getSource();
         if (e.getClickCount() == 2) {
-            JTable table = (JTable) e.getSource();
             int ligne = table.getSelectedRow();
             if (ligne != -1) {
                 String idLocataire = (String) table.getValueAt(ligne, 0);
