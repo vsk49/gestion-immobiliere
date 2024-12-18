@@ -50,6 +50,7 @@ public class IHMGestionBaux extends JFrame {
 		controleurGestionBaux controleur = new controleurGestionBaux(this);
 		setTitle("Gestion des baux");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));

@@ -47,6 +47,7 @@ public class IHMGestionLocataires extends JFrame {
 		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));

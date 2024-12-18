@@ -65,6 +65,7 @@ public class IHMDetailsLocataire extends JFrame {
 	public IHMDetailsLocataire(Locataire locataire) {
 		this.locataire = locataire;
 		setTitle("Détails du locataire");
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
