@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -24,35 +25,33 @@ import controleur.controleurAjoutLocataire;
 
 public class IHMAjouterLocataire extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textFieldTelephobe;
-	private JTextField textFieldEmail;
-
+	private final JTextField textFieldNom;
+	private final JTextField textFieldPrenom;
+	private final JTextField textFieldDateNaissane;
+	private final JTextField textFieldTelephone;
+	private final JTextField textFieldEmail;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMAjouterLocataire frame = new IHMAjouterLocataire();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                IHMAjouterLocataire frame = new IHMAjouterLocataire();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	public IHMAjouterLocataire() {
-		controleurAjoutLocataire controleur = new controleurAjoutLocataire();
+		controleurAjoutLocataire controleur = new controleurAjoutLocataire(this);
 		setTitle("Ajout de locataire");
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
@@ -132,7 +131,7 @@ public class IHMAjouterLocataire extends JFrame {
 		FlowLayout fl_panelComboboxBien = (FlowLayout) panelComboboxBien.getLayout();
 		panelChoixBien.add(panelComboboxBien);
 		
-		JComboBox comboBoxBien = new JComboBox();
+		JComboBox<String> comboBoxBien = new JComboBox<>();
 		panelComboboxBien.add(comboBoxBien);
 		
 		JPanel panelFichierDocuments = new JPanel();
@@ -215,23 +214,23 @@ public class IHMAjouterLocataire extends JFrame {
 		JPanel panel_10 = new JPanel();
 		panelTextfieldPartie1.add(panel_10);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		panel_10.add(textField);
+		textFieldNom = new JTextField();
+		textFieldNom.setColumns(10);
+		panel_10.add(textFieldNom);
 		
 		JPanel panel_11 = new JPanel();
 		panelTextfieldPartie1.add(panel_11);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		panel_11.add(textField_1);
+		textFieldPrenom = new JTextField();
+		textFieldPrenom.setColumns(10);
+		panel_11.add(textFieldPrenom);
 		
 		JPanel panel_12 = new JPanel();
 		panelTextfieldPartie1.add(panel_12);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		panel_12.add(textField_2);
+		textFieldDateNaissane = new JTextField();
+		textFieldDateNaissane.setColumns(10);
+		panel_12.add(textFieldDateNaissane);
 		
 		Panel panelDeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDeuxièmePartieFormulaire);
@@ -260,9 +259,9 @@ public class IHMAjouterLocataire extends JFrame {
 		JPanel panelTextfieldTelephone = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldTelephone);
 		
-		textFieldTelephobe = new JTextField();
-		textFieldTelephobe.setColumns(10);
-		panelTextfieldTelephone.add(textFieldTelephobe);
+		textFieldTelephone = new JTextField();
+		textFieldTelephone.setColumns(10);
+		panelTextfieldTelephone.add(textFieldTelephone);
 		
 		JPanel panelTextfieldEmail = new JPanel();
 		panelTextfieldPartie2.add(panelTextfieldEmail);
@@ -270,6 +269,16 @@ public class IHMAjouterLocataire extends JFrame {
 		textFieldEmail = new JTextField();
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
+	}
+
+	public Object[] getInformations() {
+		return new Object[] {
+				this.textFieldNom.getText(),
+				this.textFieldPrenom.getText(),
+				this.textFieldDateNaissane.getText(),
+				this.textFieldTelephone.getText(),
+				this.textFieldEmail.getText()
+		};
 	}
 
 }
