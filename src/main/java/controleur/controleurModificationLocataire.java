@@ -19,7 +19,6 @@ public class controleurModificationLocataire implements ActionListener {
 
     private IHMModificationLocataire vue;
     private Locataire locataire;
-    private Locataire locModifie;
 
     public controleurModificationLocataire (IHMModificationLocataire vue, Locataire locataire) {
         this.vue = vue;
@@ -80,9 +79,9 @@ public class controleurModificationLocataire implements ActionListener {
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
                 this.locataire.updateDetailsLocataire();
+                this.vue.dispose();
                 IHMDetailsLocataire vueDetailLocataireModif = new IHMDetailsLocataire(this.locataire);
                 vueDetailLocataireModif.setVisible(true);
-                this.vue.dispose();
         }
     }
     
