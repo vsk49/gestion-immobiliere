@@ -6,8 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -48,6 +52,17 @@ public class IHMInscription extends JFrame {
 		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
+
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				IHMConnexion vueConnexion = new IHMConnexion();
+				vueConnexion.setVisible(true);
+	
+				dispose();
+			}
+		});
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -108,4 +123,19 @@ public class IHMInscription extends JFrame {
 		BoutonValider.addActionListener(controleur);
 	}
 
+	public String getIdentifiant() {
+		return textFieldMail.getText();
+	}
+	
+	public String getMotDePasse() {
+		return textFieldMotdepasse.getText();
+	}
+
+	public void afficherMessage(String message) {
+    JOptionPane.showMessageDialog(this, message, "Succès", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void afficherMessageErreur(String message) {
+		JOptionPane.showMessageDialog(this, message, "Erreur", JOptionPane.ERROR_MESSAGE);
+	}
 }
