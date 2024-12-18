@@ -19,7 +19,6 @@ public class controleurModificationLocataire implements ActionListener {
 
     private IHMModificationLocataire vue;
     private Locataire locataire;
-    private Locataire locModifie;
 
     public controleurModificationLocataire (IHMModificationLocataire vue, Locataire locataire) {
         this.vue = vue;
@@ -68,8 +67,8 @@ public class controleurModificationLocataire implements ActionListener {
                 break;
             case "Annuler" :
                 IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
-                this.vue.dispose();
                 vueDetailLocataire.setVisible(true);
+                this.vue.dispose();
                 break;
             case "Valider" :
                 DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd MMMM yyyy");
@@ -80,9 +79,9 @@ public class controleurModificationLocataire implements ActionListener {
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
                 this.locataire.updateDetailsLocataire();
+                this.vue.dispose();
                 IHMDetailsLocataire vueDetailLocataireModif = new IHMDetailsLocataire(this.locataire);
                 vueDetailLocataireModif.setVisible(true);
-                this.vue.dispose();
         }
     }
     
