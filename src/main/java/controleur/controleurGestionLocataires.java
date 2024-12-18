@@ -105,6 +105,7 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
                 Locataire locataire = this.modele.getLocatairesById(idLocataire);
                 IHMDetailsLocataire vueDetails = new IHMDetailsLocataire(locataire);
                 vueDetails.setVisible(true);
+                this.vue.dispose();
             }
         }
     }
