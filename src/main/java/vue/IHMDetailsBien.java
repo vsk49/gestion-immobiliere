@@ -59,6 +59,7 @@ public class IHMDetailsBien extends JFrame {
 	public IHMDetailsBien() {
 		controleurDetailsBiens controleur = new controleurDetailsBiens();
 		setTitle("Détail du bien");
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		contentPane = new JPanel();

@@ -79,7 +79,7 @@ public class controleurModificationLocataire implements ActionListener {
                 this.locataire.setDateNaissance(dateNaissance);
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
-                this.locataire.mettreAJourLocataire();
+                this.locataire.updateDetailsLocataire();
                 IHMDetailsLocataire vueDetailLocataireModif = new IHMDetailsLocataire(this.locataire);
                 vueDetailLocataireModif.setVisible(true);
                 this.vue.dispose();

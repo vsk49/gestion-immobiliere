@@ -51,6 +51,7 @@ public class IHMDetailsBail extends JFrame {
 		controleurDetailsBail controleur = new controleurDetailsBail();
 		setTitle("Détail du bail");
 		setLayout(new BorderLayout(0, 0));
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 

@@ -28,7 +28,6 @@ import modele.Locataire;
 
 public class IHMModificationLocataire extends JFrame {
 
-	@Serial
 	private static final long serialVersionUID = 1L;
 	private JTextField textFieldNom;
 	private JTextField textFieldPrenom;
@@ -43,15 +42,17 @@ public class IHMModificationLocataire extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
-                IHMModificationLocataire frame = new IHMModificationLocataire(loc);
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
+					IHMModificationLocataire frame = new IHMModificationLocataire(loc);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	/**
@@ -60,6 +61,7 @@ public class IHMModificationLocataire extends JFrame {
 	public IHMModificationLocataire(Locataire locataire) {
 		this.locataire = locataire;
 		setTitle("Modification du locataire");
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -68,7 +70,7 @@ public class IHMModificationLocataire extends JFrame {
 		addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(locataire);
+                IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
                 vueDetailLocataire.setVisible(true);
 
                 dispose();

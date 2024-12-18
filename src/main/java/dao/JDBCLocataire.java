@@ -76,7 +76,7 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setString(1, t.getIdLocataire());
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
-			statement.setString(4, t.getGenre() != null ? t.getGenre().getLibelle() : null);
+			statement.setString(4, t.getGenre().getGenre());
 			statement.setDate(5, Date.valueOf(t.getDateNaissance()));
 			statement.setString(6, t.getLieuNaissance());
 			statement.setString(7, t.getNationalite());

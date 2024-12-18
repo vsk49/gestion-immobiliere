@@ -97,8 +97,8 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        JTable table = (JTable) e.getSource();
         if (e.getClickCount() == 2) {
+            JTable table = (JTable) e.getSource();
             int ligne = table.getSelectedRow();
             if (ligne != -1) {
                 String idLocataire = (String) table.getValueAt(ligne, 0);

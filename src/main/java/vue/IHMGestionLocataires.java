@@ -47,6 +47,7 @@ public class IHMGestionLocataires extends JFrame {
 		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -135,7 +136,6 @@ public class IHMGestionLocataires extends JFrame {
 		});
 		JScrollPane scrollPane = new JScrollPane(this.tableLocataires);
 		panelCentre.add(scrollPane, BorderLayout.CENTER);
-		this.tableLocataires.addMouseListener(controleur);
 		
 		JLabel LabelTitre = new JLabel("Gestion des locataires");
 		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));

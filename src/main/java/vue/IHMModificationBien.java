@@ -54,6 +54,7 @@ public class IHMModificationBien extends JFrame {
 	public IHMModificationBien() {
 		controleurModificationBien controleur = new controleurModificationBien(this);
 		setTitle("Modification du bien");
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));

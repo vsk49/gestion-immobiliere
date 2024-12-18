@@ -53,6 +53,7 @@ public class IHMDeclarationFiscale extends JFrame {
 		controleurDeclarationFiscale controleur = new controleurDeclarationFiscale(this);
 		setTitle("Déclaration fiscale");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		contentPane = new JPanel();

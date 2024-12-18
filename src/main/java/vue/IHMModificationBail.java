@@ -49,6 +49,7 @@ public class IHMModificationBail extends JFrame {
 		controleurModificationBail controleur = new controleurModificationBail(this);
 		setTitle("Modification d'un bail");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		contentPane = new JPanel();

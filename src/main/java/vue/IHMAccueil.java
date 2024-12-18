@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -46,6 +47,7 @@ public class IHMAccueil extends JFrame {
 		controleurAccueil controleur = new controleurAccueil(this);
 		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
         JPanel contentPane = new JPanel();
