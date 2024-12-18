@@ -6,14 +6,14 @@ public class setUp {
     public static void main(String[] args) {
         try {
             // Vérification et création de la base de données si elle n'existe pas
-            System.out.println("Vérification et création de la base de données...");
-            Process process1 = Runtime.getRuntime().exec("java dao.createBD");
-            process1.waitFor();
-            afficherSortie(process1);
+            // System.out.println("Vérification et création de la base de données...");
+            // Process process1 = Runtime.getRuntime().exec("java dao.CreateBD");
+            // process1.waitFor();
+            // afficherSortie(process1);
 
             // Exécution de dao/inputData.java
             System.out.println("Exécution de dao/inputData.java...");
-            Process process2 = Runtime.getRuntime().exec("java dao.inputData");
+            Process process2 = Runtime.getRuntime().exec("java dao.InputData");
             process2.waitFor();
             afficherSortie(process2);
 
