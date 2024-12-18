@@ -68,8 +68,8 @@ public class controleurModificationLocataire implements ActionListener {
                 break;
             case "Annuler" :
                 IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
-                this.vue.dispose();
                 vueDetailLocataire.setVisible(true);
+                this.vue.dispose();
                 break;
             case "Valider" :
                 DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd MMMM yyyy");

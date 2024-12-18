@@ -57,6 +57,7 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
                 case "Ajout" -> {
                     IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
                     vueAjout.setVisible(true);
+                    this.vue.dispose();
                 }
                 case "biens" -> {
                     IHMGestionBiens vueBiens = new IHMGestionBiens();
