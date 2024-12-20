@@ -10,7 +10,7 @@ public enum Genre {
         this.genre = s;
     }
 
-    public String getGenre() {
+    public String getLibelle() {
         return genre;
     }
 

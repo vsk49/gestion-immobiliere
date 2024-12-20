@@ -29,7 +29,14 @@ public class JDBCLocataire implements DAOLocataire {
 
 	private static Locataire getLocataire(ResultSet resultat) throws SQLException {
 		String genreString = resultat.getString("genre");
-		Genre genre = genreString.equals("M") ? Genre.MASCULIN : Genre.FEMININ;
+		Genre genre = null;
+		if (genreString != null) {
+            genre = switch (genreString.toUpperCase()) {
+                case "M" -> Genre.MASCULIN;
+                case "F" -> Genre.FEMININ;
+                default -> throw new IllegalArgumentException("Unknown genre: " + genreString);
+            };
+		}
 
 		return new Locataire(
 				resultat.getString("idLocataire"),
@@ -42,7 +49,7 @@ public class JDBCLocataire implements DAOLocataire {
 				resultat.getString("profession"),
 				resultat.getString("telephone"),
 				resultat.getString("email"),
-				resultat.getDate("dateEntree").toLocalDate(),
+				resultat.getDate("dateEntree")!= null ? resultat.getDate("dateEntree").toLocalDate() : null,
 				resultat.getDate("dateDepart") != null ? resultat.getDate("dateDepart").toLocalDate() : null,
 				resultat.getDouble("quotite")
 		);
@@ -76,7 +83,7 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setString(1, t.getIdLocataire());
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
-			statement.setString(4, t.getGenre().getGenre());
+			statement.setString(4, t.getGenre() != null ? t.getGenre().getLibelle() : null);
 			statement.setDate(5, Date.valueOf(t.getDateNaissance()));
 			statement.setString(6, t.getLieuNaissance());
 			statement.setString(7, t.getNationalite());
