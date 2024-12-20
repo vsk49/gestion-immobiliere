@@ -58,6 +58,7 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
                     IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
                     this.vue.dispose();
                     vueAjout.setVisible(true);
+                    this.vue.dispose();
                 }
                 case "biens" -> {
                     IHMGestionBiens vueBiens = new IHMGestionBiens();
@@ -106,6 +107,7 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
                 Locataire locataire = this.modele.getLocatairesById(idLocataire);
                 IHMDetailsLocataire vueDetails = new IHMDetailsLocataire(locataire);
                 vueDetails.setVisible(true);
+                this.vue.dispose();
             }
         }
     }

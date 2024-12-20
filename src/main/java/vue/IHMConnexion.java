@@ -4,11 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurConnexion;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
@@ -21,8 +23,8 @@ public class IHMConnexion extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-    private JTextField textFieldMail;
-	private JTextField textFieldMotdepasse;
+    private JTextField textFieldIdentifiant;
+	private JTextField PasswordFieldMotdepasse;
 
 	/**
 	 * Launch the application.
@@ -63,20 +65,20 @@ public class IHMConnexion extends JFrame {
 		contentPane.add(panelMain);
 		panelMain.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelEmail = new JPanel();
-		panelMain.add(panelEmail);
-		panelEmail.setLayout(new GridLayout(2, 1, 0, 0));
+		JPanel panelIdentifiant = new JPanel();
+		panelMain.add(panelIdentifiant);
+		panelIdentifiant.setLayout(new GridLayout(2, 1, 0, 0));
 		
-		JLabel LabelMail = new JLabel("Adresse Mail :");
-		LabelMail.setHorizontalAlignment(SwingConstants.CENTER);
-		panelEmail.add(LabelMail);
+		JLabel LabelIdentifiant = new JLabel("Identifiant :");
+		LabelIdentifiant.setHorizontalAlignment(SwingConstants.CENTER);
+		panelIdentifiant.add(LabelIdentifiant);
 		
-		JPanel paneltextFieldMail = new JPanel();
-		panelEmail.add(paneltextFieldMail);
+		JPanel paneltextFieldIdentifiant = new JPanel();
+		panelIdentifiant.add(paneltextFieldIdentifiant);
 
-		textFieldMail = new JTextField();
-		paneltextFieldMail.add(textFieldMail);
-		textFieldMail.setColumns(10);
+		textFieldIdentifiant = new JTextField();
+		paneltextFieldIdentifiant.add(textFieldIdentifiant);
+		textFieldIdentifiant.setColumns(10);
 		
 		JPanel panelMotdepasse = new JPanel();
 		panelMain.add(panelMotdepasse);
@@ -86,12 +88,12 @@ public class IHMConnexion extends JFrame {
 		LabelMotdepasse.setHorizontalAlignment(SwingConstants.CENTER);
 		panelMotdepasse.add(LabelMotdepasse);
 		
-		JPanel paneltextFieldMotdepasse = new JPanel();
-		panelMotdepasse.add(paneltextFieldMotdepasse);
+		JPanel panelPasswordFieldMotdepasse = new JPanel();
+		panelMotdepasse.add(panelPasswordFieldMotdepasse);
 		
-		textFieldMotdepasse = new JTextField();
-		paneltextFieldMotdepasse.add(textFieldMotdepasse);
-		textFieldMotdepasse.setColumns(10);
+		PasswordFieldMotdepasse  = new JPasswordField();
+		panelPasswordFieldMotdepasse.add(PasswordFieldMotdepasse);
+		PasswordFieldMotdepasse.setColumns(10);
 		
 		JPanel panelBouton = new JPanel();
 		contentPane.add(panelBouton);
@@ -118,4 +120,17 @@ public class IHMConnexion extends JFrame {
 		BoutonInscription.setActionCommand("Inscription");
 		BoutonInscription.addActionListener(controleur);
 	}
+
+	public String getIdentifiant() {
+        return textFieldIdentifiant.getText();
+    }
+
+    public String getMotDePasse() {
+        return new String(PasswordFieldMotdepasse.getText());
+    }
+
+    // Méthode pour afficher des messages
+    public void afficherMessageErreur(String message) {
+        JOptionPane.showMessageDialog(this, message, "Erreur", JOptionPane.ERROR_MESSAGE);
+    }
 }
