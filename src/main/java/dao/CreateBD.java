@@ -109,6 +109,12 @@ public class CreateBD {
         } catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
+
+		try {
+			requeteSQL.executeUpdate("DROP TABLE Proprietaire");
+        } catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+        }
 		
 		// creation des tables
 		try {
@@ -358,6 +364,18 @@ public class CreateBD {
 				+ ")"
 			);
 			System.out.println("Table Batiment created.");
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+		}
+
+		try {
+			requeteSQL.executeQuery(
+				"CREATE TABLE Proprietaire ("
+				+ "IdProprietaire VARCHAR2(50) PRIMARY KEY, "
+				+ "MotDePasse VARCHAR2(50) "
+				+ ")"
+			);
+			System.out.println("Table Proprietaire created.");
 		} catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}

@@ -5,10 +5,12 @@ import java.time.LocalDate;
 
 import modele.Genre;
 import modele.Locataire;
+import modele.Proprietaire;
 
 public class InputData {
 	
 	private static final JDBCLocataire donneesLocataires = new JDBCLocataire();
+	private static final JDBCProprietaire donneesProprietaire = new JDBCProprietaire();
 
 	private static final Locataire[] locataires = {
 			new Locataire("YPOU", "Poux--Bories", "Yoan",
@@ -29,6 +31,10 @@ public class InputData {
 					"romain.miegemolle@gmail.com", LocalDate.of(2023, 8, 30), null, 0)
 	};
 
+	private static final Proprietaire[] proprietaire = {
+		new Proprietaire("SAE3A01", "$iutinfo")
+};
+
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
 		Connection connexion = JDBCConnexion.getConnexion();
@@ -39,6 +45,9 @@ public class InputData {
 	private static void InsererDonnees() {
 		for (Locataire locataire : locataires) {
 			donneesLocataires.insert(locataire);
+		}
+		for (Proprietaire proprietaire : proprietaire) {
+			donneesProprietaire.insert(proprietaire);
 		}
 	}
 
