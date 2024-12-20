@@ -10,9 +10,11 @@ package controleur;
 
     import java.sql.Connection;
     import java.sql.PreparedStatement;
-    import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-    import dao.JDBCConnexion;
+import dao.JDBCConnexion;
 
 public class controleurInscription implements ActionListener {
 
@@ -22,71 +24,66 @@ public class controleurInscription implements ActionListener {
         this.vue = vue;
     }
 
-    public void inscrireUtilisateur(String identifiant, String motDePasse) {
-        Connection connection = null;
-
-        try {
-            // Obtenir la connexion partagée
-            connection = JDBCConnexion.getConnexion();
-
-            if (connection == null) {
-                System.err.println("Aucune connexion disponible à la base de données.");
-                return;
-            }
-
-            String query = "INSERT INTO utilisateurs (identifiant, motdepasse) VALUES (?, ?)";
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                // Définir les valeurs des paramètres
-                statement.setString(1, identifiant);
-                statement.setString(2, motDePasse);
-
-                // Exécuter la requête
-                int rowsInserted = statement.executeUpdate();
-                if (rowsInserted > 0) {
-                    System.out.println("Utilisateur ajouté avec succès !");
-                    vue.afficherMessage("Inscription réussie !");
-                } else {
-                    System.err.println("Échec de l'ajout de l'utilisateur.");
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            vue.afficherMessageErreur("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
-        }
-    }
-
-    // Méthode appelée lorsque le bouton "Valider" est cliqué
-    public void handleBoutonValider() {
-        String identifiant = vue.getIdentifiant(); // Méthode pour récupérer le texte du champ identifiant
-        String motDePasse = vue.getMotDePasse(); // Méthode pour récupérer le texte du champ mot de passe
-
-        // Validation de base
-        if (identifiant.isEmpty() || motDePasse.isEmpty()) {
-            vue.afficherMessageErreur("Les champs ne peuvent pas être vides !");
-            return;
-        }
-
-        // Inscrire l'utilisateur
-        inscrireUtilisateur(identifiant, motDePasse);
-    }
-        
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton actionCommand = (JButton) e.getSource();
         switch (actionCommand.getActionCommand()) {
+        case "Valider" :
+            String identifiant = vue.getIdentifiant();
+            String motDePasse = vue.getMotDePasse();
+
+            if (identifiant.isEmpty() || motDePasse.isEmpty()) {
+                vue.afficherMessageErreur("Les champs identifiant et mot de passe ne doivent pas être vides.");
+                return;
+            }
+
+            if (ajouterUtilisateur(identifiant, motDePasse)) {
+                vue.afficherMessageSucces("Inscription réussie !");
+                IHMConnexion vueConnexion = new IHMConnexion();
+                vueConnexion.setVisible(true);
+                vue.dispose(); // Fermer la fenêtre après succès
+            } else {
+                vue.afficherMessageErreur("Échec de l'inscription. L'utilisateur existe déjà ou une erreur est survenue.");
+            }
+            break;
         case "Annuler" :
             IHMConnexion vueConnexion = new IHMConnexion();
             vueConnexion.setVisible(true);
-            this.vue.setVisible(false);
+            vue.dispose(); // Fermer la fenêtre après succès
             break;
-        case "Valider" :
-            String identifiant = vue.getIdentifiant(); // Récupère l'identifiant depuis le champ texte
-            String motDePasse = vue.getMotDePasse();  // Récupère le mot de passe depuis le champ texte
-            if (identifiant.isEmpty() || motDePasse.isEmpty()) {
-                vue.afficherMessageErreur("Les champs identifiant et mot de passe doivent être remplis.");
-                return;
-            }
-            inscrireUtilisateur(identifiant, motDePasse);
         }
     }
-} 
+
+    private boolean ajouterUtilisateur(String identifiant, String motDePasse) {
+         try (Connection connection = JDBCConnexion.getConnexion();
+         Statement statement = connection.createStatement()) {
+
+        // Vérifier si l'utilisateur existe déjà
+        String checkUserSQL = "SELECT COUNT(*) AS count FROM ALL_USERS WHERE USERNAME = UPPER('" + identifiant + "')";
+        try (ResultSet resultSet = statement.executeQuery(checkUserSQL)) {
+            if (resultSet.next() && resultSet.getInt("count") > 0) {
+                System.err.println("L'utilisateur existe déjà.");
+                vue.afficherMessageErreur("L'utilisateur '" + identifiant + "' existe déjà dans la base de données.");
+                return false; // Arrêter ici si l'utilisateur existe déjà
+            }
+        }
+
+        // Commande SQL pour créer un utilisateur
+        String createUserSQL = "CREATE USER " + identifiant + " IDENTIFIED BY \"" + motDePasse + "\"";
+
+        // Exécuter la commande
+        statement.executeUpdate(createUserSQL);
+
+        // Ajouter des privilèges basiques à l'utilisateur
+        String grantPrivilegesSQL = "GRANT CONNECT, RESOURCE TO " + identifiant;
+        statement.executeUpdate(grantPrivilegesSQL);
+
+        System.out.println("Utilisateur créé et privilèges accordés.");
+        return true;
+
+        } catch (SQLException ex) {
+            System.err.println("Erreur lors de la création de l'utilisateur : " + ex.getMessage());
+            return false;
+        }
+    } 
+}
