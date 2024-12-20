@@ -15,8 +15,8 @@ import vue.IHMRegularisationCharges;
 
 public class controleurDetailsLocataire implements ActionListener {
 
-	private IHMDetailsLocataire vue;
-	private Locataire locataire;
+	private final IHMDetailsLocataire vue;
+	private final Locataire locataire;
 	
 	public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
 		this.vue = vue;
