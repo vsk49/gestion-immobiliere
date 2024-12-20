@@ -23,7 +23,7 @@ public class IHMInscription extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textFieldMail;
+	private JTextField textFieldIdentifiant;
 	private JTextField textFieldMotdepasse;
 
 	/**
@@ -78,20 +78,20 @@ public class IHMInscription extends JFrame {
 		contentPane.add(panelMain);
 		panelMain.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelEmail = new JPanel();
-		panelMain.add(panelEmail);
-		panelEmail.setLayout(new GridLayout(2, 1, 0, 0));
+		JPanel panelIdentifiant = new JPanel();
+		panelMain.add(panelIdentifiant);
+		panelIdentifiant.setLayout(new GridLayout(2, 1, 0, 0));
 		
-		JLabel LabelMail = new JLabel("Adresse Mail :");
-		LabelMail.setHorizontalAlignment(SwingConstants.CENTER);
-		panelEmail.add(LabelMail);
+		JLabel LabelIdentifiant = new JLabel("Identifiant :");
+		LabelIdentifiant.setHorizontalAlignment(SwingConstants.CENTER);
+		panelIdentifiant.add(LabelIdentifiant);
 		
-		JPanel paneltextFieldMail = new JPanel();
-		panelEmail.add(paneltextFieldMail);
+		JPanel paneltextFieldIdentifiant = new JPanel();
+		panelIdentifiant.add(paneltextFieldIdentifiant);
 		
-		textFieldMail = new JTextField();
-		paneltextFieldMail.add(textFieldMail);
-		textFieldMail.setColumns(10);
+		textFieldIdentifiant = new JTextField();
+		paneltextFieldIdentifiant.add(textFieldIdentifiant);
+		textFieldIdentifiant.setColumns(10);
 		
 		JPanel panelMotdepasse = new JPanel();
 		panelMain.add(panelMotdepasse);
@@ -124,14 +124,14 @@ public class IHMInscription extends JFrame {
 	}
 
 	public String getIdentifiant() {
-		return textFieldMail.getText();
+		return textFieldIdentifiant.getText();
 	}
 	
 	public String getMotDePasse() {
 		return textFieldMotdepasse.getText();
 	}
 
-	public void afficherMessage(String message) {
+	public void afficherMessageSucces(String message) {
     JOptionPane.showMessageDialog(this, message, "Succès", JOptionPane.INFORMATION_MESSAGE);
 	}
 
