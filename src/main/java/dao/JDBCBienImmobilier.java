@@ -25,13 +25,7 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 					.executeQuery("SELECT * FROM BienImmobilier");
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
-				TaxeFonciere taxeFonciere = jdbcTaxeFonciere.getById(resultat.getInt("idTaxesFoncieres")).orElseThrow();
-				Compteur compteur = jdbcCompteur.getById(resultat.getInt("idCompteurGeneral")).orElseThrow();
-				BienImmobilier b = new BienImmobilier(resultat.getInt("idBienImmobilier"),
-						resultat.getString("numeroFiscal"), resultat.getString("adresse"),
-						resultat.getInt("codePostal"), resultat.getString("ville"),
-						resultat.getDate("dateAnniversaire").toLocalDate(), taxeFonciere,
-						resultat.getInt("ICCDateDebut"), compteur);
+				BienImmobilier b = extraireBienImmobilier(resultat);
 				biensImmobiliers.add(b);
 				enregistrementExiste = resultat.next();
 			}
@@ -39,6 +33,16 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return biensImmobiliers;
+	}
+
+	private BienImmobilier extraireBienImmobilier(ResultSet resultat) throws SQLException {
+		TaxeFonciere taxeFonciere = jdbcTaxeFonciere.getById(resultat.getInt("idTaxesFoncieres")).orElseThrow();
+		Compteur compteur = jdbcCompteur.getById(resultat.getInt("idCompteurGeneral")).orElseThrow();
+		return new BienImmobilier(resultat.getInt("idBienImmobilier"),
+				resultat.getString("numeroFiscal"), resultat.getString("adresse"),
+				resultat.getInt("codePostal"), resultat.getString("ville"),
+				resultat.getDate("dateAnniversaire").toLocalDate(), taxeFonciere,
+				resultat.getInt("ICCDateDebut"), compteur);
 	}
 
 	@Override
@@ -51,13 +55,7 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {
-				TaxeFonciere taxeFonciere = jdbcTaxeFonciere.getById(resultat.getInt("idTaxesFoncieres")).orElseThrow();
-				Compteur compteur = jdbcCompteur.getById(resultat.getInt("idCompteurGeneral")).orElseThrow();
-				BienImmobilier b = new BienImmobilier(resultat.getInt("idBienImmobilier"),
-						resultat.getString("numeroFiscal"), resultat.getString("adresse"),
-						resultat.getInt("codePostal"), resultat.getString("ville"),
-						resultat.getDate("dateAnniversaire").toLocalDate(), taxeFonciere,
-						resultat.getInt("ICCDateDebut"), compteur);
+				BienImmobilier b = extraireBienImmobilier(resultat);
 				bien = Optional.of(b);
 			}
 		} catch (SQLException e) {
@@ -70,17 +68,15 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 	public boolean insert(BienImmobilier t) {
 		boolean resultat = false;
 		try {
-			String insertion = "INSERT INTO BienImmobilier " +
-					"(NUMEROFISCAL, ADRESSE, CODEPOSTAL, VILLE, " +
-					"DATEANNIVERSAIRE, ICCDATEDEBUT) " +
-					"VALUES (?, ?, ?, ?, ?, ?)";
+			String insertion = "INSERT INTO BienImmobilier VALUES (?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
 			statement.setInt(1, t.getIdBienImmobilier());
-			statement.setString(2, t.getNumeroFiscal());
+			statement.setString(2, t.getNumeroFiscal()!= null ? t.getNumeroFiscal() : null);
 			statement.setString(3, t.getAdresse());
 			statement.setInt(4, t.getCodePostal());
 			statement.setString(5, t.getVille());
 			statement.setDate(6, Date.valueOf(t.getDateAnniversaire()));
+			statement.setInt(7, t.getICCDateDebut());
 			statement.executeUpdate();
 			System.out.println("le bien a ete insere");
 			resultat = true;
