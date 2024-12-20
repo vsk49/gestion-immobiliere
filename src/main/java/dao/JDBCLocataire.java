@@ -1,6 +1,9 @@
 package dao;
 
-import java.sql.*;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -106,10 +109,15 @@ public class JDBCLocataire implements DAOLocataire {
 	public boolean update(Locataire t) {
 		boolean resultat = false;
 		try {
-			String misAJour = "UPDATE Locataire SET quotite = ? WHERE idLocataire = ?";
+			String misAJour = "UPDATE Locataire SET nom = ? , prenom = ? , dateNaissance = ? , email = ? , telephone = ? , quotite = ? WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
-			statement.setDouble(1, t.getQuotite());
-			statement.setString(2, t.getIdLocataire());
+			statement.setString(1, t.getNom());
+			statement.setString(2, t.getPrenom());
+			statement.setDate(3, Date.valueOf(t.getDateNaissance()));
+			statement.setString(4, t.getEmail());
+			statement.setString(5, t.getTelephone());
+			statement.setDouble(6, t.getQuotite());
+			statement.setString(7, t.getIdLocataire());
 			statement.executeUpdate();
 			System.out.println("La quotite du locataire a ete mise a jour.");
 			resultat = true;

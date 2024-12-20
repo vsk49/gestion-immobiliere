@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.time.LocalDate;
 
+import modele.BienImmobilier;
 import modele.Genre;
 import modele.Locataire;
 import modele.Proprietaire;
@@ -11,6 +12,7 @@ public class InputData {
 	
 	private static final JDBCLocataire donneesLocataires = new JDBCLocataire();
 	private static final JDBCProprietaire donneesProprietaire = new JDBCProprietaire();
+	private static final JDBCBienImmobilier donneesBiens = new JDBCBienImmobilier();
 
 	private static final Locataire[] locataires = {
 			new Locataire("YPOU", "Poux--Bories", "Yoan",
@@ -33,7 +35,18 @@ public class InputData {
 
 	private static final Proprietaire[] proprietaire = {
 		new Proprietaire("SAE3A01", "$iutinfo")
-};
+	};
+
+	private static final BienImmobilier[] biens = {
+			new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31000, "Toulouse",
+					LocalDate.of(2020, 2, 2), null, 1234, null),
+			new BienImmobilier(2, null, "90 boulevard du 6 juin 1944", 31000, "Toulouse",
+					LocalDate.of(2020, 3, 3), null, 1547, null),
+			new BienImmobilier(3, "3198765432100", "10 rue des Princes", 31000, "Toulouse",
+					LocalDate.of(2020, 4, 4), null, 1889, null),
+			new BienImmobilier(4, "3101234567891", "41 rue des Lilas", 31000, "Toulouse",
+					LocalDate.of(2020, 5, 5), null, 1672, null)
+	};
 
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
@@ -45,6 +58,9 @@ public class InputData {
 	private static void InsererDonnees() {
 		for (Locataire locataire : locataires) {
 			donneesLocataires.insert(locataire);
+		}
+		for (BienImmobilier bien : biens) {
+			donneesBiens.insert(bien);
 		}
 		for (Proprietaire proprietaire : proprietaire) {
 			donneesProprietaire.insert(proprietaire);

@@ -144,7 +144,7 @@ public class CreateBD {
 			requeteSQL.executeQuery(
 				"Create table BienImmobilier ("
 				+ "idBienImmobilier INTEGER PRIMARY KEY, "
-				+ "numeroFiscal CHAR(13) NOT NULL, "
+				+ "numeroFiscal CHAR(13), "
 				+ "adresse VARCHAR2(50), "
 				+ "codePostal NUMBER(5), "
 				+ "ville VARCHAR(50), "

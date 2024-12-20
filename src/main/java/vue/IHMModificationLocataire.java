@@ -36,6 +36,7 @@ public class IHMModificationLocataire extends JFrame {
 	private final JTextField textFieldTelephone;
 	private final JTextField textFieldEmail;
 	private Locataire locataire;
+	private controleurModificationLocataire controleur;
 
 
     /**
@@ -57,7 +58,7 @@ public class IHMModificationLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMModificationLocataire(Locataire locataire) {
-        controleurModificationLocataire controleur = new controleurModificationLocataire(this, locataire);
+        this.controleur = new controleurModificationLocataire(this, locataire);
 		this.locataire = locataire;
 		setTitle("Modification du locataire");
 		this.setSize(600, 400);
@@ -299,6 +300,10 @@ public class IHMModificationLocataire extends JFrame {
 	}
 	public JTextField getModifEmail(){
 		return this.textFieldEmail;
+	}
+
+	public void remplirChamps(){
+		this.controleur.remplirChamps();
 	}
 
 }
