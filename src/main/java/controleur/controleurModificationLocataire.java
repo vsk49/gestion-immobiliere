@@ -23,13 +23,6 @@ public class controleurModificationLocataire implements ActionListener {
     public controleurModificationLocataire (IHMModificationLocataire vue, Locataire locataire) {
         this.vue = vue;
 		this.locataire = locataire;
-		this.vue.getModifPrenom().setText(locataire.getPrenom());
-		vue.getModifNom().setText(locataire.getNom());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-		String dateStr = locataire.getDateNaissance().format(formatter);
-		vue.getModifDateNaissance().setText(dateStr);
-		vue.getModifTelephone().setText(locataire.getTelephone());
-		vue.getModifEmail().setText(locataire.getEmail());
     }
     
     @Override
@@ -84,4 +77,13 @@ public class controleurModificationLocataire implements ActionListener {
         }
     }
     
+    public void remplirChamps(){
+		this.vue.getModifPrenom().setText(locataire.getPrenom());
+		vue.getModifNom().setText(locataire.getNom());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+		String dateStr = locataire.getDateNaissance().format(formatter);
+		vue.getModifDateNaissance().setText(dateStr);
+		vue.getModifTelephone().setText(locataire.getTelephone());
+		vue.getModifEmail().setText(locataire.getEmail());
+    }
 }

@@ -61,6 +61,7 @@ public class controleurDetailsLocataire implements ActionListener {
 				break;
 			case "Modifier" :
 				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
+				vueModificationLocataire.remplirChamps();
 				vueModificationLocataire.setVisible(true);
 				this.vue.dispose();
         }
