@@ -137,6 +137,7 @@ public class IHMGestionLocataires extends JFrame {
 		});
 		JScrollPane scrollPane = new JScrollPane(this.tableLocataires);
 		panelCentre.add(scrollPane, BorderLayout.CENTER);
+		this.tableLocataires.addMouseListener(controleur);
 		
 		JLabel LabelTitre = new JLabel("Gestion des locataires");
 		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));

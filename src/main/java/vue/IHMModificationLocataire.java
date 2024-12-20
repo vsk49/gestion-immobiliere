@@ -28,37 +28,36 @@ import modele.Locataire;
 
 public class IHMModificationLocataire extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JTextField textFieldNom;
-	private JTextField textFieldPrenom;
-	private JTextField textFieldDateNaissance;
-	private JTextField textFieldTelephone;
-	private JTextField textFieldEmail;
+	private final JTextField textFieldNom;
+	private final JTextField textFieldPrenom;
+	private final JTextField textFieldDateNaissance;
+	private final JTextField textFieldTelephone;
+	private final JTextField textFieldEmail;
 	private Locataire locataire;
-	private controleurModificationLocataire controleur;
 
 
-	/**
+    /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
-					IHMModificationLocataire frame = new IHMModificationLocataire(loc);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
+                IHMModificationLocataire frame = new IHMModificationLocataire(loc);
+                frame.setVisible(true);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	public IHMModificationLocataire(Locataire locataire) {
+        controleurModificationLocataire controleur = new controleurModificationLocataire(this, locataire);
 		this.locataire = locataire;
 		setTitle("Modification du locataire");
 		this.setSize(600, 400);
@@ -68,11 +67,12 @@ public class IHMModificationLocataire extends JFrame {
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(this.locataire);
-                vueDetailLocataire.setVisible(true);
+			private Locataire locataire;
 
+			@Override
+            public void windowClosing(WindowEvent e) {
+                IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(locataire);
+                vueDetailLocataire.setVisible(true);
                 dispose();
             }
         });
@@ -131,7 +131,7 @@ public class IHMModificationLocataire extends JFrame {
 		FlowLayout fl_panelComboboxBien = (FlowLayout) panelComboboxBien.getLayout();
 		panelChoixBien.add(panelComboboxBien);
 		
-		JComboBox comboBoxBien = new JComboBox();
+		JComboBox<String> comboBoxBien = new JComboBox<>();
 		panelComboboxBien.add(comboBoxBien);
 		
 		JPanel panelFichierDocuments = new JPanel();
@@ -268,7 +268,7 @@ public class IHMModificationLocataire extends JFrame {
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
 		
-		this.controleur = new controleurModificationLocataire(this, this.locataire);
+		controleur = new controleurModificationLocataire(this, this.locataire);
 		BoutonGBiens.setActionCommand("biens");
 		BoutonGBiens.addActionListener(controleur);
 		BoutonGBaux.setActionCommand("baux");
