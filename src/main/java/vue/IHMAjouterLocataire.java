@@ -2,6 +2,8 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
 import java.io.Serial;
@@ -14,10 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.FlowLayout;
+import javax.swing.border.EmptyBorder;
 
 import controleur.controleurAjoutLocataire;
 
@@ -147,9 +147,6 @@ public class IHMAjouterLocataire extends JFrame {
 		panelbouton.add(boutonAnnuler);
 		boutonAnnuler.setActionCommand("Annuler");
 		boutonAnnuler.addActionListener(controleur);
-
-		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
-		panelbouton.add(BoutonRéinitialiser);
 
 		JButton boutonValider = new JButton("Valider");
 		panelbouton.add(boutonValider);
