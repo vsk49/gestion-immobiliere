@@ -37,9 +37,28 @@ public class JDBCProprietaire implements DAOProprietaire {
 	public Optional<Proprietaire> getById(String idProprietaire) {
 		Optional<Proprietaire> Proprietaire = Optional.empty();
 		try {
-			String requete = "SELECT * FROM Proprietaire WHERE idProprietaire = ?";
+			String requete = "SELECT * FROM Proprietaire WHERE idProprietaire = ? AND motDePasse = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setString(1, idProprietaire);
+			ResultSet resultat = statement.executeQuery();
+			boolean enregistrementExiste = resultat.next();
+			if (enregistrementExiste) {
+				Proprietaire l = getProprietaire(resultat);
+				Proprietaire = Optional.of(l);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+		}
+		return Proprietaire;
+	}
+
+	public Optional<Proprietaire> getByCredentials(String idProprietaire, String motDePasse) {
+		Optional<Proprietaire> Proprietaire = Optional.empty();
+		try {
+			String requete = "SELECT * FROM Proprietaire WHERE idProprietaire = ? AND motDePasse = ?";
+			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
+			statement.setString(1, idProprietaire);
+			statement.setString(2, motDePasse);
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {

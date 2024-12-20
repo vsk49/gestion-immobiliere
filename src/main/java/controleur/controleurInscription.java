@@ -10,18 +10,20 @@ package controleur;
 
     import java.sql.Connection;
     import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
 
 import dao.JDBCConnexion;
+import modele.Proprietaire;
 
 public class controleurInscription implements ActionListener {
 
     private IHMInscription vue;
+    private Proprietaire modele;
     
     public controleurInscription (IHMInscription vue) {
         this.vue = vue;
+        this.modele = new Proprietaire();
     }
 
     @Override
@@ -37,7 +39,7 @@ public class controleurInscription implements ActionListener {
                 return;
             }
 
-            if (ajouterUtilisateur(identifiant, motDePasse)) {
+            if (ajouterProprietaire(identifiant, motDePasse)) {
                 vue.afficherMessageSucces("Inscription réussie !");
                 IHMConnexion vueConnexion = new IHMConnexion();
                 vueConnexion.setVisible(true);
@@ -54,36 +56,8 @@ public class controleurInscription implements ActionListener {
         }
     }
 
-    private boolean ajouterUtilisateur(String identifiant, String motDePasse) {
-         try (Connection connection = JDBCConnexion.getConnexion();
-         Statement statement = connection.createStatement()) {
-
-        // Vérifier si l'utilisateur existe déjà
-        String checkUserSQL = "SELECT COUNT(*) AS count FROM ALL_USERS WHERE USERNAME = UPPER('" + identifiant + "')";
-        try (ResultSet resultSet = statement.executeQuery(checkUserSQL)) {
-            if (resultSet.next() && resultSet.getInt("count") > 0) {
-                System.err.println("L'utilisateur existe déjà.");
-                vue.afficherMessageErreur("L'utilisateur '" + identifiant + "' existe déjà dans la base de données.");
-                return false; // Arrêter ici si l'utilisateur existe déjà
-            }
-        }
-
-        // Commande SQL pour créer un utilisateur
-        String createUserSQL = "CREATE USER " + identifiant + " IDENTIFIED BY \"" + motDePasse + "\"";
-
-        // Exécuter la commande
-        statement.executeUpdate(createUserSQL);
-
-        // Ajouter des privilèges basiques à l'utilisateur
-        String grantPrivilegesSQL = "GRANT CONNECT, RESOURCE TO " + identifiant;
-        statement.executeUpdate(grantPrivilegesSQL);
-
-        System.out.println("Utilisateur créé et privilèges accordés.");
-        return true;
-
-        } catch (SQLException ex) {
-            System.err.println("Erreur lors de la création de l'utilisateur : " + ex.getMessage());
-            return false;
-        }
-    } 
+    private boolean ajouterProprietaire(String idProprietaire, String motDePasse) {
+        Proprietaire p = new Proprietaire(idProprietaire, motDePasse);
+        return p.enregistrerProprietaire();
+    }
 }

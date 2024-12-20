@@ -3,23 +3,27 @@ package controleur;
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import dao.JDBCConnexion;
+import modele.Proprietaire;
 import vue.IHMAccueil;
     import vue.IHMConnexion;
     import vue.IHMInscription;
 
-public class controleurConnexion implements ActionListener{
+public class controleurConnexion implements ActionListener {
 
     private IHMConnexion vue;
+    private Proprietaire modele;
     
     public controleurConnexion (IHMConnexion vue) {
         this.vue = vue;
+        this.modele = new Proprietaire();
     }
         
     @Override
@@ -54,22 +58,7 @@ public class controleurConnexion implements ActionListener{
         }
     }
 
-    private boolean connecterALaBaseDeDonnees(String identifiant, String motDePasse) {
-        try {
-            // On initialise la connexion via la classe JDBCConnexion
-            Connection connection = JDBCConnexion.getConnexion();
-
-            // Valider les informations d'identifiant et de mot de passe
-            // Adapter cette logique si un système de table d'utilisateurs est mis en place
-            if (connection != null && identifiant.equals("SAE3A01") && motDePasse.equals("$iutinfo")) {
-                return true; // Connexion réussie
-            } else {
-                System.out.println("Échec de l'authentification : identifiant ou mot de passe incorrect.");
-            }
-        } catch (Exception ex) {
-            System.err.println("Erreur de connexion à la base de données : " + ex.getMessage());
-        }
-
-        return false; // Connexion échouée
+    public boolean connecterALaBaseDeDonnees(String idProprietaire, String motDePasse) {
+        return this.modele.getProprietaireByCredentials(idProprietaire, motDePasse) != null;
     } 
 }  
