@@ -59,7 +59,10 @@ public class controleurAjoutLocataire implements ActionListener {
                 this.vue.dispose();
                 IHMGestionLocataires vueGestion = new IHMGestionLocataires();
                 vueGestion.setVisible(true);
+                break;
             case "Annuler" :
+                IHMGestionLocataires vueGestionLoc = new IHMGestionLocataires();
+                vueGestionLoc.setVisible(true);
                 this.vue.dispose();
         }
     }
