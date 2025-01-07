@@ -23,8 +23,8 @@ public class IHMConnexion extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-    private JTextField textFieldIdentifiant;
-	private JTextField PasswordFieldMotdepasse;
+    private final JTextField textFieldIdentifiant;
+	private final JTextField PasswordFieldMotdepasse;
 
 	/**
 	 * Launch the application.
@@ -126,11 +126,12 @@ public class IHMConnexion extends JFrame {
     }
 
     public String getMotDePasse() {
-        return new String(PasswordFieldMotdepasse.getText());
+        return PasswordFieldMotdepasse.getText();
     }
 
     // Méthode pour afficher des messages
     public void afficherMessageErreur(String message) {
         JOptionPane.showMessageDialog(this, message, "Erreur", JOptionPane.ERROR_MESSAGE);
     }
+
 }

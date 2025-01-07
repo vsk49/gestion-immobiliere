@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
+import modele.BienImmobilier;
 import vue.IHMDetailsBien;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
@@ -13,9 +14,9 @@ import vue.IHMGestionBaux;
 import vue.IHMGestionLocataires;
 import vue.IHMModificationBien;
 
-public class controleurModificationBien implements ActionListener{
+public class controleurModificationBien implements ActionListener {
 
-    private IHMModificationBien vue;
+    private final IHMModificationBien vue;
 
     public controleurModificationBien (IHMModificationBien vue) {
         this.vue = vue;
@@ -27,7 +28,7 @@ public class controleurModificationBien implements ActionListener{
         switch (actionCommand.getActionCommand()) {
         case "Valider" :
         case "Annuler" :
-            IHMDetailsBien vueDetailsBien = new IHMDetailsBien();
+            IHMDetailsBien vueDetailsBien = new IHMDetailsBien(new BienImmobilier());
             vueDetailsBien.setVisible(true);
             this.vue.setVisible(false);
             break;

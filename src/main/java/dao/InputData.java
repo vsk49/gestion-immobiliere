@@ -39,13 +39,13 @@ public class InputData {
 
 	private static final BienImmobilier[] biens = {
 			new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31000, "Toulouse",
-					LocalDate.of(2020, 2, 2), null, 1234, null),
+					LocalDate.of(2020, 2, 2), 1234),
 			new BienImmobilier(2, null, "90 boulevard du 6 juin 1944", 31000, "Toulouse",
-					LocalDate.of(2020, 3, 3), null, 1547, null),
+					LocalDate.of(2020, 3, 3), 1547),
 			new BienImmobilier(3, "3198765432100", "10 rue des Princes", 31000, "Toulouse",
-					LocalDate.of(2020, 4, 4), null, 1889, null),
+					LocalDate.of(2020, 4, 4), 1889),
 			new BienImmobilier(4, "3101234567891", "41 rue des Lilas", 31000, "Toulouse",
-					LocalDate.of(2020, 5, 5), null, 1672, null)
+					LocalDate.of(2020, 5, 5), 1672)
 	};
 
 	public static void main(String[] args) {

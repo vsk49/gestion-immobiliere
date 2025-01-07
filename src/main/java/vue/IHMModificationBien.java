@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -22,6 +23,7 @@ import controleur.controleurModificationBien;
 
 public class IHMModificationBien extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	private JTextField textFieldAdresse;
 	private JTextField textFieldVille;

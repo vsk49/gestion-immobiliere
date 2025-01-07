@@ -8,9 +8,8 @@ public class Logement extends BienLouable {
 
 	public Logement(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
 			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, double surface, int nbPieces,
-			Compteur compteur, Garage garage) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, taxesFoncieres,
-				ICCDateDebut, surface, nbPieces, compteur);
+			Garage garage) {
+		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, ICCDateDebut, surface, nbPieces);
 		this.garage = garage;
 	}
 

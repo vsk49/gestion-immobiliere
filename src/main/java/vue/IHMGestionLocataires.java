@@ -22,7 +22,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controleur.controleurAjoutLocataire;
 import controleur.controleurGestionLocataires;
 
 public class IHMGestionLocataires extends JFrame {

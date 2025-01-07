@@ -25,23 +25,19 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurDetailsLocataire;
-import modele.Genre;
-import modele.Locataire;
 
 public class IHMDetailsLocataire extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-	private JLabel labelContenuPrenom;
-	private JLabel labelContenuNom;
-	private JLabel labelContenuDateDeNaissance;
-	private JLabel labelContenuTelephone;
-	private JLabel labelContenuEmail;
-	private Locataire locataire;
-	private controleurDetailsLocataire controleur;
+	private final JLabel labelContenuPrenom;
+	private final JLabel labelContenuNom;
+	private final JLabel labelContenuDateDeNaissance;
+	private final JLabel labelContenuTelephone;
+	private final JLabel labelContenuEmail;
 
 
-	/**
+    /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -63,8 +59,7 @@ public class IHMDetailsLocataire extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire(Locataire locataire) {
-		this.locataire = locataire;
-		setTitle("Détails du locataire");
+        setTitle("Détails du locataire");
 		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
@@ -260,8 +255,8 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		this.labelContenuEmail = new JLabel("New label");
 		panelTextfieldEmail.add(labelContenuEmail);
-		
-		this.controleur = new controleurDetailsLocataire(this, locataire);
+
+        controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, locataire);
 		boutonModifier.setActionCommand("Modifier");
 		boutonModifier.addActionListener(controleur);
 		boutonRetour.setActionCommand("Retour");
