@@ -15,11 +15,11 @@ import vue.IHMGestionBaux;
 import vue.IHMRegularisationCharges;
 import vue.IHMDeclarationFiscale;
 
-public class controleurDetailsBiens implements ActionListener{
+public class controleurDetailsBiens implements ActionListener {
 
-    private IHMDetailsBien vue;
+    private final IHMDetailsBien vue;
     
-    public void controleurDetailsBiens (IHMDetailsBien vue) {
+    public controleurDetailsBiens (IHMDetailsBien vue) {
         this.vue = vue;
     }
 
@@ -30,27 +30,27 @@ public class controleurDetailsBiens implements ActionListener{
         case "DeclarationFiscale" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "RegularisationCharges" :
             IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
             vueRegularisationCharges.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "baux" :
 			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
             vueGestionBaux.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
 		case "Retour" :
             IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
             vueGestionBiens.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "locataires" :
             IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
             vueGestionLocataires.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
 		case "Modifier" :
 			IHMModificationBien vueModificationBien = new IHMModificationBien();

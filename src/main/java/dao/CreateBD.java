@@ -27,6 +27,12 @@ public class CreateBD {
 		
 		// mise a jour de la base de donnees (suppression des tables en cas d'erreur)
 		try {
+			requeteSQL.executeUpdate("DROP TABLE TaxeFonciere");
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+		}
+
+		try {
 			requeteSQL.executeUpdate("DROP TABLE Caution");
         } catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
@@ -217,6 +223,7 @@ public class CreateBD {
 				+ "indexAncien NUMBER(4) NOT NULL, "
 				+ "indexActuel NUMBER(4), "
 				+ "dateReleveEntree DATE, "
+				+ "volumeEauConsommee NUMBER(4), "
 				+ "idBienImmobilier INTEGER, "
 				+ "FOREIGN KEY (idBienImmobilier) REFERENCES BienImmobilier(idBienImmobilier)"
 				+ ")"
@@ -376,6 +383,21 @@ public class CreateBD {
 				+ ")"
 			);
 			System.out.println("Table Proprietaire created.");
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+		}
+
+		try {
+			requeteSQL.executeQuery(
+					"CREATE TABLE TaxeFonciere ("
+							+ "idTaxeFonciere INTEGER PRIMARY KEY, "
+							+ "annee NUMBER(4) NOT NULL, "
+							+ "montantBase BINARY_DOUBLE, "
+							+ "idBienImmobilier INTEGER, "
+							+ "FOREIGN KEY (idBienImmobilier) REFERENCES BienImmobilier(idBienImmobilier)"
+							+ ")"
+			);
+			System.out.println("Table TaxeFonciere created.");
 		} catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}

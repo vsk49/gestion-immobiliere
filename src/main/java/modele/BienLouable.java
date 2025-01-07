@@ -12,10 +12,8 @@ public class BienLouable extends BienImmobilier {
 	private List<Loyer> loyers;
 
 	public BienLouable(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, double surface, int nbPieces,
-			Compteur compteur) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, taxesFoncieres,
-				ICCDateDebut, compteur);
+			LocalDate dateAnniversaire, int ICCDateDebut, double surface, int nbPieces) {
+		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, ICCDateDebut);
 		this.surface = surface;
 		this.nbPieces = nbPieces;
 		this.facturesTravaux = new ArrayList<>();

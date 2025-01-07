@@ -14,9 +14,6 @@ import org.junit.Test;
 import dao.JDBCBienImmobilier;
 import dao.JDBCConnexion;
 import modele.BienImmobilier;
-import modele.Compteur;
-import modele.TaxeFonciere;
-import modele.TypeCompteur;
 
 public class TestDAOBienImmobilier {
 
@@ -43,10 +40,9 @@ public class TestDAOBienImmobilier {
 	public void testGetById() {
 		// ÉTANT DONNE un bien déjà inséré dans la base de données
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31200, "Toulouse",
-				dateAnniversaire, new TaxeFonciere(1, 2830.00), 
-				2376, new Compteur(1, "1234567890123", 
-				TypeCompteur.EAU, 2376, 2463, LocalDate.of(2022, 3, 2), 87));
+		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
+				"40 rue des Lilas", 31200, "Toulouse",
+				dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
 		
 		// QUAND le proprietaire recupere le bien
@@ -58,7 +54,6 @@ public class TestDAOBienImmobilier {
 		assertEquals(bien.getCodePostal(), bienRecupere.getCodePostal());
 		assertEquals(bien.getVille(), bienRecupere.getVille());
 		assertEquals(bien.getDateAnniversaire().toString(), bienRecupere.getDateAnniversaire().toString());
-		assertEquals(bien.getTaxesFoncieres().getMontantBase(), bienRecupere.getTaxesFoncieres().getMontantBase(), 0);
 		assertEquals(bien.getICCDateDebut(), bienRecupere.getICCDateDebut());
 		assertEquals(bien.getIdBienImmobilier(), bienRecupere.getIdBienImmobilier());	
 	}
@@ -68,10 +63,8 @@ public class TestDAOBienImmobilier {
 	public void testInsert() {
 		// ÉTANT DONNE un nouveau bien à insérer
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31200, "Toulouse",
-				dateAnniversaire, new TaxeFonciere(1, 2830.00), 
-				2376, new Compteur(1, "1234567890123", 
-				TypeCompteur.EAU, 2376, 2463, LocalDate.of(2022, 3, 2), 87));
+		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
+				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
 
 		// QUAND j'insere le bien
 		this.daoBienImmobilier.insert(bien);
@@ -83,7 +76,6 @@ public class TestDAOBienImmobilier {
 		assertEquals(31200, bienRecupere.getCodePostal());
 		assertEquals("Toulouse", bienRecupere.getVille());
 		assertEquals(dateAnniversaire.toString(), bienRecupere.getDateAnniversaire().toString());
-		assertEquals(2830.00, bienRecupere.getTaxesFoncieres().getMontantBase(), 0);
 		assertEquals(2376, bienRecupere.getICCDateDebut());
     }
 
@@ -92,10 +84,8 @@ public class TestDAOBienImmobilier {
 	public void testUpdate() {
 		// ÉTANT DONNE un bien déjà inséré dans la base de données
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31200, "Toulouse",
-				dateAnniversaire, new TaxeFonciere(1, 2830.00), 
-				2376, new Compteur(1, "1234567890123", 
-				TypeCompteur.EAU, 2376, 2463, LocalDate.of(2022, 3, 2), 87));
+		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
+				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
 		bien = this.daoBienImmobilier.getAll().get(0);
 
@@ -104,7 +94,7 @@ public class TestDAOBienImmobilier {
 		this.daoBienImmobilier.update(bien);
 
 		// ALORS le bien a ete mise a jour dans la BD.
-		BienImmobilier bienRecupere = this.daoBienImmobilier.getById(bien.getIdBienImmobilier()).get();
+		BienImmobilier bienRecupere = this.daoBienImmobilier.getById(bien.getIdBienImmobilier()).orElseThrow();
 		assertEquals(2463, bienRecupere.getICCDateDebut());
 	}
 
@@ -113,10 +103,8 @@ public class TestDAOBienImmobilier {
 	public void testDelete() {
 		// ÉTANT DONNE un bien déjà inséré dans la base de données
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31200, "Toulouse",
-				dateAnniversaire, new TaxeFonciere(1, 2830.00), 
-				2376, new Compteur(1, "1234567890123", 
-				TypeCompteur.EAU, 2376, 2463, LocalDate.of(2022, 3, 2), 87));
+		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
+				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
 		bien = this.daoBienImmobilier.getAll().get(0);
 
@@ -132,14 +120,10 @@ public class TestDAOBienImmobilier {
 	public void testGetAll() {
 		// ETANT DONNE 2 biens existants dans la BD
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien1 = new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31200, "Toulouse",
-				dateAnniversaire, new TaxeFonciere(1, 2830.00), 
-				2376, new Compteur(1, "1234567890123", 
-				TypeCompteur.EAU, 2376, 2463, LocalDate.of(2022, 3, 2), 87));
-		BienImmobilier bien2 = new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31200, "Toulouse",
-				dateAnniversaire, new TaxeFonciere(1, 2830.00), 
-				2376, new Compteur(1, "1234567890123", 
-				TypeCompteur.EAU, 2376, 2463, LocalDate.of(2022, 3, 2), 87));
+		BienImmobilier bien1 = new BienImmobilier(1, "3101234567890",
+				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
+		BienImmobilier bien2 = new BienImmobilier(1, "3101234567890",
+				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien1);
 		this.daoBienImmobilier.insert(bien2);
 		

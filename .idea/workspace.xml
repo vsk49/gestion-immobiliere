@@ -4,14 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] Mise en place du MouseListener dans IHMGestionLocataires">
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsBiens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionBiens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationBien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOBienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOCompteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOTaxeFonciere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOTaxeFonciere.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCProprietaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCProprietaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCTaxeFonciere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCTaxeFonciere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienLouable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienLouable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Compteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Garage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Garage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/TaxeFonciere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/TaxeFonciere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMConnexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsBien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +104,9 @@
     "Application.IHMAccueil.executor": "Run",
     "Application.IHMAjouterBien.executor": "Run",
     "Application.IHMConnexion.executor": "Run",
+    "Application.IHMDetailsBien.executor": "Run",
     "Application.IHMDetailsLocataire.executor": "Run",
+    "Application.IHMGestionBiens.executor": "Run",
     "Application.IHMGestionLocataires.executor": "Run",
     "Application.IHMModificationLocataire.executor": "Run",
     "Application.InputData.executor": "Run",
@@ -114,10 +138,13 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "oracle"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "Oracle"
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.InputData">
+  <component name="RunManager" selected="Application.IHMDetailsBien">
     <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
       <module name="SAEA_3.01" />
@@ -131,8 +158,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IHMAccueil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMAccueil" />
+    <configuration name="IHMDetailsBien" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vue.IHMDetailsBien" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IHMGestionBiens" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vue.IHMGestionBiens" />
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
@@ -146,19 +186,6 @@
     </configuration>
     <configuration name="IHMGestionLocataires" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vue.IHMGestionLocataires" />
-      <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vue.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IHMModificationLocataire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMModificationLocataire" />
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
@@ -185,11 +212,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IHMDetailsBien" />
+        <item itemvalue="Application.IHMGestionBiens" />
         <item itemvalue="Application.InputData" />
         <item itemvalue="Application.CreateBD" />
-        <item itemvalue="Application.IHMModificationLocataire" />
         <item itemvalue="Application.IHMGestionLocataires" />
-        <item itemvalue="Application.IHMAccueil" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +258,10 @@
       <workItem from="1734681302161" duration="306000" />
       <workItem from="1734681623656" duration="42000" />
       <workItem from="1734681676320" duration="99000" />
-      <workItem from="1734700426309" duration="6816000" />
+      <workItem from="1734700426309" duration="7804000" />
+      <workItem from="1734809051621" duration="1928000" />
+      <workItem from="1736088689464" duration="109000" />
+      <workItem from="1736199985622" duration="17964000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -345,7 +375,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734701199396</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)">
+      <option name="closed" value="true" />
+      <created>1734707473527</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1734707473527</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,6 +436,7 @@
     <MESSAGE value="j'ai pas valide mes changements" />
     <MESSAGE value="[CODE] Ajout du locataire OK" />
     <MESSAGE value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
+    <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
   </component>
 </project>
