@@ -1,12 +1,8 @@
 package dao;
 
-import java.sql.Connection;
 import java.time.LocalDate;
 
-import modele.BienImmobilier;
-import modele.Genre;
-import modele.Locataire;
-import modele.Proprietaire;
+import modele.*;
 
 public class InputData {
 	
@@ -38,19 +34,20 @@ public class InputData {
 	};
 
 	private static final BienImmobilier[] biens = {
-			new BienImmobilier(1, "3101234567890", "40 rue des Lilas", 31000, "Toulouse",
-					LocalDate.of(2020, 2, 2), 1234),
-			new BienImmobilier(2, null, "90 boulevard du 6 juin 1944", 31000, "Toulouse",
-					LocalDate.of(2020, 3, 3), 1547),
-			new BienImmobilier(3, "3198765432100", "10 rue des Princes", 31000, "Toulouse",
-					LocalDate.of(2020, 4, 4), 1889),
-			new BienImmobilier(4, "3101234567891", "41 rue des Lilas", 31000, "Toulouse",
-					LocalDate.of(2020, 5, 5), 1672)
+			new Logement(1, "3101234567890", "40 rue des Lilas", 31000,
+					"Toulouse", LocalDate.of(2020, 2, 2),
+					1234, 20.00, 2, null),
+			new Batiment(2, null, "90 boulevard du 6 juin 1944", 31000,
+					"Toulouse", LocalDate.of(2020, 3, 3), 1547),
+			new Logement(3, "3198765432100", "10 rue des Princes", 31000,
+					"Toulouse", LocalDate.of(2020, 4, 4),
+					1889, 18.00, 2, null),
+			new Logement(4, "3101234567891", "41 rue des Lilas", 31000,
+					"Toulouse", LocalDate.of(2020, 5, 5),
+					1672, 22.00, 3, null)
 	};
 
 	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		Connection connexion = JDBCConnexion.getConnexion();
 		InsererDonnees();
 		JDBCConnexion.closeConnexion();
 	}
@@ -59,11 +56,11 @@ public class InputData {
 		for (Locataire locataire : locataires) {
 			donneesLocataires.insert(locataire);
 		}
-		for (BienImmobilier bien : biens) {
-			donneesBiens.insert(bien);
-		}
 		for (Proprietaire proprietaire : proprietaire) {
 			donneesProprietaire.insert(proprietaire);
+		}
+		for (BienImmobilier bien : biens) {
+			donneesBiens.insert(bien);
 		}
 	}
 

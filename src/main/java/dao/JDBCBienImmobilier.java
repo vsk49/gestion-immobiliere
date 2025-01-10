@@ -130,4 +130,5 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 		}
 		return bien;
 	}
+
 }
