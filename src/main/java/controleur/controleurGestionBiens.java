@@ -10,7 +10,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import modele.BienImmobilier;
-import modele.Locataire;
 import vue.*;
 
 public class controleurGestionBiens extends MouseAdapter implements ActionListener {
@@ -101,7 +100,8 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
                                 bien.getVille()
                         });
                     } else {
-                        JOptionPane.showMessageDialog(this.vue, "Aucun bien immobilier trouvé avec le numéro fiscal " + numeroFiscal);
+                        JOptionPane.showMessageDialog(this.vue,
+                                "Aucun bien immobilier trouvé avec le numéro fiscal " + numeroFiscal);
                     }
                     break;
             }

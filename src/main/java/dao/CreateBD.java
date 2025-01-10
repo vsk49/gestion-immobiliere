@@ -336,6 +336,19 @@ public class CreateBD {
 		} catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
+
+		try {
+			requeteSQL.executeQuery(
+					"CREATE TABLE Batiment ("
+							+ "idBatiment INTEGER PRIMARY KEY, "
+							+ "idBienImmobilier INTEGER, "
+							+ "FOREIGN KEY (idBienImmobilier) REFERENCES BienImmobilier(idBienImmobilier)"
+							+ ")"
+			);
+			System.out.println("Table Batiment created.");
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+		}
 		
 		try {
 			requeteSQL.executeQuery(
@@ -360,17 +373,6 @@ public class CreateBD {
 				+ ")"
 			);
 			System.out.println("Table Garage created.");
-		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
-		}
-		
-		try {
-			requeteSQL.executeQuery(
-				"CREATE TABLE Batiment ("
-				+ "idBatiment INTEGER PRIMARY KEY"
-				+ ")"
-			);
-			System.out.println("Table Batiment created.");
 		} catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
