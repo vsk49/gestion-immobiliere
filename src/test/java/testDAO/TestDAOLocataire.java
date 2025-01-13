@@ -38,7 +38,7 @@ private JDBCLocataire daoLocataire;
 
 	@Test
 	public void testGetById() {
-		// ÉTANT DONNE un bien déjà inséré dans la base de données
+		// ÉTANT DONNE un locataire déjà inséré dans la base de données
         LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart = null;
@@ -48,10 +48,10 @@ private JDBCLocataire daoLocataire;
             "jeandurang@mail.test", dateEntree, dateDepart, 0);
 		this.daoLocataire.insert(Locataire);
 		
-		// QUAND le proprietaire recupere le bien
+		// QUAND le proprietaire recupere le locataire
 		Locataire locataireRecupere = this.daoLocataire.getAll().get(0);
 		
-		// ALORS le bien est correctement recupere de la BD.
+		// ALORS le locataire est correctement recupere de la BD.
 		assertEquals(Locataire.getNom(), locataireRecupere.getNom());
 		assertEquals(Locataire.getPrenom(), locataireRecupere.getPrenom());
 		assertEquals(Locataire.getGenre(), locataireRecupere.getGenre());
@@ -68,7 +68,7 @@ private JDBCLocataire daoLocataire;
 
 	@Test
 	public void testInsert() {
-		// ÉTANT DONNE un nouveau bien à insérer
+		// ÉTANT DONNE un nouveau locataire à insérer
         LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart = null;
@@ -77,10 +77,10 @@ private JDBCLocataire daoLocataire;
             "Toulouse", "Français", "Etudiant", "0606060606",
             "jeandurang@mail.test", dateEntree, dateDepart, 0);
 
-		// QUAND j'insere le bien
+		// QUAND j'insere le locataire
 		this.daoLocataire.insert(Locataire);
 
-		// ALORS le bien est correctement inséré dans la base de données
+		// ALORS le locataire est correctement inséré dans la base de données
 		Locataire locataireRecupere = this.daoLocataire.getAll().get(4);
 		assertEquals("Durang", locataireRecupere.getNom());
 		assertEquals("Jean", locataireRecupere.getPrenom());
@@ -98,7 +98,7 @@ private JDBCLocataire daoLocataire;
 
 	@Test
 	public void testUpdate() {
-		// ÉTANT DONNE un bien déjà inséré dans la base de données
+		// ÉTANT DONNE un locataire déjà inséré dans la base de données
 		LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart = null;
@@ -109,11 +109,11 @@ private JDBCLocataire daoLocataire;
 		this.daoLocataire.insert(Locataire);
 		Locataire = this.daoLocataire.getById("DJEA").orElseThrow();
 
-		// QUAND je mets a jour les information du bien
+		// QUAND je mets a jour les information du locataire
 		Locataire.setEmail("jeanDurang@mail.test");
 		this.daoLocataire.update(Locataire);
 
-		// ALORS le bien a ete mise a jour dans la BD.
+		// ALORS le locataire a ete mise a jour dans la BD.
 		Locataire LocataireRecupere = this.daoLocataire.getById("DJEA").orElseThrow();
 		assertEquals("jeanDurang@mail.test", LocataireRecupere.getEmail());
 	}
@@ -121,7 +121,7 @@ private JDBCLocataire daoLocataire;
 
 	@Test
 	public void testDelete() {
-		// ÉTANT DONNE un bien déjà inséré dans la base de données
+		// ÉTANT DONNE un locataire déjà inséré dans la base de données
 		LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart = null;
@@ -132,17 +132,17 @@ private JDBCLocataire daoLocataire;
             this.daoLocataire.insert(Locataire);
             Locataire = this.daoLocataire.getAll().get(4);
 
-		// QUAND je supprime ce bien
+		// QUAND je supprime ce locataire
 		this.daoLocataire.delete(Locataire);
 
-		// ALORS ce bien a bien ete supprime dans la BD.
+		// ALORS ce locataire a correctement ete supprime dans la BD.
 		assertFalse(this.daoLocataire.getById(Locataire.getIdLocataire()).isPresent());
 	}
 
 
 	@Test
 	public void testGetAll() {
-		// ETANT DONNE 2 biens existants dans la BD
+		// ETANT DONNE 2 locataire existants dans la BD
         LocalDate dateNaissance1 = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree1 = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart1 = null;
@@ -160,10 +160,10 @@ private JDBCLocataire daoLocataire;
         this.daoLocataire.insert(Locataire1);
         this.daoLocataire.insert(Locataire2);
 		
-		// QUAND le proprietaire recupere tous les biens
+		// QUAND le proprietaire recupere tous les locataire
 		List<Locataire> LocataireRecuperes = this.daoLocataire.getAll();
 		
-		// ALORS tous les biens sont bien recuperes
+		// ALORS tous les locataire sont bien recuperes
         assertEquals(6, LocataireRecuperes.size());
 	}
 }
