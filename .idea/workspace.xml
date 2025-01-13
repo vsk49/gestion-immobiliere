@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOBienLouable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOBienLouable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienLouable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBienLouable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] implementation JDBCBienLouable">
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +89,7 @@
     "JUnit.TestDAOBienImmobilier.testGetAll.executor": "Run",
     "JUnit.TestDAOBienImmobilier.testInsert.executor": "Run",
     "JUnit.TestDAOBienImmobilier.testUpdate.executor": "Run",
+    "JUnit.TestDAOLocataire.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -123,7 +121,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.TestDAOBienImmobilier">
+  <component name="RunManager" selected="JUnit.TestDAOLocataire">
     <configuration name="TestDAOBienImmobilier" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
@@ -171,22 +169,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDAOBienImmobilier.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOBienImmobilier" />
-      <option name="METHOD_NAME" value="testInsert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestDAOBienImmobilier.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
@@ -203,13 +185,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestDAOLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOLocataire" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestDAOLocataire" />
         <item itemvalue="JUnit.TestDAOBienImmobilier" />
         <item itemvalue="JUnit.TestDAOBienImmobilier.testGetAll" />
         <item itemvalue="JUnit.TestDAOBienImmobilier.testDelete" />
         <item itemvalue="JUnit.TestDAOBienImmobilier.testUpdate" />
-        <item itemvalue="JUnit.TestDAOBienImmobilier.testInsert" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +254,7 @@
       <workItem from="1736199985622" duration="19255000" />
       <workItem from="1736348575532" duration="14202000" />
       <workItem from="1736514876091" duration="9155000" />
-      <workItem from="1736753746757" duration="7505000" />
+      <workItem from="1736753746757" duration="9086000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -403,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736757406126</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="[CODE] implementation JDBCBienLouable">
+      <option name="closed" value="true" />
+      <created>1736761834635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1736761834635</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,6 +487,7 @@
     <MESSAGE value="[CODE] IHMGestionBiens OK!" />
     <MESSAGE value="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO." />
     <MESSAGE value="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)" />
+    <MESSAGE value="[CODE] implementation JDBCBienLouable" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] implementation JDBCBienLouable" />
   </component>
 </project>
