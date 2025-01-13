@@ -83,9 +83,9 @@
     </schema>
     <schema id="27" parent="1" name="PUBLIC">
       <AutoIntrospectionLevel>1</AutoIntrospectionLevel>
-      <LastIntrospectionL1Timestamp>2024-12-20.15:14:47</LastIntrospectionL1Timestamp>
+      <LastIntrospectionL1Timestamp>2025-01-10.16:57:37</LastIntrospectionL1Timestamp>
       <LastIntrospectionLevel>1</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2024-12-20.13:14:54</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-10.14:57:56</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="28" parent="1" name="REMOTE_SCHEDULER_AGENT">
@@ -93,15 +93,15 @@
     </schema>
     <schema id="29" parent="1" name="SAE3A01">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <Current>1</Current>
-      <LastIntrospectionL1Timestamp>2024-12-20.15:14:47</LastIntrospectionL1Timestamp>
-      <LastIntrospectionL2Timestamp>2024-12-20.15:14:47</LastIntrospectionL2Timestamp>
-      <LastIntrospectionL3Timestamp>2024-12-20.15:14:47</LastIntrospectionL3Timestamp>
+      <LastIntrospectionL1Timestamp>2025-01-10.16:57:37</LastIntrospectionL1Timestamp>
+      <LastIntrospectionL2Timestamp>2025-01-10.16:57:37</LastIntrospectionL2Timestamp>
+      <LastIntrospectionL3Timestamp>2025-01-10.16:57:37</LastIntrospectionL3Timestamp>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2024-12-20.13:14:56</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-10.14:57:59</LastIntrospectionLocalTimestamp>
       <LastIntrospectionVersion>200820</LastIntrospectionVersion>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <ObjectId>109</ObjectId>
     </schema>
     <schema id="30" parent="1" name="SI_INFORMTN_SCHEMA">
@@ -59566,893 +59566,989 @@
       <TargetObjectParentName>SYS</TargetObjectParentName>
     </synonym>
     <table id="7493" parent="29" name="ASSURANCE">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79264</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80955</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7494" parent="29" name="BAIL">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79254</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80945</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7495" parent="29" name="BATIMENT">
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
-      <ObjectId>79276</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <ObjectId>80963</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7496" parent="29" name="BIENIMMOBILIER">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79252</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80943</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7497" parent="29" name="BIENLOUABLE">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79256</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80947</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7498" parent="29" name="CAUTION">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79268</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80959</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7499" parent="29" name="CHARGE">
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
-      <ObjectId>79270</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <ObjectId>80961</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7500" parent="29" name="COMPTEUR">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79260</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80951</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7501" parent="29" name="DIAGNOSTIC">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79266</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80957</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7502" parent="29" name="FACTURETRAVAIL">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79262</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80953</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7503" parent="29" name="GARAGE">
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
-      <ObjectId>79274</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <ObjectId>80967</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7504" parent="29" name="LOCATAIRE">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79250</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80941</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7505" parent="29" name="LOGEMENT">
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
-      <ObjectId>79272</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <ObjectId>80965</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7506" parent="29" name="LOYER">
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
-      <ObjectId>79258</ObjectId>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
+      <ObjectId>80949</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <check id="7507" parent="7493" name="SYS_C009678">
+    <table id="7507" parent="29" name="PROPRIETAIRE">
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <DetailsLevel>3</DetailsLevel>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <ObjectId>80969</ObjectId>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="7508" parent="29" name="TAXEFONCIERE">
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <DetailsLevel>3</DetailsLevel>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <ObjectId>80971</ObjectId>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <check id="7509" parent="7493" name="SYS_C0010664">
       <ColNames>TYPEASSURANCE</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>typeAssurance IN (&apos;PROPRIETAIRE&apos;, &apos;AIDE_JURIDIQUE&apos;)</Predicate>
     </check>
-    <column id="7508" parent="7493" name="IDASSURANCE">
+    <column id="7510" parent="7493" name="IDASSURANCE">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7509" parent="7493" name="TYPEASSURANCE">
+    <column id="7511" parent="7493" name="TYPEASSURANCE">
       <Position>2</Position>
       <StoredType>VARCHAR2(15 byte)|0s</StoredType>
     </column>
-    <column id="7510" parent="7493" name="NOMASSUREUR">
+    <column id="7512" parent="7493" name="NOMASSUREUR">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7511" parent="7493" name="DATEDEBUTASSURANCE">
+    <column id="7513" parent="7493" name="DATEDEBUTASSURANCE">
       <Position>4</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7512" parent="7493" name="QUOTITEJURISPRUDENCE">
+    <column id="7514" parent="7493" name="QUOTITEJURISPRUDENCE">
       <Position>5</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7513" parent="7493" name="PROTECTIONJURIDIQUE">
+    <column id="7515" parent="7493" name="PROTECTIONJURIDIQUE">
       <Position>6</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7514" parent="7493" name="PRIME">
+    <column id="7516" parent="7493" name="PRIME">
       <Position>7</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7515" parent="7493" name="IDBIENIMMOBILIER">
+    <column id="7517" parent="7493" name="IDBIENIMMOBILIER">
       <Position>8</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7516" parent="7493" name="SYS_C009680">
+    <foreign-key id="7518" parent="7493" name="SYS_C0010666">
       <ColNames>IDBIENIMMOBILIER</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009656</RefKeyName>
+      <RefKeyName>SYS_C0010642</RefKeyName>
       <RefTableName>BIENIMMOBILIER</RefTableName>
     </foreign-key>
-    <index id="7517" parent="7493" name="SYS_C009679">
+    <index id="7519" parent="7493" name="SYS_C0010665">
       <ColNames>IDASSURANCE</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79265</ObjectId>
+      <ObjectId>80956</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7518" parent="7493" name="SYS_C009679">
+    <key id="7520" parent="7493" name="SYS_C0010665">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009679</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010665</UnderlyingIndexName>
     </key>
-    <column id="7519" parent="7494" name="IDBAIL">
+    <column id="7521" parent="7494" name="IDBAIL">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7520" parent="7494" name="DATEDEBUT">
+    <column id="7522" parent="7494" name="DATEDEBUT">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7521" parent="7494" name="DEPOTDEGARANTIE">
+    <column id="7523" parent="7494" name="DEPOTDEGARANTIE">
       <Position>3</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7522" parent="7494" name="DATESIGNATURE">
+    <column id="7524" parent="7494" name="DATESIGNATURE">
       <Position>4</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7523" parent="7494" name="DATEFIN">
+    <column id="7525" parent="7494" name="DATEFIN">
       <Position>5</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7524" parent="7494" name="INDEXANCIENBAIL">
+    <column id="7526" parent="7494" name="INDEXANCIENBAIL">
       <Position>6</Position>
       <StoredType>NUMBER(4)|0s</StoredType>
     </column>
-    <column id="7525" parent="7494" name="IDBIENIMMOBILIER">
+    <column id="7527" parent="7494" name="IDBIENIMMOBILIER">
       <Position>7</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7526" parent="7494" name="SYS_C009659">
+    <foreign-key id="7528" parent="7494" name="SYS_C0010645">
       <ColNames>IDBIENIMMOBILIER</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009656</RefKeyName>
+      <RefKeyName>SYS_C0010642</RefKeyName>
       <RefTableName>BIENIMMOBILIER</RefTableName>
     </foreign-key>
-    <index id="7527" parent="7494" name="SYS_C009658">
+    <index id="7529" parent="7494" name="SYS_C0010644">
       <ColNames>IDBAIL</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79255</ObjectId>
+      <ObjectId>80946</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7528" parent="7494" name="SYS_C009658">
+    <key id="7530" parent="7494" name="SYS_C0010644">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009658</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010644</UnderlyingIndexName>
     </key>
-    <column id="7529" parent="7495" name="IDBATIMENT">
+    <column id="7531" parent="7495" name="IDBATIMENT">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <index id="7530" parent="7495" name="SYS_C009699">
+    <column id="7532" parent="7495" name="IDBIENIMMOBILIER">
+      <Position>2</Position>
+      <StoredType>NUMBER(*)|0s</StoredType>
+    </column>
+    <foreign-key id="7533" parent="7495" name="SYS_C0010681">
+      <ColNames>IDBIENIMMOBILIER</ColNames>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <OnDelete>restrict</OnDelete>
+      <RefKeyName>SYS_C0010642</RefKeyName>
+      <RefTableName>BIENIMMOBILIER</RefTableName>
+    </foreign-key>
+    <index id="7534" parent="7495" name="SYS_C0010680">
       <ColNames>IDBATIMENT</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79277</ObjectId>
+      <ObjectId>80964</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7531" parent="7495" name="SYS_C009699">
+    <key id="7535" parent="7495" name="SYS_C0010680">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009699</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010680</UnderlyingIndexName>
     </key>
-    <column id="7532" parent="7496" name="IDBIENIMMOBILIER">
+    <column id="7536" parent="7496" name="IDBIENIMMOBILIER">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7533" parent="7496" name="NUMEROFISCAL">
-      <NotNull>1</NotNull>
+    <column id="7537" parent="7496" name="NUMEROFISCAL">
       <Position>2</Position>
       <StoredType>CHAR(13 byte)|0s</StoredType>
     </column>
-    <column id="7534" parent="7496" name="ADRESSE">
+    <column id="7538" parent="7496" name="ADRESSE">
       <Position>3</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7535" parent="7496" name="CODEPOSTAL">
+    <column id="7539" parent="7496" name="CODEPOSTAL">
       <Position>4</Position>
       <StoredType>NUMBER(5)|0s</StoredType>
     </column>
-    <column id="7536" parent="7496" name="VILLE">
+    <column id="7540" parent="7496" name="VILLE">
       <Position>5</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7537" parent="7496" name="DATEANNIVERSAIRE">
+    <column id="7541" parent="7496" name="DATEANNIVERSAIRE">
       <Position>6</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7538" parent="7496" name="ICCDATEDEBUT">
+    <column id="7542" parent="7496" name="ICCDATEDEBUT">
       <Position>7</Position>
       <StoredType>NUMBER(4)|0s</StoredType>
     </column>
-    <index id="7539" parent="7496" name="SYS_C009656">
+    <index id="7543" parent="7496" name="SYS_C0010642">
       <ColNames>IDBIENIMMOBILIER</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79253</ObjectId>
+      <ObjectId>80944</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7540" parent="7496" name="SYS_C009656">
+    <key id="7544" parent="7496" name="SYS_C0010642">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009656</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010642</UnderlyingIndexName>
     </key>
-    <column id="7541" parent="7497" name="IDBIENLOUABLE">
+    <column id="7545" parent="7497" name="IDBIENLOUABLE">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7542" parent="7497" name="SURFACE">
+    <column id="7546" parent="7497" name="SURFACE">
       <Position>2</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7543" parent="7497" name="NBPIECES">
+    <column id="7547" parent="7497" name="NBPIECES">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7544" parent="7497" name="IDBIENIMMOBILIER">
+    <column id="7548" parent="7497" name="IDBIENIMMOBILIER">
       <Position>4</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7545" parent="7497" name="SYS_C009662">
+    <foreign-key id="7549" parent="7497" name="SYS_C0010648">
       <ColNames>IDBIENIMMOBILIER</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009656</RefKeyName>
+      <RefKeyName>SYS_C0010642</RefKeyName>
       <RefTableName>BIENIMMOBILIER</RefTableName>
     </foreign-key>
-    <index id="7546" parent="7497" name="SYS_C009661">
+    <index id="7550" parent="7497" name="SYS_C0010647">
       <ColNames>IDBIENLOUABLE</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79257</ObjectId>
+      <ObjectId>80948</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7547" parent="7497" name="SYS_C009661">
+    <key id="7551" parent="7497" name="SYS_C0010647">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009661</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010647</UnderlyingIndexName>
     </key>
-    <column id="7548" parent="7498" name="IDCAUTION">
+    <column id="7552" parent="7498" name="IDCAUTION">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7549" parent="7498" name="NOM">
+    <column id="7553" parent="7498" name="NOM">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7550" parent="7498" name="PRENOM">
+    <column id="7554" parent="7498" name="PRENOM">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7551" parent="7498" name="DATENAISSANCE">
+    <column id="7555" parent="7498" name="DATENAISSANCE">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7552" parent="7498" name="NATIONALITE">
+    <column id="7556" parent="7498" name="NATIONALITE">
       <Position>5</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7553" parent="7498" name="ADRESSE">
+    <column id="7557" parent="7498" name="ADRESSE">
       <Position>6</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7554" parent="7498" name="CODEPOSTAL">
+    <column id="7558" parent="7498" name="CODEPOSTAL">
       <Position>7</Position>
       <StoredType>NUMBER(5)|0s</StoredType>
     </column>
-    <column id="7555" parent="7498" name="VILLE">
+    <column id="7559" parent="7498" name="VILLE">
       <Position>8</Position>
       <StoredType>VARCHAR2(15 byte)|0s</StoredType>
     </column>
-    <column id="7556" parent="7498" name="PROFESSION">
+    <column id="7560" parent="7498" name="PROFESSION">
       <Position>9</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7557" parent="7498" name="EMPLOYEUR">
+    <column id="7561" parent="7498" name="EMPLOYEUR">
       <Position>10</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7558" parent="7498" name="REVENUSMENSUELSNET">
+    <column id="7562" parent="7498" name="REVENUSMENSUELSNET">
       <Position>11</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7559" parent="7498" name="TYPECONTRATTRAVAIL">
+    <column id="7563" parent="7498" name="TYPECONTRATTRAVAIL">
       <Position>12</Position>
       <StoredType>VARCHAR2(10 byte)|0s</StoredType>
     </column>
-    <column id="7560" parent="7498" name="LIENLOCATAIRE">
+    <column id="7564" parent="7498" name="LIENLOCATAIRE">
       <Position>13</Position>
       <StoredType>VARCHAR2(10 byte)|0s</StoredType>
     </column>
-    <column id="7561" parent="7498" name="DATESIGNATURE">
+    <column id="7565" parent="7498" name="DATESIGNATURE">
       <Position>14</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7562" parent="7498" name="MONTANTCAUTIONNE">
+    <column id="7566" parent="7498" name="MONTANTCAUTIONNE">
       <Position>15</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7563" parent="7498" name="IDLOCATAIRE">
+    <column id="7567" parent="7498" name="IDLOCATAIRE">
       <Position>16</Position>
       <StoredType>VARCHAR2(10 byte)|0s</StoredType>
     </column>
-    <foreign-key id="7564" parent="7498" name="SYS_C009690">
+    <foreign-key id="7568" parent="7498" name="SYS_C0010676">
       <ColNames>IDLOCATAIRE</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009654</RefKeyName>
+      <RefKeyName>SYS_C0010641</RefKeyName>
       <RefTableName>LOCATAIRE</RefTableName>
     </foreign-key>
-    <index id="7565" parent="7498" name="SYS_C009689">
+    <index id="7569" parent="7498" name="SYS_C0010675">
       <ColNames>IDCAUTION</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79269</ObjectId>
+      <ObjectId>80960</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7566" parent="7498" name="SYS_C009689">
+    <key id="7570" parent="7498" name="SYS_C0010675">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009689</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010675</UnderlyingIndexName>
     </key>
-    <column id="7567" parent="7499" name="IDCHARGE">
+    <column id="7571" parent="7499" name="IDCHARGE">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7568" parent="7499" name="DATEDEBUT">
+    <column id="7572" parent="7499" name="DATEDEBUT">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7569" parent="7499" name="DATEFIN">
+    <column id="7573" parent="7499" name="DATEFIN">
       <Position>3</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7570" parent="7499" name="MONTANTEAU">
+    <column id="7574" parent="7499" name="MONTANTEAU">
       <Position>4</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7571" parent="7499" name="MONTANTCOPROPRIETE">
+    <column id="7575" parent="7499" name="MONTANTCOPROPRIETE">
       <Position>5</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7572" parent="7499" name="MONTANTELECTRICITE">
+    <column id="7576" parent="7499" name="MONTANTELECTRICITE">
       <Position>6</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7573" parent="7499" name="IDLOCATAIRE">
+    <column id="7577" parent="7499" name="IDLOCATAIRE">
       <Position>7</Position>
       <StoredType>VARCHAR2(10 byte)|0s</StoredType>
     </column>
-    <foreign-key id="7574" parent="7499" name="SYS_C009693">
+    <foreign-key id="7578" parent="7499" name="SYS_C0010679">
       <ColNames>IDLOCATAIRE</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009654</RefKeyName>
+      <RefKeyName>SYS_C0010641</RefKeyName>
       <RefTableName>LOCATAIRE</RefTableName>
     </foreign-key>
-    <index id="7575" parent="7499" name="SYS_C009692">
+    <index id="7579" parent="7499" name="SYS_C0010678">
       <ColNames>IDCHARGE</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79271</ObjectId>
+      <ObjectId>80962</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7576" parent="7499" name="SYS_C009692">
+    <key id="7580" parent="7499" name="SYS_C0010678">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009692</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010678</UnderlyingIndexName>
     </key>
-    <check id="7577" parent="7500" name="SYS_C009670">
+    <check id="7581" parent="7500" name="SYS_C0010656">
       <ColNames>TYPECOMPTEUR</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>typeCompteur in (&apos;EAU&apos;, &apos;ELECTRICITE&apos;)</Predicate>
     </check>
-    <column id="7578" parent="7500" name="IDCOMPTEUR">
+    <column id="7582" parent="7500" name="IDCOMPTEUR">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7579" parent="7500" name="NUMERO">
+    <column id="7583" parent="7500" name="NUMERO">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>CHAR(14 byte)|0s</StoredType>
     </column>
-    <column id="7580" parent="7500" name="TYPECOMPTEUR">
+    <column id="7584" parent="7500" name="TYPECOMPTEUR">
       <Position>3</Position>
       <StoredType>VARCHAR2(11 byte)|0s</StoredType>
     </column>
-    <column id="7581" parent="7500" name="INDEXANCIEN">
+    <column id="7585" parent="7500" name="INDEXANCIEN">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>NUMBER(4)|0s</StoredType>
     </column>
-    <column id="7582" parent="7500" name="INDEXACTUEL">
+    <column id="7586" parent="7500" name="INDEXACTUEL">
       <Position>5</Position>
       <StoredType>NUMBER(4)|0s</StoredType>
     </column>
-    <column id="7583" parent="7500" name="DATERELEVEENTREE">
+    <column id="7587" parent="7500" name="DATERELEVEENTREE">
       <Position>6</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7584" parent="7500" name="IDBIENIMMOBILIER">
+    <column id="7588" parent="7500" name="VOLUMEEAUCONSOMMEE">
       <Position>7</Position>
+      <StoredType>NUMBER(4)|0s</StoredType>
+    </column>
+    <column id="7589" parent="7500" name="IDBIENIMMOBILIER">
+      <Position>8</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7585" parent="7500" name="SYS_C009672">
+    <foreign-key id="7590" parent="7500" name="SYS_C0010658">
       <ColNames>IDBIENIMMOBILIER</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009656</RefKeyName>
+      <RefKeyName>SYS_C0010642</RefKeyName>
       <RefTableName>BIENIMMOBILIER</RefTableName>
     </foreign-key>
-    <index id="7586" parent="7500" name="SYS_C009671">
+    <index id="7591" parent="7500" name="SYS_C0010657">
       <ColNames>IDCOMPTEUR</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79261</ObjectId>
+      <ObjectId>80952</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7587" parent="7500" name="SYS_C009671">
+    <key id="7592" parent="7500" name="SYS_C0010657">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009671</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010657</UnderlyingIndexName>
     </key>
-    <check id="7588" parent="7501" name="SYS_C009683">
+    <check id="7593" parent="7501" name="SYS_C0010669">
       <ColNames>CLASSIFICATION</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>classification IN (&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;)</Predicate>
     </check>
-    <column id="7589" parent="7501" name="IDDIAGNOSTIC">
+    <column id="7594" parent="7501" name="IDDIAGNOSTIC">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7590" parent="7501" name="REFERENCE">
+    <column id="7595" parent="7501" name="REFERENCE">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>VARCHAR2(15 byte)|0s</StoredType>
     </column>
-    <column id="7591" parent="7501" name="DATEREALISATION">
+    <column id="7596" parent="7501" name="DATEREALISATION">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7592" parent="7501" name="TYPE">
+    <column id="7597" parent="7501" name="TYPE">
       <Position>4</Position>
       <StoredType>VARCHAR2(15 byte)|0s</StoredType>
     </column>
-    <column id="7593" parent="7501" name="DATEEXPIRATION">
+    <column id="7598" parent="7501" name="DATEEXPIRATION">
       <Position>5</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7594" parent="7501" name="CLASSIFICATION">
+    <column id="7599" parent="7501" name="CLASSIFICATION">
       <Position>6</Position>
       <StoredType>CHAR(1 byte)|0s</StoredType>
     </column>
-    <column id="7595" parent="7501" name="OPERATEUR">
+    <column id="7600" parent="7501" name="OPERATEUR">
       <Position>7</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7596" parent="7501" name="NUMERORAPPORT">
+    <column id="7601" parent="7501" name="NUMERORAPPORT">
       <Position>8</Position>
       <StoredType>CHAR(15 byte)|0s</StoredType>
     </column>
-    <column id="7597" parent="7501" name="IDBIENIMMOBILIER">
+    <column id="7602" parent="7501" name="IDBIENIMMOBILIER">
       <Position>9</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7598" parent="7501" name="SYS_C009685">
+    <foreign-key id="7603" parent="7501" name="SYS_C0010671">
       <ColNames>IDBIENIMMOBILIER</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009656</RefKeyName>
+      <RefKeyName>SYS_C0010642</RefKeyName>
       <RefTableName>BIENIMMOBILIER</RefTableName>
     </foreign-key>
-    <index id="7599" parent="7501" name="SYS_C009684">
+    <index id="7604" parent="7501" name="SYS_C0010670">
       <ColNames>IDDIAGNOSTIC</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79267</ObjectId>
+      <ObjectId>80958</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7600" parent="7501" name="SYS_C009684">
+    <key id="7605" parent="7501" name="SYS_C0010670">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009684</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010670</UnderlyingIndexName>
     </key>
-    <column id="7601" parent="7502" name="IDFACTURETRAVAIL">
+    <column id="7606" parent="7502" name="IDFACTURETRAVAIL">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7602" parent="7502" name="NUMEROFACTURE">
+    <column id="7607" parent="7502" name="NUMEROFACTURE">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>CHAR(10 byte)|0s</StoredType>
     </column>
-    <column id="7603" parent="7502" name="DATEFACTURE">
+    <column id="7608" parent="7502" name="DATEFACTURE">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7604" parent="7502" name="NATURE">
+    <column id="7609" parent="7502" name="NATURE">
       <Position>4</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7605" parent="7502" name="MONTANT">
+    <column id="7610" parent="7502" name="MONTANT">
       <Position>5</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7606" parent="7502" name="ENTREPRISE">
+    <column id="7611" parent="7502" name="ENTREPRISE">
       <Position>6</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7607" parent="7502" name="REFERENCEDEVIS">
+    <column id="7612" parent="7502" name="REFERENCEDEVIS">
       <Position>7</Position>
       <StoredType>CHAR(10 byte)|0s</StoredType>
     </column>
-    <column id="7608" parent="7502" name="MONTANTDEVIS">
+    <column id="7613" parent="7502" name="MONTANTDEVIS">
       <Position>8</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7609" parent="7502" name="IDBIENLOUABLE">
+    <column id="7614" parent="7502" name="IDBIENLOUABLE">
       <Position>9</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7610" parent="7502" name="SYS_C009676">
+    <foreign-key id="7615" parent="7502" name="SYS_C0010662">
       <ColNames>IDBIENLOUABLE</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009661</RefKeyName>
+      <RefKeyName>SYS_C0010647</RefKeyName>
       <RefTableName>BIENLOUABLE</RefTableName>
     </foreign-key>
-    <index id="7611" parent="7502" name="SYS_C009675">
+    <index id="7616" parent="7502" name="SYS_C0010661">
       <ColNames>IDFACTURETRAVAIL</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79263</ObjectId>
+      <ObjectId>80954</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7612" parent="7502" name="SYS_C009675">
+    <key id="7617" parent="7502" name="SYS_C0010661">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009675</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010661</UnderlyingIndexName>
     </key>
-    <column id="7613" parent="7503" name="IDGARAGE">
+    <column id="7618" parent="7503" name="IDGARAGE">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7614" parent="7503" name="IDLOGEMENT">
+    <column id="7619" parent="7503" name="IDLOGEMENT">
       <Position>2</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7615" parent="7503" name="SYS_C009698">
+    <foreign-key id="7620" parent="7503" name="SYS_C0010686">
       <ColNames>IDLOGEMENT</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009695</RefKeyName>
+      <RefKeyName>SYS_C0010683</RefKeyName>
       <RefTableName>LOGEMENT</RefTableName>
     </foreign-key>
-    <index id="7616" parent="7503" name="SYS_C009697">
+    <index id="7621" parent="7503" name="SYS_C0010685">
       <ColNames>IDGARAGE</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79275</ObjectId>
+      <ObjectId>80968</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7617" parent="7503" name="SYS_C009697">
+    <key id="7622" parent="7503" name="SYS_C0010685">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009697</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010685</UnderlyingIndexName>
     </key>
-    <check id="7618" parent="7504" name="SYS_C009652">
+    <check id="7623" parent="7504" name="SYS_C0010639">
       <ColNames>GENRE</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>genre IN (&apos;M&apos;, &apos;F&apos;)</Predicate>
     </check>
-    <check id="7619" parent="7504" name="SYS_C009653">
+    <check id="7624" parent="7504" name="SYS_C0010640">
       <ColNames>QUOTITE</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>quotite &gt;= 0 AND quotite &lt;= 1</Predicate>
     </check>
-    <column id="7620" parent="7504" name="IDLOCATAIRE">
+    <column id="7625" parent="7504" name="IDLOCATAIRE">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>VARCHAR2(10 byte)|0s</StoredType>
     </column>
-    <column id="7621" parent="7504" name="NOM">
+    <column id="7626" parent="7504" name="NOM">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7622" parent="7504" name="PRENOM">
+    <column id="7627" parent="7504" name="PRENOM">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7623" parent="7504" name="GENRE">
+    <column id="7628" parent="7504" name="GENRE">
       <Position>4</Position>
       <StoredType>CHAR(1 byte)|0s</StoredType>
     </column>
-    <column id="7624" parent="7504" name="DATENAISSANCE">
+    <column id="7629" parent="7504" name="DATENAISSANCE">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7625" parent="7504" name="LIEUNAISSANCE">
+    <column id="7630" parent="7504" name="LIEUNAISSANCE">
       <Position>6</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7626" parent="7504" name="NATIONALITE">
+    <column id="7631" parent="7504" name="NATIONALITE">
       <Position>7</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7627" parent="7504" name="PROFESSION">
+    <column id="7632" parent="7504" name="PROFESSION">
       <Position>8</Position>
       <StoredType>VARCHAR2(50 byte)|0s</StoredType>
     </column>
-    <column id="7628" parent="7504" name="TELEPHONE">
+    <column id="7633" parent="7504" name="TELEPHONE">
       <Position>9</Position>
       <StoredType>VARCHAR2(15 byte)|0s</StoredType>
     </column>
-    <column id="7629" parent="7504" name="EMAIL">
+    <column id="7634" parent="7504" name="EMAIL">
       <Position>10</Position>
       <StoredType>VARCHAR2(100 byte)|0s</StoredType>
     </column>
-    <column id="7630" parent="7504" name="DATEENTREE">
+    <column id="7635" parent="7504" name="DATEENTREE">
       <Position>11</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7631" parent="7504" name="DATEDEPART">
+    <column id="7636" parent="7504" name="DATEDEPART">
       <Position>12</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7632" parent="7504" name="QUOTITE">
+    <column id="7637" parent="7504" name="QUOTITE">
       <Position>13</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <index id="7633" parent="7504" name="SYS_C009654">
+    <index id="7638" parent="7504" name="SYS_C0010641">
       <ColNames>IDLOCATAIRE</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79251</ObjectId>
+      <ObjectId>80942</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7634" parent="7504" name="SYS_C009654">
+    <key id="7639" parent="7504" name="SYS_C0010641">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009654</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010641</UnderlyingIndexName>
     </key>
-    <check id="7635" parent="7505" name="SYS_C009694">
+    <check id="7640" parent="7505" name="SYS_C0010682">
       <ColNames>ESTENCOLOCATION</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Predicate>estEnColocation BETWEEN 0 AND 1</Predicate>
     </check>
-    <column id="7636" parent="7505" name="IDLOGEMENT">
+    <column id="7641" parent="7505" name="IDLOGEMENT">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7637" parent="7505" name="ESTENCOLOCATION">
+    <column id="7642" parent="7505" name="ESTENCOLOCATION">
       <Position>2</Position>
       <StoredType>NUMBER(1)|0s</StoredType>
     </column>
-    <column id="7638" parent="7505" name="IDBIENLOUABLE">
+    <column id="7643" parent="7505" name="IDBIENLOUABLE">
       <Position>3</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7639" parent="7505" name="SYS_C009696">
+    <foreign-key id="7644" parent="7505" name="SYS_C0010684">
       <ColNames>IDBIENLOUABLE</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009661</RefKeyName>
+      <RefKeyName>SYS_C0010647</RefKeyName>
       <RefTableName>BIENLOUABLE</RefTableName>
     </foreign-key>
-    <index id="7640" parent="7505" name="SYS_C009695">
+    <index id="7645" parent="7505" name="SYS_C0010683">
       <ColNames>IDLOGEMENT</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:18</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79273</ObjectId>
+      <ObjectId>80966</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7641" parent="7505" name="SYS_C009695">
+    <key id="7646" parent="7505" name="SYS_C0010683">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:18</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009695</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010683</UnderlyingIndexName>
     </key>
-    <column id="7642" parent="7506" name="IDLOYER">
+    <column id="7647" parent="7506" name="IDLOYER">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7643" parent="7506" name="DATELOYER">
+    <column id="7648" parent="7506" name="DATELOYER">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="7644" parent="7506" name="MONTANTLOYER">
+    <column id="7649" parent="7506" name="MONTANTLOYER">
       <Position>3</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7645" parent="7506" name="PROVISIONPOURCHARGE">
+    <column id="7650" parent="7506" name="PROVISIONPOURCHARGE">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>BINARY_DOUBLE|0s</StoredType>
     </column>
-    <column id="7646" parent="7506" name="IDBAIL">
+    <column id="7651" parent="7506" name="IDBAIL">
       <Position>5</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <column id="7647" parent="7506" name="IDBIENLOUABLE">
+    <column id="7652" parent="7506" name="IDBIENLOUABLE">
       <Position>6</Position>
       <StoredType>NUMBER(*)|0s</StoredType>
     </column>
-    <foreign-key id="7648" parent="7506" name="SYS_C009666">
+    <foreign-key id="7653" parent="7506" name="SYS_C0010652">
       <ColNames>IDBAIL</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009658</RefKeyName>
+      <RefKeyName>SYS_C0010644</RefKeyName>
       <RefTableName>BAIL</RefTableName>
     </foreign-key>
-    <foreign-key id="7649" parent="7506" name="SYS_C009667">
+    <foreign-key id="7654" parent="7506" name="SYS_C0010653">
       <ColNames>IDBIENLOUABLE</ColNames>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C009661</RefKeyName>
+      <RefKeyName>SYS_C0010647</RefKeyName>
       <RefTableName>BIENLOUABLE</RefTableName>
     </foreign-key>
-    <index id="7650" parent="7506" name="SYS_C009665">
+    <index id="7655" parent="7506" name="SYS_C0010651">
       <ColNames>IDLOYER</ColNames>
-      <CreatedTimestamp>2024-12-16.16:25:17</CreatedTimestamp>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <CreatedTimestamp>2025-01-10.16:56:44</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>79259</ObjectId>
+      <ObjectId>80950</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7651" parent="7506" name="SYS_C009665">
+    <key id="7656" parent="7506" name="SYS_C0010651">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-12-16.16:25:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:44</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C009665</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0010651</UnderlyingIndexName>
+    </key>
+    <column id="7657" parent="7507" name="IDPROPRIETAIRE">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>VARCHAR2(50 byte)|0s</StoredType>
+    </column>
+    <column id="7658" parent="7507" name="MOTDEPASSE">
+      <Position>2</Position>
+      <StoredType>VARCHAR2(50 byte)|0s</StoredType>
+    </column>
+    <index id="7659" parent="7507" name="SYS_C0010687">
+      <ColNames>IDPROPRIETAIRE</ColNames>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>80970</ObjectId>
+      <Unique>1</Unique>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <key id="7660" parent="7507" name="SYS_C0010687">
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>SYS_C0010687</UnderlyingIndexName>
+    </key>
+    <column id="7661" parent="7508" name="IDTAXEFONCIERE">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>NUMBER(*)|0s</StoredType>
+    </column>
+    <column id="7662" parent="7508" name="ANNEE">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>NUMBER(4)|0s</StoredType>
+    </column>
+    <column id="7663" parent="7508" name="MONTANTBASE">
+      <Position>3</Position>
+      <StoredType>BINARY_DOUBLE|0s</StoredType>
+    </column>
+    <column id="7664" parent="7508" name="IDBIENIMMOBILIER">
+      <Position>4</Position>
+      <StoredType>NUMBER(*)|0s</StoredType>
+    </column>
+    <foreign-key id="7665" parent="7508" name="SYS_C0010690">
+      <ColNames>IDBIENIMMOBILIER</ColNames>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <OnDelete>restrict</OnDelete>
+      <RefKeyName>SYS_C0010642</RefKeyName>
+      <RefTableName>BIENIMMOBILIER</RefTableName>
+    </foreign-key>
+    <index id="7666" parent="7508" name="SYS_C0010689">
+      <ColNames>IDTAXEFONCIERE</ColNames>
+      <CreatedTimestamp>2025-01-10.16:56:45</CreatedTimestamp>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>80972</ObjectId>
+      <Unique>1</Unique>
+      <TablespaceName>USERS</TablespaceName>
+    </index>
+    <key id="7667" parent="7508" name="SYS_C0010689">
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ModifiedTimestamp>2025-01-10.16:56:45</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>SYS_C0010689</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

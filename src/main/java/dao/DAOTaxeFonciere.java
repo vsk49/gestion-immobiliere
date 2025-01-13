@@ -1,13 +1,17 @@
 package dao;
 
+import modele.BienImmobilier;
 import modele.TaxeFonciere;
+
+import java.util.List;
+import java.util.Optional;
 
 public interface DAOTaxeFonciere extends DAO<TaxeFonciere, Integer> {
 
-    TaxeFonciere findByBienImmobilier(int idBienImmobilier);
+    List<TaxeFonciere> findByBienImmobilier(BienImmobilier bienImmobilier);
 
-    TaxeFonciere findByAnnee(int annee);
+    List<TaxeFonciere> findByAnnee(int annee);
 
-    TaxeFonciere findByBienImmobilierAndAnnee(int idBienImmobilier, int annee);
+    Optional<TaxeFonciere> findByBienImmobilierAndAnnee(int annee, int idBienImmobilier);
 
 }

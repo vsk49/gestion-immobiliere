@@ -17,37 +17,32 @@ public class controleurDetailsLocataire implements ActionListener {
 
 	private final IHMDetailsLocataire vue;
 	private final Locataire locataire;
-	
-	public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
+
+    public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
 		this.vue = vue;
-		this.locataire = locataire;
-		this.vue.getModifPrenom().setText(locataire.getPrenom());
-		vue.getModifNom().setText(locataire.getNom());
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-		String dateStr = locataire.getDateNaissance().format(formatter);
-		vue.getModifDateNaissance().setText(dateStr);
-		vue.getModifTelephone().setText(locataire.getTelephone());
-		vue.getModifEmail().setText(locataire.getEmail());
+        Locataire modele = new Locataire();
+		this.locataire = modele.getLocatairesById(locataire.getIdLocataire());
+		afficherInformationsLocataire(vue, this.locataire);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String actionCommand = e.getActionCommand();
         switch (actionCommand) {
 			case "declarationFiscale" :
 				IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
-				vueDeclarationFiscale.setVisible(true);
 				this.vue.dispose();
+				vueDeclarationFiscale.setVisible(true);
 				break;
 			case "finances" :
 				IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
-				vueRegularisationCharges.setVisible(true);
 				this.vue.dispose();
+				vueRegularisationCharges.setVisible(true);
 				break;
 			case "baux" :
 				IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-				vueGestionBaux.setVisible(true);
 				this.vue.dispose();
+				vueGestionBaux.setVisible(true);
 				break;
 			case "biens" :
 				IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
@@ -61,10 +56,19 @@ public class controleurDetailsLocataire implements ActionListener {
 				break;
 			case "Modifier" :
 				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
-				vueModificationLocataire.remplirChamps();
-				vueModificationLocataire.setVisible(true);
 				this.vue.dispose();
+				vueModificationLocataire.setVisible(true);
         }
+	}
+
+	private void afficherInformationsLocataire(IHMDetailsLocataire vue, Locataire locataire) {
+		vue.getModifPrenom().setText(locataire.getPrenom());
+		vue.getModifNom().setText(locataire.getNom());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+		String dateStr = locataire.getDateNaissance().format(formatter);
+		vue.getModifDateNaissance().setText(dateStr);
+		vue.getModifTelephone().setText(locataire.getTelephone());
+		vue.getModifEmail().setText(locataire.getEmail());
 	}
 
 }

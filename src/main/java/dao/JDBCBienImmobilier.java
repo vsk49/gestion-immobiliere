@@ -9,13 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 import modele.BienImmobilier;
-import modele.Compteur;
-import modele.TaxeFonciere;
 
 public class JDBCBienImmobilier implements DAOBienImmobilier {
-
-	private final JDBCTaxeFonciere jdbcTaxeFonciere = new JDBCTaxeFonciere();
-	private final JDBCCompteur jdbcCompteur = new JDBCCompteur();
 
 	@Override
 	public List<BienImmobilier> getAll() {
@@ -36,13 +31,11 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 	}
 
 	private BienImmobilier extraireBienImmobilier(ResultSet resultat) throws SQLException {
-		TaxeFonciere taxeFonciere = jdbcTaxeFonciere.getById(resultat.getInt("idTaxesFoncieres")).orElseThrow();
-		Compteur compteur = jdbcCompteur.getById(resultat.getInt("idCompteurGeneral")).orElseThrow();
 		return new BienImmobilier(resultat.getInt("idBienImmobilier"),
 				resultat.getString("numeroFiscal"), resultat.getString("adresse"),
 				resultat.getInt("codePostal"), resultat.getString("ville"),
-				resultat.getDate("dateAnniversaire").toLocalDate(), taxeFonciere,
-				resultat.getInt("ICCDateDebut"), compteur);
+				resultat.getDate("dateAnniversaire").toLocalDate(),
+				resultat.getInt("ICCDateDebut"));
 	}
 
 	@Override
@@ -117,6 +110,25 @@ public class JDBCBienImmobilier implements DAOBienImmobilier {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
+	}
+
+	@Override
+	public Optional<BienImmobilier> getByNumeroFiscal(String numeroFiscal) {
+		Optional<BienImmobilier> bien = Optional.empty();
+		try {
+			String requete = "SELECT * FROM BienImmobilier WHERE numeroFiscal = ?";
+			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
+			statement.setString(1, numeroFiscal);
+			ResultSet resultat = statement.executeQuery();
+			boolean enregistrementExiste = resultat.next();
+			if (enregistrementExiste) {
+				BienImmobilier b = extraireBienImmobilier(resultat);
+				bien = Optional.of(b);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+		}
+		return bien;
 	}
 
 }

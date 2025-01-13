@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] Mise en place du MouseListener dans IHMGestionLocataires">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] implementation JDBCBienLouable">
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +76,20 @@
     "Application.IHMAccueil.executor": "Run",
     "Application.IHMAjouterBien.executor": "Run",
     "Application.IHMConnexion.executor": "Run",
+    "Application.IHMDetailsBien.executor": "Run",
     "Application.IHMDetailsLocataire.executor": "Run",
+    "Application.IHMGestionBiens.executor": "Run",
     "Application.IHMGestionLocataires.executor": "Run",
-    "Application.IHMModificationLocataire.executor": "Run",
+    "Application.IHMModificationLocataire.executor": "Debug",
     "Application.InputData.executor": "Run",
     "Application.JDBCConnexion.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.TestDAOBienImmobilier.executor": "Run",
+    "JUnit.TestDAOBienImmobilier.testDelete.executor": "Run",
+    "JUnit.TestDAOBienImmobilier.testGetAll.executor": "Run",
+    "JUnit.TestDAOBienImmobilier.testInsert.executor": "Run",
+    "JUnit.TestDAOBienImmobilier.testUpdate.executor": "Run",
+    "JUnit.TestDAOLocataire.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -114,82 +115,98 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "oracle"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "Oracle"
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.InputData">
-    <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
+  <component name="RunManager" selected="JUnit.TestDAOLocataire">
+    <configuration name="TestDAOBienImmobilier" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="testDAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOBienImmobilier" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IHMAccueil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMAccueil" />
+    <configuration name="TestDAOBienImmobilier.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="vue.*" />
+          <option name="PATTERN" value="testDAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOBienImmobilier" />
+      <option name="METHOD_NAME" value="testDelete" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IHMGestionLocataires" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMGestionLocataires" />
+    <configuration name="TestDAOBienImmobilier.testGetAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="vue.*" />
+          <option name="PATTERN" value="testDAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOBienImmobilier" />
+      <option name="METHOD_NAME" value="testGetAll" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IHMModificationLocataire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMModificationLocataire" />
+    <configuration name="TestDAOBienImmobilier.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="vue.*" />
+          <option name="PATTERN" value="testDAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOBienImmobilier" />
+      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InputData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.InputData" />
+    <configuration name="TestDAOLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="testDAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOLocataire" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.InputData" />
-        <item itemvalue="Application.CreateBD" />
-        <item itemvalue="Application.IHMModificationLocataire" />
-        <item itemvalue="Application.IHMGestionLocataires" />
-        <item itemvalue="Application.IHMAccueil" />
+        <item itemvalue="JUnit.TestDAOLocataire" />
+        <item itemvalue="JUnit.TestDAOBienImmobilier" />
+        <item itemvalue="JUnit.TestDAOBienImmobilier.testGetAll" />
+        <item itemvalue="JUnit.TestDAOBienImmobilier.testDelete" />
+        <item itemvalue="JUnit.TestDAOBienImmobilier.testUpdate" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +248,13 @@
       <workItem from="1734681302161" duration="306000" />
       <workItem from="1734681623656" duration="42000" />
       <workItem from="1734681676320" duration="99000" />
-      <workItem from="1734700426309" duration="6816000" />
+      <workItem from="1734700426309" duration="7804000" />
+      <workItem from="1734809051621" duration="1928000" />
+      <workItem from="1736088689464" duration="109000" />
+      <workItem from="1736199985622" duration="19255000" />
+      <workItem from="1736348575532" duration="14202000" />
+      <workItem from="1736514876091" duration="9155000" />
+      <workItem from="1736753746757" duration="9086000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -345,7 +368,47 @@
       <option name="project" value="LOCAL" />
       <updated>1734701199396</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)">
+      <option name="closed" value="true" />
+      <created>1734707473527</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1734707473527</updated>
+    </task>
+    <task id="LOCAL-00016" summary="[CODE] IHMGestionBiens OK!">
+      <option name="closed" value="true" />
+      <created>1736250350476</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736250350476</updated>
+    </task>
+    <task id="LOCAL-00017" summary="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO.">
+      <option name="closed" value="true" />
+      <created>1736524761608</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1736524761608</updated>
+    </task>
+    <task id="LOCAL-00018" summary="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)">
+      <option name="closed" value="true" />
+      <created>1736757406126</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1736757406126</updated>
+    </task>
+    <task id="LOCAL-00019" summary="[CODE] implementation JDBCBienLouable">
+      <option name="closed" value="true" />
+      <created>1736761834635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1736761834635</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,6 +420,16 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="Virgil" />
@@ -376,7 +449,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -398,6 +483,11 @@
     <MESSAGE value="j'ai pas valide mes changements" />
     <MESSAGE value="[CODE] Ajout du locataire OK" />
     <MESSAGE value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
+    <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
+    <MESSAGE value="[CODE] IHMGestionBiens OK!" />
+    <MESSAGE value="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO." />
+    <MESSAGE value="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)" />
+    <MESSAGE value="[CODE] implementation JDBCBienLouable" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] implementation JDBCBienLouable" />
   </component>
 </project>

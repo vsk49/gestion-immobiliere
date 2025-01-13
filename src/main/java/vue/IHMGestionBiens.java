@@ -3,30 +3,25 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.io.Serial;
 import java.util.Objects;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controleur.controleurGestionBiens;
 
 import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class IHMGestionBiens extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
+	private final JTable tableBiens;
+	private final JTextField champRecherche;
 
     /**
 	 * Launch the application.
@@ -102,15 +97,18 @@ public class IHMGestionBiens extends JFrame {
 		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        JTextField textField = new JTextField();
-		textField.setColumns(10);
-		panelParamRecherche.add(textField);
+		this.champRecherche = new JTextField();
+		this.champRecherche.setColumns(10);
+		panelParamRecherche.add(this.champRecherche);
 		
 		JButton BoutonRecherche = new JButton("Chercher");
 		panelParamRecherche.add(BoutonRecherche);
-		
-		JComboBox<String> comboBoxFiltre = new JComboBox<>();
+		BoutonRecherche.setActionCommand("Chercher");
+		BoutonRecherche.addActionListener(controleur);
+
+		JComboBox<String> comboBoxFiltre = new JComboBox<>(new String[] {"Tous", "Batiment", "Logement", "Garage"});
 		panelParamRecherche.add(comboBoxFiltre);
+		comboBoxFiltre.addActionListener(controleur);
 
 		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
 		JButton BoutonGestionAjout = new JButton();
@@ -119,38 +117,31 @@ public class IHMGestionBiens extends JFrame {
 		BoutonGestionAjout.setActionCommand("Ajout");
 		BoutonGestionAjout.addActionListener(controleur);
 
-		JTable tableBaux = getJTable();
-		panelCentre.add(tableBaux, BorderLayout.CENTER);
+		this.tableBiens = new JTable(new DefaultTableModel(new Object[] {"ID", "Numero Fiscal", "Adresse",
+				"Code Postal", "Ville"}, 0) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		});
+		JScrollPane scrollPane = new JScrollPane(this.tableBiens);
+		panelCentre.add(scrollPane, BorderLayout.CENTER);
+		this.tableBiens.addMouseListener(controleur);
 		
 		JLabel LabelTitre = new JLabel("Gestion des biens");
 		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(LabelTitre, BorderLayout.NORTH);
+
+		controleur.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
 	}
 
-	private static JTable getJTable() {
-		JTable tableBaux = new JTable();
-		tableBaux.setModel(new DefaultTableModel(
-				new Object[][] {
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-					{null, null, null, null},
-				},
-				new String[] {
-					"New column", "New column", "New column", "New column"
-				}));
-		return tableBaux;
+	public JTable getTableBiens() {
+		return this.tableBiens;
 	}
+
+	public JTextField getChampRecherche() {
+		return this.champRecherche;
+	}
+
 }

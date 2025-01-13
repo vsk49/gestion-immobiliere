@@ -1,5 +1,7 @@
 package modele;
 
+import dao.JDBCBienImmobilier;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,29 +15,40 @@ public class BienImmobilier {
 	private int codePostal;
 	private String ville;
 	private LocalDate dateAnniversaire;
-	private TaxeFonciere taxesFoncieres;
 	private int ICCDateDebut;
-	private Compteur compteurGeneral;
 	private List<Locataire> locataires;
+	private List<Compteur> compteurs;
 	private List<Assurance> assurances;
 	private List<Bail> baux;
 	private List<Diagnostic> diagnostics;
+	private List<TaxeFonciere> taxesFoncieres;
 
-	public BienImmobilier(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, Compteur compteurGeneral) {
+	private final JDBCBienImmobilier jdbcBienImmobilier = new JDBCBienImmobilier();
+
+	public BienImmobilier() {
+		this.locataires = new ArrayList<>();
+		this.compteurs = new ArrayList<>();
+		this.assurances = new ArrayList<>();
+		this.baux = new ArrayList<>();
+		this.diagnostics = new ArrayList<>();
+		this.taxesFoncieres = new ArrayList<>();
+	}
+
+	public BienImmobilier(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal,
+						  String ville, LocalDate dateAnniversaire, int ICCDateDebut) {
 		this.idBienImmobilier = idBienImmobilier;
 		this.numeroFiscal = numeroFiscal;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.dateAnniversaire = dateAnniversaire;
-		this.taxesFoncieres = taxesFoncieres;
 		this.ICCDateDebut = ICCDateDebut;
+		this.compteurs = new ArrayList<>();
 		this.locataires = new ArrayList<>();
 		this.assurances = new ArrayList<>();
 		this.baux = new ArrayList<>();
 		this.diagnostics = new ArrayList<>();
-		this.compteurGeneral = compteurGeneral;
+		this.taxesFoncieres = new ArrayList<>();
 	}
 
 	public int getIdBienImmobilier() {
@@ -62,7 +75,7 @@ public class BienImmobilier {
 		return dateAnniversaire;
 	}
 
-	public TaxeFonciere getTaxesFoncieres() {
+	public List<TaxeFonciere> getTaxesFoncieres() {
 		return taxesFoncieres;
 	}
 
@@ -86,6 +99,10 @@ public class BienImmobilier {
 		return diagnostics;
 	}
 
+    public List<Compteur> getCompteurs() {
+		return this.compteurs;
+	}
+
 	public void ajouterLocataire(Locataire... l) {
         this.locataires.addAll(Arrays.asList(l));
 	}
@@ -97,25 +114,24 @@ public class BienImmobilier {
 	public void ajouterBail(Bail... b) {
         this.baux.addAll(Arrays.asList(b));
 	}
-	
+
 	public void setICCDateDebut(int nouveauICC) {
 		this.ICCDateDebut = nouveauICC;
 	}
 
-	public void calculerRevenusFonciers() {
-
-	}
-
-    public Compteur getCompteurGeneral() {
-        return compteurGeneral;
-    }
-
-	public void changerCompteur(int indexActuel) {
-		this.getCompteurGeneral().modifierIndexes(indexActuel);
-	}
+	public void calculerRevenusFonciers() {}
 
 	public double calculerPrixMoyenConsommation() {
 		return 0;
+	}
+
+	// Couche DAO
+	public List<BienImmobilier> getBiens() {
+		return jdbcBienImmobilier.getAll();
+	}
+
+	public BienImmobilier getBienByNumeroFiscal(String numeroFiscal) {
+		return jdbcBienImmobilier.getByNumeroFiscal(numeroFiscal).orElseThrow();
 	}
 
 }

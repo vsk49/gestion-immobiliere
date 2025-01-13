@@ -119,7 +119,7 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setDouble(6, t.getQuotite());
 			statement.setString(7, t.getIdLocataire());
 			statement.executeUpdate();
-			System.out.println("La quotite du locataire a ete mise a jour.");
+			System.out.println("Le locataire a ete mis a jour.");
 			resultat = true;
 		} catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());

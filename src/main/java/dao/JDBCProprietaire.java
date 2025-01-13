@@ -92,11 +92,12 @@ public class JDBCProprietaire implements DAOProprietaire {
 	public boolean update(Proprietaire t) {
 		boolean resultat = false;
 		try {
-			String misAJour = "UPDATE Proprietaire SET quotite = ? WHERE idProprietaire = ?";
+			String misAJour = "UPDATE Proprietaire SET MOTDEPASSE = ? WHERE idProprietaire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
+			statement.setString(1, t.getMotDePasse());
 			statement.setString(2, t.getIdProprietaire());
 			statement.executeUpdate();
-			System.out.println("La quotite du proprietaire a ete mise a jour.");
+			System.out.println("Le mot de passe du proprietaire a ete mise a jour.");
 			resultat = true;
 		} catch (SQLException e) {
 			System.out.println(e.getErrorCode() + " : " + e.getMessage());
