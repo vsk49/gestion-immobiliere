@@ -4,11 +4,10 @@ import java.time.LocalDate;
 
 public class Logement extends BienLouable {
 	
-	private Garage garage;
+	private final Garage garage;
 
 	public Logement(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, TaxeFonciere taxesFoncieres, int ICCDateDebut, double surface, int nbPieces,
-			Garage garage) {
+			LocalDate dateAnniversaire, int ICCDateDebut, double surface, int nbPieces, Garage garage) {
 		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, ICCDateDebut, surface, nbPieces);
 		this.garage = garage;
 	}

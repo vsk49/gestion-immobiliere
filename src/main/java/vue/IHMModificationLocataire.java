@@ -1,15 +1,10 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.Serial;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -23,7 +18,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurModificationLocataire;
-import modele.Genre;
 import modele.Locataire;
 
 public class IHMModificationLocataire extends JFrame {
@@ -35,48 +29,17 @@ public class IHMModificationLocataire extends JFrame {
 	private final JTextField textFieldDateNaissance;
 	private final JTextField textFieldTelephone;
 	private final JTextField textFieldEmail;
-	private Locataire locataire;
-	private controleurModificationLocataire controleur;
-
 
     /**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                Locataire loc = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN, LocalDate.of(1990, 10, 07), "Tls", "Fr", "Professeur", "06 06 06 06 06", "fr.dupont@gmail.com", LocalDate.now(), null, 1);
-                IHMModificationLocataire frame = new IHMModificationLocataire(loc);
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public IHMModificationLocataire(Locataire locataire) {
-        this.controleur = new controleurModificationLocataire(this, locataire);
-		this.locataire = locataire;
-		setTitle("Modification du locataire");
+        setTitle("Modification du locataire");
 		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
-
-		addWindowListener(new WindowAdapter() {
-			private Locataire locataire;
-
-			@Override
-            public void windowClosing(WindowEvent e) {
-                IHMDetailsLocataire vueDetailLocataire = new IHMDetailsLocataire(locataire);
-                vueDetailLocataire.setVisible(true);
-                dispose();
-            }
-        });
 		
 		JPanel menu = new JPanel();
 		getContentPane().add(menu, BorderLayout.WEST);
@@ -86,14 +49,12 @@ public class IHMModificationLocataire extends JFrame {
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		menu.add(BoutonGBiens);
-		
-		
+
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		menu.add(BoutonGBaux);
-		
-		
+
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
@@ -122,15 +83,13 @@ public class IHMModificationLocataire extends JFrame {
 		panelChoixBien.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JPanel panelLabelBien = new JPanel();
-		FlowLayout fl_panelLabelBien = (FlowLayout) panelLabelBien.getLayout();
-		panelChoixBien.add(panelLabelBien);
+        panelChoixBien.add(panelLabelBien);
 		
 		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
 		panelLabelBien.add(labelChoixBien);
 		
 		JPanel panelComboboxBien = new JPanel();
-		FlowLayout fl_panelComboboxBien = (FlowLayout) panelComboboxBien.getLayout();
-		panelChoixBien.add(panelComboboxBien);
+        panelChoixBien.add(panelComboboxBien);
 		
 		JComboBox<String> comboBoxBien = new JComboBox<>();
 		panelComboboxBien.add(comboBoxBien);
@@ -158,8 +117,6 @@ public class IHMModificationLocataire extends JFrame {
 		panelBasDePage.add(panelbouton);
 		
 		JButton boutonAnnuler = new JButton("Annuler");
-		panelbouton.add(boutonAnnuler);
-		
 		panelbouton.add(boutonAnnuler);
 		
 		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
@@ -269,7 +226,7 @@ public class IHMModificationLocataire extends JFrame {
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
 		
-		controleur = new controleurModificationLocataire(this, this.locataire);
+		controleurModificationLocataire controleur = new controleurModificationLocataire(this, locataire);
 		BoutonGBiens.setActionCommand("biens");
 		BoutonGBiens.addActionListener(controleur);
 		BoutonGBaux.setActionCommand("baux");
@@ -282,8 +239,8 @@ public class IHMModificationLocataire extends JFrame {
 		boutonAnnuler.addActionListener(controleur);
 		BoutonRéinitialiser.setActionCommand("Reinitialiser");
 		BoutonRéinitialiser.addActionListener(controleur);
-		boutonAnnuler.setActionCommand("Valider");
-		boutonAnnuler.addActionListener(controleur);
+		boutonValider.setActionCommand("Valider");
+		boutonValider.addActionListener(controleur);
 	}
 
 	public JTextField getModifPrenom() {
@@ -300,10 +257,6 @@ public class IHMModificationLocataire extends JFrame {
 	}
 	public JTextField getModifEmail(){
 		return this.textFieldEmail;
-	}
-
-	public void remplirChamps(){
-		this.controleur.remplirChamps();
 	}
 
 }

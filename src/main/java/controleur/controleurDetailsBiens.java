@@ -3,10 +3,10 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
-
-
+import modele.BienImmobilier;
+import modele.BienLouable;
 import vue.IHMDetailsBien;
 import vue.IHMModificationBien;
 import vue.IHMGestionBiens;
@@ -18,9 +18,12 @@ import vue.IHMDeclarationFiscale;
 public class controleurDetailsBiens implements ActionListener {
 
     private final IHMDetailsBien vue;
-    
-    public controleurDetailsBiens (IHMDetailsBien vue) {
+
+    public controleurDetailsBiens (IHMDetailsBien vue, BienImmobilier bien) {
         this.vue = vue;
+        BienImmobilier modele = new BienImmobilier();
+        BienImmobilier bienAffiche = modele.getBienByNumeroFiscal(bien.getNumeroFiscal());
+        afficherInformationsBien(vue, bienAffiche);
     }
 
     @Override
@@ -59,5 +62,16 @@ public class controleurDetailsBiens implements ActionListener {
             break;
         }
     }
-    
+
+    private void afficherInformationsBien(IHMDetailsBien vue, BienImmobilier bien) {
+        vue.getLabelAdresse().setText("Adresse: " + bien.getAdresse());
+        vue.getLabelCodePostal().setText("Code Postal: " + bien.getCodePostal());
+        vue.getLabelVille().setText("Ville: " + bien.getVille());
+        vue.getLabelEtage().setText("Etage: N/A");
+        vue.getLabelTypeBien().setText("Type de bien: " + bien.getClass().getSimpleName());
+        vue.getLabelSurface().setText("Surface: " + ((BienLouable) bien).getSurface());
+        vue.getLabelNbPieces().setText("Nombre de pièces: " + ((BienLouable) bien).getNbPieces());
+        vue.getLabelStatut().setText("Statut: Loué");
+    }
+
 }

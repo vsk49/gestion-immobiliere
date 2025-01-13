@@ -1,18 +1,11 @@
 package vue;
 
-import modele.Genre;
 import modele.Locataire;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Panel;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.Serial;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -35,25 +28,6 @@ public class IHMDetailsLocataire extends JFrame {
 	private final JLabel labelContenuDateDeNaissance;
 	private final JLabel labelContenuTelephone;
 	private final JLabel labelContenuEmail;
-
-
-    /**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-				Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
-						LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
-						"Enseignant", "0123456789", "francois.dupont@gmail.com",
-						null, null, 1.0);
-                IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
-            }
-        });
-	}
 
 	/**
 	 * Create the frame.
@@ -84,20 +58,17 @@ public class IHMDetailsLocataire extends JFrame {
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		menu.add(BoutonGBiens);
-		
-		
+
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		menu.add(BoutonGBaux);
-		
-		
+
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
 		BoutonGDeclFisc.setIcon(iconeDeclFisc);
 		menu.add(BoutonGDeclFisc);
-		
-		
+
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
 		JButton BoutonGFinances = new JButton();
 		BoutonGFinances.setIcon(iconeFinances);
@@ -121,15 +92,13 @@ public class IHMDetailsLocataire extends JFrame {
 		panelChoixBien.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JPanel panelLabelBien = new JPanel();
-		FlowLayout fl_panelLabelBien = (FlowLayout) panelLabelBien.getLayout();
-		panelChoixBien.add(panelLabelBien);
+        panelChoixBien.add(panelLabelBien);
 		
 		JLabel labelChoixBien = new JLabel("Bien du locataire");
 		panelLabelBien.add(labelChoixBien);
 		
 		JPanel panelComboboxBien = new JPanel();
-		FlowLayout fl_panelComboboxBien = (FlowLayout) panelComboboxBien.getLayout();
-		panelChoixBien.add(panelComboboxBien);
+        panelChoixBien.add(panelComboboxBien);
 		
 		JComboBox<String> comboBoxBien = new JComboBox<>();
 		panelComboboxBien.add(comboBoxBien);
