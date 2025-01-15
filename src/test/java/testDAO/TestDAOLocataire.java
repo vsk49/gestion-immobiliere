@@ -49,7 +49,7 @@ private JDBCLocataire daoLocataire;
 		this.daoLocataire.insert(Locataire);
 		
 		// QUAND le proprietaire recupere le locataire
-		Locataire locataireRecupere = this.daoLocataire.getAll().get(0);
+		Locataire locataireRecupere = this.daoLocataire.getAll().get(4);
 		
 		// ALORS le locataire est correctement recupere de la BD.
 		assertEquals(Locataire.getNom(), locataireRecupere.getNom());
@@ -146,16 +146,16 @@ private JDBCLocataire daoLocataire;
         LocalDate dateNaissance1 = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree1 = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart1 = null;
-		Locataire Locataire1 = new Locataire("5", "Durang", "Jean", Genre.MASCULIN, dateNaissance1,
+		Locataire Locataire1 = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance1,
             "Toulouse", "Français", "Etudiant", "0606060606",
             "jeandurang@mail.test", dateEntree1, dateDepart1, 0);
 
         LocalDate dateNaissance2 = LocalDate.of(2002, 11, 22);
         LocalDate dateEntree2 = LocalDate.of(2020, 1, 6);
         LocalDate dateDepart2 = null;
-        Locataire Locataire2 = new Locataire("6", "Durang", "Jean", Genre.MASCULIN, dateNaissance2,
-            "Toulouse", "Français", "Etudiant", "0606060606",
-            "jeandurang@mail.test", dateEntree2, dateDepart2, 0);
+        Locataire Locataire2 = new Locataire("DMAR", "Dupont", "Marc", Genre.MASCULIN, dateNaissance2,
+            "Toulouse", "Français", "Etudiant", "0607070707",
+            "DUPONTMARC@mail.test", dateEntree2, dateDepart2, 0);
 
         this.daoLocataire.insert(Locataire1);
         this.daoLocataire.insert(Locataire2);
