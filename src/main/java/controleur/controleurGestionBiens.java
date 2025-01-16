@@ -9,17 +9,23 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import modele.Batiment;
 import modele.BienImmobilier;
+import modele.Logement;
 import vue.*;
 
 public class controleurGestionBiens extends MouseAdapter implements ActionListener {
 
     private final IHMGestionBiens vue;
     private final BienImmobilier modele;
+    private final Batiment modeleBatiment;
+    private final Logement modeleLogement;
 
     public controleurGestionBiens (IHMGestionBiens vue) {
         this.vue = vue;
         this.modele = new BienImmobilier();
+        this.modeleBatiment = new Batiment();
+        this.modeleLogement = new Logement();
     }
 
     @Override
@@ -29,10 +35,25 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
             int ligne = table.getSelectedRow();
             if (ligne != -1) {
                 String numeroFiscal = (String) table.getValueAt(ligne, 1);
-                BienImmobilier bien = this.modele.getBienByNumeroFiscal(numeroFiscal);
-                IHMDetailsBien vueDetails = new IHMDetailsBien(bien);
-                vueDetails.setVisible(true);
-                this.vue.dispose();
+                if (numeroFiscal == null) {
+                    BienImmobilier bien = this.modeleBatiment.getBienById(ligne + 1);
+                    if (bien instanceof Batiment batiment) {
+                        IHMDetailsBien vueDetails = new IHMDetailsBien(batiment);
+                        vueDetails.setVisible(true);
+                        this.vue.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this.vue, "L'objet sélectionné n'est pas un Batiment.");
+                    }
+                } else {
+                    BienImmobilier bien = this.modeleLogement.getBienByNumeroFiscal(numeroFiscal);
+                    if (bien instanceof Logement logement) {
+                        IHMDetailsBien vueDetails = new IHMDetailsBien(logement);
+                        vueDetails.setVisible(true);
+                        this.vue.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this.vue, "L'objet sélectionné n'est pas un Logement.");
+                    }
+                }
             }
         }
     }

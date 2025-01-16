@@ -51,6 +51,7 @@ public class BienImmobilier {
 		this.taxesFoncieres = new ArrayList<>();
 	}
 
+	// getters
 	public int getIdBienImmobilier() {
 		return this.idBienImmobilier;
 	}
@@ -75,12 +76,12 @@ public class BienImmobilier {
 		return dateAnniversaire;
 	}
 
-	public List<TaxeFonciere> getTaxesFoncieres() {
-		return taxesFoncieres;
-	}
-
 	public int getICCDateDebut() {
 		return ICCDateDebut;
+	}
+
+	public List<TaxeFonciere> getTaxesFoncieres() {
+		return taxesFoncieres;
 	}
 
 	public List<Locataire> getLocataires() {
@@ -115,6 +116,31 @@ public class BienImmobilier {
         this.baux.addAll(Arrays.asList(b));
 	}
 
+	// setters
+	public void setIdBienImmobilier(int idBienImmobilier) {
+		this.idBienImmobilier = idBienImmobilier;
+	}
+
+	public void setNumeroFiscal(String numeroFiscal) {
+		this.numeroFiscal = numeroFiscal;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public void setCodePostal(int codePostal) {
+		this.codePostal = codePostal;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public void setDateAnniversaire(LocalDate dateAnniversaire) {
+		this.dateAnniversaire = dateAnniversaire;
+	}
+
 	public void setICCDateDebut(int nouveauICC) {
 		this.ICCDateDebut = nouveauICC;
 	}
@@ -132,6 +158,10 @@ public class BienImmobilier {
 
 	public BienImmobilier getBienByNumeroFiscal(String numeroFiscal) {
 		return jdbcBienImmobilier.getByNumeroFiscal(numeroFiscal).orElseThrow();
+	}
+
+	public BienImmobilier getBienById(int idBienImmobilier) {
+		return jdbcBienImmobilier.getById(idBienImmobilier).orElseThrow();
 	}
 
 }
