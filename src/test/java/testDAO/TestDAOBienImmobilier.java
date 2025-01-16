@@ -8,7 +8,6 @@ import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import dao.JDBCBienImmobilier;
@@ -35,18 +34,17 @@ public class TestDAOBienImmobilier {
 		JDBCConnexion.closeConnexion();
 	}
 
-	@Ignore
 	@Test
-	public void testGetById() {
+	public void testGetByNumeroFiscal() {
 		// ÉTANT DONNE un bien déjà inséré dans la base de données
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
-				"40 rue des Lilas", 31200, "Toulouse",
+		BienImmobilier bien = new BienImmobilier(5, "3134567890123",
+				"17 Avenue du Rangueil", 31200, "Toulouse",
 				dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
 		
 		// QUAND le proprietaire recupere le bien
-		BienImmobilier bienRecupere = this.daoBienImmobilier.getAll().get(0);
+		BienImmobilier bienRecupere = this.daoBienImmobilier.getByNumeroFiscal("3134567890123").orElseThrow();
 		
 		// ALORS le bien est correctement recupere de la BD.
 		assertEquals(bien.getNumeroFiscal(), bienRecupere.getNumeroFiscal());
@@ -58,36 +56,36 @@ public class TestDAOBienImmobilier {
 		assertEquals(bien.getIdBienImmobilier(), bienRecupere.getIdBienImmobilier());	
 	}
 
-	@Ignore
 	@Test
 	public void testInsert() {
 		// ÉTANT DONNE un nouveau bien à insérer
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
-				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
+		BienImmobilier bien = new BienImmobilier(5, "3134567890123",
+				"17 Avenue du Rangueil", 31200, "Toulouse",
+				dateAnniversaire,2376);
 
 		// QUAND j'insere le bien
 		this.daoBienImmobilier.insert(bien);
 
 		// ALORS le bien est correctement inséré dans la base de données
-		BienImmobilier bienRecupere = this.daoBienImmobilier.getAll().get(0);
-		assertEquals("3101234567890", bienRecupere.getNumeroFiscal());
-		assertEquals("40 rue des Lilas", bienRecupere.getAdresse());
+		BienImmobilier bienRecupere = this.daoBienImmobilier.getByNumeroFiscal("3134567890123").orElseThrow();
+		assertEquals("3134567890123", bienRecupere.getNumeroFiscal());
+		assertEquals("17 Avenue du Rangueil", bienRecupere.getAdresse());
 		assertEquals(31200, bienRecupere.getCodePostal());
 		assertEquals("Toulouse", bienRecupere.getVille());
 		assertEquals(dateAnniversaire.toString(), bienRecupere.getDateAnniversaire().toString());
 		assertEquals(2376, bienRecupere.getICCDateDebut());
     }
 
-	@Ignore
 	@Test
 	public void testUpdate() {
 		// ÉTANT DONNE un bien déjà inséré dans la base de données
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
-				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
+		BienImmobilier bien = new BienImmobilier(5, "3134567890123",
+				"17 Avenue du Rangueil", 31200, "Toulouse",
+				dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
-		bien = this.daoBienImmobilier.getAll().get(0);
+		bien = this.daoBienImmobilier.getByNumeroFiscal("3134567890123").orElseThrow();
 
 		// QUAND je mets a jour les information du bien
 		bien.setICCDateDebut(2463);
@@ -98,13 +96,13 @@ public class TestDAOBienImmobilier {
 		assertEquals(2463, bienRecupere.getICCDateDebut());
 	}
 
-	@Ignore
 	@Test
 	public void testDelete() {
 		// ÉTANT DONNE un bien déjà inséré dans la base de données
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new BienImmobilier(1, "3101234567890",
-				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
+		BienImmobilier bien = new BienImmobilier(5, "3134567890123",
+				"17 Avenue du Rangueil", 31200, "Toulouse",
+				dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
 		bien = this.daoBienImmobilier.getAll().get(0);
 
@@ -112,25 +110,26 @@ public class TestDAOBienImmobilier {
 		this.daoBienImmobilier.delete(bien);
 
 		// ALORS ce bien a bien ete supprime dans la BD.
-		assertFalse(this.daoBienImmobilier.getById(bien.getIdBienImmobilier()).isPresent());
+		assertFalse(this.daoBienImmobilier.getByNumeroFiscal("3134567890123").isPresent());
 	}
 
-	@Ignore
 	@Test
 	public void testGetAll() {
-		// ETANT DONNE 2 biens existants dans la BD
+		// ETANT DONNE 2 biens existants dans la BD.
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien1 = new BienImmobilier(1, "3101234567890",
-				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
-		BienImmobilier bien2 = new BienImmobilier(1, "3101234567890",
-				"40 rue des Lilas", 31200, "Toulouse", dateAnniversaire,2376);
+		BienImmobilier bien1 = new BienImmobilier(5, "3134567890123",
+				"17 Avenue du Rangueil", 31200, "Toulouse",
+				dateAnniversaire,2376);
+		BienImmobilier bien2 = new BienImmobilier(6, "3145678901234",
+				"18 Avenue du Rangueil", 31200, "Toulouse",
+				dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien1);
 		this.daoBienImmobilier.insert(bien2);
 		
 		// QUAND le proprietaire recupere tous les biens
 		List<BienImmobilier> biensRecuperes = this.daoBienImmobilier.getAll();
 		
-		// ALORS tous les biens sont bien recuperes
+		// ALORS tous les biens sont bien recuperes (2 biens au total)
         assertEquals(2, biensRecuperes.size());
 	}
 

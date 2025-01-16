@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.After;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,6 +12,8 @@ import dao.JDBCConnexion;
 import dao.JDBCLocataire;
 import modele.Genre;
 import modele.Locataire;
+
+import static org.junit.Assert.*;
 
 public class TestDAOLocataire {
 
@@ -35,17 +35,15 @@ private JDBCLocataire daoLocataire;
 		JDBCConnexion.closeConnexion();
 	}
 
-
 	@Test
 	public void testGetById() {
 		// ÉTANT DONNE un locataire déjà inséré dans la base de données
         LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
-        LocalDate dateDepart = null;
 
 		Locataire Locataire = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance,
             "Toulouse", "Français", "Etudiant", "0606060606",
-            "jeandurang@mail.test", dateEntree, dateDepart, 0);
+            "jeandurang@mail.test", dateEntree, null, 0);
 		this.daoLocataire.insert(Locataire);
 		
 		// QUAND le proprietaire recupere le locataire
@@ -71,17 +69,16 @@ private JDBCLocataire daoLocataire;
 		// ÉTANT DONNE un nouveau locataire à insérer
         LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
-        LocalDate dateDepart = null;
 
 		Locataire Locataire = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance,
             "Toulouse", "Français", "Etudiant", "0606060606",
-            "jeandurang@mail.test", dateEntree, dateDepart, 0);
+            "jeandurang@mail.test", dateEntree, null, 0);
 
 		// QUAND j'insere le locataire
 		this.daoLocataire.insert(Locataire);
 
 		// ALORS le locataire est correctement inséré dans la base de données
-		Locataire locataireRecupere = this.daoLocataire.getAll().get(4);
+		Locataire locataireRecupere = this.daoLocataire.getById("DJEA").orElseThrow();
 		assertEquals("Durang", locataireRecupere.getNom());
 		assertEquals("Jean", locataireRecupere.getPrenom());
 		assertEquals(Genre.MASCULIN, locataireRecupere.getGenre());
@@ -92,7 +89,7 @@ private JDBCLocataire daoLocataire;
         assertEquals("0606060606", locataireRecupere.getTelephone());
         assertEquals("jeandurang@mail.test", locataireRecupere.getEmail());
         assertEquals(dateEntree.toString(), locataireRecupere.getDateEntree().toString());
-        assertEquals(dateDepart, locataireRecupere.getDateDepart());
+        assertNull(locataireRecupere.getDateDepart());
     }
 
 
@@ -101,11 +98,10 @@ private JDBCLocataire daoLocataire;
 		// ÉTANT DONNE un locataire déjà inséré dans la base de données
 		LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
-        LocalDate dateDepart = null;
 
 		Locataire Locataire = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance,
             "Toulouse", "Français", "Etudiant", "0606060606",
-            "jeandurang@mail.test", dateEntree, dateDepart, 0);
+            "jeandurang@mail.test", dateEntree, null, 0);
 		this.daoLocataire.insert(Locataire);
 		Locataire = this.daoLocataire.getById("DJEA").orElseThrow();
 
@@ -124,13 +120,12 @@ private JDBCLocataire daoLocataire;
 		// ÉTANT DONNE un locataire déjà inséré dans la base de données
 		LocalDate dateNaissance = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree = LocalDate.of(2021, 5, 3);
-        LocalDate dateDepart = null;
 
-		Locataire Locataire = new Locataire("5", "Durang", "Jean", Genre.MASCULIN, dateNaissance,
+		Locataire Locataire = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance,
             "Toulouse", "Français", "Etudiant", "0606060606",
-            "jeandurang@mail.test", dateEntree, dateDepart, 0);
+            "jeandurang@mail.test", dateEntree, null, 0);
             this.daoLocataire.insert(Locataire);
-            Locataire = this.daoLocataire.getAll().get(4);
+            Locataire = this.daoLocataire.getById("DJEA").orElseThrow();
 
 		// QUAND je supprime ce locataire
 		this.daoLocataire.delete(Locataire);
@@ -148,7 +143,7 @@ private JDBCLocataire daoLocataire;
         LocalDate dateDepart1 = null;
 		Locataire Locataire1 = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance1,
             "Toulouse", "Français", "Etudiant", "0606060606",
-            "jeandurang@mail.test", dateEntree1, dateDepart1, 0);
+            "jeandurang@mail.test", dateEntree1, null, 0);
 
         LocalDate dateNaissance2 = LocalDate.of(2002, 11, 22);
         LocalDate dateEntree2 = LocalDate.of(2020, 1, 6);
@@ -164,6 +159,7 @@ private JDBCLocataire daoLocataire;
 		List<Locataire> LocataireRecuperes = this.daoLocataire.getAll();
 		
 		// ALORS tous les locataire sont bien recuperes
-        assertEquals(6, LocataireRecuperes.size());
+        assertEquals(2, LocataireRecuperes.size());
 	}
+
 }
