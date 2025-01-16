@@ -22,6 +22,8 @@ import controleur.controleurAjoutBien;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.BoxLayout;
+import java.awt.CardLayout;
 
 public class IHMAjouterBien extends JFrame {
 
@@ -135,24 +137,32 @@ public class IHMAjouterBien extends JFrame {
 		panelLabelsPartie1.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelLabelAdresse = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panelLabelAdresse.getLayout();
+		flowLayout.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie1.add(panelLabelAdresse);
 		
 		JLabel LabelAdresse_1_2 = new JLabel("Adresse :");
 		panelLabelAdresse.add(LabelAdresse_1_2);
 		
 		JPanel panelLabelVille = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) panelLabelVille.getLayout();
+		flowLayout_2.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie1.add(panelLabelVille);
 		
 		JLabel labelVille_1_2 = new JLabel("Ville :");
 		panelLabelVille.add(labelVille_1_2);
 		
 		JPanel panelLabelCodepostal = new JPanel();
+		FlowLayout flowLayout_4 = (FlowLayout) panelLabelCodepostal.getLayout();
+		flowLayout_4.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie1.add(panelLabelCodepostal);
 		
 		JLabel labelCodepostal_1_2 = new JLabel("Code postale :");
 		panelLabelCodepostal.add(labelCodepostal_1_2);
 		
 		JPanel panelLabelEtage = new JPanel();
+		FlowLayout flowLayout_6 = (FlowLayout) panelLabelEtage.getLayout();
+		flowLayout_6.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie1.add(panelLabelEtage);
 		
 		JLabel labelEtage_1_2 = new JLabel("Etage :");
@@ -163,6 +173,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldsPartie1.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelTextfieldAdress = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) panelTextfieldAdress.getLayout();
+		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldAdress);
 		
 		textFieldAdresse = new JTextField();
@@ -171,6 +183,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldAdress.add(textFieldAdresse);
 		
 		JPanel panelTextfieldVille = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) panelTextfieldVille.getLayout();
+		flowLayout_3.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldVille);
 		
 		textFieldVille = new JTextField();
@@ -178,6 +192,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldVille.add(textFieldVille);
 		
 		JPanel panelTextfieldCodepostal = new JPanel();
+		FlowLayout flowLayout_5 = (FlowLayout) panelTextfieldCodepostal.getLayout();
+		flowLayout_5.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldCodepostal);
 		
 		textFieldCodepostal = new JTextField();
@@ -185,6 +201,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldCodepostal.add(textFieldCodepostal);
 		
 		JPanel panelTextfieldEtage = new JPanel();
+		FlowLayout flowLayout_15 = (FlowLayout) panelTextfieldEtage.getLayout();
+		flowLayout_15.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldEtage);
 		
 		textFieldEtage = new JTextField();
@@ -200,24 +218,32 @@ public class IHMAjouterBien extends JFrame {
 		panelLabelsPartie2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelLabelTypedebien = new JPanel();
+		FlowLayout flowLayout_7 = (FlowLayout) panelLabelTypedebien.getLayout();
+		flowLayout_7.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie2.add(panelLabelTypedebien);
 		
 		JLabel LabelTypedebien = new JLabel("Type de bien :");
 		panelLabelTypedebien.add(LabelTypedebien);
 		
 		JPanel panelLabelSurface = new JPanel();
+		FlowLayout flowLayout_9 = (FlowLayout) panelLabelSurface.getLayout();
+		flowLayout_9.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie2.add(panelLabelSurface);
 		
 		JLabel labelSurface = new JLabel("Surface :");
 		panelLabelSurface.add(labelSurface);
 		
 		JPanel panelLabelNbPieces = new JPanel();
+		FlowLayout flowLayout_11 = (FlowLayout) panelLabelNbPieces.getLayout();
+		flowLayout_11.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie2.add(panelLabelNbPieces);
 		
 		JLabel labelNbPieces = new JLabel("Nombre de pièces :");
 		panelLabelNbPieces.add(labelNbPieces);
 		
 		JPanel panelLabelStatut = new JPanel();
+		FlowLayout flowLayout_13 = (FlowLayout) panelLabelStatut.getLayout();
+		flowLayout_13.setAlignment(FlowLayout.RIGHT);
 		panelLabelsPartie2.add(panelLabelStatut);
 		
 		JLabel labelStatut = new JLabel("Statut :");
@@ -228,6 +254,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldsPartie2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelTextfieldAdresse = new JPanel();
+		FlowLayout flowLayout_8 = (FlowLayout) panelTextfieldAdresse.getLayout();
+		flowLayout_8.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextfieldAdresse);
 		
 		textFieldTypedebien = new JTextField();
@@ -236,6 +264,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldAdresse.add(textFieldTypedebien);
 		
 		JPanel panelTextfieldSurface = new JPanel();
+		FlowLayout flowLayout_10 = (FlowLayout) panelTextfieldSurface.getLayout();
+		flowLayout_10.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextfieldSurface);
 		
 		textFieldSurface = new JTextField();
@@ -243,6 +273,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldSurface.add(textFieldSurface);
 		
 		JPanel panelTextfieldNbPieces = new JPanel();
+		FlowLayout flowLayout_12 = (FlowLayout) panelTextfieldNbPieces.getLayout();
+		flowLayout_12.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextfieldNbPieces);
 		
 		textFieldNbPieces = new JTextField();
@@ -250,6 +282,8 @@ public class IHMAjouterBien extends JFrame {
 		panelTextfieldNbPieces.add(textFieldNbPieces);
 		
 		JPanel panelTextFieldStatut = new JPanel();
+		FlowLayout flowLayout_14 = (FlowLayout) panelTextFieldStatut.getLayout();
+		flowLayout_14.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextFieldStatut);
 		
 		textFieldStatut = new JTextField();
@@ -263,35 +297,20 @@ public class IHMAjouterBien extends JFrame {
 		JPanel panelChoixLocataire = new JPanel();
 		panelChoixLocataire.setBorder(new EmptyBorder(0, 5, 0, 0));
 		panelBasDePage.add(panelChoixLocataire);
-		panelChoixLocataire.setLayout(new GridLayout(2, 1, 0, 0));
+		panelChoixLocataire.setLayout(new GridLayout(3, 1, 0, 0));
 		
 		JLabel labelChoixLocataire = new JLabel("Ajouter un locataire (facultatif) :");
+		labelChoixLocataire.setVerticalAlignment(SwingConstants.BOTTOM);
 		panelChoixLocataire.add(labelChoixLocataire);
+		labelChoixLocataire.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel panelComboboxLocataire = new JPanel();
-		FlowLayout fl_panelComboboxLocataire = (FlowLayout) panelComboboxLocataire.getLayout();
-		fl_panelComboboxLocataire.setHgap(0);
-		fl_panelComboboxLocataire.setAlignment(FlowLayout.LEFT);
 		panelChoixLocataire.add(panelComboboxLocataire);
+		panelComboboxLocataire.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JComboBox ComboboxLocataire = new JComboBox();
-		ComboboxLocataire.setEditable(true);
 		panelComboboxLocataire.add(ComboboxLocataire);
-		
-		JPanel panelDocuments = new JPanel();
-		panelDocuments.setBorder(new EmptyBorder(0, 5, 0, 0));
-		panelBasDePage.add(panelDocuments);
-		panelDocuments.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JLabel labelDocsLieAuBien = new JLabel("Liste des documents liés aux biens :");
-		panelDocuments.add(labelDocsLieAuBien);
-		
-		JPanel panelFichiers = new JPanel();
-		panelDocuments.add(panelFichiers);
-		panelFichiers.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-		
-		JButton BoutonDocExemple1 = new JButton("Exemple.pdf");
-		panelFichiers.add(BoutonDocExemple1);
+		ComboboxLocataire.setEditable(true);
 		
 		JPanel panelBoutons = new JPanel();
 		panelBoutons.setBorder(new EmptyBorder(10, 0, 0, 0));
