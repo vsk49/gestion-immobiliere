@@ -1,10 +1,10 @@
 package modele;
 
-import dao.JDBCBatiment;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import dao.JDBCBatiment;
 
 public class Batiment extends BienImmobilier {
 
@@ -26,6 +26,7 @@ public class Batiment extends BienImmobilier {
 		return this.biensLouables;
 	}
 
+    @Override
 	public Batiment getBienById(int idBienImmobilier) {
 		return (Batiment) this.jdbcBatiment.getById(idBienImmobilier).orElseThrow();
 	}

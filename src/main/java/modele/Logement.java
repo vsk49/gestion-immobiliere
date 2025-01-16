@@ -1,8 +1,8 @@
 package modele;
 
-import dao.JDBCLogement;
-
 import java.time.LocalDate;
+
+import dao.JDBCLogement;
 
 public class Logement extends BienLouable {
 	
@@ -43,8 +43,10 @@ public class Logement extends BienLouable {
 	}
 
 	// Couche DAO
+    @Override
 	public Logement getBienByNumeroFiscal(String numeroFiscal) {
 		return (Logement) this.jdbcBienLouable.getByNumeroFiscal(numeroFiscal).orElseThrow();
+		
 	}
 
 }

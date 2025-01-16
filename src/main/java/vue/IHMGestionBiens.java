@@ -2,19 +2,27 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.io.Serial;
 import java.util.Objects;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controleur.controleurGestionBiens;
-
-import java.awt.FlowLayout;
-import java.awt.Font;
 
 public class IHMGestionBiens extends JFrame {
 
@@ -65,7 +73,6 @@ public class IHMGestionBiens extends JFrame {
 		panelGauche.add(BoutonGLocataires);
 		BoutonGLocataires.setActionCommand("locataires");
 		BoutonGLocataires.addActionListener(controleur);
-		
 		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();

@@ -68,14 +68,12 @@ public class IHMGestionLocataires extends JFrame {
 		BoutonGBiens.setActionCommand("biens");
 		BoutonGBiens.addActionListener(controleur);
 		
-		
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
 		BoutonGBaux.setActionCommand("baux");
 		BoutonGBaux.addActionListener(controleur);
-		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();
