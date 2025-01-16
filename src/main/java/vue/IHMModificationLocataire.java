@@ -9,7 +9,6 @@ import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -75,47 +74,6 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JPanel panelBasDePage = new JPanel();
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panelBienEtDocuments = new JPanel();
-		panelBienEtDocuments.setBorder(new EmptyBorder(5, 0, 0, 0));
-		panelBasDePage.add(panelBienEtDocuments);
-		panelBienEtDocuments.setLayout(new GridLayout(0, 2, 0, 0));
-		
-		JPanel panelChoixBien = new JPanel();
-		panelChoixBien.setBorder(new EmptyBorder(0, 5, 0, 0));
-		panelBienEtDocuments.add(panelChoixBien);
-		panelChoixBien.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panelLabelBien = new JPanel();
-        panelChoixBien.add(panelLabelBien);
-		
-		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
-		panelLabelBien.add(labelChoixBien);
-		
-		JPanel panelComboboxBien = new JPanel();
-        panelChoixBien.add(panelComboboxBien);
-		
-		JComboBox<String> comboBoxBien = new JComboBox<>();
-		panelComboboxBien.add(comboBoxBien);
-		
-		JPanel panelFichierDocuments = new JPanel();
-		panelBienEtDocuments.add(panelFichierDocuments);
-		panelFichierDocuments.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JPanel panelLabelEtAjoutDocuments = new JPanel();
-		panelFichierDocuments.add(panelLabelEtAjoutDocuments);
-		
-		JLabel LabelAjoutDocument = new JLabel("Documents location");
-		panelLabelEtAjoutDocuments.add(LabelAjoutDocument);
-		
-		JButton BoutonAjouterDocuments = new JButton("Ajouter un document");
-		panelLabelEtAjoutDocuments.add(BoutonAjouterDocuments);
-		
-		JPanel panelListeDocuments = new JPanel();
-		panelFichierDocuments.add(panelListeDocuments);
-		
-		JButton BoutonDocumentExemple = new JButton("Exemple.pdf");
-		panelListeDocuments.add(BoutonDocumentExemple);
 		
 		JPanel panelbouton = new JPanel();
 		panelBasDePage.add(panelbouton);
