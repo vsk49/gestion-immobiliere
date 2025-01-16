@@ -163,6 +163,10 @@ public class Locataire {
 		this.email = email;
 	}
 
+	public void setDateEntree(LocalDate date){
+		this.dateEntree = date;
+	}
+
 	// partie DAO
 
 	public void enregistrerLocataire() { this.donneesLocataire.insert(this); }

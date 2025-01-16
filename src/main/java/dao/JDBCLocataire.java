@@ -87,7 +87,7 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
 			statement.setString(4, t.getGenre() != null ? t.getGenre().getLibelle() : null);
-			statement.setDate(5, Date.valueOf(t.getDateNaissance()));
+			statement.setDate(5, Date.valueOf(t.getDateNaissance()) != null ? Date.valueOf(t.getDateNaissance()) : null);
 			statement.setString(6, t.getLieuNaissance());
 			statement.setString(7, t.getNationalite());
 			statement.setString(8, t.getProfession());
@@ -109,7 +109,7 @@ public class JDBCLocataire implements DAOLocataire {
 	public boolean update(Locataire t) {
 		boolean resultat = false;
 		try {
-			String misAJour = "UPDATE Locataire SET nom = ? , prenom = ? , dateNaissance = ? , email = ? , telephone = ? , quotite = ? WHERE idLocataire = ?";
+			String misAJour = "UPDATE Locataire SET nom = ? , prenom = ? , dateNaissance = ? , email = ? , telephone = ? , quotite = ? , dateEntree = ? WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
 			statement.setString(1, t.getNom());
 			statement.setString(2, t.getPrenom());
@@ -118,6 +118,7 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setString(5, t.getTelephone());
 			statement.setDouble(6, t.getQuotite());
 			statement.setString(7, t.getIdLocataire());
+			statement.setDate(8, Date.valueOf(t.getDateEntree()));
 			statement.executeUpdate();
 			System.out.println("Le locataire a ete mis a jour.");
 			resultat = true;

@@ -2,13 +2,16 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.swing.JButton;
 
 import modele.Locataire;
-import vue.*;
+import vue.IHMDeclarationFiscale;
+import vue.IHMDetailsLocataire;
+import vue.IHMGestionBaux;
+import vue.IHMGestionBiens;
+import vue.IHMModificationLocataire;
+import vue.IHMRegularisationCharges;
 
 public class controleurModificationLocataire implements ActionListener {
 
@@ -55,28 +58,26 @@ public class controleurModificationLocataire implements ActionListener {
                 vueDetailLocataire.setVisible(true);
                 break;
             case "Valider" :
-                DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-                LocalDate dateNaissance = LocalDate.parse(this.vue.getModifDateNaissance().getText(), formatter2);
                 this.locataire.setNom(this.vue.getModifNom().getText());
                 this.locataire.setPrenom(this.vue.getModifPrenom().getText());
-                this.locataire.setDateNaissance(dateNaissance);
+                this.locataire.setDateNaissance(this.vue.getModifDateNaissance().getDate());
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
+                this.locataire.setDateEntree(this.vue.getModifDateEntree().getDate());
                 this.locataire.mettreAJourLocataire();
-                IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+                IHMDetailsLocataire vueDetailsLocataire = new IHMDetailsLocataire(this.locataire);
                 this.vue.dispose();
-                vueGestionLocataires.setVisible(true);
+                vueDetailsLocataire.setVisible(true);
         }
     }
     
     private void remplirChamps() {
 		this.vue.getModifPrenom().setText(locataire.getPrenom());
 		vue.getModifNom().setText(locataire.getNom());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-		String dateStr = locataire.getDateNaissance().format(formatter);
-		vue.getModifDateNaissance().setText(dateStr);
+		vue.getModifDateNaissance().setDate(locataire.getDateNaissance());
 		vue.getModifTelephone().setText(locataire.getTelephone());
 		vue.getModifEmail().setText(locataire.getEmail());
+        vue.getModifDateEntree().setDate(locataire.getDateEntree());
     }
 
 }

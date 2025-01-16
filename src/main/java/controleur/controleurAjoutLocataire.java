@@ -7,7 +7,12 @@ import java.time.LocalDate;
 import javax.swing.JButton;
 
 import modele.Locataire;
-import vue.*;
+import vue.IHMAjouterLocataire;
+import vue.IHMDeclarationFiscale;
+import vue.IHMGestionBaux;
+import vue.IHMGestionBiens;
+import vue.IHMGestionLocataires;
+import vue.IHMRegularisationCharges;
 
 public class controleurAjoutLocataire implements ActionListener {
 
@@ -51,10 +56,10 @@ public class controleurAjoutLocataire implements ActionListener {
                         + ((String) donnees[0]).substring(0, 3).toUpperCase());
                 this.modele.setNom((String) donnees[0]);
                 this.modele.setPrenom((String) donnees[1]);
-                // dateNaissance saisie du format aaaa-mm-jj pour que le parse fonctionne
-                this.modele.setDateNaissance(LocalDate.parse((String) donnees[2]));
+                this.modele.setDateNaissance((LocalDate) donnees[2]);
                 this.modele.setTelephone((String) donnees[3]);
                 this.modele.setEmail((String) donnees[4]);
+                this.modele.setDateEntree((LocalDate)donnees[5]);
                 this.modele.enregistrerLocataire();
                 this.vue.dispose();
                 IHMGestionLocataires vueGestion = new IHMGestionLocataires();
