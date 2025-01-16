@@ -21,6 +21,7 @@ import java.awt.Font;
 
 import controleur.controleurModificationBien;
 import java.awt.SystemColor;
+import java.awt.Color;
 
 public class IHMModificationBien extends JFrame {
 
