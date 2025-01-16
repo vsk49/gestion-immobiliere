@@ -1,8 +1,9 @@
 package vue;
 
-import modele.Locataire;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Panel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.Serial;
@@ -18,16 +19,38 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurDetailsLocataire;
+import modele.Locataire;
 
 public class IHMDetailsLocataire extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-	private final JLabel labelContenuPrenom;
-	private final JLabel labelContenuNom;
-	private final JLabel labelContenuDateDeNaissance;
-	private final JLabel labelContenuTelephone;
-	private final JLabel labelContenuEmail;
+	private JLabel labelContenuPrenom;
+	private JLabel labelContenuNom;
+	private JLabel labelContenuDateDeNaissance;
+	private JLabel labelContenuTelephone;
+	private JLabel labelContenuEmail;
+	private Locataire locataire;
+	private controleurDetailsLocataire controleur;
+
+
+	/**
+	 * Launch the application.
+	 */
+	// public static void main(String[] args) {
+	// 	EventQueue.invokeLater(() -> {
+    //         try {
+	// 			Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
+	// 					LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
+	// 					"Enseignant", "0123456789", "francois.dupont@gmail.com",
+	// 					null, null, 1.0);
+    //             IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
+    //             frame.setVisible(true);
+    //         } catch (Exception e) {
+    //             System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
+    //         }
+    //     });
+	// }
 
 	/**
 	 * Create the frame.

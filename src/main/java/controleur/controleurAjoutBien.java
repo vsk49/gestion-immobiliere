@@ -27,28 +27,28 @@ public class controleurAjoutBien implements ActionListener{
         case "DeclarationFiscale" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "RegularisationCharges" :
             IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
             vueRegularisationCharges.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "baux" :
             IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
             vueGestionBaux.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "locataires" :
             IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
             vueGestionLocataires.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "Valider" :
         case "Annuler" :
             IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
             vueGestionBiens.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         }
     }
