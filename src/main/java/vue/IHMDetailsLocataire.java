@@ -1,12 +1,15 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.Serial;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -18,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controleur.controleurDetailsLocataire;
+import modele.Genre;
 import modele.Locataire;
 
 public class IHMDetailsLocataire extends JFrame {
@@ -37,20 +41,20 @@ public class IHMDetailsLocataire extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	// public static void main(String[] args) {
-	// 	EventQueue.invokeLater(() -> {
-    //         try {
-	// 			Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
-	// 					LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
-	// 					"Enseignant", "0123456789", "francois.dupont@gmail.com",
-	// 					null, null, 1.0);
-    //             IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
-    //             frame.setVisible(true);
-    //         } catch (Exception e) {
-    //             System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
-    //         }
-    //     });
-	// }
+	public static void main(String[] args) {
+		EventQueue.invokeLater(() -> {
+            try {
+				Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
+						LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
+						"Enseignant", "0123456789", "francois.dupont@gmail.com",
+						null, null, 1.0);
+                IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
+                frame.setVisible(true);
+            } catch (Exception e) {
+                System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
+            }
+        });
+	}
 
 	/**
 	 * Create the frame.
@@ -97,9 +101,9 @@ public class IHMDetailsLocataire extends JFrame {
 		BoutonGFinances.setIcon(iconeFinances);
 		menu.add(BoutonGFinances);
 		
-		JLabel labelAjouterBien = new JLabel("Détails du locataire ");
-		labelAjouterBien.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		labelAjouterBien.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel labelDetailsLocataire = new JLabel("Détails du locataire ");
+		labelDetailsLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		labelDetailsLocataire.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel panelBasDePage = new JPanel();
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
@@ -118,106 +122,133 @@ public class IHMDetailsLocataire extends JFrame {
 		panelBody.setLayout(new BorderLayout(0, 0));
 		
 		panelBody.add(panelBasDePage, BorderLayout.SOUTH);
-		panelBody.add(labelAjouterBien, BorderLayout.NORTH);
+		panelBody.add(labelDetailsLocataire, BorderLayout.NORTH);
 		
 		JPanel panelFormulaire = new JPanel();
 		panelFormulaire.setBorder(new EmptyBorder(15, 0, 0, 0));
 		panelBody.add(panelFormulaire);
 		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		Panel panelPremierePartieFormulaire = new Panel();
-		panelFormulaire.add(panelPremierePartieFormulaire);
-		panelPremierePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		Panel panelGaucheFormulaire = new Panel();
+		panelFormulaire.add(panelGaucheFormulaire);
+		panelGaucheFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JPanel panelLabelsPartie1 = new JPanel();
-		panelPremierePartieFormulaire.add(panelLabelsPartie1);
-		panelLabelsPartie1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelLabelsGauche = new JPanel();
+		panelGaucheFormulaire.add(panelLabelsGauche);
+		panelLabelsGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_7 = new JPanel();
-		panelLabelsPartie1.add(panel_7);
+		JPanel panelNom = new JPanel();
+		FlowLayout fl_panelNom = (FlowLayout) panelNom.getLayout();
+		fl_panelNom.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelNom);
 		
-		JLabel labelNom_1 = new JLabel("Nom :");
-		panel_7.add(labelNom_1);
+		JLabel labelNom = new JLabel("Nom :");
+		panelNom.add(labelNom);
 		
-		JPanel panel_8 = new JPanel();
-		panelLabelsPartie1.add(panel_8);
+		JPanel panelPrenom = new JPanel();
+		FlowLayout fl_panelPrenom = (FlowLayout) panelPrenom.getLayout();
+		fl_panelPrenom.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelPrenom);
 		
-		JLabel labelPrenom_1 = new JLabel("Prenom :");
-		panel_8.add(labelPrenom_1);
+		JLabel labelPrenom = new JLabel("Prenom :");
+		panelPrenom.add(labelPrenom);
 		
-		JPanel panel_9 = new JPanel();
-		panelLabelsPartie1.add(panel_9);
+		JPanel panelDateDeNaissance = new JPanel();
+		FlowLayout fl_panelDateDeNaissance = (FlowLayout) panelDateDeNaissance.getLayout();
+		fl_panelDateDeNaissance.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelDateDeNaissance);
 		
-		JLabel labelCodePostal_1 = new JLabel("Date de naissance :");
-		panel_9.add(labelCodePostal_1);
+		JLabel labelCodePostal = new JLabel("Date de naissance :");
+		panelDateDeNaissance.add(labelCodePostal);
 		
-		JPanel panelTextfieldPartie1 = new JPanel();
-		panelPremierePartieFormulaire.add(panelTextfieldPartie1);
-		panelTextfieldPartie1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelContenuLabelsGauche = new JPanel();
+		panelGaucheFormulaire.add(panelContenuLabelsGauche);
+		panelContenuLabelsGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_10 = new JPanel();
-		panelTextfieldPartie1.add(panel_10);
+		JPanel panelLabelNom = new JPanel();
+		FlowLayout fl_panelLabelNom = (FlowLayout) panelLabelNom.getLayout();
+		fl_panelLabelNom.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsGauche.add(panelLabelNom);
 		
 		this.labelContenuNom = new JLabel("New label");
 		labelContenuNom.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_10.add(labelContenuNom);
+		panelLabelNom.add(labelContenuNom);
 		
-		JPanel panel_11 = new JPanel();
-		panelTextfieldPartie1.add(panel_11);
+		JPanel panelLabelPrenom = new JPanel();
+		FlowLayout fl_panelLabelPrenom = (FlowLayout) panelLabelPrenom.getLayout();
+		fl_panelLabelPrenom.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsGauche.add(panelLabelPrenom);
 		
 		this.labelContenuPrenom = new JLabel("New label");
-		panel_11.add(labelContenuPrenom);
+		panelLabelPrenom.add(labelContenuPrenom);
 		
-		JPanel panel_12 = new JPanel();
-		panelTextfieldPartie1.add(panel_12);
+		JPanel panelLabelDateDeNaissance = new JPanel();
+		FlowLayout fl_panelLabelDateDeNaissance = (FlowLayout) panelLabelDateDeNaissance.getLayout();
+		fl_panelLabelDateDeNaissance.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsGauche.add(panelLabelDateDeNaissance);
 		
 		this.labelContenuDateDeNaissance = new JLabel("New label");
-		panel_12.add(labelContenuDateDeNaissance);
+		panelLabelDateDeNaissance.add(labelContenuDateDeNaissance);
 		
-		Panel panelDeuxièmePartieFormulaire = new Panel();
-		panelFormulaire.add(panelDeuxièmePartieFormulaire);
-		panelDeuxièmePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		Panel panelDroitePartieFormulaire = new Panel();
+		panelFormulaire.add(panelDroitePartieFormulaire);
+		panelDroitePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JPanel panelLabelsPartie2 = new JPanel();
-		panelDeuxièmePartieFormulaire.add(panelLabelsPartie2);
-		panelLabelsPartie2.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelLabelsDroite = new JPanel();
+		panelDroitePartieFormulaire.add(panelLabelsDroite);
+		panelLabelsDroite.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelTelephone = new JPanel();
-		panelLabelsPartie2.add(panelTelephone);
+		FlowLayout flowLayout_6 = (FlowLayout) panelTelephone.getLayout();
+		flowLayout_6.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelTelephone);
 		
 		JLabel labelTelephone = new JLabel("Téléphone :");
 		panelTelephone.add(labelTelephone);
 		
 		JPanel panelEmail = new JPanel();
-		panelLabelsPartie2.add(panelEmail);
+		FlowLayout flowLayout_8 = (FlowLayout) panelEmail.getLayout();
+		flowLayout_8.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelEmail);
 		
 		JLabel labelEmail = new JLabel("Email :");
 		panelEmail.add(labelEmail);
 
 		JPanel panelDateEntree = new JPanel();
-		panelLabelsPartie2.add(panelDateEntree);
+		FlowLayout flowLayout_7 = (FlowLayout) panelDateEntree.getLayout();
+		flowLayout_7.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelDateEntree);
 		
 		JLabel labelDateEntree = new JLabel("Date d'entrée :");
 		panelDateEntree.add(labelDateEntree);
 		
-		JPanel panelTextfieldPartie2 = new JPanel();
-		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
-		panelTextfieldPartie2.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelContenuLabelsDroite = new JPanel();
+		panelDroitePartieFormulaire.add(panelContenuLabelsDroite);
+		panelContenuLabelsDroite.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelTextfieldTelephone = new JPanel();
-		panelTextfieldPartie2.add(panelTextfieldTelephone);
+		JPanel panelLabelTelephone = new JPanel();
+		FlowLayout fl_panelLabelTelephone = (FlowLayout) panelLabelTelephone.getLayout();
+		fl_panelLabelTelephone.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsDroite.add(panelLabelTelephone);
 		
 		this.labelContenuTelephone = new JLabel("New label");
-		panelTextfieldTelephone.add(labelContenuTelephone);
+		panelLabelTelephone.add(labelContenuTelephone);
 		
-		JPanel panelTextfieldEmail = new JPanel();
-		panelTextfieldPartie2.add(panelTextfieldEmail);
+		JPanel panelLabelEmail = new JPanel();
+		FlowLayout fl_panelLabelEmail = (FlowLayout) panelLabelEmail.getLayout();
+		fl_panelLabelEmail.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsDroite.add(panelLabelEmail);
 		
 		this.labelContenuEmail = new JLabel("New label");
-		panelTextfieldEmail.add(labelContenuEmail);
-
+		panelLabelEmail.add(labelContenuEmail);
+		
+		JPanel panelLabelDateEntree = new JPanel();
+		FlowLayout flowLayout_9 = (FlowLayout) panelLabelDateEntree.getLayout();
+		flowLayout_9.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsDroite.add(panelLabelDateEntree);
+		
 		this.labelContenuDateEntree = new JLabel("New label");
-		panelDateEntree.add(labelContenuDateEntree);
+		panelLabelDateEntree.add(labelContenuDateEntree);
 
         controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, locataire);
 		boutonModifier.setActionCommand("Modifier");

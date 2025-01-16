@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Panel;
@@ -32,6 +33,21 @@ public class IHMModificationLocataire extends JFrame {
 	private final JTextField textFieldTelephone;
 	private final DatePicker datePickerEntree;
 	private final JTextField textFieldEmail;
+
+	//public static void main(String[] args) {
+	//	EventQueue.invokeLater(() -> {
+    //        try {
+	//	 			Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
+	//				LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
+	//				"Enseignant", "0123456789", "francois.dupont@gmail.com",
+ 	//				null, null, 1.0);
+    //            IHMModificationLocataire frame = new IHMModificationLocataire(l);
+    //            frame.setVisible(true);
+    //        } catch (Exception e) {
+    //            System.out.println("Erreur lors de l'ouverture de la fenêtre de modification d'un locataire");
+    //        }
+    //    });
+	//}
 
     /**
 	 * Create the frame.
@@ -99,52 +115,64 @@ public class IHMModificationLocataire extends JFrame {
 		panelBody.add(panelFormulaire);
 		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		Panel panelPremierePartieFormulaire = new Panel();
-		panelFormulaire.add(panelPremierePartieFormulaire);
-		panelPremierePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		Panel panelGaucheFormulaire = new Panel();
+		panelFormulaire.add(panelGaucheFormulaire);
+		panelGaucheFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JPanel panelLabelsPartie1 = new JPanel();
-		panelPremierePartieFormulaire.add(panelLabelsPartie1);
-		panelLabelsPartie1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelLabelsGauche = new JPanel();
+		panelGaucheFormulaire.add(panelLabelsGauche);
+		panelLabelsGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_7 = new JPanel();
-		panelLabelsPartie1.add(panel_7);
+		JPanel panelLabelNom = new JPanel();
+		FlowLayout flowLayoutLabelNom = (FlowLayout) panelLabelNom.getLayout();
+		flowLayoutLabelNom.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelLabelNom);
 		
-		JLabel labelNom_1 = new JLabel("Nom :");
-		panel_7.add(labelNom_1);
+		JLabel labelNom = new JLabel("Nom :");
+		panelLabelNom.add(labelNom);
 		
-		JPanel panel_8 = new JPanel();
-		panelLabelsPartie1.add(panel_8);
+		JPanel panelLabelPrenom = new JPanel();
+		FlowLayout flowLayoutLabelPrenom = (FlowLayout) panelLabelPrenom.getLayout();
+		flowLayoutLabelPrenom.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelLabelPrenom);
 		
-		JLabel labelPrenom_1 = new JLabel("Prenom :");
-		panel_8.add(labelPrenom_1);
+		JLabel labelPrenom = new JLabel("Prenom :");
+		panelLabelPrenom.add(labelPrenom);
 		
-		JPanel panel_9 = new JPanel();
-		panelLabelsPartie1.add(panel_9);
+		JPanel panelLabelDatenaissance = new JPanel();
+		FlowLayout flowLayoutLabelDatenaissance = (FlowLayout) panelLabelDatenaissance.getLayout();
+		flowLayoutLabelDatenaissance.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelLabelDatenaissance);
 		
-		JLabel labelCodePostal_1 = new JLabel("Date de naissance :");
-		panel_9.add(labelCodePostal_1);
+		JLabel labelDatenaissance = new JLabel("Date de naissance :");
+		panelLabelDatenaissance.add(labelDatenaissance);
 		
-		JPanel panelTextfieldPartie1 = new JPanel();
-		panelPremierePartieFormulaire.add(panelTextfieldPartie1);
-		panelTextfieldPartie1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelTextfieldGauche = new JPanel();
+		panelGaucheFormulaire.add(panelTextfieldGauche);
+		panelTextfieldGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel_10 = new JPanel();
-		panelTextfieldPartie1.add(panel_10);
+		JPanel panelTextfieldNom = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panelTextfieldNom.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		panelTextfieldGauche.add(panelTextfieldNom);
 		
 		textFieldNom = new JTextField();
 		textFieldNom.setColumns(10);
-		panel_10.add(textFieldNom);
+		panelTextfieldNom.add(textFieldNom);
 		
-		JPanel panel_11 = new JPanel();
-		panelTextfieldPartie1.add(panel_11);
+		JPanel panelTextfieldPrenom = new JPanel();
+		FlowLayout flowLayoutTextfieldPrenom = (FlowLayout) panelTextfieldPrenom.getLayout();
+		flowLayoutTextfieldPrenom.setAlignment(FlowLayout.LEFT);
+		panelTextfieldGauche.add(panelTextfieldPrenom);
 		
 		textFieldPrenom = new JTextField();
 		textFieldPrenom.setColumns(10);
-		panel_11.add(textFieldPrenom);
+		panelTextfieldPrenom.add(textFieldPrenom);
 		
-		JPanel panel_12 = new JPanel();
-		panelTextfieldPartie1.add(panel_12);
+		JPanel paneldatePickerDatenaissance = new JPanel();
+		FlowLayout flowLayoutDatepickerDatenaissance = (FlowLayout) paneldatePickerDatenaissance.getLayout();
+		flowLayoutDatepickerDatenaissance.setAlignment(FlowLayout.LEFT);
+		panelTextfieldGauche.add(paneldatePickerDatenaissance);
 
 		// Configuration des paramètres du DatePicker
         DatePickerSettings settings = new DatePickerSettings();
@@ -155,51 +183,66 @@ public class IHMModificationLocataire extends JFrame {
         datePickerNaissance = new DatePicker(settings);
         datePickerNaissance.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
         datePickerNaissance.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
-		panel_12.add(datePickerNaissance);
+		paneldatePickerDatenaissance.add(datePickerNaissance);
 		
-		Panel panelDeuxièmePartieFormulaire = new Panel();
-		panelFormulaire.add(panelDeuxièmePartieFormulaire);
-		panelDeuxièmePartieFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
+		Panel panelDroiteFormulaire = new Panel();
+		panelFormulaire.add(panelDroiteFormulaire);
+		panelDroiteFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JPanel panelLabelsPartie2 = new JPanel();
-		panelDeuxièmePartieFormulaire.add(panelLabelsPartie2);
-		panelLabelsPartie2.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelLabelsDroite = new JPanel();
+		panelDroiteFormulaire.add(panelLabelsDroite);
+		panelLabelsDroite.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelTelephone = new JPanel();
-		panelLabelsPartie2.add(panelTelephone);
+		FlowLayout flowLayoutpanelTelephone = (FlowLayout) panelTelephone.getLayout();
+		flowLayoutpanelTelephone.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelTelephone);
 		
 		JLabel labelTelephone = new JLabel("Téléphone :");
 		panelTelephone.add(labelTelephone);
 		
 		JPanel panelEmail = new JPanel();
-		panelLabelsPartie2.add(panelEmail);
+		FlowLayout flowLayoutpanelEmail = (FlowLayout) panelEmail.getLayout();
+		flowLayoutpanelEmail.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelEmail);
 		
 		JLabel labelEmail = new JLabel("Email :");
 		panelEmail.add(labelEmail);
 
 		JPanel panelDateEntree = new JPanel();
-		panelLabelsPartie2.add(panelDateEntree);
+		FlowLayout flowLayoutpanelDateEntree = (FlowLayout) panelDateEntree.getLayout();
+		flowLayoutpanelDateEntree.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelDateEntree);
 		
 		JLabel labelDateEntree = new JLabel("Date d'entrée :");
 		panelDateEntree.add(labelDateEntree);
 		
-		JPanel panelTextfieldPartie2 = new JPanel();
-		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
-		panelTextfieldPartie2.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel panelTextfieldDroite = new JPanel();
+		panelDroiteFormulaire.add(panelTextfieldDroite);
+		panelTextfieldDroite.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelTextfieldTelephone = new JPanel();
-		panelTextfieldPartie2.add(panelTextfieldTelephone);
+		FlowLayout flowLayoutTextfieldTelephone = (FlowLayout) panelTextfieldTelephone.getLayout();
+		flowLayoutTextfieldTelephone.setAlignment(FlowLayout.LEFT);
+		panelTextfieldDroite.add(panelTextfieldTelephone);
 		
 		textFieldTelephone = new JTextField();
 		textFieldTelephone.setColumns(10);
 		panelTextfieldTelephone.add(textFieldTelephone);
 		
 		JPanel panelTextfieldEmail = new JPanel();
-		panelTextfieldPartie2.add(panelTextfieldEmail);
+		FlowLayout flowLayoutTextfieldEmail = (FlowLayout) panelTextfieldEmail.getLayout();
+		flowLayoutTextfieldEmail.setAlignment(FlowLayout.LEFT);
+		panelTextfieldDroite.add(panelTextfieldEmail);
 		
 		textFieldEmail = new JTextField();
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
+		
+		JPanel panelDatepickerDateEntree = new JPanel();
+		FlowLayout flowLayoutDatepickerDateEntree = (FlowLayout) panelDatepickerDateEntree.getLayout();
+		flowLayoutDatepickerDateEntree.setAlignment(FlowLayout.LEFT);
+		panelTextfieldDroite.add(panelDatepickerDateEntree);
 
 		// Configuration des paramètres du DatePicker
         DatePickerSettings settings2 = new DatePickerSettings();
@@ -209,7 +252,7 @@ public class IHMModificationLocataire extends JFrame {
         datePickerEntree = new DatePicker(settings2);
         datePickerEntree.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
         datePickerEntree.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
-		panelDateEntree.add(datePickerEntree);
+		panelDatepickerDateEntree.add(datePickerEntree);
 		
 		controleurModificationLocataire controleur = new controleurModificationLocataire(this, locataire);
 		BoutonGBiens.setActionCommand("biens");
