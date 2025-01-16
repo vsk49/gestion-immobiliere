@@ -30,6 +30,7 @@ public class IHMDetailsLocataire extends JFrame {
 	private JLabel labelContenuDateDeNaissance;
 	private JLabel labelContenuTelephone;
 	private JLabel labelContenuEmail;
+	private JLabel labelContenuDateEntree;
 	private Locataire locataire;
 	private controleurDetailsLocataire controleur;
 
@@ -231,6 +232,12 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		JLabel labelEmail = new JLabel("Email :");
 		panelEmail.add(labelEmail);
+
+		JPanel panelDateEntree = new JPanel();
+		panelLabelsPartie2.add(panelDateEntree);
+		
+		JLabel labelDateEntree = new JLabel("Date d'entrée :");
+		panelDateEntree.add(labelDateEntree);
 		
 		JPanel panelTextfieldPartie2 = new JPanel();
 		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
@@ -247,6 +254,9 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		this.labelContenuEmail = new JLabel("New label");
 		panelTextfieldEmail.add(labelContenuEmail);
+
+		this.labelContenuDateEntree = new JLabel("New label");
+		panelDateEntree.add(labelContenuDateEntree);
 
         controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, locataire);
 		boutonModifier.setActionCommand("Modifier");
@@ -281,6 +291,10 @@ public class IHMDetailsLocataire extends JFrame {
 
 	public JLabel getModifEmail(){
 		return this.labelContenuEmail;
+	}
+
+	public JLabel getModifDateEntree(){
+		return this.labelContenuDateEntree;
 	}
 	
 }

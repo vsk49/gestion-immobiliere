@@ -19,6 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+
 import controleur.controleurAjoutLocataire;
 
 public class IHMAjouterLocataire extends JFrame {
@@ -27,8 +30,9 @@ public class IHMAjouterLocataire extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private final JTextField textFieldNom;
 	private final JTextField textFieldPrenom;
-	private final JTextField textFieldDateNaissane;
+	private final DatePicker datePicker;
 	private final JTextField textFieldTelephone;
+	private final DatePicker datePickerEntree;
 	private final JTextField textFieldEmail;
 
 	/**
@@ -212,9 +216,16 @@ public class IHMAjouterLocataire extends JFrame {
 		JPanel panel_12 = new JPanel();
 		panelTextfieldPartie1.add(panel_12);
 
-		textFieldDateNaissane = new JTextField();
-		textFieldDateNaissane.setColumns(10);
-		panel_12.add(textFieldDateNaissane);
+		// Configuration des paramètres du DatePicker
+        DatePickerSettings settings = new DatePickerSettings();
+        settings.setAllowKeyboardEditing(false); // Désactiver la saisie manuelle
+        settings.setFormatForDatesCommonEra("dd.MM.yyyy"); // Format clair pour la date
+
+        // Création et configuration du DatePicker
+        datePicker = new DatePicker(settings);
+        datePicker.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
+        datePicker.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
+		panel_12.add(datePicker);
 
 		Panel panelDeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDeuxièmePartieFormulaire);
@@ -236,6 +247,12 @@ public class IHMAjouterLocataire extends JFrame {
 		JLabel labelEmail = new JLabel("Email :");
 		panelEmail.add(labelEmail);
 
+		JPanel panelDateEntree = new JPanel();
+		panelLabelsPartie2.add(panelDateEntree);
+		
+		JLabel labelDateEntree = new JLabel("Date d'entrée :");
+		panelDateEntree.add(labelDateEntree);
+
 		JPanel panelTextfieldPartie2 = new JPanel();
 		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
 		panelTextfieldPartie2.setLayout(new GridLayout(0, 1, 0, 0));
@@ -252,16 +269,28 @@ public class IHMAjouterLocataire extends JFrame {
 
 		textFieldEmail = new JTextField();
 		textFieldEmail.setColumns(10);
-		panelTextfieldEmail.add(textFieldEmail);
+		panelTextfieldEmail.add(textFieldEmail); 
+
+		
+		// Configuration des paramètres du DatePicker
+        DatePickerSettings settings2 = new DatePickerSettings();
+        settings2.setAllowKeyboardEditing(false); // Désactiver la saisie manuelle
+        settings2.setFormatForDatesCommonEra("dd.MM.yyyy"); // Format clair pour la date
+        // Création et configuration du DatePicker
+        datePickerEntree = new DatePicker(settings2);
+        datePickerEntree.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
+        datePickerEntree.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
+		panelDateEntree.add(datePickerEntree);
 	}
 
 	public Object[] getInformations() {
 		return new Object[] {
 				this.textFieldNom.getText(),
 				this.textFieldPrenom.getText(),
-				this.textFieldDateNaissane.getText(),
+				this.datePicker.getDate(),
 				this.textFieldTelephone.getText(),
-				this.textFieldEmail.getText()
+				this.textFieldEmail.getText(),
+				this.datePickerEntree.getDate()
 		};
 	}
 
