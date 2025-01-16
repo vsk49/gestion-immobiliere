@@ -6,13 +6,22 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modele.Batiment;
 import modele.BienImmobilier;
 import modele.Logement;
-import vue.*;
+import vue.IHMAjouterBien;
+import vue.IHMDeclarationFiscale;
+import vue.IHMDetailsBien;
+import vue.IHMGestionBaux;
+import vue.IHMGestionBiens;
+import vue.IHMGestionLocataires;
+import vue.IHMRegularisationCharges;
 
 public class controleurGestionBiens extends MouseAdapter implements ActionListener {
 
@@ -35,6 +44,7 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
             int ligne = table.getSelectedRow();
             if (ligne != -1) {
                 String numeroFiscal = (String) table.getValueAt(ligne, 1);
+                System.out.println("Numero fiscal : "+ numeroFiscal); // Débogage manuel
                 if (numeroFiscal == null) {
                     BienImmobilier bien = this.modeleBatiment.getBienById(ligne + 1);
                     if (bien instanceof Batiment batiment) {
