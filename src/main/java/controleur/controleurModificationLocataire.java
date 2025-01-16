@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import modele.Genre;
 import modele.Locataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
@@ -64,6 +65,14 @@ public class controleurModificationLocataire implements ActionListener {
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
                 this.locataire.setDateEntree(this.vue.getModifDateEntree().getDate());
+                this.locataire.setLieuNaissance(this.vue.getModifLieuNaissance().getText());
+                this.locataire.setNationalite(this.vue.getModifNationalite().getText());
+                this.locataire.setProfession(this.vue.getModifProfession().getText());
+                if (this.vue.getModifHomme().isSelected()) {
+                    this.locataire.setGenre(Genre.MASCULIN);
+                } else {
+                    this.locataire.setGenre(Genre.FEMININ);
+                }
                 this.locataire.mettreAJourLocataire();
                 IHMDetailsLocataire vueDetailsLocataire = new IHMDetailsLocataire(this.locataire);
                 this.vue.dispose();
@@ -78,6 +87,14 @@ public class controleurModificationLocataire implements ActionListener {
 		vue.getModifTelephone().setText(locataire.getTelephone());
 		vue.getModifEmail().setText(locataire.getEmail());
         vue.getModifDateEntree().setDate(locataire.getDateEntree());
+        vue.getModifLieuNaissance().setText(locataire.getLieuNaissance());
+        vue.getModifNationalite().setText(locataire.getNationalite());
+        vue.getModifProfession().setText(locataire.getProfession());
+        if (locataire.getGenre().getLibelle().equals("Homme")) {
+            vue.getModifHomme().setSelected(true);
+        } else {
+            vue.getModifFemme().setSelected(true);
+        }
     }
 
 }

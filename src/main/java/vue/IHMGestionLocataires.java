@@ -43,7 +43,6 @@ public class IHMGestionLocataires extends JFrame {
         });
 	}
 
-	@SuppressWarnings("serial")
 	public IHMGestionLocataires() {
 		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");

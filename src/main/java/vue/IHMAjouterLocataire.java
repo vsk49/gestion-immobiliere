@@ -9,13 +9,7 @@ import java.awt.Panel;
 import java.io.Serial;
 import java.util.Objects;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import com.github.lgooddatepicker.components.DatePicker;
@@ -29,7 +23,11 @@ public class IHMAjouterLocataire extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private final JTextField textFieldNom;
 	private final JTextField textFieldPrenom;
-	private final DatePicker datePicker;
+	private final JRadioButton radioButtonHomme;
+    private final DatePicker datePickerNaissance;
+	private final JTextField textFieldLieuNaissance;
+	private final JTextField textFieldNationalite;
+	private final JTextField textProfession;
 	private final JTextField textFieldTelephone;
 	private final DatePicker datePickerEntree;
 	private final JTextField textFieldEmail;
@@ -190,10 +188,10 @@ public class IHMAjouterLocataire extends JFrame {
         settings.setFormatForDatesCommonEra("dd.MM.yyyy"); // Format clair pour la date
 
         // Création et configuration du DatePicker
-        datePicker = new DatePicker(settings);
-        datePicker.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
-        datePicker.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
-		panelDatepickerDateDeNaissance.add(datePicker);
+        datePickerNaissance = new DatePicker(settings);
+        datePickerNaissance.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
+        datePickerNaissance.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
+		panelDatepickerDateDeNaissance.add(datePickerNaissance);
 
 		Panel panelDroitePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDroitePartieFormulaire);
@@ -264,16 +262,98 @@ public class IHMAjouterLocataire extends JFrame {
         datePickerEntree.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
         datePickerEntree.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
 		panelDatepickerDateEntree.add(datePickerEntree);
+
+		// Panel pour le genre
+		JPanel panelGenre = new JPanel();
+		FlowLayout fl_panelGenre = (FlowLayout) panelGenre.getLayout();
+		fl_panelGenre.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelGenre);
+
+		JLabel labelGenre = new JLabel("Genre :");
+		panelGenre.add(labelGenre);
+
+		JPanel panelRadioButtonsGenre = new JPanel();
+		FlowLayout fl_panelRadioButtonsGenre = (FlowLayout) panelRadioButtonsGenre.getLayout();
+		fl_panelRadioButtonsGenre.setAlignment(FlowLayout.LEFT);
+		panelTextfieldGauche.add(panelRadioButtonsGenre);
+
+		radioButtonHomme = new JRadioButton("Homme");
+		panelRadioButtonsGenre.add(radioButtonHomme);
+
+        JRadioButton radioButtonFemme = new JRadioButton("Femme");
+		panelRadioButtonsGenre.add(radioButtonFemme);
+
+		ButtonGroup groupGenre = new ButtonGroup();
+		groupGenre.add(radioButtonHomme);
+		groupGenre.add(radioButtonFemme);
+
+		// Panel pour le lieu de naissance
+		JPanel panelLieuNaissance = new JPanel();
+		FlowLayout fl_panelLieuNaissance = (FlowLayout) panelLieuNaissance.getLayout();
+		fl_panelLieuNaissance.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelLieuNaissance);
+
+		JLabel labelLieuNaissance = new JLabel("Lieu de naissance :");
+		panelLieuNaissance.add(labelLieuNaissance);
+
+		JPanel panelTextfieldLieuNaissance = new JPanel();
+		FlowLayout fl_panelTextfieldLieuNaissance = (FlowLayout) panelTextfieldLieuNaissance.getLayout();
+		fl_panelTextfieldLieuNaissance.setAlignment(FlowLayout.LEFT);
+		panelTextfieldGauche.add(panelTextfieldLieuNaissance);
+
+		textFieldLieuNaissance = new JTextField();
+		textFieldLieuNaissance.setColumns(10);
+		panelTextfieldLieuNaissance.add(textFieldLieuNaissance);
+
+		// Panel pour la nationalité
+		JPanel panelNationalite = new JPanel();
+		FlowLayout fl_panelNationalite = (FlowLayout) panelNationalite.getLayout();
+		fl_panelNationalite.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelNationalite);
+
+		JLabel labelNationalite = new JLabel("Nationalité :");
+		panelNationalite.add(labelNationalite);
+
+		JPanel panelTextfieldNationalite = new JPanel();
+		FlowLayout fl_panelTextfieldNationalite = (FlowLayout) panelTextfieldNationalite.getLayout();
+		fl_panelTextfieldNationalite.setAlignment(FlowLayout.LEFT);
+		panelTextfieldDroite.add(panelTextfieldNationalite);
+
+		textFieldNationalite = new JTextField();
+		textFieldNationalite.setColumns(10);
+		panelTextfieldNationalite.add(textFieldNationalite);
+
+		// Panel pour la profession
+		JPanel panelProfession = new JPanel();
+		FlowLayout fl_panelProfession = (FlowLayout) panelProfession.getLayout();
+		fl_panelProfession.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelProfession);
+
+		JLabel labelProfession = new JLabel("Profession :");
+		panelProfession.add(labelProfession);
+
+		JPanel panelTextfieldProfession = new JPanel();
+		FlowLayout fl_panelTextfieldProfession = (FlowLayout) panelTextfieldProfession.getLayout();
+		fl_panelTextfieldProfession.setAlignment(FlowLayout.LEFT);
+		panelTextfieldDroite.add(panelTextfieldProfession);
+
+		textProfession = new JTextField();
+		textProfession.setColumns(10);
+		panelTextfieldProfession.add(textProfession);
 	}
 
 	public Object[] getInformations() {
 		return new Object[] {
 				this.textFieldNom.getText(),
 				this.textFieldPrenom.getText(),
-				this.datePicker.getDate(),
+				this.datePickerNaissance.getDate(),
 				this.textFieldTelephone.getText(),
 				this.textFieldEmail.getText(),
-				this.datePickerEntree.getDate()
+				this.datePickerEntree.getDate(),
+				this.textFieldLieuNaissance.getText(),
+				this.textFieldNationalite.getText(),
+				this.textProfession.getText(),
+				this.radioButtonHomme.isSelected()
 		};
 	}
 

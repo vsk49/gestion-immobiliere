@@ -71,6 +71,10 @@ public class controleurDetailsLocataire implements ActionListener {
 		vue.getModifEmail().setText(locataire.getEmail());
 		String dateStr2 = locataire.getDateEntree().format(formatter);
 		vue.getModifDateEntree().setText(dateStr2);
+		vue.getModifGenre().setText(locataire.getGenre().getLibelle());
+		vue.getModifLieuNaissance().setText(locataire.getLieuNaissance());
+		vue.getModifNationalite().setText(locataire.getNationalite());
+		vue.getModifProfession().setText(locataire.getProfession());
 	}
 
 }

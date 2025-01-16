@@ -87,7 +87,8 @@ public class JDBCLocataire implements DAOLocataire {
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
 			statement.setString(4, t.getGenre() != null ? t.getGenre().getLibelle() : null);
-			statement.setDate(5, Date.valueOf(t.getDateNaissance()) != null ? Date.valueOf(t.getDateNaissance()) : null);
+            Date.valueOf(t.getDateNaissance());
+            statement.setDate(5, Date.valueOf(t.getDateNaissance()));
 			statement.setString(6, t.getLieuNaissance());
 			statement.setString(7, t.getNationalite());
 			statement.setString(8, t.getProfession());
@@ -109,16 +110,22 @@ public class JDBCLocataire implements DAOLocataire {
 	public boolean update(Locataire t) {
 		boolean resultat = false;
 		try {
-			String misAJour = "UPDATE Locataire SET nom = ? , prenom = ? , dateNaissance = ? , email = ? , telephone = ? , quotite = ? , dateEntree = ? WHERE idLocataire = ?";
+			String misAJour = "UPDATE Locataire SET nom = ?, prenom = ?, genre = ?, dateNaissance = ?, " +
+					"LIEUNAISSANCE = ?, NATIONALITE = ?, PROFESSION = ?, telephone = ?, " +
+					"EMAIL = ?, dateEntree = ?, QUOTITE = ? WHERE idLocataire = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
 			statement.setString(1, t.getNom());
 			statement.setString(2, t.getPrenom());
-			statement.setDate(3, Date.valueOf(t.getDateNaissance()));
-			statement.setString(4, t.getEmail());
-			statement.setString(5, t.getTelephone());
-			statement.setDouble(6, t.getQuotite());
-			statement.setString(7, t.getIdLocataire());
-			statement.setDate(8, Date.valueOf(t.getDateEntree()));
+			statement.setString(3, t.getGenre().getLibelle());
+			statement.setDate(4, Date.valueOf(t.getDateNaissance()));
+			statement.setString(5, t.getLieuNaissance());
+			statement.setString(6, t.getNationalite());
+			statement.setString(7, t.getProfession());
+			statement.setString(8, t.getTelephone());
+			statement.setString(9, t.getEmail());
+			statement.setDate(10, Date.valueOf(t.getDateEntree()));
+			statement.setDouble(11, t.getQuotite());
+			statement.setString(12, t.getIdLocataire());
 			statement.executeUpdate();
 			System.out.println("Le locataire a ete mis a jour.");
 			resultat = true;
