@@ -47,7 +47,7 @@ private JDBCLocataire daoLocataire;
 		this.daoLocataire.insert(Locataire);
 		
 		// QUAND le proprietaire recupere le locataire
-		Locataire locataireRecupere = this.daoLocataire.getAll().get(0);
+		Locataire locataireRecupere = this.daoLocataire.getById("DJEA").orElseThrow();
 		
 		// ALORS le locataire est correctement recupere de la BD.
 		assertEquals(Locataire.getNom(), locataireRecupere.getNom());
@@ -137,7 +137,7 @@ private JDBCLocataire daoLocataire;
 
 	@Test
 	public void testGetAll() {
-		// ETANT DONNE 2 locataire existants dans la BD
+		// ETANT DONNE 4 locataire existants dans la BD et j'insere 2 locataires
         LocalDate dateNaissance1 = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree1 = LocalDate.of(2021, 5, 3);
 		Locataire Locataire1 = new Locataire("5", "Durang", "Jean", Genre.MASCULIN, dateNaissance1,
@@ -157,7 +157,7 @@ private JDBCLocataire daoLocataire;
 		List<Locataire> LocataireRecuperes = this.daoLocataire.getAll();
 		
 		// ALORS tous les locataire sont bien recuperes
-        assertEquals(2, LocataireRecuperes.size());
+        assertEquals(6, LocataireRecuperes.size());
 	}
 
 }

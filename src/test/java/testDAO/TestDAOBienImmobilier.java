@@ -104,7 +104,7 @@ public class TestDAOBienImmobilier {
 				"17 Avenue du Rangueil", 31200, "Toulouse",
 				dateAnniversaire,2376);
 		this.daoBienImmobilier.insert(bien);
-		bien = this.daoBienImmobilier.getAll().get(0);
+		bien = this.daoBienImmobilier.getByNumeroFiscal("3134567890123").orElseThrow();
 
 		// QUAND je supprime ce bien
 		this.daoBienImmobilier.delete(bien);
@@ -115,7 +115,7 @@ public class TestDAOBienImmobilier {
 
 	@Test
 	public void testGetAll() {
-		// ETANT DONNE 2 biens existants dans la BD.
+		// ETANT DONNE 4 biens existants dans la BD et j'insere 2 biens supplementaires
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
 		BienImmobilier bien1 = new BienImmobilier(5, "3134567890123",
 				"17 Avenue du Rangueil", 31200, "Toulouse",
@@ -129,8 +129,8 @@ public class TestDAOBienImmobilier {
 		// QUAND le proprietaire recupere tous les biens
 		List<BienImmobilier> biensRecuperes = this.daoBienImmobilier.getAll();
 		
-		// ALORS tous les biens sont bien recuperes (2 biens au total)
-        assertEquals(2, biensRecuperes.size());
+		// ALORS tous les biens sont bien recuperes (6 biens au total)
+        assertEquals(6, biensRecuperes.size());
 	}
 
 }
