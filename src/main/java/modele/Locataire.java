@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import dao.JDBCCharge;
 import dao.JDBCLocataire;
 
 public class Locataire {
@@ -23,10 +22,10 @@ public class Locataire {
 	private LocalDate dateEntree;
 	private LocalDate dateDepart;
 	private double quotite;
-	private List<Caution> cautions;
-	private List<Bail> baux; 
-	private List<BienImmobilier> biens;
-	private List<Charge> charges;
+	private final List<Caution> cautions;
+	private final List<Bail> baux;
+	private final List<BienImmobilier> biens;
+	private final List<Charge> charges;
     private final JDBCLocataire donneesLocataire = new JDBCLocataire();
 
 	public Locataire() {
@@ -55,8 +54,7 @@ public class Locataire {
 		this.cautions = new ArrayList<>();
 		this.baux = new ArrayList<>();
 		this.biens = new ArrayList<>();
-        JDBCCharge donneesCharges = new JDBCCharge();
-        this.charges = donneesCharges.getByLocataire(this);
+		this.charges = new ArrayList<>();
 	}
 
 	public boolean estLocataireAncien() {
@@ -122,10 +120,6 @@ public class Locataire {
 	public List<Caution> getCautions() {
 		return this.cautions;
 	}
-	
-	public void ajouterCaution(Caution... cautions) {
-        this.cautions.addAll(Arrays.asList(cautions));
-	}
 
 	public List<Bail> getBaux() {
 		return this.baux;
@@ -139,9 +133,15 @@ public class Locataire {
 		return this.charges;
 	}
 
+	public void ajouterCaution(Caution... cautions) {
+		this.cautions.addAll(Arrays.asList(cautions));
+	}
+
 	public void archiverLocataire() {
 		this.dateDepart = LocalDate.now();
 	}
+
+	// setters
 
 	public void setIdLocataire(String id) { this.idLocataire = id; }
 
@@ -165,6 +165,22 @@ public class Locataire {
 
 	public void setDateEntree(LocalDate date){
 		this.dateEntree = date;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+
+	public void setLieuNaissance(String lieuNaissance) {
+		this.lieuNaissance = lieuNaissance;
+	}
+
+	public void setNationalite(String nationalite) {
+		this.nationalite = nationalite;
+	}
+
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
 
 	// partie DAO

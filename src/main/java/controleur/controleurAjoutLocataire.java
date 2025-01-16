@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 import javax.swing.JButton;
 
+import modele.Genre;
 import modele.Locataire;
 import vue.IHMAjouterLocataire;
 import vue.IHMDeclarationFiscale;
@@ -60,6 +61,14 @@ public class controleurAjoutLocataire implements ActionListener {
                 this.modele.setTelephone((String) donnees[3]);
                 this.modele.setEmail((String) donnees[4]);
                 this.modele.setDateEntree((LocalDate)donnees[5]);
+                this.modele.setLieuNaissance((String) donnees[6]);
+                this.modele.setNationalite((String) donnees[7]);
+                this.modele.setProfession((String) donnees[8]);
+                if ((boolean) donnees[9]) {
+                    this.modele.setGenre(Genre.MASCULIN);
+                } else {
+                    this.modele.setGenre(Genre.FEMININ);
+                }
                 this.modele.enregistrerLocataire();
                 this.vue.dispose();
                 IHMGestionLocataires vueGestion = new IHMGestionLocataires();

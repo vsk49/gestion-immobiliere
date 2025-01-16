@@ -28,15 +28,16 @@ public class IHMDetailsLocataire extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-	private JLabel labelContenuPrenom;
-	private JLabel labelContenuNom;
-	private JLabel labelContenuDateDeNaissance;
-	private JLabel labelContenuTelephone;
-	private JLabel labelContenuEmail;
-	private JLabel labelContenuDateEntree;
-	private Locataire locataire;
-	private controleurDetailsLocataire controleur;
-
+	private final JLabel labelContenuNom;
+	private final JLabel labelContenuPrenom;
+	private final JLabel labelContenuGenre;
+	private final JLabel labelContenuDateDeNaissance;
+	private final JLabel labelContenuLieuNaissance;
+	private final JLabel labelContenuNationalite;
+	private final JLabel labelContenuProfession;
+	private final JLabel labelContenuTelephone;
+	private final JLabel labelContenuEmail;
+	private final JLabel labelContenuDateEntree;
 
 	/**
 	 * Launch the application.
@@ -250,6 +251,74 @@ public class IHMDetailsLocataire extends JFrame {
 		this.labelContenuDateEntree = new JLabel("New label");
 		panelLabelDateEntree.add(labelContenuDateEntree);
 
+		// Panel pour le genre
+		JPanel panelGenre = new JPanel();
+		FlowLayout fl_panelGenre = (FlowLayout) panelGenre.getLayout();
+		fl_panelGenre.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelGenre);
+
+		JLabel labelGenre = new JLabel("Genre :");
+		panelGenre.add(labelGenre);
+
+		JPanel panelLabelGenre = new JPanel();
+		FlowLayout fl_panelLabelGenre = (FlowLayout) panelLabelGenre.getLayout();
+		fl_panelLabelGenre.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsGauche.add(panelLabelGenre);
+
+		this.labelContenuGenre = new JLabel("New label");
+		panelLabelGenre.add(labelContenuGenre);
+
+		// Panel pour le lieu de naissance
+		JPanel panelLieuNaissance = new JPanel();
+		FlowLayout fl_panelLieuNaissance = (FlowLayout) panelLieuNaissance.getLayout();
+		fl_panelLieuNaissance.setAlignment(FlowLayout.RIGHT);
+		panelLabelsGauche.add(panelLieuNaissance);
+
+		JLabel labelLieuNaissance = new JLabel("Lieu de naissance :");
+		panelLieuNaissance.add(labelLieuNaissance);
+
+		JPanel panelLabelLieuNaissance = new JPanel();
+		FlowLayout fl_panelLabelLieuNaissance = (FlowLayout) panelLabelLieuNaissance.getLayout();
+		fl_panelLabelLieuNaissance.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsGauche.add(panelLabelLieuNaissance);
+
+		this.labelContenuLieuNaissance = new JLabel("New label");
+		panelLabelLieuNaissance.add(labelContenuLieuNaissance);
+
+		// Panel pour la nationalité
+		JPanel panelNationalite = new JPanel();
+		FlowLayout fl_panelNationalite = (FlowLayout) panelNationalite.getLayout();
+		fl_panelNationalite.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelNationalite);
+
+		JLabel labelNationalite = new JLabel("Nationalité :");
+		panelNationalite.add(labelNationalite);
+
+		JPanel panelLabelNationalite = new JPanel();
+		FlowLayout fl_panelLabelNationalite = (FlowLayout) panelLabelNationalite.getLayout();
+		fl_panelLabelNationalite.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsDroite.add(panelLabelNationalite);
+
+		this.labelContenuNationalite = new JLabel("New label");
+		panelLabelNationalite.add(labelContenuNationalite);
+
+		// Panel pour la profession
+		JPanel panelProfession = new JPanel();
+		FlowLayout fl_panelProfession = (FlowLayout) panelProfession.getLayout();
+		fl_panelProfession.setAlignment(FlowLayout.RIGHT);
+		panelLabelsDroite.add(panelProfession);
+
+		JLabel labelProfession = new JLabel("Profession :");
+		panelProfession.add(labelProfession);
+
+		JPanel panelLabelProfession = new JPanel();
+		FlowLayout fl_panelLabelProfession = (FlowLayout) panelLabelProfession.getLayout();
+		fl_panelLabelProfession.setAlignment(FlowLayout.LEFT);
+		panelContenuLabelsDroite.add(panelLabelProfession);
+
+		this.labelContenuProfession = new JLabel("New label");
+		panelLabelProfession.add(labelContenuProfession);
+
         controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, locataire);
 		boutonModifier.setActionCommand("Modifier");
 		boutonModifier.addActionListener(controleur);
@@ -287,6 +356,22 @@ public class IHMDetailsLocataire extends JFrame {
 
 	public JLabel getModifDateEntree(){
 		return this.labelContenuDateEntree;
+	}
+
+	public JLabel getModifGenre(){
+		return this.labelContenuGenre;
+	}
+
+	public JLabel getModifLieuNaissance(){
+		return this.labelContenuLieuNaissance;
+	}
+
+	public JLabel getModifNationalite(){
+		return this.labelContenuNationalite;
+	}
+
+	public JLabel getModifProfession(){
+		return this.labelContenuProfession;
 	}
 	
 }
