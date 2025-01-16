@@ -8,7 +8,8 @@ public class InputData {
 	
 	private static final JDBCLocataire donneesLocataires = new JDBCLocataire();
 	private static final JDBCProprietaire donneesProprietaire = new JDBCProprietaire();
-	private static final JDBCBienImmobilier donneesBiens = new JDBCBienImmobilier();
+	private static final JDBCBatiment donneesBatiments = new JDBCBatiment();
+	private static final JDBCLogement donneesLogements = new JDBCLogement();
 
 	private static final Locataire[] locataires = {
 			new Locataire("YPOU", "Poux--Bories", "Yoan",
@@ -60,7 +61,8 @@ public class InputData {
 			donneesProprietaire.insert(proprietaire);
 		}
 		for (BienImmobilier bien : biens) {
-			donneesBiens.insert(bien);
+			if (bien instanceof Batiment) donneesBatiments.insert(bien);
+			if (bien instanceof Logement) donneesLogements.insert(bien);
 		}
 	}
 

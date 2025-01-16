@@ -9,13 +9,15 @@ import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 
 import controleur.controleurModificationLocataire;
 import modele.Locataire;
@@ -26,8 +28,9 @@ public class IHMModificationLocataire extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private final JTextField textFieldNom;
 	private final JTextField textFieldPrenom;
-	private final JTextField textFieldDateNaissance;
+	private final DatePicker datePickerNaissance;
 	private final JTextField textFieldTelephone;
+	private final DatePicker datePickerEntree;
 	private final JTextField textFieldEmail;
 
     /**
@@ -71,47 +74,6 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JPanel panelBasDePage = new JPanel();
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panelBienEtDocuments = new JPanel();
-		panelBienEtDocuments.setBorder(new EmptyBorder(5, 0, 0, 0));
-		panelBasDePage.add(panelBienEtDocuments);
-		panelBienEtDocuments.setLayout(new GridLayout(0, 2, 0, 0));
-		
-		JPanel panelChoixBien = new JPanel();
-		panelChoixBien.setBorder(new EmptyBorder(0, 5, 0, 0));
-		panelBienEtDocuments.add(panelChoixBien);
-		panelChoixBien.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panelLabelBien = new JPanel();
-        panelChoixBien.add(panelLabelBien);
-		
-		JLabel labelChoixBien = new JLabel("Selectionner un bien :");
-		panelLabelBien.add(labelChoixBien);
-		
-		JPanel panelComboboxBien = new JPanel();
-        panelChoixBien.add(panelComboboxBien);
-		
-		JComboBox<String> comboBoxBien = new JComboBox<>();
-		panelComboboxBien.add(comboBoxBien);
-		
-		JPanel panelFichierDocuments = new JPanel();
-		panelBienEtDocuments.add(panelFichierDocuments);
-		panelFichierDocuments.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JPanel panelLabelEtAjoutDocuments = new JPanel();
-		panelFichierDocuments.add(panelLabelEtAjoutDocuments);
-		
-		JLabel LabelAjoutDocument = new JLabel("Documents location");
-		panelLabelEtAjoutDocuments.add(LabelAjoutDocument);
-		
-		JButton BoutonAjouterDocuments = new JButton("Ajouter un document");
-		panelLabelEtAjoutDocuments.add(BoutonAjouterDocuments);
-		
-		JPanel panelListeDocuments = new JPanel();
-		panelFichierDocuments.add(panelListeDocuments);
-		
-		JButton BoutonDocumentExemple = new JButton("Exemple.pdf");
-		panelListeDocuments.add(BoutonDocumentExemple);
 		
 		JPanel panelbouton = new JPanel();
 		panelBasDePage.add(panelbouton);
@@ -183,10 +145,17 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JPanel panel_12 = new JPanel();
 		panelTextfieldPartie1.add(panel_12);
-		
-		textFieldDateNaissance = new JTextField();
-		textFieldDateNaissance.setColumns(10);
-		panel_12.add(textFieldDateNaissance);
+
+		// Configuration des paramètres du DatePicker
+        DatePickerSettings settings = new DatePickerSettings();
+        settings.setAllowKeyboardEditing(false); // Désactiver la saisie manuelle
+        settings.setFormatForDatesCommonEra("dd.MM.yyyy"); // Format clair pour la date
+
+        // Création et configuration du DatePicker
+        datePickerNaissance = new DatePicker(settings);
+        datePickerNaissance.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
+        datePickerNaissance.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
+		panel_12.add(datePickerNaissance);
 		
 		Panel panelDeuxièmePartieFormulaire = new Panel();
 		panelFormulaire.add(panelDeuxièmePartieFormulaire);
@@ -207,6 +176,12 @@ public class IHMModificationLocataire extends JFrame {
 		
 		JLabel labelEmail = new JLabel("Email :");
 		panelEmail.add(labelEmail);
+
+		JPanel panelDateEntree = new JPanel();
+		panelLabelsPartie2.add(panelDateEntree);
+		
+		JLabel labelDateEntree = new JLabel("Date d'entrée :");
+		panelDateEntree.add(labelDateEntree);
 		
 		JPanel panelTextfieldPartie2 = new JPanel();
 		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
@@ -225,6 +200,16 @@ public class IHMModificationLocataire extends JFrame {
 		textFieldEmail = new JTextField();
 		textFieldEmail.setColumns(10);
 		panelTextfieldEmail.add(textFieldEmail);
+
+		// Configuration des paramètres du DatePicker
+        DatePickerSettings settings2 = new DatePickerSettings();
+        settings2.setAllowKeyboardEditing(false); // Désactiver la saisie manuelle
+        settings2.setFormatForDatesCommonEra("dd.MM.yyyy"); // Format clair pour la date
+        // Création et configuration du DatePicker
+        datePickerEntree = new DatePicker(settings2);
+        datePickerEntree.setText(""); // Initialisation avec un texte vide pour éviter les erreurs
+        datePickerEntree.getComponentDateTextField().setEditable(false); // Verrouiller le champ texte
+		panelDateEntree.add(datePickerEntree);
 		
 		controleurModificationLocataire controleur = new controleurModificationLocataire(this, locataire);
 		BoutonGBiens.setActionCommand("biens");
@@ -249,8 +234,8 @@ public class IHMModificationLocataire extends JFrame {
 	public JTextField getModifNom(){
 		return this.textFieldNom;
 	}
-	public JTextField getModifDateNaissance(){
-		return this.textFieldDateNaissance;
+	public DatePicker getModifDateNaissance(){
+		return this.datePickerNaissance;
 	}
 	public JTextField getModifTelephone(){
 		return this.textFieldTelephone;
@@ -259,4 +244,7 @@ public class IHMModificationLocataire extends JFrame {
 		return this.textFieldEmail;
 	}
 
+	public DatePicker getModifDateEntree() {
+		return this.datePickerEntree;
+	}
 }

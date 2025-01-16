@@ -8,16 +8,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class JDBCBatiment extends JDBCBienImmobilier implements DAOBatiment {
+public class JDBCBatiment extends JDBCBienImmobilier {
 
-    public boolean insert(Batiment batiment) {
+    @Override
+    public boolean insert(BienImmobilier batiment) {
         boolean resultat = super.insert(batiment);
         if (resultat) {
             try {
+                // garder l'idBienImmobilier
+                int idBienImmobilier = batiment.getIdBienImmobilier();
+
+                // insertion dans la table Batiment
                 String insertion = "INSERT INTO Batiment (idBatiment, idBienImmobilier) VALUES (?, ?)";
                 PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
-                statement.setInt(1, batiment.getIdBienImmobilier());
-                statement.setInt(2, batiment.getIdBienImmobilier());
+                statement.setInt(1, idBienImmobilier);
+                statement.setInt(2, idBienImmobilier);
                 statement.executeUpdate();
                 System.out.println("Le batiment a été inséré");
             } catch (SQLException e) {
@@ -30,36 +35,42 @@ public class JDBCBatiment extends JDBCBienImmobilier implements DAOBatiment {
 
     @Override
     public Optional<BienImmobilier> getById(Integer id) {
-        Optional<BienImmobilier> batiment = Optional.empty();
+        Optional<BienImmobilier> bien = Optional.empty();
         try {
-            String requete = "SELECT * FROM Batiment WHERE idBatiment = ?";
-            PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-            statement.setInt(1, id);
-            ResultSet resultat = statement.executeQuery();
-            if (resultat.next()) {
-                Batiment b = (Batiment) super.getById(resultat.getInt("idBienImmobilier")).orElse(null);
-                assert b != null;
-                batiment = Optional.of(b);
+            // Chercher les donnees dans la table Batiment
+            String requeteBatiment = "SELECT * FROM Batiment WHERE idBatiment = ?";
+            PreparedStatement statementBatiment = JDBCConnexion.getConnexion().prepareStatement(requeteBatiment);
+            statementBatiment.setInt(1, id);
+            ResultSet resultatBatiment = statementBatiment.executeQuery();
+
+            if (resultatBatiment.next()) {
+                // Retirer idBienImmobilier selon le resulat
+                int idBienImmobilier = resultatBatiment.getInt("idBienImmobilier");
+
+                // chercher dans la table BienImmobilier en utilisant la clef etrangere idBienImmobilier
+                Batiment bienTrouve = (Batiment) super.getById(idBienImmobilier).orElseThrow();
+                bien = Optional.of(bienTrouve);
             }
         } catch (SQLException e) {
             System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
-        return batiment;
+        return bien;
     }
 
-    public boolean delete(Batiment batiment) {
-        boolean resultat = super.delete(batiment);
-        if (resultat) {
-            try {
-                String suppression = "DELETE FROM Batiment WHERE idBatiment = ?";
-                PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(suppression);
-                statement.setInt(1, batiment.getIdBienImmobilier());
-                statement.executeUpdate();
-                System.out.println("Le batiment a été supprimé");
-            } catch (SQLException e) {
-                System.out.println(e.getErrorCode() + " : " + e.getMessage());
-                resultat = false;
-            }
+    @Override
+    public boolean delete(BienImmobilier batiment) {
+        boolean resultat = false;
+        try {
+            // suppression dans la table Batiment
+            String suppression = "DELETE FROM Batiment WHERE idBatiment = ?";
+            PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(suppression);
+            statement.setInt(1, batiment.getIdBienImmobilier());
+            statement.executeUpdate();
+
+            // suppression dans la table BienImmobilier
+            resultat = super.delete(batiment);
+        } catch (SQLException e) {
+            System.out.println(e.getErrorCode() + " : " + e.getMessage());
         }
         return resultat;
     }

@@ -11,7 +11,6 @@ import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,6 +29,7 @@ public class IHMDetailsLocataire extends JFrame {
 	private JLabel labelContenuDateDeNaissance;
 	private JLabel labelContenuTelephone;
 	private JLabel labelContenuEmail;
+	private JLabel labelContenuDateEntree;
 	private Locataire locataire;
 	private controleurDetailsLocataire controleur;
 
@@ -103,44 +103,6 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		JPanel panelBasDePage = new JPanel();
 		panelBasDePage.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panelBienEtDocuments = new JPanel();
-		panelBienEtDocuments.setBorder(new EmptyBorder(5, 0, 0, 0));
-		panelBasDePage.add(panelBienEtDocuments);
-		panelBienEtDocuments.setLayout(new GridLayout(0, 2, 0, 0));
-		
-		JPanel panelChoixBien = new JPanel();
-		panelChoixBien.setBorder(new EmptyBorder(0, 5, 0, 0));
-		panelBienEtDocuments.add(panelChoixBien);
-		panelChoixBien.setLayout(new GridLayout(2, 2, 0, 0));
-		
-		JPanel panelLabelBien = new JPanel();
-        panelChoixBien.add(panelLabelBien);
-		
-		JLabel labelChoixBien = new JLabel("Bien du locataire");
-		panelLabelBien.add(labelChoixBien);
-		
-		JPanel panelComboboxBien = new JPanel();
-        panelChoixBien.add(panelComboboxBien);
-		
-		JComboBox<String> comboBoxBien = new JComboBox<>();
-		panelComboboxBien.add(comboBoxBien);
-		
-		JPanel panelFichierDocuments = new JPanel();
-		panelBienEtDocuments.add(panelFichierDocuments);
-		panelFichierDocuments.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JPanel panelLabelEtAjoutDocuments = new JPanel();
-		panelFichierDocuments.add(panelLabelEtAjoutDocuments);
-		
-		JLabel LabelAjoutDocument = new JLabel("Documents location :");
-		panelLabelEtAjoutDocuments.add(LabelAjoutDocument);
-		
-		JPanel panelListeDocuments = new JPanel();
-		panelFichierDocuments.add(panelListeDocuments);
-		
-		JButton BoutonDocumentExemple = new JButton("Exemple.pdf");
-		panelListeDocuments.add(BoutonDocumentExemple);
 		
 		JPanel panelbouton = new JPanel();
 		panelBasDePage.add(panelbouton);
@@ -231,6 +193,12 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		JLabel labelEmail = new JLabel("Email :");
 		panelEmail.add(labelEmail);
+
+		JPanel panelDateEntree = new JPanel();
+		panelLabelsPartie2.add(panelDateEntree);
+		
+		JLabel labelDateEntree = new JLabel("Date d'entrée :");
+		panelDateEntree.add(labelDateEntree);
 		
 		JPanel panelTextfieldPartie2 = new JPanel();
 		panelDeuxièmePartieFormulaire.add(panelTextfieldPartie2);
@@ -247,6 +215,9 @@ public class IHMDetailsLocataire extends JFrame {
 		
 		this.labelContenuEmail = new JLabel("New label");
 		panelTextfieldEmail.add(labelContenuEmail);
+
+		this.labelContenuDateEntree = new JLabel("New label");
+		panelDateEntree.add(labelContenuDateEntree);
 
         controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, locataire);
 		boutonModifier.setActionCommand("Modifier");
@@ -281,6 +252,10 @@ public class IHMDetailsLocataire extends JFrame {
 
 	public JLabel getModifEmail(){
 		return this.labelContenuEmail;
+	}
+
+	public JLabel getModifDateEntree(){
+		return this.labelContenuDateEntree;
 	}
 	
 }

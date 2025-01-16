@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.After;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,8 +15,6 @@ import dao.JDBCConnexion;
 import dao.JDBCLocataire;
 import modele.Genre;
 import modele.Locataire;
-
-import static org.junit.Assert.*;
 
 public class TestDAOLocataire {
 
@@ -47,7 +48,7 @@ private JDBCLocataire daoLocataire;
 		this.daoLocataire.insert(Locataire);
 		
 		// QUAND le proprietaire recupere le locataire
-		Locataire locataireRecupere = this.daoLocataire.getAll().get(4);
+		Locataire locataireRecupere = this.daoLocataire.getById("DJEA").orElseThrow();
 		
 		// ALORS le locataire est correctement recupere de la BD.
 		assertEquals(Locataire.getNom(), locataireRecupere.getNom());
@@ -137,7 +138,7 @@ private JDBCLocataire daoLocataire;
 
 	@Test
 	public void testGetAll() {
-		// ETANT DONNE 2 locataire existants dans la BD
+		// ETANT DONNE 4 locataire existants dans la BD et j'insere 2 locataires
         LocalDate dateNaissance1 = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree1 = LocalDate.of(2021, 5, 3);
         LocalDate dateDepart1 = null;
@@ -159,7 +160,7 @@ private JDBCLocataire daoLocataire;
 		List<Locataire> LocataireRecuperes = this.daoLocataire.getAll();
 		
 		// ALORS tous les locataire sont bien recuperes
-        assertEquals(2, LocataireRecuperes.size());
+        assertEquals(6, LocataireRecuperes.size());
 	}
 
 }

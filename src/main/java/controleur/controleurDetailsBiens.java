@@ -68,9 +68,11 @@ public class controleurDetailsBiens implements ActionListener {
         vue.getLabelCodePostal().setText("Code Postal: " + bien.getCodePostal());
         vue.getLabelVille().setText("Ville: " + bien.getVille());
         vue.getLabelEtage().setText("Etage: N/A");
-        vue.getLabelTypeBien().setText("Type de bien: " + bien.getClass().getSimpleName());
-        vue.getLabelSurface().setText("Surface: " + ((BienLouable) bien).getSurface());
-        vue.getLabelNbPieces().setText("Nombre de pièces: " + ((BienLouable) bien).getNbPieces());
+        if (bien instanceof BienLouable ) {
+            vue.getLabelTypeBien().setText("Type de bien: " + bien.getClass().getName());
+            vue.getLabelSurface().setText("Surface: " + ((BienLouable) bien).getSurface());
+            vue.getLabelNbPieces().setText("Nombre de pièces: " + ((BienLouable) bien).getNbPieces());
+        }
         vue.getLabelStatut().setText("Statut: Loué");
     }
 
