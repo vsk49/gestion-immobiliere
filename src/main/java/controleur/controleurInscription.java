@@ -1,63 +1,57 @@
 package controleur;
 
-    import java.awt.event.ActionEvent;
-    import java.awt.event.ActionListener;
-    
-    import javax.swing.JButton;
-    
-    import vue.IHMConnexion;
-    import vue.IHMInscription;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    import java.sql.Connection;
-    import java.sql.PreparedStatement;
-    import java.sql.ResultSet;
-    import java.sql.SQLException;
+import javax.swing.JButton;
 
-import dao.JDBCConnexion;
+import vue.IHMConnexion;
+import vue.IHMInscription;
+
 import modele.Proprietaire;
 
 public class controleurInscription implements ActionListener {
 
-    private IHMInscription vue;
-    private Proprietaire modele;
-    
-    public controleurInscription (IHMInscription vue) {
-        this.vue = vue;
-        this.modele = new Proprietaire();
-    }
+	private IHMInscription vue;
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton actionCommand = (JButton) e.getSource();
-        switch (actionCommand.getActionCommand()) {
-        case "Valider" :
-            String identifiant = vue.getIdentifiant();
-            String motDePasse = vue.getMotDePasse();
+	public controleurInscription(IHMInscription vue) {
+		this.vue = vue;
+	}
 
-            if (identifiant.isEmpty() || motDePasse.isEmpty()) {
-                vue.afficherMessageErreur("Les champs identifiant et mot de passe ne doivent pas être vides.");
-                return;
-            }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton actionCommand = (JButton) e.getSource();
+		switch (actionCommand.getActionCommand()) {
+		case "Valider":
+			String identifiant = vue.getIdentifiant();
+			String motDePasse = vue.getMotDePasse();
 
-            if (ajouterProprietaire(identifiant, motDePasse)) {
-                vue.afficherMessageSucces("Inscription réussie !");
-                IHMConnexion vueConnexion = new IHMConnexion();
-                vueConnexion.setVisible(true);
-                vue.dispose(); // Fermer la fenêtre après succès
-            } else {
-                vue.afficherMessageErreur("Échec de l'inscription. L'utilisateur existe déjà ou une erreur est survenue.");
-            }
-            break;
-        case "Annuler" :
-            IHMConnexion vueConnexion = new IHMConnexion();
-            vueConnexion.setVisible(true);
-            vue.dispose(); // Fermer la fenêtre après succès
-            break;
-        }
-    }
+			if (identifiant.isEmpty() || motDePasse.isEmpty()) {
+				vue.afficherMessageErreur("Les champs identifiant et mot de passe ne doivent pas être vides.");
+				return;
+			}
 
-    private boolean ajouterProprietaire(String idProprietaire, String motDePasse) {
-        Proprietaire p = new Proprietaire(idProprietaire, motDePasse);
-        return p.enregistrerProprietaire();
-    }
+			if (ajouterProprietaire(identifiant, motDePasse)) {
+				vue.afficherMessageSucces("Inscription réussie !");
+				IHMConnexion vueConnexion = new IHMConnexion();
+				vueConnexion.setVisible(true);
+				vue.dispose(); // Fermer la fenêtre après succès
+			} else {
+				vue.afficherMessageErreur(
+						"Échec de l'inscription. L'utilisateur existe déjà ou une erreur est survenue.");
+			}
+			break;
+		case "Annuler":
+			IHMConnexion vueConnexion = new IHMConnexion();
+			vueConnexion.setVisible(true);
+			vue.dispose(); // Fermer la fenêtre après succès
+			break;
+		}
+	}
+
+	private boolean ajouterProprietaire(String idProprietaire, String motDePasse) {
+		Proprietaire p = new Proprietaire(idProprietaire, motDePasse);
+		return p.enregistrerProprietaire();
+	}
+
 }

@@ -1,12 +1,9 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.io.Serial;
 import java.util.Objects;
@@ -47,8 +44,7 @@ public class IHMAccueil extends JFrame {
 		controleurAccueil controleur = new controleurAccueil(this);
 		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setSize(902, 410);
         this.setVisible(true);
         JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,10 +63,9 @@ public class IHMAccueil extends JFrame {
 		
 		JPanel panelMain = new JPanel();
 		contentPane.add(panelMain, BorderLayout.CENTER);
-		panelMain.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelTop = new JPanel();
-		panelMain.add(panelTop, BorderLayout.NORTH);
+		FlowLayout flowLayout = (FlowLayout) panelTop.getLayout();
 		
 		JPanel panelLocataire = new JPanel();
 		panelTop.add(panelLocataire);
@@ -127,7 +122,6 @@ public class IHMAccueil extends JFrame {
 		btnAjoutBail.addActionListener(controleur);
 		
 		JPanel panelBottom = new JPanel();
-		panelMain.add(panelBottom, BorderLayout.CENTER);
 		
 		JPanel panelFiscale = new JPanel();
 		panelBottom.add(panelFiscale);
@@ -155,6 +149,9 @@ public class IHMAccueil extends JFrame {
 		
 		JButton btnVoirFinances = new JButton("Finances");
 		panelFinance.add(btnVoirFinances);
+		panelMain.setLayout(new BorderLayout(0, 0));
+		panelMain.add(panelTop, BorderLayout.NORTH);
+		panelMain.add(panelBottom, BorderLayout.CENTER);
 		btnVoirFinances.addActionListener(controleur);
 	}
 

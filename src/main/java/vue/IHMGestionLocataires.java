@@ -23,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controleur.controleurGestionLocataires;
+import java.awt.Cursor;
 
 public class IHMGestionLocataires extends JFrame {
 
@@ -42,6 +43,7 @@ public class IHMGestionLocataires extends JFrame {
         });
 	}
 
+	@SuppressWarnings("serial")
 	public IHMGestionLocataires() {
 		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
 		setTitle("Gestion des Locataires");
@@ -57,11 +59,12 @@ public class IHMGestionLocataires extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelGauche = new JPanel();
+		panelGauche.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
 		contentPane.add(panelGauche, BorderLayout.WEST);
-		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
+		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
 		JButton BoutonGBiens = new JButton();
 		BoutonGBiens.setIcon(iconeBiens);
 		panelGauche.add(BoutonGBiens);

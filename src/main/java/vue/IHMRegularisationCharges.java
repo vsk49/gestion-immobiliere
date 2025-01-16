@@ -43,6 +43,7 @@ public class IHMRegularisationCharges extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings("serial")
 	public IHMRegularisationCharges() {
 		controleurRegularisationCharges controleur = new controleurRegularisationCharges(this);
 		setTitle("Régularisation des charges");
