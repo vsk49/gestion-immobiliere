@@ -44,7 +44,7 @@ public class IHMAccueil extends JFrame {
 		controleurAccueil controleur = new controleurAccueil(this);
 		setTitle("Accueil");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(902, 410);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
         JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
