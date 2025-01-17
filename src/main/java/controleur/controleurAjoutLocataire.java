@@ -2,7 +2,6 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 
 import javax.swing.JButton;
 
@@ -50,21 +49,19 @@ public class controleurAjoutLocataire implements ActionListener {
                 this.vue.dispose();
                 break;
             case "Valider" :
-                Object[] donnees = this.vue.getInformations();
                 // idLocataire = 1ere lettre du prenom + 3 premieres lettres du nom
-                this.modele.setIdLocataire((
-                        (String) donnees[1]).substring(0, 1).toUpperCase()
-                        + ((String) donnees[0]).substring(0, 3).toUpperCase());
-                this.modele.setNom((String) donnees[0]);
-                this.modele.setPrenom((String) donnees[1]);
-                this.modele.setDateNaissance((LocalDate) donnees[2]);
-                this.modele.setTelephone((String) donnees[3]);
-                this.modele.setEmail((String) donnees[4]);
-                this.modele.setDateEntree((LocalDate)donnees[5]);
-                this.modele.setLieuNaissance((String) donnees[6]);
-                this.modele.setNationalite((String) donnees[7]);
-                this.modele.setProfession((String) donnees[8]);
-                if ((boolean) donnees[9]) {
+                this.modele.setIdLocataire(this.vue.getTextFieldNom().getText().substring(0, 1).toUpperCase()
+                        + this.vue.getTextFieldPrenom().getText().substring(0, 3).toUpperCase());
+                this.modele.setNom(this.vue.getTextFieldNom().getText());
+                this.modele.setPrenom(this.vue.getTextFieldPrenom().getText());
+                this.modele.setDateNaissance(this.vue.getDatePickerNaissance().getDate());
+                this.modele.setTelephone(this.vue.getTextFieldTelephone().getText());
+                this.modele.setEmail(this.vue.getTextFieldEmail().getText());
+                this.modele.setDateEntree(this.vue.getDatePickerEntree().getDate());
+                this.modele.setLieuNaissance(this.vue.getTextFieldLieuNaissance().getText());
+                this.modele.setNationalite(this.vue.getTextFieldNationalite().getText());
+                this.modele.setProfession(this.vue.getTextProfession().getText());
+                if (this.vue.getRadioButtonHomme().isSelected()) {
                     this.modele.setGenre(Genre.MASCULIN);
                 } else {
                     this.modele.setGenre(Genre.FEMININ);

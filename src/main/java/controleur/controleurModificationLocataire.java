@@ -90,7 +90,7 @@ public class controleurModificationLocataire implements ActionListener {
         vue.getModifLieuNaissance().setText(locataire.getLieuNaissance());
         vue.getModifNationalite().setText(locataire.getNationalite());
         vue.getModifProfession().setText(locataire.getProfession());
-        if (locataire.getGenre().getLibelle().equals("Homme")) {
+        if (locataire.getGenre().getLibelle().equals("M")) {
             vue.getModifHomme().setSelected(true);
         } else {
             vue.getModifFemme().setSelected(true);

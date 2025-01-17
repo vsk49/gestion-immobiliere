@@ -23,6 +23,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controleur.controleurGestionLocataires;
+import modele.Locataire;
+
 import java.awt.Cursor;
 
 public class IHMGestionLocataires extends JFrame {
@@ -44,7 +46,7 @@ public class IHMGestionLocataires extends JFrame {
 	}
 
 	public IHMGestionLocataires() {
-		controleurGestionLocataires controleur = new controleurGestionLocataires(this);
+		controleurGestionLocataires controleur = new controleurGestionLocataires(this, new Locataire());
 		setTitle("Gestion des Locataires");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 400);

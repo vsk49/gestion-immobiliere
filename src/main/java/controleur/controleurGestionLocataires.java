@@ -25,9 +25,9 @@ public class controleurGestionLocataires extends MouseAdapter implements ActionL
     private final IHMGestionLocataires vue;
     private final Locataire modele;
     
-    public controleurGestionLocataires(IHMGestionLocataires vue) {
+    public controleurGestionLocataires(IHMGestionLocataires vue, Locataire modele) {
         this.vue = vue;
-        this.modele = new Locataire();
+        this.modele = modele;
     }
 
     @Override

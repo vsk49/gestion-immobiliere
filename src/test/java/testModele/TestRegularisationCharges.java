@@ -1,4 +1,4 @@
-//import static org.junit.Assert.*;
+package testModele;//import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;

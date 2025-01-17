@@ -18,7 +18,7 @@ import modele.Locataire;
 
 public class TestDAOLocataire {
 
-private JDBCLocataire daoLocataire;
+	private JDBCLocataire daoLocataire;
 	private final Connection connexion = JDBCConnexion.getConnexion();
 	private boolean originalAutoCommit;
 
@@ -64,7 +64,6 @@ private JDBCLocataire daoLocataire;
         assertEquals(Locataire.getDateDepart(), locataireRecupere.getDateDepart());	
 	}
 
-
 	@Test
 	public void testInsert() {
 		// ÉTANT DONNE un nouveau locataire à insérer
@@ -93,7 +92,6 @@ private JDBCLocataire daoLocataire;
         assertNull(locataireRecupere.getDateDepart());
     }
 
-
 	@Test
 	public void testUpdate() {
 		// ÉTANT DONNE un locataire déjà inséré dans la base de données
@@ -115,7 +113,6 @@ private JDBCLocataire daoLocataire;
 		assertEquals("jeanDurang@mail.test", LocataireRecupere.getEmail());
 	}
 
-
 	@Test
 	public void testDelete() {
 		// ÉTANT DONNE un locataire déjà inséré dans la base de données
@@ -135,23 +132,20 @@ private JDBCLocataire daoLocataire;
 		assertFalse(this.daoLocataire.getById(Locataire.getIdLocataire()).isPresent());
 	}
 
-
 	@Test
 	public void testGetAll() {
 		// ETANT DONNE 4 locataire existants dans la BD et j'insere 2 locataires
         LocalDate dateNaissance1 = LocalDate.of(2001, 10, 8);
         LocalDate dateEntree1 = LocalDate.of(2021, 5, 3);
-        LocalDate dateDepart1 = null;
 		Locataire Locataire1 = new Locataire("DJEA", "Durang", "Jean", Genre.MASCULIN, dateNaissance1,
             "Toulouse", "Français", "Etudiant", "0606060606",
             "jeandurang@mail.test", dateEntree1, null, 0);
 
         LocalDate dateNaissance2 = LocalDate.of(2002, 11, 22);
         LocalDate dateEntree2 = LocalDate.of(2020, 1, 6);
-        LocalDate dateDepart2 = null;
         Locataire Locataire2 = new Locataire("DMAR", "Dupont", "Marc", Genre.MASCULIN, dateNaissance2,
             "Toulouse", "Français", "Etudiant", "0607070707",
-            "DUPONTMARC@mail.test", dateEntree2, dateDepart2, 0);
+            "DUPONTMARC@mail.test", dateEntree2, null, 0);
 
         this.daoLocataire.insert(Locataire1);
         this.daoLocataire.insert(Locataire2);

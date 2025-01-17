@@ -57,14 +57,7 @@ public class Locataire {
 		this.charges = new ArrayList<>();
 	}
 
-	public boolean estLocataireAncien() {
-		return false;
-	}
-
-	public double nbMoisOccupation() {
-		return 0;
-	}
-
+	// getters
 	public String getIdLocataire() {
 		return this.idLocataire;
 	}
@@ -137,12 +130,7 @@ public class Locataire {
 		this.cautions.addAll(Arrays.asList(cautions));
 	}
 
-	public void archiverLocataire() {
-		this.dateDepart = LocalDate.now();
-	}
-
 	// setters
-
 	public void setIdLocataire(String id) { this.idLocataire = id; }
 
 	public void setNom(String nom){
@@ -183,8 +171,41 @@ public class Locataire {
 		this.profession = profession;
 	}
 
-	// partie DAO
+	public void setQuotite(double quotite) {
+		this.quotite = quotite;
+	}
 
+	public void setDateDepart(LocalDate date) {
+		this.dateDepart = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Locataire [idLocataire=" + idLocataire + ", nom=" + nom + ", prenom=" + prenom + ", genre=" + genre
+				+ ", dateNaissance=" + dateNaissance + ", lieuNaissance=" + lieuNaissance + ", nationalite="
+				+ nationalite + ", profession=" + profession + ", telephone=" + telephone + ", email=" + email
+				+ ", dateEntree=" + dateEntree + ", dateDepart=" + dateDepart + ", quotite=" + quotite + "]";
+	}
+
+	@Override
+	public boolean equals(Object autre) {
+		if (this == autre)
+			return true;
+		if (autre == null)
+			return false;
+		if (getClass() != autre.getClass())
+			return false;
+		Locataire autreLocataire = (Locataire) autre;
+		return idLocataire.equals(autreLocataire.idLocataire) && nom.equals(autreLocataire.nom)
+				&& prenom.equals(autreLocataire.prenom) && genre.equals(autreLocataire.genre)
+				&& dateNaissance.equals(autreLocataire.dateNaissance) && lieuNaissance.equals(autreLocataire.lieuNaissance)
+				&& nationalite.equals(autreLocataire.nationalite) && profession.equals(autreLocataire.profession)
+				&& telephone.equals(autreLocataire.telephone) && email.equals(autreLocataire.email)
+				&& dateEntree.equals(autreLocataire.dateEntree) && dateDepart.equals(autreLocataire.dateDepart)
+				&& quotite == autreLocataire.quotite;
+	}
+
+	// partie DAO
 	public void enregistrerLocataire() { this.donneesLocataire.insert(this); }
 
 	public void mettreAJourLocataire() {
@@ -202,6 +223,19 @@ public class Locataire {
 	public List<Locataire> getLocatairesByNom(String nom) {
 		return this.donneesLocataire.getAll().stream().filter(locataire -> locataire.getNom().equals(nom))
 				.toList();
+	}
+
+	// logique metier
+	public boolean estLocataireAncien() {
+		return false;
+	}
+
+	public double nbMoisOccupation() {
+		return 0;
+	}
+
+	public void archiverLocataire() {
+		this.dateDepart = LocalDate.now();
 	}
 
 }

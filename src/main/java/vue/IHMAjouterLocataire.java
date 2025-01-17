@@ -342,19 +342,44 @@ public class IHMAjouterLocataire extends JFrame {
 		panelTextfieldProfession.add(textProfession);
 	}
 
-	public Object[] getInformations() {
-		return new Object[] {
-				this.textFieldNom.getText(),
-				this.textFieldPrenom.getText(),
-				this.datePickerNaissance.getDate(),
-				this.textFieldTelephone.getText(),
-				this.textFieldEmail.getText(),
-				this.datePickerEntree.getDate(),
-				this.textFieldLieuNaissance.getText(),
-				this.textFieldNationalite.getText(),
-				this.textProfession.getText(),
-				this.radioButtonHomme.isSelected()
-		};
+	public JTextField getTextFieldNom() {
+		return textFieldNom;
+	}
+
+	public JTextField getTextFieldPrenom() {
+		return textFieldPrenom;
+	}
+
+	public JRadioButton getRadioButtonHomme() {
+		return radioButtonHomme;
+	}
+
+	public JTextField getTextFieldLieuNaissance() {
+		return textFieldLieuNaissance;
+	}
+
+	public JTextField getTextFieldNationalite() {
+		return textFieldNationalite;
+	}
+
+	public JTextField getTextProfession() {
+		return textProfession;
+	}
+
+	public JTextField getTextFieldTelephone() {
+		return textFieldTelephone;
+	}
+
+	public JTextField getTextFieldEmail() {
+		return textFieldEmail;
+	}
+
+	public DatePicker getDatePickerNaissance() {
+		return datePickerNaissance;
+	}
+
+	public DatePicker getDatePickerEntree() {
+		return datePickerEntree;
 	}
 
 }
