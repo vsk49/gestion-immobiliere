@@ -1,141 +1,101 @@
 package vue;
 
-import java.awt.EventQueue;
+import controleur.ControleurInscription;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import java.awt.GridLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-import javax.swing.JTextField;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import java.awt.Font;
-
-import controleur.controleurInscription;
+import java.awt.*;
+import java.io.Serial;
 
 public class IHMInscription extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField textFieldIdentifiant;
-	private JTextField textFieldMotdepasse;
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private final JTextField textFieldIdentifiant;
+    private final JPasswordField textFieldMotDePasse;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMInscription frame = new IHMInscription();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    public IHMInscription() {
+        ControleurInscription controleur = new ControleurInscription(this);
+        setTitle("Inscription");
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(400, 300);
+        setLocationRelativeTo(null); // Center the frame
+        setResizable(false);
 
-	/**
-	 * Create the frame.
-	 */
-	public IHMInscription() {
-		controleurInscription controleur = new controleurInscription(this);
-		setTitle("Inscription");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setVisible(true);
+        JPanel contentPane = new JPanel(new GridBagLayout());
+        contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
+        setContentPane(contentPane);
 
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				IHMConnexion vueConnexion = new IHMConnexion();
-				vueConnexion.setVisible(true);
-	
-				dispose();
-			}
-		});
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        JLabel labelInscription = new JLabel("Inscription");
+        labelInscription.setFont(new Font("Arial", Font.BOLD, 30));
+        labelInscription.setHorizontalAlignment(SwingConstants.CENTER);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.weightx = 1.0;
+        contentPane.add(labelInscription, gbc);
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JLabel LabelInscription = new JLabel("Inscription");
-		LabelInscription.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		LabelInscription.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(LabelInscription);
-		
-		JPanel panelMain = new JPanel();
-		contentPane.add(panelMain);
-		panelMain.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JPanel panelIdentifiant = new JPanel();
-		panelMain.add(panelIdentifiant);
-		panelIdentifiant.setLayout(new GridLayout(2, 1, 0, 0));
-		
-		JLabel LabelIdentifiant = new JLabel("Identifiant :");
-		LabelIdentifiant.setHorizontalAlignment(SwingConstants.CENTER);
-		panelIdentifiant.add(LabelIdentifiant);
-		
-		JPanel paneltextFieldIdentifiant = new JPanel();
-		panelIdentifiant.add(paneltextFieldIdentifiant);
-		
-		textFieldIdentifiant = new JTextField();
-		paneltextFieldIdentifiant.add(textFieldIdentifiant);
-		textFieldIdentifiant.setColumns(10);
-		
-		JPanel panelMotdepasse = new JPanel();
-		panelMain.add(panelMotdepasse);
-		panelMotdepasse.setLayout(new GridLayout(2, 1, 0, 0));
-		
-		JLabel LabelMotdepasse = new JLabel("Mot de Passe :");
-		LabelMotdepasse.setHorizontalAlignment(SwingConstants.CENTER);
-		panelMotdepasse.add(LabelMotdepasse);
-		
-		JPanel paneltextFieldMotdepasse = new JPanel();
-		panelMotdepasse.add(paneltextFieldMotdepasse);
-		
-		textFieldMotdepasse = new JTextField();
-		paneltextFieldMotdepasse.add(textFieldMotdepasse);
-		textFieldMotdepasse.setColumns(10);
-		
-		JPanel panelBouton = new JPanel();
-		contentPane.add(panelBouton);
-		panelBouton.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
-		
-		JButton BoutonAnnuler = new JButton("Annuler");
-		panelBouton.add(BoutonAnnuler);
-		BoutonAnnuler.setActionCommand("Annuler");
-		BoutonAnnuler.addActionListener(controleur);
-		
-		JButton BoutonValider = new JButton("Valider");
-		panelBouton.add(BoutonValider);
-		BoutonValider.setActionCommand("Valider");
-		BoutonValider.addActionListener(controleur);
-	}
+        JLabel labelIdentifiant = new JLabel("Identifiant :");
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0.5;
+        contentPane.add(labelIdentifiant, gbc);
 
-	public String getIdentifiant() {
-		return textFieldIdentifiant.getText();
-	}
-	
-	public String getMotDePasse() {
-		return textFieldMotdepasse.getText();
-	}
+        textFieldIdentifiant = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        contentPane.add(textFieldIdentifiant, gbc);
 
-	public void afficherMessageSucces(String message) {
-    JOptionPane.showMessageDialog(this, message, "Succès", JOptionPane.INFORMATION_MESSAGE);
-	}
+        JLabel labelMotDePasse = new JLabel("Mot de Passe :");
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.weightx = 0.5;
+        contentPane.add(labelMotDePasse, gbc);
 
-	public void afficherMessageErreur(String message) {
-		JOptionPane.showMessageDialog(this, message, "Erreur", JOptionPane.ERROR_MESSAGE);
-	}
+        textFieldMotDePasse = new JPasswordField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.weightx = 1.0;
+        contentPane.add(textFieldMotDePasse, gbc);
+
+        JButton boutonAnnuler = new JButton("Annuler");
+        boutonAnnuler.setActionCommand("Annuler");
+        boutonAnnuler.addActionListener(controleur);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0.5;
+        contentPane.add(boutonAnnuler, gbc);
+
+        JButton boutonValider = new JButton("Valider");
+        boutonValider.setActionCommand("Valider");
+        boutonValider.addActionListener(controleur);
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.weightx = 0.5;
+        contentPane.add(boutonValider, gbc);
+    }
+
+    public String getIdentifiant() {
+        return textFieldIdentifiant.getText();
+    }
+
+    public String getMotDePasse() {
+        return new String(textFieldMotDePasse.getPassword());
+    }
+
+    public void afficherMessageSucces(String message) {
+        JOptionPane.showMessageDialog(this, message, "Succès", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void afficherMessageErreur(String message) {
+        JOptionPane.showMessageDialog(this, message, "Erreur", JOptionPane.ERROR_MESSAGE);
+    }
+
 }

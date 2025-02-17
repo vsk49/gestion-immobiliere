@@ -15,11 +15,11 @@ import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMRegularisationCharges;
 
-public class controleurAccueil implements ActionListener {
+public class ControleurAccueil implements ActionListener {
 	
-	private IHMAccueil vue;
+	private final IHMAccueil vue;
 	
-	public controleurAccueil (IHMAccueil vue) {
+	public ControleurAccueil (IHMAccueil vue) {
 		this.vue = vue;
 	}
 	
@@ -66,6 +66,10 @@ public class controleurAccueil implements ActionListener {
 			IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
 			vueRegularisationCharges.setVisible(true);
 			this.vue.dispose();
+			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + actionCommand.getText());
 		}
 	}
+
 }

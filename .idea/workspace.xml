@@ -4,28 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] Les IHMs des locataires OK!">
-      <change afterPath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurAjouterLocataire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurDetailsLocataire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurModificationLocataire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testModele/TestLocataire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testVue/TestIHMDetailsLocataire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testVue/TestIHMGestionLocataires.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testVue/TestIHMModificationLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/test/TestDAOLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurAjoutLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurAjoutLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAEA_3.01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAEA_3.01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurAjoutLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAjoutLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLocataire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOProprietaire.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Genre.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/setUp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRegularisationCharges.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testModele/TestRegularisationCharges.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/testControleurLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testVue/TestIHMAjouterLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMInscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMInscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurAjouterLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurModificationLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestDAOBienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testModele/TestLocataire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testModele/TestRegularisationCharges.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMAjouterLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMModificationLocataire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +76,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;vsk49&quot;
+  }
+}</component>
   <component name="GitLabMergeRequestFiltersHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPENED&quot;,
@@ -73,11 +98,18 @@
     &quot;second&quot;: &quot;4997c5cf-4442-4385-abae-8d629429f21d&quot;
   }
 }</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vsk49/SAE3A01.git&quot;,
+    &quot;accountId&quot;: &quot;66d8c762-3843-4a8a-bd56-144a99757866&quot;
+  }
+}</component>
   <component name="PhpDebugGeneral" listening_started="true">
     <xdebug_debug_ports port="9003" />
     <xdebug_debug_ports port="9000" />
     <xdebug_debug_ports port="53019" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -139,6 +171,7 @@
     "JUnit.TestIHMGestionLocataires.testChampRechercheInitialization.executor": "Run",
     "JUnit.TestIHMGestionLocataires.testInitialisationComponents.executor": "Run",
     "JUnit.TestIHMGestionLocataires.testTableInitialization.executor": "Run",
+    "JUnit.TestIHMModificationLocataire.executor": "Run",
     "JUnit.TestIHMModificationLocataire.testButtonActionCommands.executor": "Run",
     "JUnit.TestIHMModificationLocataire.testDatePickerInitialization.executor": "Run",
     "JUnit.TestIHMModificationLocataire.testInitialisationComponents.executor": "Run",
@@ -159,11 +192,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "Virgil",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/vsk49/Downloads/ojdbc11.jar",
+    "last_opened_file_path": "C:/Users/vsk49/git/saea3.01/src/test/java/test",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -184,18 +218,50 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.TestControleurGestionLocataires">
-    <configuration name="TestControleurGestionLocataires" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vsk49\git\saea3.01\src\test\java\test" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.IHMConnexion">
+    <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testControleur.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="testControleur" />
-      <option name="MAIN_CLASS_NAME" value="testControleur.TestControleurGestionLocataires" />
-      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IHMConnexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vue.IHMConnexion" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.InputData" />
+      <module name="SAEA_3.01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,77 +270,48 @@
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testDAO.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestDAOLocataire" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestDAOLocataire" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestIHMAjouterLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDAOLocataire.testGetAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testVue.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="testVue" />
-      <option name="MAIN_CLASS_NAME" value="testVue.TestIHMAjouterLocataire" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestIHMDetailsLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testVue.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testVue" />
-      <option name="MAIN_CLASS_NAME" value="testVue.TestIHMDetailsLocataire" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestIHMModificationLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testVue.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testVue" />
-      <option name="MAIN_CLASS_NAME" value="testVue.TestIHMModificationLocataire" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestDAOLocataire" />
+      <option name="METHOD_NAME" value="testGetAll" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestControleurGestionLocataires" />
-        <item itemvalue="JUnit.TestIHMModificationLocataire" />
-        <item itemvalue="JUnit.TestIHMDetailsLocataire" />
-        <item itemvalue="JUnit.TestIHMAjouterLocataire" />
+        <item itemvalue="Application.IHMConnexion" />
         <item itemvalue="JUnit.TestDAOLocataire" />
+        <item itemvalue="JUnit.TestDAOLocataire.testGetAll" />
+        <item itemvalue="Application.InputData" />
+        <item itemvalue="Application.CreateBD" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
@@ -318,7 +355,13 @@
       <workItem from="1736928230421" duration="11346000" />
       <workItem from="1736975871937" duration="6510000" />
       <workItem from="1737054817344" duration="2728000" />
-      <workItem from="1737062040496" duration="28930000" />
+      <workItem from="1737062040496" duration="29770000" />
+      <workItem from="1738222279249" duration="91000" />
+      <workItem from="1738222465728" duration="150000" />
+      <workItem from="1738222649976" duration="1233000" />
+      <workItem from="1738331481439" duration="1308000" />
+      <workItem from="1738577083488" duration="2478000" />
+      <workItem from="1739541580816" duration="34743000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -496,7 +539,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737066313435</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="[TEST] Tests Controleur OK!">
+      <option name="closed" value="true" />
+      <created>1737128099240</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1737128099240</updated>
+    </task>
+    <task id="LOCAL-00024" summary="[MODIF] refactoring User Story Connexion + Inscription">
+      <option name="closed" value="true" />
+      <created>1739791017139</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1739791017139</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,6 +637,9 @@
     <MESSAGE value="[CODE] implementation JDBCBienLouable" />
     <MESSAGE value="[TEST] TestDAOLocataire OK!" />
     <MESSAGE value="[CODE] Les IHMs des locataires OK!" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] Les IHMs des locataires OK!" />
+    <MESSAGE value="[TEST] Tests Controleur OK!" />
+    <MESSAGE value="[MODIF] refactoring User Story Connexion + Inscription" />
+    <MESSAGE value="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files." />
+    <option name="LAST_COMMIT_MESSAGE" value="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files." />
   </component>
 </project>
