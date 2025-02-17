@@ -1,43 +1,18 @@
 package modele;
 
-import dao.JDBCProprietaire;
+public record Proprietaire(String idProprietaire, String motDePasse) {
 
-public class Proprietaire {  
-    
-    private String idProprietaire;
-    private String MotDePasse;
-    private final JDBCProprietaire bd = new JDBCProprietaire();
-
-    public Proprietaire() {}
-
-    public Proprietaire (String idProprietaire, String MotDePasse) {
-        this.idProprietaire = idProprietaire;
-        this.MotDePasse = MotDePasse;
+    @Override
+    public String toString() {
+        return "Proprietaire{" + "idProprietaire=" + idProprietaire + ", motDePasse=" + motDePasse + '}';
     }
 
-    public String getIdProprietaire() {
-        return this.idProprietaire;
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        Proprietaire proprietaire = (Proprietaire) other;
+        return idProprietaire.equals(proprietaire.idProprietaire) && motDePasse.equals(proprietaire.motDePasse);
     }
 
-    public String getMotDePasse() {
-        return this.MotDePasse;
-    }
-
-    public void setIdLocataire(String id) {
-        this.idProprietaire = id;
-    }
-
-    public void setMotDePasse(String MotDePasse){
-        this.MotDePasse = MotDePasse;
-    }
-
-    // partie DAO
-    public Proprietaire getProprietaireByCredentials(String id, String mdp) {
-        return this.bd.getByCredentials(id, mdp).orElse(null);
-    } 
-
-    public boolean enregistrerProprietaire() {
-        return this.bd.insert(this);
-    }
-    
 }
