@@ -31,18 +31,27 @@ public class Logement extends BienImmobilier {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(super.hashCode(), numeroEtage, nbPieces, surfaceHabitable);
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Logement logement)) return false;
+		if (!super.equals(o)) return false;
+        return numeroEtage == logement.numeroEtage &&
+				Double.compare(logement.surfaceHabitable, surfaceHabitable) == 0 &&
+				nbPieces == logement.nbPieces;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!(obj instanceof Logement other))
-			return false;
-		return super.equals(obj) && numeroEtage == other.numeroEtage && nbPieces == other.nbPieces
-				&& Double.doubleToLongBits(surfaceHabitable) == Double.doubleToLongBits(other.surfaceHabitable);
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), numeroEtage, surfaceHabitable, nbPieces);
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Logement{" +
+				"numeroEtage=" + numeroEtage +
+				", surfaceHabitable=" + surfaceHabitable +
+				", nbPieces=" + nbPieces +
+				"} ";
 	}
 
 }

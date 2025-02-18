@@ -10,8 +10,8 @@ public class Batiment extends BienImmobilier {
 	private String periodeConstruction;
 	private final Map<String, BienImmobilier> biens;
 
-	public Batiment(String adresse, int codePostal, String ville, int nombreEtages, String periodeConstruction) {
-		super(null, adresse, codePostal, ville, null);
+	public Batiment(String idBatiment, String adresse, int codePostal, String ville, int nombreEtages, String periodeConstruction) {
+		super(idBatiment, adresse, codePostal, ville, null);
 		this.nombreEtages = nombreEtages;
 		this.periodeConstruction = periodeConstruction;
 		this.biens = new HashMap<>();
@@ -44,17 +44,26 @@ public class Batiment extends BienImmobilier {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(super.hashCode(), nombreEtages);
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Batiment batiment)) return false;
+		if (!super.equals(o)) return false;
+        return nombreEtages == batiment.nombreEtages &&
+				Objects.equals(periodeConstruction, batiment.periodeConstruction);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!(obj instanceof Batiment other))
-			return false;
-		return super.equals(obj) && nombreEtages == other.nombreEtages;
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), nombreEtages, periodeConstruction);
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Batiment{" +
+				"nombreEtages=" + nombreEtages +
+				", periodeConstruction='" + periodeConstruction + '\'' +
+				", biens=" + biens +
+				'}';
 	}
 
 }

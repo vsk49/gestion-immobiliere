@@ -23,6 +23,7 @@ public class TestControleurAjouterLocataire {
     public void setUp() {
         // Create real instances of the classes
         vue = new IHMAjouterLocataire();
+        vue.setVisible(true);
         controleur = new ControleurAjoutLocataire(vue);
     }
 

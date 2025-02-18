@@ -35,31 +35,33 @@ public class JDBCBienImmobilier implements DAO<BienImmobilier, String> {
 
 	private BienImmobilier distinguerTypesBien(ResultSet resultat) throws SQLException {
 		String typeBien = resultat.getString("typeBien");
-        return switch (typeBien) {
-            case "BATIMENT" -> new Batiment(
-                    resultat.getString(2),
-                    resultat.getInt(3),
-                    resultat.getString(4),
-                    resultat.getInt(6),
-                    resultat.getString(7)
-            );
-            case "LOGEMENT" -> new Logement(
-                    resultat.getString(1),
-                    resultat.getString(2),
-                    resultat.getInt(3),
-                    resultat.getString(4),
-                    resultat.getDate(8).toLocalDate(),
-                    resultat.getInt(9),
-                    resultat.getDouble(10),
-                    resultat.getInt(11)
-            );
-            default -> new Garage(
-                    resultat.getString(2),
-                    resultat.getInt(3),
-                    resultat.getString(4),
-                    resultat.getDate(8).toLocalDate()
-            );
-        };
+		return switch (typeBien) {
+			case "BATIMENT" -> new Batiment(
+					resultat.getString("idBienImmobilier"),
+					resultat.getString("adresse"),
+					resultat.getInt("codePostal"),
+					resultat.getString("ville"),
+					resultat.getInt("nombreEtages"),
+					resultat.getString("periodeConstruction")
+			);
+			case "LOGEMENT" -> new Logement(
+					resultat.getString("idBienImmobilier"),
+					resultat.getString("adresse"),
+					resultat.getInt("codePostal"),
+					resultat.getString("ville"),
+					resultat.getDate("dateAcquisition") != null ? resultat.getDate("dateAcquisition").toLocalDate() : null,
+					resultat.getInt("numeroEtage"),
+					resultat.getDouble("surfaceHabitable"),
+					resultat.getInt("nbPieces")
+			);
+			default -> new Garage(
+					resultat.getString("idBienImmobilier"),
+					resultat.getString("adresse"),
+					resultat.getInt("codePostal"),
+					resultat.getString("ville"),
+					resultat.getDate("dateAcquisition") != null ? resultat.getDate("dateAcquisition").toLocalDate() : null
+			);
+		};
 	}
 
 	@Override
@@ -82,33 +84,22 @@ public class JDBCBienImmobilier implements DAO<BienImmobilier, String> {
 
 	@Override
 	public boolean insert(BienImmobilier t) {
-		boolean resultat = false;
 		String insertion = "INSERT INTO BienImmobilier (idBienImmobilier, adresse, codePostal, ville, typeBien, " +
 				"nombreEtages, periodeConstruction, dateAcquisition, numeroEtage, surfaceHabitable, nbPieces) " +
 				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try (PreparedStatement statement = jdbcConnexion.prepareStatement(insertion)) {
-			String idBienImmobilier = t.getIdBienImmobilier();
-			if (idBienImmobilier == null) {
-				idBienImmobilier = genererIdUnique();
-				t.setIdBienImmobilier(idBienImmobilier);
-			}
-			statement.setString(1, idBienImmobilier);
+			statement.setString(1, t.getIdBienImmobilier());
 			statement.setString(2, t.getAdresse());
 			statement.setInt(3, t.getCodePostal());
 			statement.setString(4, t.getVille());
 			configurerParametresBien(t, statement);
 			statement.executeUpdate();
 			LOGGER.info("Le bien " + t.getIdBienImmobilier() + " a ete insere.");
-			resultat = true;
 		} catch (SQLException e) {
 			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
+			return false;
 		}
-		return resultat;
-	}
-
-	// Génère un identifiant unique pour les batiments et garages
-	private String genererIdUnique() {
-		return java.util.UUID.randomUUID().toString().substring(0, 13);
+		return true;
 	}
 
 	// Configure les paramètres spécifiques à chaque type de bien
@@ -142,33 +133,31 @@ public class JDBCBienImmobilier implements DAO<BienImmobilier, String> {
 
 	@Override
 	public boolean update(BienImmobilier t) {
-		boolean resultat = false;
 		String misAJour = "UPDATE BienImmobilier SET periodeConstruction = ? WHERE idBienImmobilier = ?";
 		try (PreparedStatement statement = jdbcConnexion.prepareStatement(misAJour)) {
 			statement.setString(1, ((Batiment) t).getPeriodeConstruction());
 			statement.setString(2, t.getIdBienImmobilier());
 			statement.executeUpdate();
 			LOGGER.info("Bien " + t.getIdBienImmobilier() + " a ete mis a jour.");
-			resultat = true;
 		} catch (SQLException e) {
 			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
+			return false;
 		}
-		return resultat;
+		return true;
 	}
 
 	@Override
 	public boolean delete(BienImmobilier t) {
-		boolean resultat = false;
 		String suppression = "DELETE FROM BienImmobilier WHERE idBienImmobilier = ?";
 		try (PreparedStatement statement = jdbcConnexion.prepareStatement(suppression)) {
 			statement.setString(1, t.getIdBienImmobilier());
 			statement.executeUpdate();
 			LOGGER.info("Bien " + t.getIdBienImmobilier() + " a ete supprime.");
-			resultat = true;
 		} catch (SQLException e) {
 			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
+			return false;
 		}
-		return resultat;
+		return true;
 	}
 
 	public List<Batiment> getBatiments() {

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class BienImmobilier {
 
-	private String idBienImmobilier;
+	private final String idBienImmobilier;
 	private final String adresse;
 	private final int codePostal;
 	private final String ville;
@@ -39,24 +39,32 @@ public class BienImmobilier {
 		return dateAcquisition;
 	}
 
-	public void setIdBienImmobilier(String idBienImmobilier) {
-		this.idBienImmobilier = idBienImmobilier;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		BienImmobilier that = (BienImmobilier) o;
+		return codePostal == that.codePostal &&
+				Objects.equals(idBienImmobilier, that.idBienImmobilier) &&
+				Objects.equals(adresse, that.adresse) &&
+				Objects.equals(ville, that.ville) &&
+				Objects.equals(dateAcquisition, that.dateAcquisition);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(adresse, codePostal, dateAcquisition, idBienImmobilier, ville);
+		return Objects.hash(idBienImmobilier, adresse, codePostal, ville, dateAcquisition);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!(obj instanceof BienImmobilier other))
-			return false;
-        return Objects.equals(adresse, other.adresse) && codePostal == other.codePostal
-				&& Objects.equals(dateAcquisition, other.dateAcquisition)
-				&& Objects.equals(idBienImmobilier, other.idBienImmobilier) && Objects.equals(ville, other.ville);
+	public String toString() {
+		return "BienImmobilier{" +
+				"idBienImmobilier='" + idBienImmobilier + '\'' +
+				", adresse='" + adresse + '\'' +
+				", codePostal=" + codePostal +
+				", ville='" + ville + '\'' +
+				", dateAcquisition=" + dateAcquisition +
+				'}';
 	}
 
 }

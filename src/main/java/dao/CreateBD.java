@@ -65,7 +65,7 @@ public class CreateBD {
 							+ "periodeConstruction VARCHAR2(20), "
 							+ "dateAcquisition DATE, "
 							+ "numeroEtage NUMBER(4), "
-							+ "surfaceHabitable NUMBER(4), "
+							+ "surfaceHabitable DOUBLE PRECISION, "
 							+ "nbPieces NUMBER(4)"
 							+ ")"
 			);

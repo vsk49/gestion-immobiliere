@@ -4,8 +4,15 @@ import java.time.LocalDate;
 
 public class Garage extends BienImmobilier {
 
-	public Garage(String adresse, int codePostal, String ville, LocalDate dateAcquisition) {
-		super(null, adresse, codePostal, ville, dateAcquisition);
+	public Garage(String idGarage, String adresse, int codePostal, String ville, LocalDate dateAcquisition) {
+		super(idGarage, adresse, codePostal, ville, dateAcquisition);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Garage)) return false;
+		return super.equals(o);
 	}
 
 	@Override
@@ -14,8 +21,8 @@ public class Garage extends BienImmobilier {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
+	public String toString() {
+		return super.toString() + "Garage{} ";
 	}
 
 }

@@ -29,12 +29,14 @@ public class InputData {
     private static final BienImmobilier[] biens = {
             new Logement("3101234567890", "40 rue des Lilas", 31000,
                     VILLE, LocalDate.of(2020, 2, 2), 2, 18.00, 2),
-            new Batiment("90 boulevard du 6 juin 1944",31000, VILLE,4,"2 ans"),
+            new Batiment("1", "90 boulevard du 6 juin 1944",31000,
+                    VILLE,4,"2 ans"),
             new Logement("3198765432100", "10 rue des Princes", 31000,
                     VILLE, LocalDate.of(2020, 4, 4), 3, 18.00, 2),
             new Logement("3101234567891", "41 rue des Lilas", 31000,
                     VILLE, LocalDate.of(2020, 5, 5), 1, 22.00, 3),
-            new Garage("90 boulevard du 6 juin 1944", 31000, VILLE, LocalDate.of(2020, 6, 6))
+            new Garage("2", "90 boulevard du 6 juin 1944", 31000,
+                    VILLE, LocalDate.of(2020, 6, 6))
     };
 
     public static void main(String[] args) {
