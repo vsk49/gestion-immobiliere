@@ -2,18 +2,20 @@ package modele;
 
 import java.time.LocalDate;
 
-public class Garage extends BienLouable {
-	
-	private final Logement logement;
+public class Garage extends BienImmobilier {
 
-	public Garage(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, int ICCDateDebut, double surface, int nbPieces, Logement logement) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, ICCDateDebut, surface, nbPieces);
-		this.logement = logement;
+	public Garage(String adresse, int codePostal, String ville, LocalDate dateAcquisition) {
+		super(null, adresse, codePostal, ville, dateAcquisition);
 	}
-	
-	public Logement getLogementLie() {
-		return this.logement;
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
 	}
 
 }

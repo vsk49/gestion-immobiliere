@@ -10,13 +10,12 @@ import java.util.Optional;
 import java.sql.*;
 
 import modele.BienImmobilier;
-import modele.BienLouable;
 import modele.Locataire;
 import modele.Loyer;
 
-public class JDBCLoyer implements DAOLoyer {
+public class JDBCLoyer implements DAO<Loyer, Integer> {
 
-	private final JDBCBienLouable bienConcerne = new JDBCBienLouable();
+	private static final JDBCBienImmobilier bienConcerne = new JDBCBienImmobilier();
 
 	@Override
 	public List<Loyer> getAll() {
@@ -27,8 +26,7 @@ public class JDBCLoyer implements DAOLoyer {
 			while (enregistrementExiste) {
 				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
 						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"),
-						(BienLouable) bienConcerne.getById(resultat.getInt("idBienLouable"))
-								.orElseThrow(NullPointerException::new));
+						bienConcerne.getById(resultat.getString("idBienLouable")).orElseThrow());
 				loyers.add(l);
 				enregistrementExiste = resultat.next();
 			}
@@ -51,8 +49,7 @@ public class JDBCLoyer implements DAOLoyer {
 			if (enregistrementExiste) {
 				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
 						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"),
-						(BienLouable) bienConcerne.getById(resultat.getInt("idBienLouable"))
-								.orElseThrow(NullPointerException::new));
+						bienConcerne.getById(resultat.getString("idBienLouable")).orElseThrow());
 				loyer = Optional.of(l);
 			}
 			JDBCConnexion.closeConnexion();
@@ -72,10 +69,10 @@ public class JDBCLoyer implements DAOLoyer {
 			statement.setDate(1, Date.valueOf(t.getDateLoyer()));
 			statement.setDouble(2, t.getMontantLoyer());
 			statement.setDouble(3, t.getProvisionPourCharge());
-			statement.setInt(4, t.getBienLouable().getIdBienImmobilier());
+			statement.setString(4, t.getBienLouable().getIdBienImmobilier());
 
 			statement.executeUpdate();
-			System.out.println("Le loyer du logement " + t.getBienLouable().getNumeroFiscal() + " pour "
+			System.out.println("Le loyer du logement " + t.getBienLouable().getIdBienImmobilier() + " pour "
 					+ t.getDateLoyer().toString() + " a ete ajoute.");
 			resultat = true;
 			JDBCConnexion.closeConnexion();
@@ -97,7 +94,7 @@ public class JDBCLoyer implements DAOLoyer {
 			statement.setInt(3, t.getIdLoyer());
 
 			statement.executeUpdate();
-			System.out.println("Le loyer du logement " + t.getBienLouable().getNumeroFiscal() + " pour "
+			System.out.println("Le loyer du logement " + t.getBienLouable().getIdBienImmobilier() + " pour "
 					+ t.getDateLoyer().toString() + " a ete modifie.");
 			resultat = true;
 			JDBCConnexion.closeConnexion();
@@ -115,7 +112,7 @@ public class JDBCLoyer implements DAOLoyer {
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
 			statement.setInt(1, t.getIdLoyer());
 			statement.executeUpdate();
-			System.out.println("Le loyer du logement " + t.getBienLouable().getNumeroFiscal() + " pour "
+			System.out.println("Le loyer du logement " + t.getBienLouable().getIdBienImmobilier() + " pour "
 					+ t.getDateLoyer().toString() + " a ete supprime.");
 
 		} catch (SQLException e) {
@@ -124,64 +121,16 @@ public class JDBCLoyer implements DAOLoyer {
 		return resultat;
 	}
 
-	@Override
-	public List<Loyer> getByDateLoyer(LocalDate date) {
-		List<Loyer> loyers = new ArrayList<>();
-		try {
-			String requete = "SELECT * FROM Loyer WHERE dateLoyer = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setDate(1, Date.valueOf(date));
-			ResultSet resultat = statement.executeQuery();
-			boolean enregistrementExiste = resultat.next();
-			while (enregistrementExiste) {
-				Loyer l = new Loyer(resultat.getInt("idLoyer"), date, resultat.getDouble("montantLoyer"),
-						resultat.getDouble("provisionPourCharge"),
-						(BienLouable) bienConcerne.getById(resultat.getInt("idBienLouable"))
-								.orElseThrow(NullPointerException::new));
-				loyers.add(l);
-				enregistrementExiste = resultat.next();
-			}
-			JDBCConnexion.closeConnexion();
-		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
-		}
-		return loyers;
-	}
-
-	@Override
-	public List<Loyer> getByBienLouable(BienLouable bien) {
-		List<Loyer> loyers = new ArrayList<>();
-		try {
-			String requete = "SELECT * FROM Loyer WHERE idBienLouable = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, bien.getIdBienImmobilier());
-			ResultSet resultat = statement.executeQuery();
-			boolean enregistrementExiste = resultat.next();
-			while (enregistrementExiste) {
-				Loyer l = new Loyer(resultat.getInt("idLoyer"), resultat.getDate("dateLoyer").toLocalDate(),
-						resultat.getDouble("montantLoyer"), resultat.getDouble("provisionPourCharge"), bien);
-				loyers.add(l);
-				enregistrementExiste = resultat.next();
-			}
-			JDBCConnexion.closeConnexion();
-		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
-		}
-		return loyers;
-	}
-
-	@Override
 	public boolean importerLoyersCSV(String cheminFichier) {
 		boolean resultat = false;
 		try (BufferedReader lecteur = new BufferedReader(new FileReader(cheminFichier))) {
-			String ligne;
-			lecteur.readLine();
-			while ((ligne = lecteur.readLine()) != null) {
+			String ligne = lecteur.readLine();
+			while (ligne != null) {
 				String[] donnees = ligne.split(",");
 
 				// le fichier CSV suit cet ordre : idLogement, idLocataire, dateLoyer, montantLoyer, provisionPourCharge
 				int idLoyer = Integer.parseInt(donnees[0].trim());
-				int idBienLouable = Integer.parseInt(donnees[1].trim());
+				String idBienLouable = donnees[1].trim();
 				String idLocataire = String.valueOf(Integer.parseInt(donnees[2].trim()));
 				LocalDate dateLoyer = LocalDate.parse(donnees[3].trim());
 				double montantLoyer = Double.parseDouble(donnees[4].trim());
@@ -189,13 +138,14 @@ public class JDBCLoyer implements DAOLoyer {
 
 				Optional<BienImmobilier> bienLouableOpt = bienConcerne.getById(idBienLouable);
 				if (bienLouableOpt.isPresent()) {
-					BienLouable bienLouable = (BienLouable) bienLouableOpt.get();
+					BienImmobilier bienLouable = bienLouableOpt.get();
 
 					Loyer loyer = new Loyer(idLoyer, dateLoyer, montantLoyer, provisionPourCharge, bienLouable);
 					this.insert(loyer);
 					Locataire locataire = new JDBCLocataire().getById(idLocataire).orElseThrow(NullPointerException::new);
 					loyer.ajouterLocataires(locataire);
 				}
+				ligne = lecteur.readLine();
 			}
 			System.out.println("Importation des loyers réussie !");
 			resultat = true;

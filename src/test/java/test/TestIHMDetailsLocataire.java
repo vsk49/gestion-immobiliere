@@ -1,21 +1,26 @@
-package testVue;
+package test;
 
-import static org.junit.Assert.*;
-
+import dao.JDBCLocataire;
+import modele.Locataire;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import vue.IHMDetailsLocataire;
+
 import javax.swing.*;
 import java.awt.*;
-import vue.IHMAjouterLocataire;
 
-public class TestIHMAjouterLocataire {
+import static org.junit.Assert.*;
 
-    private IHMAjouterLocataire vue;
+public class TestIHMDetailsLocataire {
+
+    private IHMDetailsLocataire vue;
+    private final JDBCLocataire donneesLocataire = new JDBCLocataire();
 
     @Before
     public void setUp() {
-        vue = new IHMAjouterLocataire();
+        Locataire locataire = this.donneesLocataire.getById("VKOH").orElseThrow();
+        vue = new IHMDetailsLocataire(locataire);
     }
 
     @After
@@ -26,28 +31,35 @@ public class TestIHMAjouterLocataire {
     @Test
     public void testInitialisationComponents() {
         assertNotNull(vue);
-        assertEquals("Ajout de locataire", vue.getTitle());
+        assertEquals("Détails du locataire", vue.getTitle());
         assertTrue(vue.isVisible());
         assertEquals(JFrame.MAXIMIZED_BOTH, vue.getExtendedState());
     }
 
     @Test
-    public void testRecuperationChampsLocataire() {
-        assertEquals("", vue.getTextFieldNom().getText());
-        assertEquals("", vue.getTextFieldPrenom().getText());
-        assertNull(vue.getDatePickerNaissance().getDate());
-        assertEquals("", vue.getTextFieldTelephone().getText());
-        assertEquals("", vue.getTextFieldEmail().getText());
-        assertNull(vue.getDatePickerEntree().getDate());
-        assertEquals("", vue.getTextFieldLieuNaissance().getText());
-        assertEquals("", vue.getTextFieldNationalite().getText());
-        assertEquals("", vue.getTextProfession().getText());
-        assertFalse(vue.getRadioButtonHomme().isSelected());
+    public void testLabelInitialization() {
+        assertEquals("Koh", vue.getModifNom().getText());
+        assertEquals("Virgil Shaun", vue.getModifPrenom().getText());
+        assertEquals("09 April 2004", vue.getModifDateNaissance().getText());
+        assertEquals("06 11 16 22 42", vue.getModifTelephone().getText());
+        assertEquals("virgilskoh@gmail.com", vue.getModifEmail().getText());
+        assertEquals("05 March 2024", vue.getModifDateEntree().getText());
+        assertEquals("M", vue.getModifGenre().getText());
+        assertEquals("Toulouse", vue.getModifLieuNaissance().getText());
+        assertEquals("Malaisie", vue.getModifNationalite().getText());
+        assertEquals("Etudiant", vue.getModifProfession().getText());
     }
-
 
     @Test
     public void testButtonActionCommands() {
+        JButton boutonRetour = getButtonByActionCommand("Retour");
+        assertNotNull(boutonRetour);
+        assertEquals("Retour", boutonRetour.getActionCommand());
+
+        JButton boutonModifier = getButtonByActionCommand("Modifier");
+        assertNotNull(boutonModifier);
+        assertEquals("Modifier", boutonModifier.getActionCommand());
+
         JButton boutonGBiens = getButtonByActionCommand("biens");
         assertNotNull(boutonGBiens);
         assertEquals("biens", boutonGBiens.getActionCommand());
@@ -56,23 +68,14 @@ public class TestIHMAjouterLocataire {
         assertNotNull(boutonGBaux);
         assertEquals("baux", boutonGBaux.getActionCommand());
 
-        JButton boutonGDeclFisc = getButtonByActionCommand("DeclarationFiscale");
+        JButton boutonGDeclFisc = getButtonByActionCommand("declarationFiscale");
         assertNotNull(boutonGDeclFisc);
-        assertEquals("DeclarationFiscale", boutonGDeclFisc.getActionCommand());
+        assertEquals("declarationFiscale", boutonGDeclFisc.getActionCommand());
 
-        JButton boutonGFinances = getButtonByActionCommand("RegularisationCharges");
+        JButton boutonGFinances = getButtonByActionCommand("finances");
         assertNotNull(boutonGFinances);
-        assertEquals("RegularisationCharges", boutonGFinances.getActionCommand());
-
-        JButton boutonAnnuler = getButtonByActionCommand("Annuler");
-        assertNotNull(boutonAnnuler);
-        assertEquals("Annuler", boutonAnnuler.getActionCommand());
-
-        JButton boutonValider = getButtonByActionCommand("Valider");
-        assertNotNull(boutonValider);
-        assertEquals("Valider", boutonValider.getActionCommand());
+        assertEquals("finances", boutonGFinances.getActionCommand());
     }
-  
 
     private JButton getButtonByActionCommand(String actionCommand) {
         for (Component component : vue.getContentPane().getComponents()) {

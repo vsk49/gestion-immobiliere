@@ -24,7 +24,7 @@ public class JDBCDiagnostic implements DAODiagnostic {
 						resultat.getDate("dateRealisation").toLocalDate(), resultat.getString("type"),
 						resultat.getDate("dateExpiration").toLocalDate(), resultat.getString("classification"),
 						resultat.getString("operateur"), resultat.getString("numeroRapport"),
-						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get());
+						bienConcerne.getById(resultat.getString("idBienImmobilier")).get());
 				diagnostics.add(d);
 				enregistrementExiste = resultat.next();
 			}
@@ -49,7 +49,7 @@ public class JDBCDiagnostic implements DAODiagnostic {
 						resultat.getDate("dateRealisation").toLocalDate(), resultat.getString("type"),
 						resultat.getDate("dateExpiration").toLocalDate(), resultat.getString("classification"),
 						resultat.getString("operateur"), resultat.getString("numeroRapport"),
-						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get());
+						bienConcerne.getById(resultat.getString("idBienImmobilier")).get());
 				diagnostic = Optional.ofNullable(d);
 			}
 			JDBCConnexion.closeConnexion();
@@ -73,7 +73,7 @@ public class JDBCDiagnostic implements DAODiagnostic {
 			statement.setString(6, t.getClassification());
 			statement.setString(7, t.getOperateur());
 			statement.setString(8, t.getNumeroRapport());
-			statement.setInt(9, t.getBien().getIdBienImmobilier());
+			statement.setString(9, t.getBien().getIdBienImmobilier());
 			statement.executeUpdate();
 			System.out.println("Le diagnostic " + t.getReference() + " a ete ajoute.");
 			resultat = true;
@@ -133,7 +133,7 @@ public class JDBCDiagnostic implements DAODiagnostic {
 						resultat.getDate("dateRealisation").toLocalDate(), resultat.getString("type"),
 						resultat.getDate("dateExpiration").toLocalDate(), resultat.getString("classification"),
 						resultat.getString("operateur"), resultat.getString("numeroRapport"),
-						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get());
+						bienConcerne.getById(resultat.getString("idBienImmobilier")).get());
 				diagnostic = Optional.ofNullable(d);
 			}
 			JDBCConnexion.closeConnexion();
@@ -149,7 +149,7 @@ public class JDBCDiagnostic implements DAODiagnostic {
 		try {
 			String requete = "SELECT * FROM Diagnostic WHERE idBienImmobilier = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, bien.getIdBienImmobilier());
+			statement.setString(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {

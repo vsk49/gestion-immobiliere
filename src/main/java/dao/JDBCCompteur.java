@@ -63,7 +63,7 @@ public class JDBCCompteur implements DAOCompteur {
 			statement.setInt(5, t.getIndexActuel());
 			statement.setDate(6, Date.valueOf(t.getDateReleveEntree()));
 			statement.setInt(7, t.getConsommation());
-			statement.setInt(8, t.getBien().getIdBienImmobilier());
+			statement.setString(8, t.getBien().getIdBienImmobilier());
 
 			statement.executeUpdate();
 			System.out.println("Le compteur numero " + t.getNumero() + " a été ajouté.");
@@ -135,7 +135,7 @@ public class JDBCCompteur implements DAOCompteur {
 	}
 
 	private Compteur extraireCompteur(ResultSet resultat) throws SQLException {
-		BienImmobilier bien = jdbcBienImmobilier.getById(resultat.getInt("idBienImmobilier")).orElseThrow();
+		BienImmobilier bien = jdbcBienImmobilier.getById(resultat.getString("idBienImmobilier")).orElseThrow();
         return new Compteur(resultat.getInt("idCompteur"), resultat.getString("numero"),
                 TypeCompteur.valueOf(resultat.getString("typeCompteur")), resultat.getInt("indexAncien"),
                 resultat.getInt("indexActuel"), resultat.getDate("dateReleveEntree").toLocalDate(),
@@ -148,7 +148,7 @@ public class JDBCCompteur implements DAOCompteur {
 		try {
 			String requete = "SELECT * FROM Compteur where idBienImmobilier = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, bien.getIdBienImmobilier());
+			statement.setString(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			if (enregistrementExiste) {

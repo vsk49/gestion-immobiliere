@@ -3,7 +3,6 @@ package dao;
 import java.util.Optional;
 
 import modele.BienImmobilier;
-import modele.BienLouable;
 import modele.Compteur;
 
 public interface DAOCompteur extends DAO<Compteur, Integer> {

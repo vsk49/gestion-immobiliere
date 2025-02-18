@@ -26,7 +26,7 @@ public class JDBCBail implements DAOBail {
 				Bail b = new Bail(resultat.getInt("idBail"), resultat.getDate("dateDebut").toLocalDate(),
 						resultat.getDouble("depotDeGarantie"), resultat.getDate("dateSignature").toLocalDate(),
 						resultat.getDate("dateFin").toLocalDate(), resultat.getInt("indexAncienBail"),
-						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get(),
+						bienConcerne.getById(resultat.getString("idBienImmobilier")).get(),
 						loyerConcerne.getById(resultat.getInt("idLoyer")).get());
 				baux.add(b);
 				enregistrementExiste = resultat.next();
@@ -51,7 +51,7 @@ public class JDBCBail implements DAOBail {
 				Bail b = new Bail(resultat.getInt("idBail"), resultat.getDate("dateDebut").toLocalDate(),
 						resultat.getDouble("depotDeGarantie"), resultat.getDate("dateSignature").toLocalDate(),
 						resultat.getDate("dateFin").toLocalDate(), resultat.getInt("indexAncienBail"),
-						bienConcerne.getById(resultat.getInt("idBienImmobilier")).get(),
+						bienConcerne.getById(resultat.getString("idBienImmobilier")).get(),
 						loyerConcerne.getById(resultat.getInt("idLoyer")).get());
 				bail = Optional.ofNullable(b);
 			}
@@ -74,7 +74,7 @@ public class JDBCBail implements DAOBail {
 			statement.setDate(4, Date.valueOf(t.getDateSignature()));
 			statement.setDate(5, Date.valueOf(t.getDateFin()));
 			statement.setInt(6, t.getIndexAncienBail());
-			statement.setInt(7, t.getBienImmobilier().getIdBienImmobilier());
+			statement.setString(7, t.getBienImmobilier().getIdBienImmobilier());
 			statement.setInt(8, t.getLoyer().getIdLoyer());
 			statement.executeUpdate();
 			System.out.println("Le bail a ete ajoute.");
@@ -127,7 +127,7 @@ public class JDBCBail implements DAOBail {
 		try {
 			String requete = "SELECT * FROM Bail WHERE idBienImmobilier = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, bien.getIdBienImmobilier());
+			statement.setString(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {

@@ -1,52 +1,48 @@
 package modele;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-import dao.JDBCLogement;
+public class Logement extends BienImmobilier {
 
-public class Logement extends BienLouable {
-	
-	private final Garage garage;
-	private final JDBCLogement jdbcBienLouable = new JDBCLogement();
+	private final int numeroEtage;
+	private final double surfaceHabitable;
+	private final int nbPieces;
 
-	public Logement() {
-		super();
-		this.garage = null;
+	public Logement(String idLogement, String adresse, int codePostal, String ville,
+					LocalDate dateAcquisition, int numeroEtage, double surfaceHabitable, int nbPieces) {
+		super(idLogement, adresse, codePostal, ville, dateAcquisition);
+		this.numeroEtage = numeroEtage;
+		this.surfaceHabitable = surfaceHabitable;
+		this.nbPieces = nbPieces;
 	}
 
-	public Logement(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-			LocalDate dateAnniversaire, int ICCDateDebut, double surface, int nbPieces, Garage garage) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, ICCDateDebut, surface, nbPieces);
-		this.garage = garage;
+	// getters
+	public int getNumeroEtage() {
+		return this.numeroEtage;
 	}
 
-	public boolean estEnColocation() {
-		return this.getLocataires().size() > 1;
+	public double getSurfaceHabitable() {
+		return this.surfaceHabitable;
 	}
 
-	public LocalDate getDateDepartLocataire(String id) {
-		return this.getLocataires().stream().filter(locataire -> locataire.getIdLocataire().equals(id))
-				.findFirst().orElseThrow().getDateDepart();
+	public int getNbPieces() {
+		return this.nbPieces;
 	}
 
-	public double getQuotiteLocataire(String id) {
-		return this.getLocataires().stream().filter(locataire -> locataire.getIdLocataire().equals(id))
-				.findFirst().orElseThrow().getQuotite();
-	}
-	
-	public Garage getGarageLie() {
-		return this.garage;
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), numeroEtage, nbPieces, surfaceHabitable);
 	}
 
-	public void changerCompteur() {
-
-	}
-
-	// Couche DAO
-    @Override
-	public Logement getBienByNumeroFiscal(String numeroFiscal) {
-		return (Logement) this.jdbcBienLouable.getByNumeroFiscal(numeroFiscal).orElseThrow();
-		
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Logement other))
+			return false;
+		return super.equals(obj) && numeroEtage == other.numeroEtage && nbPieces == other.nbPieces
+				&& Double.doubleToLongBits(surfaceHabitable) == Double.doubleToLongBits(other.surfaceHabitable);
 	}
 
 }

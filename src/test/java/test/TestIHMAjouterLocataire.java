@@ -1,22 +1,22 @@
-package testVue;
-
-import static org.junit.Assert.*;
+package test;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import javax.swing.*;
-import vue.IHMGestionLocataires;
+import vue.IHMAjouterLocataire;
 
+import javax.swing.*;
 import java.awt.*;
 
-public class TestIHMGestionLocataires {
+import static org.junit.Assert.*;
 
-    private IHMGestionLocataires vue;
+public class TestIHMAjouterLocataire {
+
+    private IHMAjouterLocataire vue;
 
     @Before
     public void setUp() {
-        vue = new IHMGestionLocataires();
+        vue = new IHMAjouterLocataire();
     }
 
     @After
@@ -27,28 +27,25 @@ public class TestIHMGestionLocataires {
     @Test
     public void testInitialisationComponents() {
         assertNotNull(vue);
-        assertEquals("Gestion des Locataires", vue.getTitle());
+        assertEquals("Ajout de locataire", vue.getTitle());
         assertTrue(vue.isVisible());
         assertEquals(JFrame.MAXIMIZED_BOTH, vue.getExtendedState());
     }
 
     @Test
-    public void testTableInitialization() {
-        JTable table = vue.getTableLocataires();
-        assertNotNull(table);
-        assertEquals(4, table.getColumnCount());
-        assertEquals("ID", table.getColumnName(0));
-        assertEquals("Nom", table.getColumnName(1));
-        assertEquals("Prenom", table.getColumnName(2));
-        assertEquals("Email", table.getColumnName(3));
+    public void testRecuperationChampsLocataire() {
+        assertEquals("", vue.getTextFieldNom().getText());
+        assertEquals("", vue.getTextFieldPrenom().getText());
+        assertNull(vue.getDatePickerNaissance().getDate());
+        assertEquals("", vue.getTextFieldTelephone().getText());
+        assertEquals("", vue.getTextFieldEmail().getText());
+        assertNull(vue.getDatePickerEntree().getDate());
+        assertEquals("", vue.getTextFieldLieuNaissance().getText());
+        assertEquals("", vue.getTextFieldNationalite().getText());
+        assertEquals("", vue.getTextProfession().getText());
+        assertFalse(vue.getRadioButtonHomme().isSelected());
     }
 
-    @Test
-    public void testChampRechercheInitialization() {
-        JTextField champRecherche = vue.getChampRecherche();
-        assertNotNull(champRecherche);
-        assertEquals(10, champRecherche.getColumns());
-    }
 
     @Test
     public void testButtonActionCommands() {
@@ -68,16 +65,15 @@ public class TestIHMGestionLocataires {
         assertNotNull(boutonGFinances);
         assertEquals("RegularisationCharges", boutonGFinances.getActionCommand());
 
-        JButton boutonAjout = getButtonByActionCommand("Ajout");
-        assertNotNull(boutonAjout);
-        assertEquals("Ajout", boutonAjout.getActionCommand());
+        JButton boutonAnnuler = getButtonByActionCommand("Annuler");
+        assertNotNull(boutonAnnuler);
+        assertEquals("Annuler", boutonAnnuler.getActionCommand());
 
-        JButton boutonRecherche = getButtonByActionCommand("Chercher");
-        assertNotNull(boutonRecherche);
-        assertEquals("Chercher", boutonRecherche.getActionCommand());
+        JButton boutonValider = getButtonByActionCommand("Valider");
+        assertNotNull(boutonValider);
+        assertEquals("Valider", boutonValider.getActionCommand());
     }
-
-
+  
 
     private JButton getButtonByActionCommand(String actionCommand) {
         for (Component component : vue.getContentPane().getComponents()) {

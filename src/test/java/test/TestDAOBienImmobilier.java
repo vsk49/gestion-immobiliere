@@ -1,18 +1,18 @@
-package testDAO;
+package test;
+
+import dao.JDBCBienImmobilier;
+import dao.JDBCConnexion;
+import modele.BienImmobilier;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import org.junit.Before;
-import org.junit.Test;
-
-import dao.JDBCBienImmobilier;
-import dao.JDBCConnexion;
-import modele.BienImmobilier;
 
 public class TestDAOBienImmobilier {
 
@@ -51,8 +51,8 @@ public class TestDAOBienImmobilier {
 		assertEquals(bien.getAdresse(), bienRecupere.getAdresse());
 		assertEquals(bien.getCodePostal(), bienRecupere.getCodePostal());
 		assertEquals(bien.getVille(), bienRecupere.getVille());
-		assertEquals(bien.getDateAnniversaire().toString(), bienRecupere.getDateAnniversaire().toString());
-		assertEquals(bien.getICCDateDebut(), bienRecupere.getICCDateDebut());
+		assertEquals(bien.getDateAcquisition().toString(), bienRecupere.getDateAcquisition().toString());
+		assertEquals(bien.getIccDateDebut(), bienRecupere.getIccDateDebut());
 		assertEquals(bien.getIdBienImmobilier(), bienRecupere.getIdBienImmobilier());	
 	}
 
@@ -73,8 +73,8 @@ public class TestDAOBienImmobilier {
 		assertEquals("17 Avenue du Rangueil", bienRecupere.getAdresse());
 		assertEquals(31200, bienRecupere.getCodePostal());
 		assertEquals("Toulouse", bienRecupere.getVille());
-		assertEquals(dateAnniversaire.toString(), bienRecupere.getDateAnniversaire().toString());
-		assertEquals(2376, bienRecupere.getICCDateDebut());
+		assertEquals(dateAnniversaire.toString(), bienRecupere.getDateAcquisition().toString());
+		assertEquals(2376, bienRecupere.getIccDateDebut());
     }
 
 	@Test
@@ -88,12 +88,12 @@ public class TestDAOBienImmobilier {
 		bien = this.daoBienImmobilier.getByNumeroFiscal("3134567890123").orElseThrow();
 
 		// QUAND je mets a jour les information du bien
-		bien.setICCDateDebut(2463);
+		bien.setIccDateDebut(2463);
 		this.daoBienImmobilier.update(bien);
 
 		// ALORS le bien a ete mise a jour dans la BD.
 		BienImmobilier bienRecupere = this.daoBienImmobilier.getById(bien.getIdBienImmobilier()).orElseThrow();
-		assertEquals(2463, bienRecupere.getICCDateDebut());
+		assertEquals(2463, bienRecupere.getIccDateDebut());
 	}
 
 	@Test

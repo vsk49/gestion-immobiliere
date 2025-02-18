@@ -12,10 +12,10 @@ public class FactureTravail {
 	private String entreprise;
 	private String referenceDevis;
 	private double montantDevis;
-	private BienLouable bien;
+	private BienImmobilier bien;
 
 	public FactureTravail(int idFactureTravail, String numeroFacture, LocalDate dateFacture, String nature, double montant,
-			String entreprise, String referenceDevis, double montantDevis, BienLouable bien) {
+			String entreprise, String referenceDevis, double montantDevis, BienImmobilier bien) {
 		this.idFactureTravail = idFactureTravail;
 		this.numeroFacture = numeroFacture;
 		this.dateFacture = dateFacture;
@@ -59,21 +59,13 @@ public class FactureTravail {
 		return montantDevis;
 	}
 
-	public BienLouable getBien() {
+	public BienImmobilier getBien() {
 		return bien;
 	}
 
 	public void associerDevis(String referenceDevis, double montantDevis) {
 		this.referenceDevis = referenceDevis;
 		this.montantDevis = montantDevis;
-	}
-
-	public void genererRapportTravail() {
-
-	}
-
-	public void archiverFactureTravail() {
-
 	}
 	
 }

@@ -3,16 +3,16 @@ package dao;
 import java.util.List;
 import java.util.Optional;
 
-public interface DAO<T, ID> {
+public interface DAO<T, K> {
 
-	public List<T> getAll() throws DAOException;
+	List<T> getAll() throws DAOException;
 
-	public Optional<T> getById(ID id) throws DAOException;
+	Optional<T> getById(K id) throws DAOException;
 
-	public boolean insert(T t) throws DAOException;
+	boolean insert(T t) throws DAOException;
 
-	public boolean update(T t) throws DAOException;
+	boolean update(T t) throws DAOException;
 
-	public boolean delete(T t) throws DAOException;
+	boolean delete(T t) throws DAOException;
 
 }

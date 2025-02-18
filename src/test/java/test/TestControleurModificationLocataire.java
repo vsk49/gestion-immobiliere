@@ -1,19 +1,17 @@
-package testControleur;
+package test;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.time.LocalDate;
-
+import controleur.ControleurModificationLocataire;
+import dao.JDBCLocataire;
+import modele.Locataire;
 import org.junit.Before;
 import org.junit.Test;
-
-import controleur.controleurModificationLocataire;
-import modele.Genre;
-import modele.Locataire;
 import vue.IHMDetailsLocataire;
 import vue.IHMModificationLocataire;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
@@ -21,15 +19,15 @@ public class TestControleurModificationLocataire {
 
     private IHMModificationLocataire vue;
     private Locataire locataire;
-    private controleurModificationLocataire controleur;
+    private ControleurModificationLocataire controleur;
 
     @Before
     public void setUp() {
         // Create real instances of the classes
-        locataire = new Locataire().getLocatairesById("VKOH");
+        locataire = new JDBCLocataire().getById("VKOH").orElseThrow();
 
         vue = new IHMModificationLocataire(locataire);
-        controleur = new controleurModificationLocataire(vue, locataire);
+        controleur = new ControleurModificationLocataire(vue, locataire);
     }
 
     @Test
@@ -54,18 +52,13 @@ public class TestControleurModificationLocataire {
         controleur.actionPerformed(event);
 
         // Assert
-        Locataire locataireModifie = new Locataire().getLocatairesById("VKOH");
+        Locataire locataireModifie = new JDBCLocataire().getById("VKOH").orElseThrow();
         assertTrue(new IHMDetailsLocataire(locataireModifie).isVisible());
         assertEquals("Doe", locataireModifie.getNom());
         assertEquals("John", locataireModifie.getPrenom());
         assertEquals(LocalDate.of(1990, 1, 1), locataireModifie.getDateNaissance());
         assertEquals("1234567890", locataireModifie.getTelephone());
         assertEquals("john.doe@example.com", locataireModifie.getEmail());
-        assertEquals(LocalDate.of(2020, 1, 1), locataireModifie.getDateEntree());
-        assertEquals("Paris", locataireModifie.getLieuNaissance());
-        assertEquals("French", locataireModifie.getNationalite());
-        assertEquals("Engineer", locataireModifie.getProfession());
-        assertEquals(Genre.MASCULIN, locataireModifie.getGenre());
     }
 
     @Test
@@ -109,4 +102,5 @@ public class TestControleurModificationLocataire {
         }
         return null;
     }
+
 }

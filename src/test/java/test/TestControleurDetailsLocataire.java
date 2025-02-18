@@ -1,15 +1,13 @@
-package testControleur;
+package test;
+
+import controleur.ControleurDetailsLocataire;
+import modele.Locataire;
+import org.junit.Before;
+import org.junit.Test;
+import vue.*;
 
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
-
-import modele.Genre;
-import org.junit.Before;
-import org.junit.Test;
-
-import controleur.controleurDetailsLocataire;
-import modele.Locataire;
-import vue.*;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -18,31 +16,24 @@ public class TestControleurDetailsLocataire {
 
     private IHMDetailsLocataire vue;
     private Locataire locataire;
-    private controleurDetailsLocataire controleur;
+    private ControleurDetailsLocataire controleur;
 
     @Before
     public void setUp() {
         // Create real instances of the classes
-        locataire = new Locataire("YPOU", "Doe", "John", Genre.MASCULIN,
-                LocalDate.of(1990, 1, 1), "Paris", "French",
-                "Engineer", "1234567890", "john.doe@example.com",
-                LocalDate.of(2020, 1, 1), null, 1.0);
+        locataire = new Locataire("DJOH", "Doe", "John",
+                LocalDate.of(1990, 1, 1), "01234567890", "john.doe@example.com");
         vue = new IHMDetailsLocataire(locataire);
 
         // Set up the state of the vue instance
-        vue.getModifPrenom().setText(locataire.getPrenom());
         vue.getModifNom().setText(locataire.getNom());
+        vue.getModifPrenom().setText(locataire.getPrenom());
         vue.getModifDateNaissance().setText(locataire.getDateNaissance().toString());
         vue.getModifTelephone().setText(locataire.getTelephone());
         vue.getModifEmail().setText(locataire.getEmail());
-        vue.getModifDateEntree().setText(locataire.getDateEntree().toString());
-        vue.getModifGenre().setText(locataire.getGenre().getLibelle());
-        vue.getModifLieuNaissance().setText(locataire.getLieuNaissance());
-        vue.getModifNationalite().setText(locataire.getNationalite());
-        vue.getModifProfession().setText(locataire.getProfession());
 
         // Create the controller instance
-        controleur = new controleurDetailsLocataire(vue, locataire);
+        controleur = new ControleurDetailsLocataire(vue, locataire);
     }
 
     @Test

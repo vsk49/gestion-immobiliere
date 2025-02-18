@@ -4,43 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/test/TestDAOLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[MODIF] refactoring BienImmobilier (modele) OK, deleted unnecessary useless files.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAEA_3.01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAEA_3.01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurAjoutLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAjoutLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsBiens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionBiens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationBien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controleur/controleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurModificationLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CreateBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLocataire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOProprietaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOBienImmobilier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOCompteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOFactureTravail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOLoyer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCAssurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCAssurance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBatiment.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCBienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCBienLouable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCCompteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCDiagnostic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCDiagnostic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCFactureTravail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCFactureTravail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLogement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCLoyer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JDBCTaxeFonciere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JDBCTaxeFonciere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Genre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienLouable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/FactureTravail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Garage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Garage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Locataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/setUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAccueil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Loyer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterBien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsBien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMInscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMInscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurAjouterLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurGestionLocataires.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testControleur/TestControleurModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestControleurModificationLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestDAOBienImmobilier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDAOLocataire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testModele/TestLocataire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testModele/TestRegularisationCharges.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMAjouterLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMDetailsLocataire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testVue/TestIHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/TestIHMGestionLocataires.java" afterDir="false" />
@@ -226,7 +239,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.IHMConnexion">
+  <component name="RunManager" selected="Application.InputData">
     <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
       <module name="SAEA_3.01" />
@@ -299,11 +312,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InputData" />
+        <item itemvalue="Application.CreateBD" />
         <item itemvalue="Application.IHMConnexion" />
         <item itemvalue="JUnit.TestDAOLocataire" />
         <item itemvalue="JUnit.TestDAOLocataire.testGetAll" />
-        <item itemvalue="Application.InputData" />
-        <item itemvalue="Application.CreateBD" />
       </list>
     </recent_temporary>
   </component>
@@ -361,7 +374,7 @@
       <workItem from="1738222649976" duration="1233000" />
       <workItem from="1738331481439" duration="1308000" />
       <workItem from="1738577083488" duration="2478000" />
-      <workItem from="1739541580816" duration="34743000" />
+      <workItem from="1739541580816" duration="55326000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -555,7 +568,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739791017139</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files.">
+      <option name="closed" value="true" />
+      <created>1739804361942</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1739804361942</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +636,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="WorkInProgress" />
     <MESSAGE value="[CONFIG] fixed the whole Maven project structure." />
     <MESSAGE value="[CODE] changed the image source path." />
     <MESSAGE value="[TEST] IHMDetailsLocataire" />
@@ -640,6 +660,7 @@
     <MESSAGE value="[TEST] Tests Controleur OK!" />
     <MESSAGE value="[MODIF] refactoring User Story Connexion + Inscription" />
     <MESSAGE value="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files." />
-    <option name="LAST_COMMIT_MESSAGE" value="[MODIF] refactoring IHMAccueil OK, deleted unnecessary useless files." />
+    <MESSAGE value="[MODIF] refactoring BienImmobilier (modele) OK, deleted unnecessary useless files." />
+    <option name="LAST_COMMIT_MESSAGE" value="[MODIF] refactoring BienImmobilier (modele) OK, deleted unnecessary useless files." />
   </component>
 </project>

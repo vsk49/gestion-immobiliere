@@ -1,31 +1,29 @@
-package testControleur;
+package test;
 
-import java.awt.event.ActionEvent;
-import java.time.LocalDate;
-
+import controleur.ControleurAjoutLocataire;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import controleur.controleurAjoutLocataire;
 import vue.IHMAjouterLocataire;
 import vue.IHMGestionLocataires;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
 public class TestControleurAjouterLocataire {
 
     private IHMAjouterLocataire vue;
-    private controleurAjoutLocataire controleur;
+    private ControleurAjoutLocataire controleur;
 
     @Before
     public void setUp() {
         // Create real instances of the classes
         vue = new IHMAjouterLocataire();
-        controleur = new controleurAjoutLocataire(vue);
+        controleur = new ControleurAjoutLocataire(vue);
     }
 
     @After

@@ -1,60 +1,24 @@
 package modele;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import dao.JDBCLocataire;
+import java.util.Objects;
 
 public class Locataire {
 
-	private String idLocataire;
+	private final String idLocataire;
 	private String nom;
 	private String prenom;
-	private Genre genre;
 	private LocalDate dateNaissance;
-	private String lieuNaissance;
-	private String nationalite;
-	private String profession;
-	private String telephone;
 	private String email;
-	private LocalDate dateEntree;
-	private LocalDate dateDepart;
-	private double quotite;
-	private final List<Caution> cautions;
-	private final List<Bail> baux;
-	private final List<BienImmobilier> biens;
-	private final List<Charge> charges;
-    private final JDBCLocataire donneesLocataire = new JDBCLocataire();
+	private String telephone;
 
-	public Locataire() {
-		this.cautions = new ArrayList<>();
-		this.baux = new ArrayList<>();
-		this.biens = new ArrayList<>();
-		this.charges = new ArrayList<>();
-	}
-
-	public Locataire(String idLocataire, String nom, String prenom, Genre genre, LocalDate dateNaissance, String lieuNaissance,
-			String nationalite, String profession, String telephone, String email, LocalDate dateEntree,
-			LocalDate dateDepart, double quotite) {
+	public Locataire(String idLocataire, String nom, String prenom, LocalDate dateNaissance, String email, String telephone) {
 		this.idLocataire = idLocataire;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.genre = genre;
 		this.dateNaissance = dateNaissance;
-		this.lieuNaissance = lieuNaissance;
-		this.nationalite = nationalite;
-		this.profession = profession;
-		this.telephone = telephone;
 		this.email = email;
-		this.dateEntree = dateEntree;
-		this.dateDepart = dateDepart;
-		this.quotite = quotite;
-		this.cautions = new ArrayList<>();
-		this.baux = new ArrayList<>();
-		this.biens = new ArrayList<>();
-		this.charges = new ArrayList<>();
+		this.telephone = telephone;
 	}
 
 	// getters
@@ -70,24 +34,8 @@ public class Locataire {
 		return this.prenom;
 	}
 
-	public Genre getGenre() {
-		return this.genre;
-	}
-
 	public LocalDate getDateNaissance() {
 		return this.dateNaissance;
-	}
-
-	public String getLieuNaissance() {
-		return this.lieuNaissance;
-	}
-
-	public String getNationalite() {
-		return this.nationalite;
-	}
-
-	public String getProfession() {
-		return this.profession;
 	}
 
 	public String getTelephone() {
@@ -98,46 +46,14 @@ public class Locataire {
 		return this.email;
 	}
 
-	public LocalDate getDateEntree() {
-		return this.dateEntree;
-	}
-
-	public LocalDate getDateDepart() {
-		return this.dateDepart;
-	}
-
-	public double getQuotite() {
-		return this.quotite;
-	}
-
-	public List<Caution> getCautions() {
-		return this.cautions;
-	}
-
-	public List<Bail> getBaux() {
-		return this.baux;
-	}
-
-	public List<BienImmobilier> getBiens() {
-		return this.biens;
-	}
-
-	public List<Charge> getCharges() {
-		return this.charges;
-	}
-
-	public void ajouterCaution(Caution... cautions) {
-		this.cautions.addAll(Arrays.asList(cautions));
-	}
-
 	// setters
-	public void setIdLocataire(String id) { this.idLocataire = id; }
-
 	public void setNom(String nom){
 		this.nom = nom;
 	}
 
-	public void setPrenom(String prenom) { this.prenom = prenom; }
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
 
 	public void setDateNaissance(LocalDate date){
 		this.dateNaissance = date;
@@ -151,91 +67,27 @@ public class Locataire {
 		this.email = email;
 	}
 
-	public void setDateEntree(LocalDate date){
-		this.dateEntree = date;
-	}
-
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-
-	public void setLieuNaissance(String lieuNaissance) {
-		this.lieuNaissance = lieuNaissance;
-	}
-
-	public void setNationalite(String nationalite) {
-		this.nationalite = nationalite;
-	}
-
-	public void setProfession(String profession) {
-		this.profession = profession;
-	}
-
-	public void setQuotite(double quotite) {
-		this.quotite = quotite;
-	}
-
-	public void setDateDepart(LocalDate date) {
-		this.dateDepart = date;
-	}
-
 	@Override
 	public String toString() {
-		return "Locataire [idLocataire=" + idLocataire + ", nom=" + nom + ", prenom=" + prenom + ", genre=" + genre
-				+ ", dateNaissance=" + dateNaissance + ", lieuNaissance=" + lieuNaissance + ", nationalite="
-				+ nationalite + ", profession=" + profession + ", telephone=" + telephone + ", email=" + email
-				+ ", dateEntree=" + dateEntree + ", dateDepart=" + dateDepart + ", quotite=" + quotite + "]";
+		return "Locataire [idLocataire=" + idLocataire + ", nom=" + nom + ", prenom=" + prenom
+				+ ", dateNaissance=" + dateNaissance + ", email=" + email + ", telephone=" + telephone + "]";
 	}
 
 	@Override
-	public boolean equals(Object autre) {
-		if (this == autre)
+	public int hashCode() {
+		return Objects.hash(idLocataire, nom, prenom, dateNaissance, telephone, email);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		if (this == other)
 			return true;
-		if (autre == null)
+		if (other == null || this.getClass() != other.getClass())
 			return false;
-		if (getClass() != autre.getClass())
-			return false;
-		Locataire autreLocataire = (Locataire) autre;
-		return idLocataire.equals(autreLocataire.idLocataire) && nom.equals(autreLocataire.nom)
-				&& prenom.equals(autreLocataire.prenom) && genre.equals(autreLocataire.genre)
-				&& dateNaissance.equals(autreLocataire.dateNaissance) && lieuNaissance.equals(autreLocataire.lieuNaissance)
-				&& nationalite.equals(autreLocataire.nationalite) && profession.equals(autreLocataire.profession)
-				&& telephone.equals(autreLocataire.telephone) && email.equals(autreLocataire.email)
-				&& dateEntree.equals(autreLocataire.dateEntree) && dateDepart.equals(autreLocataire.dateDepart)
-				&& quotite == autreLocataire.quotite;
-	}
-
-	// partie DAO
-	public void enregistrerLocataire() { this.donneesLocataire.insert(this); }
-
-	public void mettreAJourLocataire() {
-		this.donneesLocataire.update(this);
-	}
-
-	public List<Locataire> getAllLocataires() {
-		return this.donneesLocataire.getAll();
-	}
-
-	public Locataire getLocatairesById(String idLocataire) {
-		return this.donneesLocataire.getById(idLocataire).orElseThrow();
-	}
-
-	public List<Locataire> getLocatairesByNom(String nom) {
-		return this.donneesLocataire.getAll().stream().filter(locataire -> locataire.getNom().equals(nom))
-				.toList();
-	}
-
-	// logique metier
-	public boolean estLocataireAncien() {
-		return false;
-	}
-
-	public double nbMoisOccupation() {
-		return 0;
-	}
-
-	public void archiverLocataire() {
-		this.dateDepart = LocalDate.now();
+		Locataire autre = (Locataire) other;
+		return idLocataire.equals(autre.idLocataire) && nom.equals(autre.nom)
+				&& prenom.equals(autre.prenom) && dateNaissance.equals(autre.dateNaissance)
+				&& telephone.equals(autre.telephone) && email.equals(autre.email);
 	}
 
 }
