@@ -1,158 +1,95 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.io.Serial;
 import java.util.Objects;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
-import controleur.controleurAccueil;
+import controleur.ControleurAccueil;
 
 public class IHMAccueil extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
+	private final transient ControleurAccueil controller = new ControleurAccueil(this);
 
-    /**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                IHMAccueil frame = new IHMAccueil();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println("Erreur lors de l'ouverture de la fenêtre d'accueil");
-            }
-        });
+	public IHMAccueil() {
+		setTitle("Accueil");
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setSize(902, 500);
+		setLocationRelativeTo(null);
+
+		JPanel contentPane = new JPanel(new BorderLayout(10, 10));
+		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		setContentPane(contentPane);
+
+		// Title Panel
+		JPanel titlePanel = new JPanel();
+		JLabel titleLabel = new JLabel("Bienvenue. Que voulez-vous faire aujourd'hui ?");
+		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
+		titlePanel.add(titleLabel);
+		contentPane.add(titlePanel, BorderLayout.NORTH);
+
+		// Main Panel with GridBagLayout
+		JPanel mainPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(15, 20, 15, 20);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+
+		// First row (3 sections)
+		gbc.gridy = 0;
+		addSection(mainPanel, gbc, "locataires.png", "Mes Locataires", "Ajouter Locataire", 0, 1);
+		addSection(mainPanel, gbc, "biens50.png", "Mes Biens", "Ajouter Bien", 1, 1);
+		addSection(mainPanel, gbc, "baux.png", "Mes Baux", "Ajouter Bail", 2, 1);
+
+		// Second row (Déclaration fiscale)
+		gbc.gridy = 1;
+		gbc.gridx = 0;
+		gbc.gridwidth = 2;  // Span across two columns to align properly
+		addSection(mainPanel, gbc, "declarationFiscale.png", "Déclaration Fiscale", null,0, 2);
+
+		// Second row (Finances)
+		gbc.gridx = 1; // Move to the correct column
+		gbc.gridwidth = 2; // Span two columns to be centered
+		addSection(mainPanel, gbc, "finance.png", "Régularisation Charges", null, 1, 2);
+
+		contentPane.add(mainPanel, BorderLayout.CENTER);
+		setVisible(true);
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public IHMAccueil() {
-		controleurAccueil controleur = new controleurAccueil(this);
-		setTitle("Accueil");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setVisible(true);
-        JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	private void addSection(JPanel panel, GridBagConstraints gbc, String iconPath, String btn1Text,
+							String btn2Text, int gridX, int gridWidth) {
+		JPanel sectionPanel = new JPanel();
+		sectionPanel.setLayout(new BoxLayout(sectionPanel, BoxLayout.Y_AXIS));
+		sectionPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-		this.setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panelTitre = new JPanel();
-		contentPane.add(panelTitre, BorderLayout.NORTH);
-		panelTitre.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		JLabel LabelTitre = new JLabel("Bienvenue. Que voulez-vous faire aujourd'hui ?");
-		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
-		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		panelTitre.add(LabelTitre);
-		
-		JPanel panelMain = new JPanel();
-		contentPane.add(panelMain, BorderLayout.CENTER);
-		
-		JPanel panelTop = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panelTop.getLayout();
-		
-		JPanel panelLocataire = new JPanel();
-		panelTop.add(panelLocataire);
-		panelLocataire.setLayout(new GridLayout(0, 1, 0, 0));
+		ImageIcon icon = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource(iconPath)));
+		JLabel iconLabel = new JLabel(icon);
+		iconLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
-		JLabel lblNewLabel_1 = new JLabel();
-		lblNewLabel_1.setIcon(iconeLocataires);
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		panelLocataire.add(lblNewLabel_1);
-		
-		JButton BoutonConsultLoc = new JButton("Consulter les locataires");
-		panelLocataire.add(BoutonConsultLoc);
-		BoutonConsultLoc.addActionListener(controleur);
-		
-		JButton btnAjoutLoc = new JButton("Ajouter un locataire");
-		panelLocataire.add(btnAjoutLoc);
-		btnAjoutLoc.addActionListener(controleur);
-		
-		JPanel panelBiens = new JPanel();
-		panelTop.add(panelBiens);
-		panelBiens.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
-		JLabel lblNewLabel_3 = new JLabel();
-		lblNewLabel_3.setIcon(iconeBiens);
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		panelBiens.add(lblNewLabel_3);
-		
-		JButton BoutonConsultBiens = new JButton("Consulter les biens");
-		panelBiens.add(BoutonConsultBiens);
-		BoutonConsultBiens.addActionListener(controleur);
-		
-		JButton btnAjoutBien = new JButton("Ajouter un bien");
-		panelBiens.add(btnAjoutBien);
-		btnAjoutBien.addActionListener(controleur);
-		
-		JPanel panelBaux = new JPanel();
-		panelTop.add(panelBaux);
-		panelBaux.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
-		JLabel lblNewLabel_5 = new JLabel();
-		lblNewLabel_5.setIcon(iconeBaux);
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		panelBaux.add(lblNewLabel_5);
-		
-		JButton BoutonConsultBaux = new JButton("Consulter les baux");
-		panelBaux.add(BoutonConsultBaux);
-		BoutonConsultBaux.addActionListener(controleur);
-		
-		JButton btnAjoutBail = new JButton("Ajouter un bail");
-		panelBaux.add(btnAjoutBail);
-		btnAjoutBail.addActionListener(controleur);
-		
-		JPanel panelBottom = new JPanel();
-		
-		JPanel panelFiscale = new JPanel();
-		panelBottom.add(panelFiscale);
-		panelFiscale.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeDeclarationFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
-		JLabel lblNewLabel_7 = new JLabel();
-		lblNewLabel_7.setIcon(iconeDeclarationFisc);
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-		panelFiscale.add(lblNewLabel_7);
-		
-		JButton btnDeclarationFiscale = new JButton("Déclaration fiscale");
-		panelFiscale.add(btnDeclarationFiscale);
-		btnDeclarationFiscale.addActionListener(controleur);
-		
-		JPanel panelFinance = new JPanel();
-		panelBottom.add(panelFinance);
-		panelFinance.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
-		JLabel lblNewLabel_9 = new JLabel();
-		lblNewLabel_9.setIcon(iconeFinances);
-		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
-		panelFinance.add(lblNewLabel_9);
-		
-		JButton btnVoirFinances = new JButton("Finances");
-		panelFinance.add(btnVoirFinances);
-		panelMain.setLayout(new BorderLayout(0, 0));
-		panelMain.add(panelTop, BorderLayout.NORTH);
-		panelMain.add(panelBottom, BorderLayout.CENTER);
-		btnVoirFinances.addActionListener(controleur);
+		JButton button1 = createButton(btn1Text, controller);
+		sectionPanel.add(iconLabel);
+		sectionPanel.add(Box.createVerticalStrut(5));
+		sectionPanel.add(button1);
+
+		if (btn2Text != null) {
+			JButton button2 = createButton(btn2Text, controller);
+			sectionPanel.add(Box.createVerticalStrut(5));
+			sectionPanel.add(button2);
+		}
+
+		gbc.gridx = gridX;
+		gbc.gridwidth = gridWidth;
+		panel.add(sectionPanel, gbc);
+	}
+
+	private JButton createButton(String text, ControleurAccueil controller) {
+		JButton button = new JButton(text);
+		button.setAlignmentX(Component.CENTER_ALIGNMENT);
+		button.setPreferredSize(new Dimension(180, 35)); // Uniform button size
+		button.setMaximumSize(new Dimension(180, 35));
+		button.addActionListener(controller);
+		return button;
 	}
 
 }

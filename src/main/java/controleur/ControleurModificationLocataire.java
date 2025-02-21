@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import modele.Genre;
+import dao.JDBCLocataire;
 import modele.Locataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
@@ -14,15 +14,15 @@ import vue.IHMGestionBiens;
 import vue.IHMModificationLocataire;
 import vue.IHMRegularisationCharges;
 
-public class controleurModificationLocataire implements ActionListener {
+public class ControleurModificationLocataire implements ActionListener {
 
     private final IHMModificationLocataire vue;
     private final Locataire locataire;
+    private final JDBCLocataire modele = new JDBCLocataire();
 
-    public controleurModificationLocataire (IHMModificationLocataire vue, Locataire locataire) {
+    public ControleurModificationLocataire (IHMModificationLocataire vue, Locataire locataire) {
         this.vue = vue;
-        Locataire modele = new Locataire();
-		this.locataire = modele.getLocatairesById(locataire.getIdLocataire());
+		this.locataire = modele.getById(locataire.getIdLocataire()).orElseThrow();
         this.remplirChamps();
     }
     
@@ -64,37 +64,22 @@ public class controleurModificationLocataire implements ActionListener {
                 this.locataire.setDateNaissance(this.vue.getModifDateNaissance().getDate());
                 this.locataire.setEmail(this.vue.getModifEmail().getText());
                 this.locataire.setTelephone(this.vue.getModifTelephone().getText());
-                this.locataire.setDateEntree(this.vue.getModifDateEntree().getDate());
-                this.locataire.setLieuNaissance(this.vue.getModifLieuNaissance().getText());
-                this.locataire.setNationalite(this.vue.getModifNationalite().getText());
-                this.locataire.setProfession(this.vue.getModifProfession().getText());
-                if (this.vue.getModifHomme().isSelected()) {
-                    this.locataire.setGenre(Genre.MASCULIN);
-                } else {
-                    this.locataire.setGenre(Genre.FEMININ);
-                }
-                this.locataire.mettreAJourLocataire();
+                modele.update(this.locataire);
                 IHMDetailsLocataire vueDetailsLocataire = new IHMDetailsLocataire(this.locataire);
                 this.vue.dispose();
                 vueDetailsLocataire.setVisible(true);
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + actionCommand.getActionCommand());
         }
     }
     
     private void remplirChamps() {
-		this.vue.getModifPrenom().setText(locataire.getPrenom());
+		vue.getModifPrenom().setText(locataire.getPrenom());
 		vue.getModifNom().setText(locataire.getNom());
 		vue.getModifDateNaissance().setDate(locataire.getDateNaissance());
 		vue.getModifTelephone().setText(locataire.getTelephone());
 		vue.getModifEmail().setText(locataire.getEmail());
-        vue.getModifDateEntree().setDate(locataire.getDateEntree());
-        vue.getModifLieuNaissance().setText(locataire.getLieuNaissance());
-        vue.getModifNationalite().setText(locataire.getNationalite());
-        vue.getModifProfession().setText(locataire.getProfession());
-        if (locataire.getGenre().getLibelle().equals("Homme")) {
-            vue.getModifHomme().setSelected(true);
-        } else {
-            vue.getModifFemme().setSelected(true);
-        }
     }
 
 }

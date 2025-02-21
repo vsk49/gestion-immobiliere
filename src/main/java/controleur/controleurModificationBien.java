@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
+import dao.JDBCBienImmobilier;
 import modele.BienImmobilier;
 import vue.IHMDetailsBien;
 import vue.IHMDeclarationFiscale;
@@ -17,9 +18,12 @@ import vue.IHMModificationBien;
 public class controleurModificationBien implements ActionListener {
 
     private final IHMModificationBien vue;
+    private final BienImmobilier bien;
 
-    public controleurModificationBien (IHMModificationBien vue) {
+    public controleurModificationBien (IHMModificationBien vue, BienImmobilier bien) {
         this.vue = vue;
+        JDBCBienImmobilier modele = new JDBCBienImmobilier();
+        this.bien = modele.getById(bien.getIdBienImmobilier()).orElseThrow();
     }
     
     @Override
@@ -28,7 +32,7 @@ public class controleurModificationBien implements ActionListener {
         switch (actionCommand.getActionCommand()) {
         case "Valider" :
         case "Annuler" :
-            IHMDetailsBien vueDetailsBien = new IHMDetailsBien(new BienImmobilier());
+            IHMDetailsBien vueDetailsBien = new IHMDetailsBien(this.bien);
             vueDetailsBien.setVisible(true);
             this.vue.setVisible(false);
             break;

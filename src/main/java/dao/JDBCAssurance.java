@@ -25,7 +25,7 @@ public class JDBCAssurance implements DAOAssurance {
 			while (enregistrementExiste) {
 				Assurance a = new Assurance(resultat.getInt(1), TypeAssurance.valueOf(resultat.getString(2)),
 						resultat.getString(3), resultat.getDate(4).toLocalDate(), resultat.getDouble(5),
-						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getInt(8)).get());
+						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getString(8)).get());
 				assurances.add(a);
 				enregistrementExiste = resultat.next();
 			}
@@ -48,7 +48,7 @@ public class JDBCAssurance implements DAOAssurance {
 			if (enregistrementExiste) {
 				Assurance a = new Assurance(resultat.getInt(1), TypeAssurance.valueOf(resultat.getString(2)),
 						resultat.getString(3), resultat.getDate(4).toLocalDate(), resultat.getDouble(5),
-						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getInt(8)).get());
+						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getString(8)).get());
 				assurance = Optional.ofNullable(a);
 			}
 			JDBCConnexion.closeConnexion();
@@ -72,7 +72,7 @@ public class JDBCAssurance implements DAOAssurance {
 			statement.setDouble(5, t.getQuotiteJurisprudence());
 			statement.setDouble(6, t.getProtectionJuridique());
 			statement.setDouble(7, t.getPrime());
-			statement.setInt(8, t.getBien().getIdBienImmobilier());
+			statement.setString(8, t.getBien().getIdBienImmobilier());
 
 			statement.executeUpdate();
 			System.out.println("L'assurance du nom " + t.getNomAssureur() + " a été ajoutée.");
@@ -135,7 +135,7 @@ public class JDBCAssurance implements DAOAssurance {
 			if (enregistrementExiste) {
 				Assurance a = new Assurance(resultat.getInt(1), TypeAssurance.valueOf(resultat.getString(2)),
 						resultat.getString(3), resultat.getDate(4).toLocalDate(), resultat.getDouble(5),
-						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getInt(8)).get());
+						resultat.getDouble(6), resultat.getDouble(7), bienConcerne.getById(resultat.getString(8)).get());
 				assurance = Optional.ofNullable(a);
 			}
 			JDBCConnexion.closeConnexion();
@@ -151,7 +151,7 @@ public class JDBCAssurance implements DAOAssurance {
 		try {
 			String requete = "SELECT * FROM Assurance WHERE idBienImmobilier = ?";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
-			statement.setInt(1, bien.getIdBienImmobilier());
+			statement.setString(1, bien.getIdBienImmobilier());
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {

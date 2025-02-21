@@ -1,34 +1,69 @@
 package modele;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
-import dao.JDBCBatiment;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Batiment extends BienImmobilier {
 
-	private final List<BienLouable> biensLouables;
-	private final JDBCBatiment jdbcBatiment = new JDBCBatiment();
+	private final int nombreEtages;
+	private String periodeConstruction;
+	private final Map<String, BienImmobilier> biens;
 
-	public Batiment() {
-		super();
-		this.biensLouables = new ArrayList<>();
+	public Batiment(String idBatiment, String adresse, int codePostal, String ville, int nombreEtages, String periodeConstruction) {
+		super(idBatiment, adresse, codePostal, ville, null);
+		this.nombreEtages = nombreEtages;
+		this.periodeConstruction = periodeConstruction;
+		this.biens = new HashMap<>();
 	}
 
-	public Batiment(int idBienImmobilier, String numeroFiscal, String adresse, int codePostal, String ville,
-					LocalDate dateAnniversaire, int ICCDateDebut) {
-		super(idBienImmobilier, numeroFiscal, adresse, codePostal, ville, dateAnniversaire, ICCDateDebut);
-		this.biensLouables = new ArrayList<>();
-	}
-	
-	public List<BienLouable> getBiensLouables() {
-		return this.biensLouables;
+	public int getNombreEtages() {
+		return this.nombreEtages;
 	}
 
-    @Override
-	public Batiment getBienById(int idBienImmobilier) {
-		return (Batiment) this.jdbcBatiment.getById(idBienImmobilier).orElseThrow();
+	public String getPeriodeConstruction() {
+		return this.periodeConstruction;
+	}
+
+	public Map<String, BienImmobilier> getBiensLies() {
+		return this.biens;
+	}
+
+	public void setPeriodeConstruction(String periodeConstruction) {
+		this.periodeConstruction = periodeConstruction;
+	}
+
+	public void ajouterBien(BienImmobilier... biens) {
+		for (BienImmobilier bien : biens) {
+			this.biens.put(bien.getIdBienImmobilier(), bien);
+		}
+	}
+
+	public void supprimerBien(String idBien) {
+		this.biens.remove(idBien);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Batiment batiment)) return false;
+		if (!super.equals(o)) return false;
+        return nombreEtages == batiment.nombreEtages &&
+				Objects.equals(periodeConstruction, batiment.periodeConstruction);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), nombreEtages, periodeConstruction);
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Batiment{" +
+				"nombreEtages=" + nombreEtages +
+				", periodeConstruction='" + periodeConstruction + '\'' +
+				", biens=" + biens +
+				'}';
 	}
 
 }

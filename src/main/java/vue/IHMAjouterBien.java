@@ -38,22 +38,6 @@ public class IHMAjouterBien extends JFrame {
 	private JTextField textFieldStatut;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMAjouterBien frame = new IHMAjouterBien();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
@@ -64,16 +48,6 @@ public class IHMAjouterBien extends JFrame {
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		
-		addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-                vueGestionBiens.setVisible(true);
-
-                dispose();
-            }
-        });
 
 		JPanel panelGauche = new JPanel();
 		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 10));
@@ -86,15 +60,13 @@ public class IHMAjouterBien extends JFrame {
 		panelGauche.add(BoutonGLocataires);
 		BoutonGLocataires.setActionCommand("locataires");
 		BoutonGLocataires.addActionListener(controleur);
-		
-		
+
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
 		JButton BoutonGBaux = new JButton();
 		BoutonGBaux.setIcon(iconeBaux);
 		panelGauche.add(BoutonGBaux);
 		BoutonGBaux.setActionCommand("baux");
 		BoutonGBaux.addActionListener(controleur);
-		
 		
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
 		JButton BoutonGDeclFisc = new JButton();

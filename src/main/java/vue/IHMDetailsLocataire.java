@@ -1,15 +1,9 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Panel;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.Serial;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -20,8 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import controleur.controleurDetailsLocataire;
-import modele.Genre;
+import controleur.ControleurDetailsLocataire;
 import modele.Locataire;
 
 public class IHMDetailsLocataire extends JFrame {
@@ -40,30 +33,12 @@ public class IHMDetailsLocataire extends JFrame {
 	private final JLabel labelContenuDateEntree;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-				Locataire l = new Locataire("DUDU", "Dupont", "Francois", Genre.MASCULIN,
-						LocalDate.of(1990, 5, 13), "Toulouse", "Francais",
-						"Enseignant", "0123456789", "francois.dupont@gmail.com",
-						null, null, 1.0);
-                IHMDetailsLocataire frame = new IHMDetailsLocataire(l);
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println("Erreur lors de l'ouverture de la fenêtre de détails du locataire");
-            }
-        });
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public IHMDetailsLocataire(Locataire locataire) {
         setTitle("Détails du locataire");
 		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -319,7 +294,7 @@ public class IHMDetailsLocataire extends JFrame {
 		this.labelContenuProfession = new JLabel("New label");
 		panelLabelProfession.add(labelContenuProfession);
 
-        controleurDetailsLocataire controleur = new controleurDetailsLocataire(this, locataire);
+        ControleurDetailsLocataire controleur = new ControleurDetailsLocataire(this, locataire);
 		boutonModifier.setActionCommand("Modifier");
 		boutonModifier.addActionListener(controleur);
 		boutonRetour.setActionCommand("Retour");

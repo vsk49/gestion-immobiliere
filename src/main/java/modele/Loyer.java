@@ -11,10 +11,10 @@ public class Loyer {
 	private LocalDate dateLoyer;
 	private double montantLoyer;
 	private double provisionPourCharge;
-	private BienLouable bien;
+	private BienImmobilier bien;
 	private List<Locataire> locataires;
 
-	public Loyer(int idLoyer, LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, BienLouable bien) {
+	public Loyer(int idLoyer, LocalDate dateLoyer, double montantLoyer, double provisionPourCharge, BienImmobilier bien) {
 		this.idLoyer = idLoyer;
 		this.dateLoyer = dateLoyer;
 		this.montantLoyer = montantLoyer;
@@ -47,7 +47,7 @@ public class Loyer {
 		this.provisionPourCharge += nouvelleProvision;
 	}
 
-	public BienLouable getBienLouable() {
+	public BienImmobilier getBienLouable() {
 		return this.bien;
 	}
 
@@ -57,10 +57,6 @@ public class Loyer {
 	
 	public void ajouterLocataires(Locataire... l) {
         this.locataires.addAll(Arrays.asList(l));
-	}
-	
-	public void calculerRevalorisationICC(int nouvelleICC) {
-
 	}
 	
 }

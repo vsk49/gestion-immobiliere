@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.logging.Logger;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,16 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import modele.Genre;
 import modele.Locataire;
 
-public class JDBCLocataire implements DAOLocataire {
+public class JDBCLocataire implements DAO<Locataire, String> {
+
+	private static final Logger LOGGER = Logger.getLogger(JDBCLocataire.class.getName());
 
 	@Override
 	public List<Locataire> getAll() {
 		List<Locataire> locataires = new ArrayList<>();
-		try {
-			ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery("SELECT * FROM Locataire");
+		String requete = "SELECT idLocataire, nom, prenom, dateNaissance, email, telephone FROM Locataire";
+		try (ResultSet resultat = JDBCConnexion.getConnexion().createStatement().executeQuery(requete)) {
 			boolean enregistrementExiste = resultat.next();
 			while (enregistrementExiste) {
 				Locataire l = getLocataire(resultat);
@@ -25,45 +27,27 @@ public class JDBCLocataire implements DAOLocataire {
 				enregistrementExiste = resultat.next();
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return locataires;
 	}
 
 	private static Locataire getLocataire(ResultSet resultat) throws SQLException {
-		String genreString = resultat.getString("genre");
-		Genre genre = null;
-		if (genreString != null) {
-            genre = switch (genreString.toUpperCase()) {
-                case "M" -> Genre.MASCULIN;
-                case "F" -> Genre.FEMININ;
-                default -> throw new IllegalArgumentException("Unknown genre: " + genreString);
-            };
-		}
-
 		return new Locataire(
 				resultat.getString("idLocataire"),
 				resultat.getString("nom"),
 				resultat.getString("prenom"),
-				genre,
 				resultat.getDate("dateNaissance").toLocalDate(),
-				resultat.getString("lieuNaissance"),
-				resultat.getString("nationalite"),
-				resultat.getString("profession"),
-				resultat.getString("telephone"),
 				resultat.getString("email"),
-				resultat.getDate("dateEntree")!= null ? resultat.getDate("dateEntree").toLocalDate() : null,
-				resultat.getDate("dateDepart") != null ? resultat.getDate("dateDepart").toLocalDate() : null,
-				resultat.getDouble("quotite")
+				resultat.getString("telephone")
 		);
 	}
 
 	@Override
 	public Optional<Locataire> getById(String idLocataire) {
 		Optional<Locataire> locataire = Optional.empty();
-		try {
-			String requete = "SELECT * FROM Locataire WHERE idLocataire = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(requete);
+		String sql = "SELECT idLocataire, nom, prenom, dateNaissance, email, telephone FROM Locataire where IDLOCATAIRE = ?";
+		try (PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(sql)) {
 			statement.setString(1, idLocataire);
 			ResultSet resultat = statement.executeQuery();
 			boolean enregistrementExiste = resultat.next();
@@ -72,7 +56,7 @@ public class JDBCLocataire implements DAOLocataire {
 				locataire = Optional.of(l);
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return locataire;
 	}
@@ -80,28 +64,19 @@ public class JDBCLocataire implements DAOLocataire {
 	@Override
 	public boolean insert(Locataire t) {
 		boolean resultat = false;
-		try {
-			String insertion = "INSERT INTO Locataire VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
+		String insertion = "INSERT INTO Locataire VALUES (?, ?, ?, ?, ?, ?)";
+		try (PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion)) {
 			statement.setString(1, t.getIdLocataire());
 			statement.setString(2, t.getNom());
 			statement.setString(3, t.getPrenom());
-			statement.setString(4, t.getGenre() != null ? t.getGenre().getLibelle() : null);
-            Date.valueOf(t.getDateNaissance());
-            statement.setDate(5, Date.valueOf(t.getDateNaissance()));
-			statement.setString(6, t.getLieuNaissance());
-			statement.setString(7, t.getNationalite());
-			statement.setString(8, t.getProfession());
-			statement.setString(9, t.getTelephone());
-			statement.setString(10, t.getEmail());
-			statement.setDate(11, t.getDateEntree() != null ? Date.valueOf(t.getDateEntree()) : null);
-			statement.setDate(12, t.getDateDepart() != null ? Date.valueOf(t.getDateDepart()) : null);
-			statement.setDouble(13, t.getQuotite());
+            statement.setDate(4, Date.valueOf(t.getDateNaissance()));
+			statement.setString(5, t.getEmail());
+			statement.setString(6, t.getTelephone());
 			statement.executeUpdate();
-			System.out.println("Le locataire a ete enregistre.");
+			LOGGER.info("Le locataire a ete ajoute.");
 			resultat = true;
 		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -109,28 +84,20 @@ public class JDBCLocataire implements DAOLocataire {
 	@Override
 	public boolean update(Locataire t) {
 		boolean resultat = false;
-		try {
-			String misAJour = "UPDATE Locataire SET nom = ?, prenom = ?, genre = ?, dateNaissance = ?, " +
-					"LIEUNAISSANCE = ?, NATIONALITE = ?, PROFESSION = ?, telephone = ?, " +
-					"EMAIL = ?, dateEntree = ?, QUOTITE = ? WHERE idLocataire = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour);
+		String misAJour = "UPDATE Locataire SET nom = ?, prenom = ?, dateNaissance = ?, email = ?, telephone = ? " +
+				"WHERE IDLOCATAIRE = ?";
+		try (PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(misAJour)) {
 			statement.setString(1, t.getNom());
 			statement.setString(2, t.getPrenom());
-			statement.setString(3, t.getGenre().getLibelle());
-			statement.setDate(4, Date.valueOf(t.getDateNaissance()));
-			statement.setString(5, t.getLieuNaissance());
-			statement.setString(6, t.getNationalite());
-			statement.setString(7, t.getProfession());
-			statement.setString(8, t.getTelephone());
-			statement.setString(9, t.getEmail());
-			statement.setDate(10, Date.valueOf(t.getDateEntree()));
-			statement.setDouble(11, t.getQuotite());
-			statement.setString(12, t.getIdLocataire());
+			statement.setDate(3, Date.valueOf(t.getDateNaissance()));
+			statement.setString(4, t.getEmail());
+			statement.setString(5, t.getTelephone());
+			statement.setString(6, t.getIdLocataire());
 			statement.executeUpdate();
-			System.out.println("Le locataire a ete mis a jour.");
+			LOGGER.info("Le locataire a ete mis a jour.");
 			resultat = true;
 		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}
@@ -138,15 +105,14 @@ public class JDBCLocataire implements DAOLocataire {
 	@Override
 	public boolean delete(Locataire t) {
 		boolean resultat = false;
-		try {
-			String suppression = "DELETE FROM Locataire WHERE idLocataire = ?";
-			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(suppression);
+		String suppression = "DELETE FROM Locataire WHERE idLocataire = ?";
+		try (PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(suppression)) {
 			statement.setString(1, t.getIdLocataire());
 			statement.executeUpdate();
-			System.out.println("Le locataire a ete archive");
+			LOGGER.info("Le locataire a ete supprime.");
 			resultat = true;
 		} catch (SQLException e) {
-			System.out.println(e.getErrorCode() + " : " + e.getMessage());
+			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
 		}
 		return resultat;
 	}

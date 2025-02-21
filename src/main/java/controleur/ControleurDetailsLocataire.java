@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.format.DateTimeFormatter;
 
+import dao.JDBCLocataire;
 import modele.Locataire;
 import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
@@ -13,16 +14,16 @@ import vue.IHMGestionLocataires;
 import vue.IHMModificationLocataire;
 import vue.IHMRegularisationCharges;
 
-public class controleurDetailsLocataire implements ActionListener {
+public class ControleurDetailsLocataire implements ActionListener {
 
 	private final IHMDetailsLocataire vue;
 	private final Locataire locataire;
 
-    public controleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
+    public ControleurDetailsLocataire (IHMDetailsLocataire vue, Locataire locataire) {
+        JDBCLocataire modele = new JDBCLocataire();
 		this.vue = vue;
-        Locataire modele = new Locataire();
-		this.locataire = modele.getLocatairesById(locataire.getIdLocataire());
-		afficherInformationsLocataire(vue, this.locataire);
+		this.locataire = modele.getById(locataire.getIdLocataire()).orElseThrow();
+		afficherInformationsLocataire(vue, locataire);
 	}
 
 	@Override
@@ -58,6 +59,9 @@ public class controleurDetailsLocataire implements ActionListener {
 				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
 				this.vue.dispose();
 				vueModificationLocataire.setVisible(true);
+				break;
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + actionCommand);
         }
 	}
 
@@ -69,12 +73,6 @@ public class controleurDetailsLocataire implements ActionListener {
 		vue.getModifDateNaissance().setText(dateStr);
 		vue.getModifTelephone().setText(locataire.getTelephone());
 		vue.getModifEmail().setText(locataire.getEmail());
-		String dateStr2 = locataire.getDateEntree().format(formatter);
-		vue.getModifDateEntree().setText(dateStr2);
-		vue.getModifGenre().setText(locataire.getGenre().getLibelle());
-		vue.getModifLieuNaissance().setText(locataire.getLieuNaissance());
-		vue.getModifNationalite().setText(locataire.getNationalite());
-		vue.getModifProfession().setText(locataire.getProfession());
 	}
 
 }
