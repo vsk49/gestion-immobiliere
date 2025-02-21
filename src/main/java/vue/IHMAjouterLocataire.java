@@ -1,11 +1,6 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Panel;
+import java.awt.*;
 import java.io.Serial;
 import java.util.Objects;
 
@@ -15,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 
-import controleur.controleurAjoutLocataire;
+import controleur.ControleurAjoutLocataire;
 
 public class IHMAjouterLocataire extends JFrame {
 
@@ -33,26 +28,12 @@ public class IHMAjouterLocataire extends JFrame {
 	private final JTextField textFieldEmail;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				IHMAjouterLocataire frame = new IHMAjouterLocataire();
-				frame.setVisible(true);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public IHMAjouterLocataire() {
-		controleurAjoutLocataire controleur = new controleurAjoutLocataire(this);
+		ControleurAjoutLocataire controleur = new ControleurAjoutLocataire(this);
 		setTitle("Ajout de locataire");
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -62,34 +43,34 @@ public class IHMAjouterLocataire extends JFrame {
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
 
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
-		JButton BoutonGBiens = new JButton();
-		BoutonGBiens.setIcon(iconeBiens);
-		menu.add(BoutonGBiens);
-		BoutonGBiens.setActionCommand("biens");
-		BoutonGBiens.addActionListener(controleur);
+		JButton boutonGestionBiens = new JButton();
+		boutonGestionBiens.setIcon(iconeBiens);
+		menu.add(boutonGestionBiens);
+		boutonGestionBiens.setActionCommand("biens");
+		boutonGestionBiens.addActionListener(controleur);
 
 
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
-		JButton BoutonGBaux = new JButton();
-		BoutonGBaux.setIcon(iconeBaux);
-		menu.add(BoutonGBaux);
-		BoutonGBaux.setActionCommand("baux");
-		BoutonGBaux.addActionListener(controleur);
+		JButton boutonGestionBaux = new JButton();
+		boutonGestionBaux.setIcon(iconeBaux);
+		menu.add(boutonGestionBaux);
+		boutonGestionBaux.setActionCommand("baux");
+		boutonGestionBaux.addActionListener(controleur);
 
 
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
-		JButton BoutonGDeclFisc = new JButton();
-		BoutonGDeclFisc.setIcon(iconeDeclFisc);
-		menu.add(BoutonGDeclFisc);
-		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
-		BoutonGDeclFisc.addActionListener(controleur);
+		JButton boutonDeclaration = new JButton();
+		boutonDeclaration.setIcon(iconeDeclFisc);
+		menu.add(boutonDeclaration);
+		boutonDeclaration.setActionCommand("DeclarationFiscale");
+		boutonDeclaration.addActionListener(controleur);
 
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
-		JButton BoutonGFinances = new JButton();
-		BoutonGFinances.setIcon(iconeFinances);
-		menu.add(BoutonGFinances);
-		BoutonGFinances.setActionCommand("RegularisationCharges");
-		BoutonGFinances.addActionListener(controleur);
+		JButton boutonRegularisation = new JButton();
+		boutonRegularisation.setIcon(iconeFinances);
+		menu.add(boutonRegularisation);
+		boutonRegularisation.setActionCommand("RegularisationCharges");
+		boutonRegularisation.addActionListener(controleur);
 
 		JLabel labelAjouterLocataire = new JLabel("Ajouter un locataire");
 		labelAjouterLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -265,16 +246,16 @@ public class IHMAjouterLocataire extends JFrame {
 
 		// Panel pour le genre
 		JPanel panelGenre = new JPanel();
-		FlowLayout fl_panelGenre = (FlowLayout) panelGenre.getLayout();
-		fl_panelGenre.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelGenre = (FlowLayout) panelGenre.getLayout();
+		layoutPanelGenre.setAlignment(FlowLayout.RIGHT);
 		panelLabelsGauche.add(panelGenre);
 
 		JLabel labelGenre = new JLabel("Genre :");
 		panelGenre.add(labelGenre);
 
 		JPanel panelRadioButtonsGenre = new JPanel();
-		FlowLayout fl_panelRadioButtonsGenre = (FlowLayout) panelRadioButtonsGenre.getLayout();
-		fl_panelRadioButtonsGenre.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelRadioButtons = (FlowLayout) panelRadioButtonsGenre.getLayout();
+		layoutPanelRadioButtons.setAlignment(FlowLayout.LEFT);
 		panelTextfieldGauche.add(panelRadioButtonsGenre);
 
 		radioButtonHomme = new JRadioButton("Homme");
@@ -289,16 +270,16 @@ public class IHMAjouterLocataire extends JFrame {
 
 		// Panel pour le lieu de naissance
 		JPanel panelLieuNaissance = new JPanel();
-		FlowLayout fl_panelLieuNaissance = (FlowLayout) panelLieuNaissance.getLayout();
-		fl_panelLieuNaissance.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelLieuNaissance = (FlowLayout) panelLieuNaissance.getLayout();
+		layoutPanelLieuNaissance.setAlignment(FlowLayout.RIGHT);
 		panelLabelsGauche.add(panelLieuNaissance);
 
 		JLabel labelLieuNaissance = new JLabel("Lieu de naissance :");
 		panelLieuNaissance.add(labelLieuNaissance);
 
 		JPanel panelTextfieldLieuNaissance = new JPanel();
-		FlowLayout fl_panelTextfieldLieuNaissance = (FlowLayout) panelTextfieldLieuNaissance.getLayout();
-		fl_panelTextfieldLieuNaissance.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelTextFieldLieuNaissance = (FlowLayout) panelTextfieldLieuNaissance.getLayout();
+		layoutPanelTextFieldLieuNaissance.setAlignment(FlowLayout.LEFT);
 		panelTextfieldGauche.add(panelTextfieldLieuNaissance);
 
 		textFieldLieuNaissance = new JTextField();
@@ -307,16 +288,16 @@ public class IHMAjouterLocataire extends JFrame {
 
 		// Panel pour la nationalité
 		JPanel panelNationalite = new JPanel();
-		FlowLayout fl_panelNationalite = (FlowLayout) panelNationalite.getLayout();
-		fl_panelNationalite.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelNationalite = (FlowLayout) panelNationalite.getLayout();
+		layoutPanelNationalite.setAlignment(FlowLayout.RIGHT);
 		panelLabelsDroite.add(panelNationalite);
 
 		JLabel labelNationalite = new JLabel("Nationalité :");
 		panelNationalite.add(labelNationalite);
 
 		JPanel panelTextfieldNationalite = new JPanel();
-		FlowLayout fl_panelTextfieldNationalite = (FlowLayout) panelTextfieldNationalite.getLayout();
-		fl_panelTextfieldNationalite.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelTextFieldNationalite = (FlowLayout) panelTextfieldNationalite.getLayout();
+		layoutPanelTextFieldNationalite.setAlignment(FlowLayout.LEFT);
 		panelTextfieldDroite.add(panelTextfieldNationalite);
 
 		textFieldNationalite = new JTextField();
@@ -325,16 +306,16 @@ public class IHMAjouterLocataire extends JFrame {
 
 		// Panel pour la profession
 		JPanel panelProfession = new JPanel();
-		FlowLayout fl_panelProfession = (FlowLayout) panelProfession.getLayout();
-		fl_panelProfession.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelProfession = (FlowLayout) panelProfession.getLayout();
+		layoutPanelProfession.setAlignment(FlowLayout.RIGHT);
 		panelLabelsDroite.add(panelProfession);
 
 		JLabel labelProfession = new JLabel("Profession :");
 		panelProfession.add(labelProfession);
 
 		JPanel panelTextfieldProfession = new JPanel();
-		FlowLayout fl_panelTextfieldProfession = (FlowLayout) panelTextfieldProfession.getLayout();
-		fl_panelTextfieldProfession.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelTextFieldProfession = (FlowLayout) panelTextfieldProfession.getLayout();
+		layoutPanelTextFieldProfession.setAlignment(FlowLayout.LEFT);
 		panelTextfieldDroite.add(panelTextfieldProfession);
 
 		textProfession = new JTextField();

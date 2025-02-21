@@ -1,24 +1,11 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.Serial;
 import java.util.Objects;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,29 +18,15 @@ public class IHMGestionBiens extends JFrame {
 	private final JTable tableBiens;
 	private final JTextField champRecherche;
 
-    /**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                IHMGestionBiens frame = new IHMGestionBiens();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
-	}
-
 	/**
 	 * Create the frame.
 	 */
 	public IHMGestionBiens() {
 		controleurGestionBiens controleur = new controleurGestionBiens(this);
 		setTitle("Gestion des Biens");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		

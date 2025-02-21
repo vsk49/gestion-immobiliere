@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import dao.JDBCBienImmobilier;
 import modele.Batiment;
 import modele.BienImmobilier;
 import modele.Logement;
@@ -26,15 +27,11 @@ import vue.IHMRegularisationCharges;
 public class controleurGestionBiens extends MouseAdapter implements ActionListener {
 
     private final IHMGestionBiens vue;
-    private final BienImmobilier modele;
-    private final Batiment modeleBatiment;
-    private final Logement modeleLogement;
+    private final JDBCBienImmobilier modele;
 
     public controleurGestionBiens (IHMGestionBiens vue) {
         this.vue = vue;
-        this.modele = new BienImmobilier();
-        this.modeleBatiment = new Batiment();
-        this.modeleLogement = new Logement();
+        this.modele = new JDBCBienImmobilier();
     }
 
     @Override
@@ -46,7 +43,7 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
                 String numeroFiscal = (String) table.getValueAt(ligne, 1);
                 System.out.println("Numero fiscal : "+ numeroFiscal); // Débogage manuel
                 if (numeroFiscal == null) {
-                    BienImmobilier bien = this.modeleBatiment.getBienById(ligne + 1);
+                    BienImmobilier bien = this.modele.getById(String.valueOf(ligne + 1)).orElseThrow();
                     if (bien instanceof Batiment batiment) {
                         IHMDetailsBien vueDetails = new IHMDetailsBien(batiment);
                         vueDetails.setVisible(true);
@@ -55,7 +52,7 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
                         JOptionPane.showMessageDialog(this.vue, "L'objet sélectionné n'est pas un Batiment.");
                     }
                 } else {
-                    BienImmobilier bien = this.modeleLogement.getBienByNumeroFiscal(numeroFiscal);
+                    BienImmobilier bien = this.modele.getById(numeroFiscal).orElseThrow();
                     if (bien instanceof Logement logement) {
                         IHMDetailsBien vueDetails = new IHMDetailsBien(logement);
                         vueDetails.setVisible(true);
@@ -70,7 +67,7 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        List<BienImmobilier> biens = this.modele.getBiens();
+        List<BienImmobilier> biens = this.modele.getAll();
         JTable tableBiens = this.vue.getTableBiens();
         DefaultTableModel tableModel = (DefaultTableModel) tableBiens.getModel();
         tableModel.setRowCount(0);
@@ -84,10 +81,10 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
         for (BienImmobilier bien : biens) {
             tableModel.addRow(new Object[]{
                     bien.getIdBienImmobilier(),
-                    bien.getNumeroFiscal(),
                     bien.getAdresse(),
                     bien.getCodePostal(),
-                    bien.getVille()
+                    bien.getVille(),
+                    bien.getDateAcquisition().toString()
             });
         }
 
@@ -120,20 +117,15 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
                     break;
                 case "Chercher":
                     String numeroFiscal = this.vue.getChampRecherche().getText();
-                    BienImmobilier bien = this.modele.getBienByNumeroFiscal(numeroFiscal);
-                    if (bien != null) {
-                        tableModel.setRowCount(0);
-                        tableModel.addRow(new Object[]{
-                                bien.getIdBienImmobilier(),
-                                bien.getNumeroFiscal(),
-                                bien.getAdresse(),
-                                bien.getCodePostal(),
-                                bien.getVille()
-                        });
-                    } else {
-                        JOptionPane.showMessageDialog(this.vue,
-                                "Aucun bien immobilier trouvé avec le numéro fiscal " + numeroFiscal);
-                    }
+                    BienImmobilier bien = this.modele.getById(numeroFiscal).orElseThrow();
+                    tableModel.setRowCount(0);
+                    tableModel.addRow(new Object[]{
+                            bien.getIdBienImmobilier(),
+                            bien.getAdresse(),
+                            bien.getCodePostal(),
+                            bien.getVille(),
+                            bien.getDateAcquisition().toString()
+                    });
                     break;
             }
         }
@@ -141,8 +133,8 @@ public class controleurGestionBiens extends MouseAdapter implements ActionListen
 
     private List<BienImmobilier> appliquerFiltre(List<BienImmobilier> biens, String filter) {
         return switch (filter) {
-            case "Batiment" -> biens.stream().filter(b -> b.getNumeroFiscal() == null).toList();
-            case "Logement", "Garage" -> biens.stream().filter(b -> b.getNumeroFiscal() != null).toList();
+            case "Batiment" -> biens.stream().filter(b -> b.getIdBienImmobilier() == null).toList();
+            case "Logement", "Garage" -> biens.stream().filter(b -> b.getIdBienImmobilier() != null).toList();
             default -> biens;
         };
     }

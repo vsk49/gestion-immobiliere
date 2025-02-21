@@ -38,20 +38,20 @@ public class IHMAccueil extends JFrame {
 
 		// First row (3 sections)
 		gbc.gridy = 0;
-		addSection(mainPanel, gbc, "locataires.png", "Consulter les locataires", "Ajouter un locataire", 0, 1);
-		addSection(mainPanel, gbc, "biens50.png", "Consulter les biens", "Ajouter un bien", 1, 1);
-		addSection(mainPanel, gbc, "baux.png", "Consulter les baux", "Ajouter un bail", 2, 1);
+		addSection(mainPanel, gbc, "locataires.png", "Mes Locataires", "Ajouter Locataire", 0, 1);
+		addSection(mainPanel, gbc, "biens50.png", "Mes Biens", "Ajouter Bien", 1, 1);
+		addSection(mainPanel, gbc, "baux.png", "Mes Baux", "Ajouter Bail", 2, 1);
 
 		// Second row (Déclaration fiscale)
 		gbc.gridy = 1;
 		gbc.gridx = 0;
 		gbc.gridwidth = 2;  // Span across two columns to align properly
-		addSection(mainPanel, gbc, "declarationFiscale.png", "Déclaration fiscale", null,0, 2);
+		addSection(mainPanel, gbc, "declarationFiscale.png", "Déclaration Fiscale", null,0, 2);
 
 		// Second row (Finances)
 		gbc.gridx = 1; // Move to the correct column
 		gbc.gridwidth = 2; // Span two columns to be centered
-		addSection(mainPanel, gbc, "finance.png", "Finances", null, 1, 2);
+		addSection(mainPanel, gbc, "finance.png", "Régularisation Charges", null, 1, 2);
 
 		contentPane.add(mainPanel, BorderLayout.CENTER);
 		setVisible(true);

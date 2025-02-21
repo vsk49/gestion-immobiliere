@@ -1,153 +1,151 @@
+
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.io.Serial;
-import java.util.Objects;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-
-import controleur.controleurGestionLocataires;
+import controleur.ControleurGestionLocataires;
+import dao.JDBCLocataire;
 import modele.Locataire;
 
-import java.awt.Cursor;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.util.List;
+import java.util.Objects;
 
 public class IHMGestionLocataires extends JFrame {
 
-	@Serial
-	private static final long serialVersionUID = 1L;
-	private final JTable tableLocataires;
 	private final JTextField champRecherche;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                IHMGestionLocataires frame = new IHMGestionLocataires();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
-	}
+	private final JPanel panelLocataires;
+	private final ControleurGestionLocataires controleur;
 
 	public IHMGestionLocataires() {
-		controleurGestionLocataires controleur = new controleurGestionLocataires(this, new Locataire());
 		setTitle("Gestion des Locataires");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setVisible(true);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panelGauche = new JPanel();
-		panelGauche.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
-		contentPane.add(panelGauche, BorderLayout.WEST);
-		
-		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
-		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
-		JButton BoutonGBiens = new JButton();
-		BoutonGBiens.setIcon(iconeBiens);
-		panelGauche.add(BoutonGBiens);
-		BoutonGBiens.setActionCommand("biens");
-		BoutonGBiens.addActionListener(controleur);
-		
-		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
-		JButton BoutonGBaux = new JButton();
-		BoutonGBaux.setIcon(iconeBaux);
-		panelGauche.add(BoutonGBaux);
-		BoutonGBaux.setActionCommand("baux");
-		BoutonGBaux.addActionListener(controleur);
-		
-		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
-		JButton BoutonGDeclFisc = new JButton();
-		BoutonGDeclFisc.setIcon(iconeDeclFisc);
-		panelGauche.add(BoutonGDeclFisc);
-		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
-		BoutonGDeclFisc.addActionListener(controleur);
 
-		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
-		JButton BoutonGFinances = new JButton();
-		BoutonGFinances.setIcon(iconeFinances);
-		panelGauche.add(BoutonGFinances);
-		BoutonGFinances.setActionCommand("RegularisationCharges");
-		BoutonGFinances.addActionListener(controleur);
-		
+		JPanel panelGauche = new JPanel();
+		panelGauche.setLayout(new BoxLayout(panelGauche, BoxLayout.Y_AXIS));
+		panelGauche.setBorder(new EmptyBorder(10, 10, 10, 10));
+		contentPane.add(panelGauche, BorderLayout.WEST);
+
 		JPanel panelCentre = new JPanel();
 		contentPane.add(panelCentre, BorderLayout.CENTER);
 		panelCentre.setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel panelParamRecherche = new JPanel();
 		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        this.champRecherche = new JTextField();
+		this.champRecherche = new JTextField();
 		this.champRecherche.setColumns(10);
 		panelParamRecherche.add(this.champRecherche);
-		
-		JButton BoutonRecherche = new JButton("Chercher");
-		panelParamRecherche.add(BoutonRecherche);
-		BoutonRecherche.addActionListener(controleur);
 
-		JComboBox<String> comboBoxFiltre = new JComboBox<>(new String[] {
-				"Tous",
-				"Nationalite: Francaise",
-				"Nationalite: Etrangere",
-		});
-		panelParamRecherche.add(comboBoxFiltre);
-		comboBoxFiltre.addActionListener(controleur);
+		JButton boutonRecherche = new JButton("Chercher");
+		panelParamRecherche.add(boutonRecherche);
+		boutonRecherche.setActionCommand("Chercher");
 
 		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
-		JButton BoutonGestionAjout = new JButton();
-		BoutonGestionAjout.setIcon(iconeGestionAjout);
-		panelParamRecherche.add(BoutonGestionAjout);
-		BoutonGestionAjout.setActionCommand("Ajout");
-		BoutonGestionAjout.addActionListener(controleur);
+		JButton boutonGestionAjout = new JButton();
+		boutonGestionAjout.setIcon(iconeGestionAjout);
+		panelParamRecherche.add(boutonGestionAjout);
+		boutonGestionAjout.setActionCommand("Ajout");
 
-		this.tableLocataires = new JTable(new DefaultTableModel(new Object[]{"ID", "Nom", "Prenom", "Email"}, 0) {
-			@Override
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-		});
-		JScrollPane scrollPane = new JScrollPane(this.tableLocataires);
+		this.panelLocataires = new JPanel();
+		this.panelLocataires.setLayout(new BoxLayout(this.panelLocataires, BoxLayout.Y_AXIS));
+		JScrollPane scrollPane = new JScrollPane(this.panelLocataires);
 		panelCentre.add(scrollPane, BorderLayout.CENTER);
-		this.tableLocataires.addMouseListener(controleur);
-		
-		JLabel LabelTitre = new JLabel("Gestion des locataires");
-		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(LabelTitre, BorderLayout.NORTH);
 
-		controleur.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
+		JLabel libelleTitrePage = new JLabel("Gestion des locataires");
+		libelleTitrePage.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		libelleTitrePage.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(libelleTitrePage, BorderLayout.NORTH);
+
+		this.controleur = new ControleurGestionLocataires(this, new JDBCLocataire());
+		setJMenuBar(createMenuBar(controleur));
+		boutonRecherche.addActionListener(controleur);
+		boutonGestionAjout.addActionListener(controleur);
+
+		this.setVisible(true);
 	}
 
-	public JTable getTableLocataires() {
-		return this.tableLocataires;
+	private JMenuBar createMenuBar(ControleurGestionLocataires controleur) {
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.LIGHT_GRAY);
+
+		JMenu menu = new JMenu("Menu");
+		menu.setOpaque(true);
+		menu.setBackground(Color.LIGHT_GRAY);
+		menu.setForeground(Color.BLACK);
+
+		JMenuItem menuItemAccueil = createMenuItem("Accueil", controleur);
+		JMenuItem menuItemLocataires = createMenuItem("Mes Locataires", controleur);
+		JMenuItem menuItemBiens = createMenuItem("Mes Biens", controleur);
+		JMenuItem menuItemBaux = createMenuItem("Mes Baux", controleur);
+		JMenuItem menuItemDeclarationFiscale = createMenuItem("Déclaration Fiscale", controleur);
+		JMenuItem menuItemFinances = createMenuItem("Régularisation de Charges", controleur);
+
+		menu.add(menuItemAccueil);
+		menu.add(menuItemLocataires);
+		menu.add(menuItemBiens);
+		menu.add(menuItemBaux);
+		menu.add(menuItemDeclarationFiscale);
+		menu.add(menuItemFinances);
+
+		menuBar.add(menu);
+		return menuBar;
+	}
+
+	private JMenuItem createMenuItem(String text, ControleurGestionLocataires controleur) {
+		JMenuItem menuItem = new JMenuItem(text);
+		menuItem.setOpaque(true);
+		menuItem.setBackground(Color.LIGHT_GRAY);
+		menuItem.setForeground(Color.BLACK);
+		menuItem.addActionListener(controleur);
+		return menuItem;
+	}
+
+	public void updateLocataires(List<Locataire> locataires) {
+		this.panelLocataires.removeAll();
+		for (Locataire locataire : locataires) {
+			JPanel locatairePanel = createLocatairePanel(locataire);
+			locatairePanel.addMouseListener(this.controleur);
+			this.panelLocataires.add(locatairePanel);
+		}
+		this.panelLocataires.revalidate();
+		this.panelLocataires.repaint();
+	}
+
+	private JPanel createLocatairePanel(Locataire locataire) {
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.setBorder(BorderFactory.createTitledBorder("Locataire ID: " + locataire.getIdLocataire()));
+		panel.putClientProperty("locataire", locataire);
+
+		JLabel nameLabel = new JLabel("Nom: " + locataire.getNom() + " " + locataire.getPrenom());
+		nameLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		panel.add(nameLabel);
+
+		JLabel emailLabel = new JLabel("Email: " + locataire.getEmail());
+		emailLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		panel.add(emailLabel);
+
+		panel.addMouseListener(this.controleur);
+
+		return panel;
 	}
 
 	public JTextField getChampRecherche() {
 		return this.champRecherche;
+	}
+
+	public ControleurGestionLocataires getControleur() {
+		return this.controleur;
 	}
 
 }

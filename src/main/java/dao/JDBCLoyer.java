@@ -63,7 +63,7 @@ public class JDBCLoyer implements DAO<Loyer, Integer> {
 	public boolean insert(Loyer t) {
 		boolean resultat = false;
 		try {
-			String insertion = "INSERT INTO Loyer (dateLoyer, montantLoyer, provisionPourCharge, idBienLouable) VALUES (?, ?, ?, ?)";
+			String insertion = "INSERT INTO Loyer (dateLoyer, montantLoyer, provisionPourCharge, IDBIENIMMOBILIER) VALUES (?, ?, ?, ?)";
 			PreparedStatement statement = JDBCConnexion.getConnexion().prepareStatement(insertion);
 
 			statement.setDate(1, Date.valueOf(t.getDateLoyer()));

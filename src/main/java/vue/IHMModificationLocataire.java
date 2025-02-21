@@ -1,10 +1,6 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Panel;
+import java.awt.*;
 import java.io.Serial;
 import java.util.Objects;
 
@@ -14,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 
-import controleur.controleurModificationLocataire;
+import controleur.ControleurModificationLocataire;
 import modele.Locataire;
 
 public class IHMModificationLocataire extends JFrame {
@@ -39,7 +35,7 @@ public class IHMModificationLocataire extends JFrame {
 	public IHMModificationLocataire(Locataire locataire) {
         setTitle("Modification du locataire");
 		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -49,24 +45,24 @@ public class IHMModificationLocataire extends JFrame {
 		menu.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		ImageIcon iconeBiens = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("biens50.png")));
-		JButton BoutonGBiens = new JButton();
-		BoutonGBiens.setIcon(iconeBiens);
-		menu.add(BoutonGBiens);
+		JButton boutonGestionBiens = new JButton();
+		boutonGestionBiens.setIcon(iconeBiens);
+		menu.add(boutonGestionBiens);
 
 		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
-		JButton BoutonGBaux = new JButton();
-		BoutonGBaux.setIcon(iconeBaux);
-		menu.add(BoutonGBaux);
+		JButton boutonGestionBaux = new JButton();
+		boutonGestionBaux.setIcon(iconeBaux);
+		menu.add(boutonGestionBaux);
 
 		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
-		JButton BoutonGDeclFisc = new JButton();
-		BoutonGDeclFisc.setIcon(iconeDeclFisc);
-		menu.add(BoutonGDeclFisc);
+		JButton boutonDeclaration = new JButton();
+		boutonDeclaration.setIcon(iconeDeclFisc);
+		menu.add(boutonDeclaration);
 		
 		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
-		JButton BoutonGFinances = new JButton();
-		BoutonGFinances.setIcon(iconeFinances);
-		menu.add(BoutonGFinances);
+		JButton boutonRegularisation = new JButton();
+		boutonRegularisation.setIcon(iconeFinances);
+		menu.add(boutonRegularisation);
 		
 		JLabel labelModifierLocataire = new JLabel("Modification du locataire");
 		labelModifierLocataire.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -81,8 +77,8 @@ public class IHMModificationLocataire extends JFrame {
 		JButton boutonAnnuler = new JButton("Annuler");
 		panelbouton.add(boutonAnnuler);
 		
-		JButton BoutonRéinitialiser = new JButton("Réinitialiser");
-		panelbouton.add(BoutonRéinitialiser);
+		JButton boutonReinitialiser = new JButton("Réinitialiser");
+		panelbouton.add(boutonReinitialiser);
 		
 		JButton boutonValider = new JButton("Valider");
 		panelbouton.add(boutonValider);
@@ -240,16 +236,16 @@ public class IHMModificationLocataire extends JFrame {
 
 		// Panel pour le genre
 		JPanel panelGenre = new JPanel();
-		FlowLayout fl_panelGenre = (FlowLayout) panelGenre.getLayout();
-		fl_panelGenre.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelGenre = (FlowLayout) panelGenre.getLayout();
+		layoutPanelGenre.setAlignment(FlowLayout.RIGHT);
 		panelLabelsGauche.add(panelGenre);
 
 		JLabel labelGenre = new JLabel("Genre :");
 		panelGenre.add(labelGenre);
 
 		JPanel panelRadioButtonsGenre = new JPanel();
-		FlowLayout fl_panelRadioButtonsGenre = (FlowLayout) panelRadioButtonsGenre.getLayout();
-		fl_panelRadioButtonsGenre.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelRadioButtonGenre = (FlowLayout) panelRadioButtonsGenre.getLayout();
+		layoutPanelRadioButtonGenre.setAlignment(FlowLayout.LEFT);
 		panelTextfieldGauche.add(panelRadioButtonsGenre);
 
 		radioButtonHomme = new JRadioButton("Homme");
@@ -264,16 +260,16 @@ public class IHMModificationLocataire extends JFrame {
 
 		// Panel pour le lieu de naissance
 		JPanel panelLieuNaissance = new JPanel();
-		FlowLayout fl_panelLieuNaissance = (FlowLayout) panelLieuNaissance.getLayout();
-		fl_panelLieuNaissance.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelLieuNaissance = (FlowLayout) panelLieuNaissance.getLayout();
+		layoutPanelLieuNaissance.setAlignment(FlowLayout.RIGHT);
 		panelLabelsGauche.add(panelLieuNaissance);
 
 		JLabel labelLieuNaissance = new JLabel("Lieu de naissance :");
 		panelLieuNaissance.add(labelLieuNaissance);
 
 		JPanel panelTextfieldLieuNaissance = new JPanel();
-		FlowLayout fl_panelTextfieldLieuNaissance = (FlowLayout) panelTextfieldLieuNaissance.getLayout();
-		fl_panelTextfieldLieuNaissance.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelTextFieldLieuNaissance = (FlowLayout) panelTextfieldLieuNaissance.getLayout();
+		layoutPanelTextFieldLieuNaissance.setAlignment(FlowLayout.LEFT);
 		panelTextfieldGauche.add(panelTextfieldLieuNaissance);
 
 		textFieldLieuNaissance = new JTextField();
@@ -282,16 +278,16 @@ public class IHMModificationLocataire extends JFrame {
 
 		// Panel pour la nationalité
 		JPanel panelNationalite = new JPanel();
-		FlowLayout fl_panelNationalite = (FlowLayout) panelNationalite.getLayout();
-		fl_panelNationalite.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelNationalite = (FlowLayout) panelNationalite.getLayout();
+		layoutPanelNationalite.setAlignment(FlowLayout.RIGHT);
 		panelLabelsDroite.add(panelNationalite);
 
 		JLabel labelNationalite = new JLabel("Nationalité :");
 		panelNationalite.add(labelNationalite);
 
 		JPanel panelTextfieldNationalite = new JPanel();
-		FlowLayout fl_panelTextfieldNationalite = (FlowLayout) panelTextfieldNationalite.getLayout();
-		fl_panelTextfieldNationalite.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelTextFieldNationalite = (FlowLayout) panelTextfieldNationalite.getLayout();
+		layoutPanelTextFieldNationalite.setAlignment(FlowLayout.LEFT);
 		panelTextfieldDroite.add(panelTextfieldNationalite);
 
 		textFieldNationalite = new JTextField();
@@ -300,35 +296,35 @@ public class IHMModificationLocataire extends JFrame {
 
 		// Panel pour la profession
 		JPanel panelProfession = new JPanel();
-		FlowLayout fl_panelProfession = (FlowLayout) panelProfession.getLayout();
-		fl_panelProfession.setAlignment(FlowLayout.RIGHT);
+		FlowLayout layoutPanelProfession = (FlowLayout) panelProfession.getLayout();
+		layoutPanelProfession.setAlignment(FlowLayout.RIGHT);
 		panelLabelsDroite.add(panelProfession);
 
 		JLabel labelProfession = new JLabel("Profession :");
 		panelProfession.add(labelProfession);
 
 		JPanel panelTextfieldProfession = new JPanel();
-		FlowLayout fl_panelTextfieldProfession = (FlowLayout) panelTextfieldProfession.getLayout();
-		fl_panelTextfieldProfession.setAlignment(FlowLayout.LEFT);
+		FlowLayout layoutPanelTextFieldProfession = (FlowLayout) panelTextfieldProfession.getLayout();
+		layoutPanelTextFieldProfession.setAlignment(FlowLayout.LEFT);
 		panelTextfieldDroite.add(panelTextfieldProfession);
 
 		textFieldProfession = new JTextField();
 		textFieldProfession.setColumns(10);
 		panelTextfieldProfession.add(textFieldProfession);
 		
-		controleurModificationLocataire controleur = new controleurModificationLocataire(this, locataire);
-		BoutonGBiens.setActionCommand("biens");
-		BoutonGBiens.addActionListener(controleur);
-		BoutonGBaux.setActionCommand("baux");
-		BoutonGBaux.addActionListener(controleur);
-		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
-		BoutonGDeclFisc.addActionListener(controleur);
-		BoutonGFinances.setActionCommand("RegularisationCharges");
-		BoutonGFinances.addActionListener(controleur);
+		ControleurModificationLocataire controleur = new ControleurModificationLocataire(this, locataire);
+		boutonGestionBiens.setActionCommand("biens");
+		boutonGestionBiens.addActionListener(controleur);
+		boutonGestionBaux.setActionCommand("baux");
+		boutonGestionBaux.addActionListener(controleur);
+		boutonDeclaration.setActionCommand("DeclarationFiscale");
+		boutonDeclaration.addActionListener(controleur);
+		boutonRegularisation.setActionCommand("RegularisationCharges");
+		boutonRegularisation.addActionListener(controleur);
 		boutonAnnuler.setActionCommand("Annuler");
 		boutonAnnuler.addActionListener(controleur);
-		BoutonRéinitialiser.setActionCommand("Reinitialiser");
-		BoutonRéinitialiser.addActionListener(controleur);
+		boutonReinitialiser.setActionCommand("Reinitialiser");
+		boutonReinitialiser.addActionListener(controleur);
 		boutonValider.setActionCommand("Valider");
 		boutonValider.addActionListener(controleur);
 	}

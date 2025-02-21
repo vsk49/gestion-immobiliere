@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import modele.Genre;
+import dao.JDBCLocataire;
 import modele.Locataire;
 import vue.IHMAjouterLocataire;
 import vue.IHMDeclarationFiscale;
@@ -14,13 +14,13 @@ import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMRegularisationCharges;
 
-public class controleurAjoutLocataire implements ActionListener {
+public class ControleurAjoutLocataire implements ActionListener {
 
     private final IHMAjouterLocataire vue;
-    private final Locataire modele;
+    private final JDBCLocataire modele;
 
-    public controleurAjoutLocataire(IHMAjouterLocataire vue) {
-        this.modele = new Locataire();
+    public ControleurAjoutLocataire(IHMAjouterLocataire vue) {
+        this.modele = new JDBCLocataire();
         this.vue = vue;
     }
 
@@ -49,24 +49,8 @@ public class controleurAjoutLocataire implements ActionListener {
                 this.vue.dispose();
                 break;
             case "Valider" :
-                // idLocataire = 1ere lettre du prenom + 3 premieres lettres du nom
-                this.modele.setIdLocataire(this.vue.getTextFieldNom().getText().substring(0, 1).toUpperCase()
-                        + this.vue.getTextFieldPrenom().getText().substring(0, 3).toUpperCase());
-                this.modele.setNom(this.vue.getTextFieldNom().getText());
-                this.modele.setPrenom(this.vue.getTextFieldPrenom().getText());
-                this.modele.setDateNaissance(this.vue.getDatePickerNaissance().getDate());
-                this.modele.setTelephone(this.vue.getTextFieldTelephone().getText());
-                this.modele.setEmail(this.vue.getTextFieldEmail().getText());
-                this.modele.setDateEntree(this.vue.getDatePickerEntree().getDate());
-                this.modele.setLieuNaissance(this.vue.getTextFieldLieuNaissance().getText());
-                this.modele.setNationalite(this.vue.getTextFieldNationalite().getText());
-                this.modele.setProfession(this.vue.getTextProfession().getText());
-                if (this.vue.getRadioButtonHomme().isSelected()) {
-                    this.modele.setGenre(Genre.MASCULIN);
-                } else {
-                    this.modele.setGenre(Genre.FEMININ);
-                }
-                this.modele.enregistrerLocataire();
+                Locataire l = construireLocataireSelonLesChamps();
+                this.modele.insert(l);
                 this.vue.dispose();
                 IHMGestionLocataires vueGestion = new IHMGestionLocataires();
                 vueGestion.setVisible(true);
@@ -75,7 +59,18 @@ public class controleurAjoutLocataire implements ActionListener {
                 IHMGestionLocataires vueGestionLoc = new IHMGestionLocataires();
                 vueGestionLoc.setVisible(true);
                 this.vue.dispose();
+                break;
+            default :
+                throw new IllegalArgumentException("Unexpected value: " + action.getActionCommand());
         }
+    }
+
+    private Locataire construireLocataireSelonLesChamps() {
+        String idLocataire = this.vue.getTextFieldNom().getText().substring(0, 1).toUpperCase()
+                + this.vue.getTextFieldPrenom().getText().substring(0, 3).toUpperCase();
+        return new Locataire(idLocataire, this.vue.getTextFieldNom().getText(),
+                this.vue.getTextFieldPrenom().getText(), this.vue.getDatePickerNaissance().getDate(),
+                this.vue.getTextFieldEmail().getText(), this.vue.getTextFieldTelephone().getText());
     }
 
 }

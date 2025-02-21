@@ -1,18 +1,15 @@
 package vue;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import javax.swing.JLabel;
 import java.io.Serial;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTable;
-import java.awt.FlowLayout;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.SwingConstants;
 import java.awt.event.WindowAdapter;
@@ -33,21 +30,10 @@ public class IHMDetailsBien extends JFrame {
 	private final JLabel labelNbPieces;
 	private final JLabel labelStatut;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				IHMDetailsBien frame = new IHMDetailsBien(new BienImmobilier());
-				frame.setVisible(true);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		});
-	}
-
 	public IHMDetailsBien(BienImmobilier bien) {
 		setTitle("Détail du bien");
 		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setVisible(true);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -146,7 +132,7 @@ public class IHMDetailsBien extends JFrame {
 						{null, null, null, null},
 				},
 				new String[] {
-						"New column", "New column", "New column", "New column"
+						"New column", "New colum", "New colun", "New olumn"
 				}
 		));
 		panelListeLocataire.add(tableLocataires);

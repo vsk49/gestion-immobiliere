@@ -1,9 +1,6 @@
 package vue;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.Panel;
+import java.awt.*;
 import java.io.Serial;
 import java.util.Objects;
 
@@ -15,13 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
-import java.awt.Font;
 
 import controleur.controleurModificationBien;
-import java.awt.SystemColor;
-import java.awt.Color;
+import modele.BienImmobilier;
 
 public class IHMModificationBien extends JFrame {
 
@@ -37,30 +31,14 @@ public class IHMModificationBien extends JFrame {
 	private JTextField textFieldStatut;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMModificationBien frame = new IHMModificationBien();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public IHMModificationBien() {
+	public IHMModificationBien(BienImmobilier bien) {
 		getContentPane().setForeground(SystemColor.menu);
-		controleurModificationBien controleur = new controleurModificationBien(this);
+		controleurModificationBien controleur = new controleurModificationBien(this, bien);
 		setTitle("Modification du bien");
 		this.setSize(600, 400);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
         this.setVisible(true);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().setLayout(new BorderLayout(0, 0));

@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import dao.JDBCBienImmobilier;
 import modele.BienImmobilier;
-import modele.BienLouable;
+import modele.Logement;
 import vue.IHMDetailsBien;
 import vue.IHMModificationBien;
 import vue.IHMGestionBiens;
@@ -18,12 +19,13 @@ import vue.IHMDeclarationFiscale;
 public class controleurDetailsBiens implements ActionListener {
 
     private final IHMDetailsBien vue;
+    private final BienImmobilier bien;
 
     public controleurDetailsBiens (IHMDetailsBien vue, BienImmobilier bien) {
         this.vue = vue;
-        BienImmobilier modele = new BienImmobilier();
-        BienImmobilier bienAffiche = modele.getBienByNumeroFiscal(bien.getNumeroFiscal());
-        afficherInformationsBien(vue, bienAffiche);
+        JDBCBienImmobilier modele = new JDBCBienImmobilier();
+        this.bien = modele.getById(bien.getIdBienImmobilier()).orElseThrow();
+        afficherInformationsBien(vue, this.bien);
     }
 
     @Override
@@ -56,7 +58,7 @@ public class controleurDetailsBiens implements ActionListener {
             this.vue.dispose();
             break;
 		case "Modifier" :
-			IHMModificationBien vueModificationBien = new IHMModificationBien();
+			IHMModificationBien vueModificationBien = new IHMModificationBien(this.bien);
             vueModificationBien.setVisible(true);
             this.vue.setVisible(false);
             break;
@@ -68,10 +70,10 @@ public class controleurDetailsBiens implements ActionListener {
         vue.getLabelCodePostal().setText("Code Postal: " + bien.getCodePostal());
         vue.getLabelVille().setText("Ville: " + bien.getVille());
         vue.getLabelEtage().setText("Etage: N/A");
-        if (bien instanceof BienLouable ) {
+        if (bien instanceof Logement) {
             vue.getLabelTypeBien().setText("Type de bien: " + bien.getClass().getName());
-            vue.getLabelSurface().setText("Surface: " + ((BienLouable) bien).getSurface());
-            vue.getLabelNbPieces().setText("Nombre de pièces: " + ((BienLouable) bien).getNbPieces());
+            vue.getLabelSurface().setText("Surface: " + ((Logement) bien).getSurfaceHabitable());
+            vue.getLabelNbPieces().setText("Nombre de pièces: " + ((Logement) bien).getNbPieces());
         }
         vue.getLabelStatut().setText("Statut: Loué");
     }
