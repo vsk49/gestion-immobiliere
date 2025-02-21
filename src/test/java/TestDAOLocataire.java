@@ -1,5 +1,3 @@
-package test;
-
 import dao.JDBCLocataire;
 import modele.Locataire;
 import org.junit.After;
