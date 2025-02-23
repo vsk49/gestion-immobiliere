@@ -61,6 +61,24 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
                     }
                 }
             }
+            case "Detail" -> {
+                this.allLocataires.stream()
+                .filter(l -> l.getIdLocataire().equals(idLocataire))
+                .findFirst()
+                .ifPresentOrElse(
+                    detailedLocataire -> new IHMDetailsLocataire(detailedLocataire).setVisible(true),
+                    () -> JOptionPane.showMessageDialog(vue, "Locataire introuvable", "Erreur", JOptionPane.ERROR_MESSAGE)
+                );
+            }
+            case "Modifier" -> {
+                this.allLocataires.stream()
+                .filter(l -> l.getIdLocataire().equals(idLocataire))
+                .findFirst()
+                .ifPresentOrElse(
+                    detailedLocataire -> new IHMModificationLocataire(detailedLocataire).setVisible(true),
+                    () -> JOptionPane.showMessageDialog(vue, "Locataire introuvable", "Erreur", JOptionPane.ERROR_MESSAGE)
+                );
+            }
         }
     }
 

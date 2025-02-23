@@ -1,15 +1,34 @@
 
 package vue;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Frame;
+import java.util.List;
+import java.util.Objects;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+
 import controleur.ControleurGestionLocataires;
 import dao.JDBCLocataire;
 import modele.Locataire;
-
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.util.List;
-import java.util.Objects;
 
 public class IHMGestionLocataires extends JFrame {
 
@@ -122,21 +141,44 @@ public class IHMGestionLocataires extends JFrame {
 	}
 
 	private JPanel createLocatairePanel(Locataire locataire) {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		JPanel panel = new JPanel(new BorderLayout()); // Utilisation d'un BorderLayout
 		panel.setBorder(BorderFactory.createTitledBorder("Locataire ID: " + locataire.getIdLocataire()));
 		panel.putClientProperty("locataire", locataire);
-
+		panel.setOpaque(true);
+	
+		// Panel pour les boutons (aligné à gauche)
+		JPanel panelBoutons = new JPanel();
+		panelBoutons.setLayout(new BoxLayout(panelBoutons, BoxLayout.Y_AXIS));
+	
+		JButton btnDetails = new JButton("Détails");
+		btnDetails.setActionCommand("Details");
+		btnDetails.addActionListener(this.controleur);
+	
+		JButton btnModifier = new JButton("Modifier");
+		btnModifier.setActionCommand("Modifier");
+		btnModifier.addActionListener(this.controleur);
+	
+		panelBoutons.add(btnDetails);
+		panelBoutons.add(Box.createVerticalStrut(5)); // Espace entre les boutons
+		panelBoutons.add(btnModifier);
+	
+		// Panel pour les infos locataire (aligné à droite)
+		JPanel panelInfos = new JPanel();
+		panelInfos.setLayout(new BoxLayout(panelInfos, BoxLayout.Y_AXIS));
+	
 		JLabel nameLabel = new JLabel("Nom: " + locataire.getNom() + " " + locataire.getPrenom());
 		nameLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		panel.add(nameLabel);
-
+	
 		JLabel emailLabel = new JLabel("Email: " + locataire.getEmail());
 		emailLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		panel.add(emailLabel);
-
-		panel.addMouseListener(this.controleur);
-
+	
+		panelInfos.add(nameLabel);
+		panelInfos.add(emailLabel);
+	
+		// Ajout des composants au panel principal
+		panel.add(panelBoutons, BorderLayout.WEST); // Boutons à gauche
+		panel.add(panelInfos, BorderLayout.CENTER); // Infos à droite
+	
 		return panel;
 	}
 
