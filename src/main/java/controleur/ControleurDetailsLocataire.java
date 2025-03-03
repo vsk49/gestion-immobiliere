@@ -6,13 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 import dao.JDBCLocataire;
 import modele.Locataire;
-import vue.IHMDeclarationFiscale;
 import vue.IHMDetailsLocataire;
-import vue.IHMGestionBaux;
-import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMModificationLocataire;
-import vue.IHMRegularisationCharges;
+
+import javax.swing.*;
 
 public class ControleurDetailsLocataire implements ActionListener {
 
@@ -28,41 +26,16 @@ public class ControleurDetailsLocataire implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String actionCommand = e.getActionCommand();
-        switch (actionCommand) {
-			case "declarationFiscale" :
-				IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
-				this.vue.dispose();
-				vueDeclarationFiscale.setVisible(true);
-				break;
-			case "finances" :
-				IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
-				this.vue.dispose();
-				vueRegularisationCharges.setVisible(true);
-				break;
-			case "baux" :
-				IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-				this.vue.dispose();
-				vueGestionBaux.setVisible(true);
-				break;
-			case "biens" :
-				IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-				this.vue.dispose();
-				vueGestionBiens.setVisible(true);
-				break;
-			case "Retour" :
-				IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-				this.vue.dispose();
-				vueGestionLocataires.setVisible(true);
-				break;
-			case "Modifier" :
-				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
-				this.vue.dispose();
-				vueModificationLocataire.setVisible(true);
-				break;
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + actionCommand);
-        }
+		String text = ((JButton) e.getSource()).getText();
+		if (text.equals("Modifier")) {
+			IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
+			this.vue.dispose();
+			vueModificationLocataire.setVisible(true);
+		} else {
+			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+			this.vue.dispose();
+			vueGestionLocataires.setVisible(true);
+		}
 	}
 
 	private void afficherInformationsLocataire(IHMDetailsLocataire vue, Locataire locataire) {

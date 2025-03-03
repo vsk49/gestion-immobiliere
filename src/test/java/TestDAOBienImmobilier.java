@@ -1,5 +1,3 @@
-package test;
-
 import dao.JDBCBienImmobilier;
 import modele.Batiment;
 import modele.Garage;
