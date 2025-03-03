@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] Resolving merge conflicts.">
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] I missed a little bit of refactoring.">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -625,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741003498069</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="[CODE] I missed a little bit of refactoring.">
+      <option name="closed" value="true" />
+      <created>1741004244769</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1741004244769</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +693,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[CONFIG]" />
     <MESSAGE value="j'ai pas valide mes changements" />
     <MESSAGE value="[CODE] Ajout du locataire OK" />
     <MESSAGE value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
@@ -710,6 +717,7 @@
     <MESSAGE value="[CODE] refactoring User Story Coordonnees Cautions OK!" />
     <MESSAGE value="[CONFIG] resoudre les warnings du encodage et configuration de la methode setUp() du TestDAOLocataire" />
     <MESSAGE value="[CONFIG] Resolving merge conflicts." />
-    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] Resolving merge conflicts." />
+    <MESSAGE value="[CODE] I missed a little bit of refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] I missed a little bit of refactoring." />
   </component>
 </project>

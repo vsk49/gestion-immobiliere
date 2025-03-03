@@ -2,6 +2,10 @@ image:
   name: maven:3.9-eclipse-temurin-17
   entrypoint: [""]
 
+services:
+  - name: container-registry.oracle.com/database/express:21.3.0-xe
+    alias: oracle
+
 stages:
   - build
   - reset-db
@@ -10,24 +14,22 @@ stages:
 
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-  DB_URL: jdbc:oracle:thin:@//localhost:1521/XEPDB1
-  DB_USERNAME: sae3a01
+  DB_URL: jdbc:oracle:thin:@oracle:1521/XEPDB1
+  DB_USERNAME: SAE3A01
   DB_PASSWORD: $iutinfo
 
 build:
   stage: build
-  image: maven:3.9-eclipse-temurin-17  # Use Java 17 (or change to Java 8 if needed)
   script:
     - echo "Starting the Maven build..."
     - mvn clean package -B
   artifacts:
     paths:
-      - target/*.jar  # Ensure the built JAR is available as an artifact
-    expire_in: 1 week  # Optional: Define how long to keep artifacts
+      - target/*.jar
+    expire_in: 1 week
 
 reset-db:
   stage: reset-db
-  image: maven:3.9-eclipse-temurin-17
   script:
     - echo "Resetting the database..."
     - mvn exec:java -Dexec.mainClass="dao.CreateBD"
@@ -35,14 +37,13 @@ reset-db:
 
 test:
   stage: test
-  image: maven:3.9-eclipse-temurin-17
   script:
     - echo "Running unit tests..."
     - mvn test -B
   artifacts:
     when: always
     paths:
-      - target/surefire-reports/  # Store test reports
+      - target/surefire-reports/
     expire_in: 1 week
 
 deploy:
@@ -50,5 +51,4 @@ deploy:
   image: alpine:latest
   script:
     - echo "Deploying the application..."
-    # Replace this with your deployment script
     - echo "Deployment complete."
