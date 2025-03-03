@@ -26,4 +26,27 @@ Cette section est divisée en deux parties :
 * [Mise en place de la base de données]()
 
 # Partie 1 : Importer le projet
-Vous avez le choix d'utiliser entre VS Code, IntelliJ IDEA ou Eclipse pour importer ce projet. Pour commencer, clone le dépôt en utilisant cette commande :
+Vous avez le choix d'utiliser entre VS Code, IntelliJ IDEA ou Eclipse pour importer ce projet. Pour ce faire :
+* Téléchargez le code source de votre manière.
+* Ouvrez votre IDE préféré et y importez le code source.
+* Le projet est un projet Maven. Assurez que votre projet est bien mis en place.
+
+Normalement vous avez réussi cette partie. 
+
+# Partie 2 : Mise en place de la base de données
+Maintenant on passe à la partie la plus difficile. Cette étape a plusieurs situations, donc il faut faire attention.
+
+## Téléchargement d'Oracle Database XE 21
+Si vous n'avez pas encore téléchargé la base de données Oracle, téléchargez-la en cliquant ce [lien](https://download.oracle.com/otn-pub/otn_software/db-express/OracleXE213_Win64.zip).
+* Remarque : lors de l'installation de la BD, il faut que vous mémorisiez votre mot de passe pour continuer cette configuration.
+
+## Configuration de la base de données
+Pour commencer, il faut créer un utilisateur pour la base de données. Dans ce cas, on veut créer l'utilisateur "SAE3A01" avec mot de passe "$iutinfo".
+
+Ouvrez votre terminal et tapez cette commande :
+```
+sqlplus / as sysdba
+```
+Il vous demande ensuite le mot de passe, tapez le mot de passe que vous avez crée lors de l'installation de la BD.
+
+
