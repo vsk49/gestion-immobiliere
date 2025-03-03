@@ -27,20 +27,15 @@ public class ControleurDetailsLocataire implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String text = ((JButton) e.getSource()).getText();
-        switch (text) {
-			case "Retour" :
-				IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-				this.vue.dispose();
-				vueGestionLocataires.setVisible(true);
-				break;
-			case "Modifier" :
-				IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
-				this.vue.dispose();
-				vueModificationLocataire.setVisible(true);
-				break;
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + text);
-        }
+		if (text.equals("Modifier")) {
+			IHMModificationLocataire vueModificationLocataire = new IHMModificationLocataire(this.locataire);
+			this.vue.dispose();
+			vueModificationLocataire.setVisible(true);
+		} else {
+			IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
+			this.vue.dispose();
+			vueGestionLocataires.setVisible(true);
+		}
 	}
 
 	private void afficherInformationsLocataire(IHMDetailsLocataire vue, Locataire locataire) {

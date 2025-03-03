@@ -120,6 +120,7 @@ public class IHMGestionLocataires extends JFrame {
 		setJMenuBar(menuBar);
 	}
 
+	// mettre à jour la liste des locataires
 	public void updateLocataires(List<Locataire> locataires) {
 		panelLocataires.removeAll();
 		for (Locataire locataire : locataires) {
@@ -153,4 +154,5 @@ public class IHMGestionLocataires extends JFrame {
 	public JPanel getPanelLocataires() {
 		return panelLocataires;
 	}
+
 }
