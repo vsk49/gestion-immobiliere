@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] changer chemin des fichiers test">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] refactoring ControleurDetailsLocataireD OK!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurDetailsLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMConnexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsLocataire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurAjoutLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAjoutLocataire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMAjouterLocataire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +336,7 @@
       <workItem from="1740140109217" duration="13276000" />
       <workItem from="1740900136985" duration="339000" />
       <workItem from="1740900503459" duration="95000" />
-      <workItem from="1740988575167" duration="7885000" />
+      <workItem from="1740988575167" duration="9112000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -584,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740144934778</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="[CODE] refactoring ControleurGestionLocataires OK!">
+      <option name="closed" value="true" />
+      <created>1740996545336</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1740996545336</updated>
+    </task>
+    <task id="LOCAL-00032" summary="[CODE] refactoring ControleurDetailsLocataireD OK!">
+      <option name="closed" value="true" />
+      <created>1740996684205</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1740996684205</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,8 +654,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[TEST] configure .gitlab-ci.yml according to maven structure." />
-    <MESSAGE value="[TEST] configure pom.xml to fix pipeline." />
     <MESSAGE value="Trying again." />
     <MESSAGE value="Trying again (1)" />
     <MESSAGE value="[CONFIG] fix maven setup, [CODE] implementer les calculs d'eaux et d'electricite" />
@@ -669,6 +677,8 @@
     <MESSAGE value="[CODE] premier push apres des premiers refactoring (mais pas complet)" />
     <MESSAGE value="[CODE] delete useless tests" />
     <MESSAGE value="[CODE] changer chemin des fichiers test" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] changer chemin des fichiers test" />
+    <MESSAGE value="[CODE] refactoring ControleurGestionLocataires OK!" />
+    <MESSAGE value="[CODE] refactoring ControleurDetailsLocataireD OK!" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] refactoring ControleurDetailsLocataireD OK!" />
   </component>
 </project>
