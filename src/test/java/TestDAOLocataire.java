@@ -1,3 +1,5 @@
+import dao.CreateBD;
+import dao.InputData;
 import dao.JDBCLocataire;
 import modele.Locataire;
 import org.junit.After;
@@ -17,6 +19,8 @@ public class TestDAOLocataire {
 
 	@Before
 	public void setUp() {
+		CreateBD.main(null);
+		InputData.main(null);
 		this.daoLocataire = new JDBCLocataire();
 		this.locataire1 = new Locataire("DJEA", "Durang", "Jean",
 				LocalDate.of(2001, 10, 8), "jean.durang@mail.com", "0606060606");
