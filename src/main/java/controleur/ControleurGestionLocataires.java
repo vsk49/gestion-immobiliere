@@ -48,29 +48,27 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
     }
 
     private void gererBoutonsNonMenu(JButton source) {
-        switch (source.getActionCommand()) {
-            case "Ajout" -> {
-                IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
-                this.vue.dispose();
-                vueAjout.setVisible(true);
-            }
-            case "Chercher" -> {
-                String id = this.vue.getChampRecherche().getText();
-                if (id.isEmpty()) {
-                    this.vue.updateLocataires(this.allLocataires);
-                } else {
-                    try {
-                        Locataire locataire = this.allLocataires.stream()
-                                .filter(l -> l.getIdLocataire().equals(id))
-                                .findFirst()
-                                .orElseThrow();
-                        this.vue.updateLocataires(List.of(locataire));
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(vue, "L'ID n'existe pas", "Erreur", JOptionPane.ERROR_MESSAGE);
-                    }
+        if (source.getActionCommand().equals("Chercher")) {
+            String id = this.vue.getChampRecherche().getText();
+            if (!id.isEmpty()) {
+                try {
+                    Locataire locataire = this.allLocataires.stream()
+                            .filter(l -> l.getIdLocataire().equals(id))
+                            .findFirst()
+                            .orElseThrow();
+                    this.vue.updateLocataires(List.of(locataire));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(vue, "L'ID n'existe pas", "Erreur",
+                            JOptionPane.ERROR_MESSAGE);
                 }
-                addMouseListenersToLocataires();
+            } else {
+                this.vue.updateLocataires(this.allLocataires);
             }
+            addMouseListenersToLocataires();
+        } else {
+            IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
+            this.vue.dispose();
+            vueAjout.setVisible(true);
         }
     }
 
