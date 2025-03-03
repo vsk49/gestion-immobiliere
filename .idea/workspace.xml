@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] I missed a little bit of refactoring.">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CONFIG] trying to fix pipeline with docker image of my database.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -633,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741004244769</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="[CONFIG] trying to fix pipeline with docker image of my database.">
+      <option name="closed" value="true" />
+      <created>1741006111959</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1741006111959</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,7 +700,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="j'ai pas valide mes changements" />
     <MESSAGE value="[CODE] Ajout du locataire OK" />
     <MESSAGE value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
     <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
@@ -718,6 +724,7 @@
     <MESSAGE value="[CONFIG] resoudre les warnings du encodage et configuration de la methode setUp() du TestDAOLocataire" />
     <MESSAGE value="[CONFIG] Resolving merge conflicts." />
     <MESSAGE value="[CODE] I missed a little bit of refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] I missed a little bit of refactoring." />
+    <MESSAGE value="[CONFIG] trying to fix pipeline with docker image of my database." />
+    <option name="LAST_COMMIT_MESSAGE" value="[CONFIG] trying to fix pipeline with docker image of my database." />
   </component>
 </project>
