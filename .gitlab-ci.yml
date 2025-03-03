@@ -5,7 +5,8 @@ image:
 services:
   - name: container-registry.oracle.com/database/express:21.3.0-xe
     alias: oracle
-
+    command: ["/bin/sh", "-c", "while ! echo exit | nc localhost 1521; do sleep 10; done"]
+    
 stages:
   - build
   - reset-db
