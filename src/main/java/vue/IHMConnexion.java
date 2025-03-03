@@ -35,6 +35,13 @@ public class IHMConnexion extends JFrame {
 		setLocationRelativeTo(null); // Center the frame
 		setResizable(false);
 
+		// Set modern look and feel
+		try {
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (Exception e) {
+			logger.warning("Unable to set the look and feel to Nimbus");
+		}
+
 		JPanel contentPane = new JPanel(new GridBagLayout());
 		contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
 		setContentPane(contentPane);

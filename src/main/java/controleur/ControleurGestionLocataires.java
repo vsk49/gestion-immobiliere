@@ -1,15 +1,12 @@
-
 package controleur;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import dao.JDBCLocataire;
 import modele.Locataire;
@@ -18,34 +15,46 @@ import vue.*;
 public class ControleurGestionLocataires extends MouseAdapter implements ActionListener {
 
     private final IHMGestionLocataires vue;
-    private final List<Locataire> allLocataires;
+    private final List<Locataire> allLocataires = new JDBCLocataire().getAll();
 
-    public ControleurGestionLocataires(IHMGestionLocataires vue, JDBCLocataire modele) {
+    public ControleurGestionLocataires(IHMGestionLocataires vue) {
         this.vue = vue;
-        this.allLocataires = modele.getAll();
         this.vue.updateLocataires(this.allLocataires);
+        addMouseListenersToLocataires();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 2) {
+            JPanel panel = (JPanel) e.getSource();
+            Locataire locataire = (Locataire) panel.getClientProperty("locataire");
+            handleDoubleClick(locataire);
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() instanceof JButton source) {
             gererBoutonsNonMenu(source);
-        } else if (e.getSource() instanceof JMenuItem source) {
-            gererBoutonsDuMenu(source);
+        } else {
+            gererBoutonsDuMenu((JMenuItem) e.getSource());
         }
     }
 
-    // gestion des boutons chercher et ajout
+    public void handleDoubleClick(Locataire locataire) {
+        IHMDetailsLocataire vueDetails = new IHMDetailsLocataire(locataire);
+        vueDetails.setVisible(true);
+        vue.dispose();
+    }
+
     private void gererBoutonsNonMenu(JButton source) {
         switch (source.getActionCommand()) {
-            // ouvre la vue d'ajout de locataire
             case "Ajout" -> {
                 IHMAjouterLocataire vueAjout = new IHMAjouterLocataire();
                 this.vue.dispose();
                 vueAjout.setVisible(true);
             }
             case "Chercher" -> {
-                // recherche par ID, si vide, affiche tous les locataires
                 String id = this.vue.getChampRecherche().getText();
                 if (id.isEmpty()) {
                     this.vue.updateLocataires(this.allLocataires);
@@ -60,11 +69,11 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
                         JOptionPane.showMessageDialog(vue, "L'ID n'existe pas", "Erreur", JOptionPane.ERROR_MESSAGE);
                     }
                 }
+                addMouseListenersToLocataires();
             }
         }
     }
 
-    // gestion des boutons du menu
     private void gererBoutonsDuMenu(JMenuItem source) {
         switch (source.getText()) {
             case "Accueil" -> {
@@ -101,23 +110,10 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        if (e.getSource() instanceof JPanel panel) {
-            Locataire locataire = (Locataire) panel.getClientProperty("locataire");
-            if (locataire != null) {
-                // Retrieve the locataire information from the database
-                Locataire detailedLocataire = this.allLocataires.stream()
-                        .filter(l -> l.getIdLocataire().equals(locataire.getIdLocataire()))
-                        .findFirst()
-                        .orElse(null);
-                if (detailedLocataire != null) {
-                    // Open the new window displaying the locataire information
-                    new IHMDetailsLocataire(detailedLocataire).setVisible(true);
-                    this.vue.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(vue, "Locataire not found", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+    private void addMouseListenersToLocataires() {
+        for (Component component : vue.getPanelLocataires().getComponents()) {
+            if (component instanceof JPanel panel) {
+                panel.addMouseListener(this);
             }
         }
     }
