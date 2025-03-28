@@ -1,7 +1,5 @@
 package vue;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,6 +9,7 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -20,43 +19,21 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTable;
 
-import controleur.controleurDeclarationFiscale;
+import controleur.ControleurDeclarationFiscale;
 
 public class IHMDeclarationFiscale extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMDeclarationFiscale frame = new IHMDeclarationFiscale();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public IHMDeclarationFiscale() {
-		controleurDeclarationFiscale controleur = new controleurDeclarationFiscale(this);
+    public IHMDeclarationFiscale() {
+		ControleurDeclarationFiscale controleur = new ControleurDeclarationFiscale(this);
 		setTitle("Déclaration fiscale");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
-		contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -154,8 +131,8 @@ public class IHMDeclarationFiscale extends JFrame {
 		FlowLayout flowLayout_2 = (FlowLayout) PanelChampRevenus.getLayout();
 		flowLayout_2.setAlignment(FlowLayout.LEFT);
 		panel_6.add(PanelChampRevenus);
-		
-		textField = new JTextField();
+
+        JTextField textField = new JTextField();
 		PanelChampRevenus.add(textField);
 		textField.setColumns(10);
 		
@@ -175,8 +152,8 @@ public class IHMDeclarationFiscale extends JFrame {
 		FlowLayout flowLayout_4 = (FlowLayout) PanelChampGestion.getLayout();
 		flowLayout_4.setAlignment(FlowLayout.LEFT);
 		PanelGestion.add(PanelChampGestion);
-		
-		textField_1 = new JTextField();
+
+        JTextField textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		PanelChampGestion.add(textField_1);
 		
@@ -192,11 +169,11 @@ public class IHMDeclarationFiscale extends JFrame {
 		
 		JPanel panelTable = new JPanel();
 		PanelBas.add(panelTable);
-		
-		table = new JTable();
+
+        JTable table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Label travaux", "Co\u00FBt", "Date d\u00E9but", "Dur\u00E9e", "Date de fin"},
+				{"Label travaux", "Coût", "Date début", "Durée", "Date de fin"},
 				{null, null, null, null, null},
 			},
 			new String[] {

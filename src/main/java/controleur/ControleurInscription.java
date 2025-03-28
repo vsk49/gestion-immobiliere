@@ -35,7 +35,7 @@ public class ControleurInscription implements ActionListener {
 			annulerInscription();
 		}
 	}
-
+	
 	private void validerInscription(String identifiant, String motDePasse) {
 		if (this.bd.insert(new Proprietaire(identifiant, motDePasse))) {
 			vue.afficherMessageSucces("Inscription réussie !");

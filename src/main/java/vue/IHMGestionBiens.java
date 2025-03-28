@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controleur.controleurGestionBiens;
+import controleur.ControleurGestionBiens;
 
 public class IHMGestionBiens extends JFrame {
 
@@ -22,7 +22,7 @@ public class IHMGestionBiens extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMGestionBiens() {
-		controleurGestionBiens controleur = new controleurGestionBiens(this);
+		ControleurGestionBiens controleur = new ControleurGestionBiens(this);
 		setTitle("Gestion des Biens");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setSize(600, 400);

@@ -15,12 +15,12 @@ import vue.IHMGestionBaux;
 import vue.IHMGestionLocataires;
 import vue.IHMModificationBien;
 
-public class controleurModificationBien implements ActionListener {
+public class ControleurModificationBien implements ActionListener {
 
     private final IHMModificationBien vue;
     private final BienImmobilier bien;
 
-    public controleurModificationBien (IHMModificationBien vue, BienImmobilier bien) {
+    public ControleurModificationBien (IHMModificationBien vue, BienImmobilier bien) {
         this.vue = vue;
         JDBCBienImmobilier modele = new JDBCBienImmobilier();
         this.bien = modele.getById(bien.getIdBienImmobilier()).orElseThrow();

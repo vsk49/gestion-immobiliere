@@ -24,12 +24,12 @@ import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMRegularisationCharges;
 
-public class controleurGestionBiens extends MouseAdapter implements ActionListener {
+public class ControleurGestionBiens extends MouseAdapter implements ActionListener {
 
     private final IHMGestionBiens vue;
     private final JDBCBienImmobilier modele;
 
-    public controleurGestionBiens (IHMGestionBiens vue) {
+    public ControleurGestionBiens (IHMGestionBiens vue) {
         this.vue = vue;
         this.modele = new JDBCBienImmobilier();
     }

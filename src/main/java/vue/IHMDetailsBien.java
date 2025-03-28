@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.SwingConstants;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import controleur.controleurDetailsBiens;
+import controleur.ControleurDetailsBiens;
 import modele.BienImmobilier;
 
 public class IHMDetailsBien extends JFrame {
@@ -166,7 +166,7 @@ public class IHMDetailsBien extends JFrame {
 		JButton boutonModifier = new JButton("Modifier");
 		panelBouton.add(boutonModifier);
 
-		controleurDetailsBiens controleur = new controleurDetailsBiens(this, bien);
+		ControleurDetailsBiens controleur = new ControleurDetailsBiens(this, bien);
 
 		boutonLocataires.setActionCommand("locataires");
 		boutonLocataires.addActionListener(controleur);

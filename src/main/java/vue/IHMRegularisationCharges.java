@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controleur.controleurRegularisationCharges;
+import controleur.ControleurRegularisationCharges;
 
 public class IHMRegularisationCharges extends JFrame {
 
@@ -23,7 +23,7 @@ public class IHMRegularisationCharges extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public IHMRegularisationCharges() {
-		controleurRegularisationCharges controleur = new controleurRegularisationCharges(this);
+		ControleurRegularisationCharges controleur = new ControleurRegularisationCharges(this);
 		setTitle("Régularisation des charges");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 400);

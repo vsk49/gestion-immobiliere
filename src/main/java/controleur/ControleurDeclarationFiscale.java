@@ -14,11 +14,11 @@ import vue.IHMRegularisationCharges;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 
-public class controleurDeclarationFiscale implements ActionListener{
+public class ControleurDeclarationFiscale implements ActionListener{
 
-    private IHMDeclarationFiscale vue;
+    private final IHMDeclarationFiscale vue;
     
-    public controleurDeclarationFiscale (IHMDeclarationFiscale vue) {
+    public ControleurDeclarationFiscale (IHMDeclarationFiscale vue) {
         this.vue = vue;
     }
 

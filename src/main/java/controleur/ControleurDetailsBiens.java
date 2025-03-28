@@ -16,12 +16,12 @@ import vue.IHMGestionBaux;
 import vue.IHMRegularisationCharges;
 import vue.IHMDeclarationFiscale;
 
-public class controleurDetailsBiens implements ActionListener {
+public class ControleurDetailsBiens implements ActionListener {
 
     private final IHMDetailsBien vue;
     private final BienImmobilier bien;
 
-    public controleurDetailsBiens (IHMDetailsBien vue, BienImmobilier bien) {
+    public ControleurDetailsBiens (IHMDetailsBien vue, BienImmobilier bien) {
         this.vue = vue;
         JDBCBienImmobilier modele = new JDBCBienImmobilier();
         this.bien = modele.getById(bien.getIdBienImmobilier()).orElseThrow();

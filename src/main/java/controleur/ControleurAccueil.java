@@ -35,10 +35,12 @@ public class ControleurAccueil implements ActionListener {
 		actionHandlers.put("Régularisation Charges", new FinancesHandler());
 	}
 
+	// interface pour gerer un evenement du menu
 	private interface GestionMenu {
 		void gererEvenement();
 	}
 
+	// pour chaque action du menu, on associe un handler
 	private class AjouterLocataireHandler implements GestionMenu {
 		@Override
 		public void gererEvenement() {
