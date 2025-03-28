@@ -19,7 +19,7 @@ import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-import controleur.controleurGestionBaux;
+import controleur.ControleurGestionBaux;
 
 public class IHMGestionBaux extends JFrame {
 
@@ -47,7 +47,7 @@ public class IHMGestionBaux extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMGestionBaux() {
-		controleurGestionBaux controleur = new controleurGestionBaux(this);
+		ControleurGestionBaux controleur = new ControleurGestionBaux(this);
 		setTitle("Gestion des baux");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 400);

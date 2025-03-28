@@ -1,9 +1,9 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -19,31 +19,9 @@ import controleur.controleurRegularisationCharges;
 
 public class IHMRegularisationCharges extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTable TabDetails;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					IHMRegularisationCharges frame = new IHMRegularisationCharges();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	@SuppressWarnings("serial")
 	public IHMRegularisationCharges() {
 		controleurRegularisationCharges controleur = new controleurRegularisationCharges(this);
 		setTitle("Régularisation des charges");
@@ -51,7 +29,7 @@ public class IHMRegularisationCharges extends JFrame {
 		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
-		contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -125,9 +103,9 @@ public class IHMRegularisationCharges extends JFrame {
 		
 		JLabel LabelTabDetails = new JLabel("Détails des charges");
 		PanelTabDetails.add(LabelTabDetails);
-		
-		TabDetails = new JTable();
-		TabDetails.setModel(new DefaultTableModel(
+
+        JTable tabDetails = new JTable();
+		tabDetails.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"", null, null, null, null},
 				{null, null, null, null, null},
@@ -143,7 +121,7 @@ public class IHMRegularisationCharges extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-		PanelTabDetails.add(TabDetails);
+		PanelTabDetails.add(tabDetails);
 		
 		JPanel panelCentre = new JPanel();
 		PanelMain.add(panelCentre);

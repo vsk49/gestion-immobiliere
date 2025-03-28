@@ -9,10 +9,10 @@ import vue.IHMGestionBaux;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
 import vue.IHMRegularisationCharges;
-import vue.IHMPopupAjusterProvisions;
 
 public class controleurRegularisationCharges implements ActionListener {
-    private IHMRegularisationCharges vue;
+
+    private final IHMRegularisationCharges vue;
 
     public controleurRegularisationCharges (IHMRegularisationCharges vue){
         this.vue = vue;
@@ -42,11 +42,11 @@ public class controleurRegularisationCharges implements ActionListener {
             vueDeclarationFiscale.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "provisions" :
-            IHMPopupAjusterProvisions vuePopupAjusterProvisions = new IHMPopupAjusterProvisions();
-            vuePopupAjusterProvisions.setVisible(true);
-            this.vue.setVisible(false);
-            break;
+//        case "provisions" :
+//            IHMPopupAjusterProvisions vuePopupAjusterProvisions = new IHMPopupAjusterProvisions();
+//            vuePopupAjusterProvisions.setVisible(true);
+//            this.vue.setVisible(false);
+//            break;
         case "Annuler" :
         case "Valider" :
             IHMAccueil vueAccueil = new IHMAccueil();

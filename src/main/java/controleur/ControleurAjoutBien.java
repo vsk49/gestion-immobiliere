@@ -5,18 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import vue.IHMAjouterBail;
-import vue.IHMDeclarationFiscale;
-import vue.IHMGestionBaux;
-import vue.IHMGestionBiens;
-import vue.IHMGestionLocataires;
-import vue.IHMRegularisationCharges;
+import vue.*;
 
-public class controleurAjoutBail implements ActionListener{
+public class ControleurAjoutBien implements ActionListener{
     
-    private IHMAjouterBail vue;
+    private final IHMAjouterBien vue;
     
-    public void controleurAjoutBail (IHMAjouterBail vue) {
+    public ControleurAjoutBien (IHMAjouterBien vue) {
         this.vue = vue;
     }
 
@@ -27,29 +22,30 @@ public class controleurAjoutBail implements ActionListener{
         case "DeclarationFiscale" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "RegularisationCharges" :
             IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
             vueRegularisationCharges.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
-        case "Valider" :
+        case "baux" :
             IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
             vueGestionBaux.setVisible(true);
-            this.vue.setVisible(false);
-            break;
-        case "biens" :
-            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-            vueGestionBiens.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
         case "locataires" :
             IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
             vueGestionLocataires.setVisible(true);
-            this.vue.setVisible(false);
+            this.vue.dispose();
             break;
+        case "Valider" :
         case "Annuler" :
+            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+            vueGestionBiens.setVisible(true);
+            this.vue.dispose();
+            break;
         }
     }
+
 }

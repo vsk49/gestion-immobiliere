@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import vue.IHMAccueil;
-import vue.IHMAjouterBail;
 import vue.IHMAjouterBien;
 import vue.IHMAjouterLocataire;
 import vue.IHMDeclarationFiscale;
@@ -28,7 +27,7 @@ public class ControleurAccueil implements ActionListener {
 	private void initialiserEvenements() {
 		actionHandlers.put("Ajouter Locataire", new AjouterLocataireHandler());
 		actionHandlers.put("Ajouter Bien", new AjouterBienHandler());
-		actionHandlers.put("Ajouter Bail", new AjouterBailHandler());
+		// actionHandlers.put("Ajouter Bail", new AjouterBailHandler());
 		actionHandlers.put("Mes Locataires", new ConsulterLocatairesHandler());
 		actionHandlers.put("Mes Biens", new ConsulterBiensHandler());
 		actionHandlers.put("Mes Baux", new ConsulterBauxHandler());
@@ -58,14 +57,14 @@ public class ControleurAccueil implements ActionListener {
 		}
 	}
 
-	private class AjouterBailHandler implements GestionMenu {
-		@Override
-		public void gererEvenement() {
-			IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
-			vueAjouterBail.setVisible(true);
-			vue.dispose();
-		}
-	}
+//	private class AjouterBailHandler implements GestionMenu {
+//		@Override
+//		public void gererEvenement() {
+//			IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
+//			vueAjouterBail.setVisible(true);
+//			vue.dispose();
+//		}
+//	}
 
 	private class ConsulterLocatairesHandler implements GestionMenu {
 		@Override

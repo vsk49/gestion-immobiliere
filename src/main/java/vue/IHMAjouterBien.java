@@ -1,11 +1,8 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Panel;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -17,13 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import controleur.controleurAjoutBien;
+import controleur.ControleurAjoutBien;
 
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.BoxLayout;
-import java.awt.CardLayout;
 
 public class IHMAjouterBien extends JFrame {
 
@@ -41,7 +36,7 @@ public class IHMAjouterBien extends JFrame {
 	 * Create the frame.
 	 */
 	public IHMAjouterBien() {
-		controleurAjoutBien controleur = new controleurAjoutBien();
+		ControleurAjoutBien controleur = new ControleurAjoutBien(this);
 		setTitle("Ajout de bien");
 		this.setSize(600, 400);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);

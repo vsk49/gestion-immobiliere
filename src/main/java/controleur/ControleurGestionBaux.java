@@ -5,18 +5,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import vue.IHMAjouterBail;
-import vue.IHMDeclarationFiscale;
+
+
 import vue.IHMGestionBaux;
+import vue.IHMDeclarationFiscale;
+import vue.IHMRegularisationCharges;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMRegularisationCharges;
 
-public class controleurAjoutBien implements ActionListener{
+public class ControleurGestionBaux implements ActionListener{
+
+    private final IHMGestionBaux vue;
     
-    private IHMAjouterBail vue;
-    
-    public void controleurAjoutBien (IHMAjouterBail vue) {
+    public ControleurGestionBaux(IHMGestionBaux vue) {
         this.vue = vue;
     }
 
@@ -27,30 +28,29 @@ public class controleurAjoutBien implements ActionListener{
         case "DeclarationFiscale" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
-            this.vue.dispose();
+            this.vue.setVisible(false);
             break;
         case "RegularisationCharges" :
             IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
             vueRegularisationCharges.setVisible(true);
-            this.vue.dispose();
+            this.vue.setVisible(false);
             break;
-        case "baux" :
-            IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-            vueGestionBaux.setVisible(true);
-            this.vue.dispose();
+        case "biens" :
+            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+            vueGestionBiens.setVisible(true);
+            this.vue.setVisible(false);
             break;
         case "locataires" :
             IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
             vueGestionLocataires.setVisible(true);
-            this.vue.dispose();
+            this.vue.setVisible(false);
             break;
-        case "Valider" :
-        case "Annuler" :
-            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-            vueGestionBiens.setVisible(true);
-            this.vue.dispose();
-            break;
+//        case "Ajout" :
+//            IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
+//            vueAjouterBail.setVisible(true);
+//            this.vue.setVisible(false);
+//            break;
         }
     }
-
+    
 }
