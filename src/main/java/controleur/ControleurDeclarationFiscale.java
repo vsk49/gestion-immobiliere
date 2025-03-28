@@ -7,19 +7,18 @@ import javax.swing.JButton;
 
 
 
-import vue.IHMDetailsBail;
-import vue.IHMModificationBail;
+import vue.IHMGestionBaux;
+import vue.IHMAccueil;
+import vue.IHMDeclarationFiscale;
+import vue.IHMRegularisationCharges;
 import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMGestionBaux;
-import vue.IHMRegularisationCharges;
-import vue.IHMDeclarationFiscale;
 
-public class controleurDetailsBail implements ActionListener{
+public class ControleurDeclarationFiscale implements ActionListener{
 
-    private IHMDetailsBail vue;
+    private final IHMDeclarationFiscale vue;
     
-    public void controleurDetailsBail (IHMDetailsBail vue) {
+    public ControleurDeclarationFiscale (IHMDeclarationFiscale vue) {
         this.vue = vue;
     }
 
@@ -27,9 +26,9 @@ public class controleurDetailsBail implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         JButton actionCommand = (JButton) e.getSource();
         switch (actionCommand.getActionCommand()) {
-        case "DeclarationFiscale" :
-            IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
-            vueDeclarationFiscale.setVisible(true);
+        case "baux" :
+            IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
+            vueGestionBaux.setVisible(true);
             this.vue.setVisible(false);
             break;
         case "RegularisationCharges" :
@@ -37,12 +36,7 @@ public class controleurDetailsBail implements ActionListener{
             vueRegularisationCharges.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "Retour" :
-			IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-            vueGestionBaux.setVisible(true);
-            this.vue.setVisible(false);
-            break;
-		case "biens" :
+        case "biens" :
             IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
             vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
@@ -52,9 +46,10 @@ public class controleurDetailsBail implements ActionListener{
             vueGestionLocataires.setVisible(true);
             this.vue.setVisible(false);
             break;
-		case "Modifier" :
-			IHMModificationBail vueModificationBien = new IHMModificationBail();
-            vueModificationBien.setVisible(true);
+        case "Annuler" :
+        case "Valider" :
+            IHMAccueil vueAccueil = new IHMAccueil();
+            vueAccueil.setVisible(true);
             this.vue.setVisible(false);
             break;
         }

@@ -101,6 +101,7 @@ public class JDBCProprietaire implements DAO<Proprietaire, String> {
         return resultat;
     }
 
+    // Vérifie si un propriétaire est présent dans la base de données
     public boolean isPresentInformationProprietaire(String idProprietaire) {
         return this.getById(idProprietaire).isPresent();
     }

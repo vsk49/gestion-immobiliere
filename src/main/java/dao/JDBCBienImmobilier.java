@@ -33,6 +33,7 @@ public class JDBCBienImmobilier implements DAO<BienImmobilier, String> {
 		return biensImmobiliers;
 	}
 
+	// Distingue les types de biens immobiliers
 	private BienImmobilier distinguerTypesBien(ResultSet resultat) throws SQLException {
 		String typeBien = resultat.getString("typeBien");
 		return switch (typeBien) {
@@ -158,27 +159,6 @@ public class JDBCBienImmobilier implements DAO<BienImmobilier, String> {
 			return false;
 		}
 		return true;
-	}
-
-	public List<Batiment> getBatiments() {
-		return this.getAll().stream()
-				.filter(Batiment.class::isInstance)
-				.map(b -> (Batiment) b)
-				.toList();
-	}
-
-	public List<Logement> getLogements() {
-		return this.getAll().stream()
-				.filter(Logement.class::isInstance)
-				.map(b -> (Logement) b)
-				.toList();
-	}
-
-	public List<Garage> getGarages() {
-		return this.getAll().stream()
-				.filter(Garage.class::isInstance)
-				.map(b -> (Garage) b)
-				.toList();
 	}
 
 }

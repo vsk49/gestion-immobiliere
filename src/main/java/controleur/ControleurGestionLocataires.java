@@ -1,12 +1,14 @@
 package controleur;
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JOptionPane;
+import java.util.Map;
+import javax.swing.*;
 
 import dao.JDBCLocataire;
 import modele.Locataire;
@@ -16,11 +18,22 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
 
     private final IHMGestionLocataires vue;
     private final List<Locataire> allLocataires = new JDBCLocataire().getAll();
+    private final Map<String, ActionItemMenu> menuActions = new HashMap<>();
 
     public ControleurGestionLocataires(IHMGestionLocataires vue) {
         this.vue = vue;
         this.vue.updateLocataires(this.allLocataires);
         addMouseListenersToLocataires();
+        initializeMenuActions();
+    }
+
+    private void initializeMenuActions() {
+        menuActions.put("Accueil", new AccueilAction());
+        menuActions.put("Mes Locataires", new MesLocatairesAction());
+        menuActions.put("Mes Biens", new MesBiensAction());
+        menuActions.put("Mes Baux", new MesBauxAction());
+        menuActions.put("Déclaration Fiscale", new DeclarationFiscaleAction());
+        menuActions.put("Régularisation de Charges", new RegularisationChargesAction());
     }
 
     @Override
@@ -41,7 +54,7 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
         }
     }
 
-    public void handleDoubleClick(Locataire locataire) {
+    private void handleDoubleClick(Locataire locataire) {
         IHMDetailsLocataire vueDetails = new IHMDetailsLocataire(locataire);
         vueDetails.setVisible(true);
         vue.dispose();
@@ -73,46 +86,80 @@ public class ControleurGestionLocataires extends MouseAdapter implements ActionL
     }
 
     private void gererBoutonsDuMenu(JMenuItem source) {
-        switch (source.getText()) {
-            case "Accueil" -> {
-                IHMAccueil vueAccueil = new IHMAccueil();
-                this.vue.dispose();
-                vueAccueil.setVisible(true);
-            }
-            case "Mes Locataires" -> {
-                IHMGestionLocataires vueLocataires = new IHMGestionLocataires();
-                this.vue.dispose();
-                vueLocataires.setVisible(true);
-            }
-            case "Mes Biens" -> {
-                IHMGestionBiens vueBiens = new IHMGestionBiens();
-                this.vue.dispose();
-                vueBiens.setVisible(true);
-            }
-            case "Mes Baux" -> {
-                IHMGestionBaux vueBaux = new IHMGestionBaux();
-                this.vue.dispose();
-                vueBaux.setVisible(true);
-            }
-            case "Déclaration Fiscale" -> {
-                IHMDeclarationFiscale vueDeclaration = new IHMDeclarationFiscale();
-                this.vue.dispose();
-                vueDeclaration.setVisible(true);
-            }
-            case "Régularisation de Charges" -> {
-                IHMRegularisationCharges vueRegularisation = new IHMRegularisationCharges();
-                this.vue.dispose();
-                vueRegularisation.setVisible(true);
-            }
-            default -> throw new IllegalArgumentException("Action Inconnue : " + source.getActionCommand());
+        ActionItemMenu action = menuActions.get(source.getText());
+        if (action != null) {
+            action.gererEvenement();
+        } else {
+            throw new IllegalArgumentException("Action Inconnue : " + source.getText());
         }
     }
 
+    // Ajoute un MouseListener à chaque locataire
     private void addMouseListenersToLocataires() {
         for (Component component : vue.getPanelLocataires().getComponents()) {
             if (component instanceof JPanel panel) {
                 panel.addMouseListener(this);
             }
+        }
+    }
+
+    // Inner interface for menu actions
+    private interface ActionItemMenu {
+        void gererEvenement();
+    }
+
+    // Inner classes for each menu action
+    private class AccueilAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMAccueil vueAccueil = new IHMAccueil();
+            vue.dispose();
+            vueAccueil.setVisible(true);
+        }
+    }
+
+    private class MesLocatairesAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMGestionLocataires vueLocataires = new IHMGestionLocataires();
+            vue.dispose();
+            vueLocataires.setVisible(true);
+        }
+    }
+
+    private class MesBiensAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMGestionBiens vueBiens = new IHMGestionBiens();
+            vue.dispose();
+            vueBiens.setVisible(true);
+        }
+    }
+
+    private class MesBauxAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMGestionBaux vueBaux = new IHMGestionBaux();
+            vue.dispose();
+            vueBaux.setVisible(true);
+        }
+    }
+
+    private class DeclarationFiscaleAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMDeclarationFiscale vueDeclaration = new IHMDeclarationFiscale();
+            vue.dispose();
+            vueDeclaration.setVisible(true);
+        }
+    }
+
+    private class RegularisationChargesAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMRegularisationCharges vueRegularisation = new IHMRegularisationCharges();
+            vue.dispose();
+            vueRegularisation.setVisible(true);
         }
     }
 

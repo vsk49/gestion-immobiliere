@@ -11,6 +11,7 @@ public class InputData {
     private static final JDBCBienImmobilier donneesBienImmobilier = new JDBCBienImmobilier();
     private static final String VILLE = "Toulouse";
 
+    // donnees des locataires
     private static final Locataire[] locataires = {
             new Locataire("YPOU", "Poux--Bories", "Yoan", LocalDate.of(2002, 2, 10),
                     "yoan.poux@gmail.com", "06 12 34 56 78"),
@@ -22,10 +23,12 @@ public class InputData {
                     "romain.miegemolle@gmail.com", "06 13 24 58 91")
     };
 
+    // donnees des proprietaires
     private static final Proprietaire[] proprietaire = {
             new Proprietaire("SAE3A01", "$iutinfo")
     };
 
+    // donnees des biens immobiliers
     private static final BienImmobilier[] biens = {
             new Logement("3101234567890", "40 rue des Lilas", 31000,
                     VILLE, LocalDate.of(2020, 2, 2), 2, 18.00, 2),

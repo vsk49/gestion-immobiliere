@@ -14,28 +14,17 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
 
-import controleur.controleurModificationBien;
+import controleur.ControleurModificationBien;
 import modele.BienImmobilier;
 
 public class IHMModificationBien extends JFrame {
 
 	@Serial
 	private static final long serialVersionUID = 1L;
-	private JTextField textFieldAdresse;
-	private JTextField textFieldVille;
-	private JTextField textFieldCodepostal;
-	private JTextField textFieldEtage;
-	private JTextField textFieldTypedebien;
-	private JTextField textFieldSurface;
-	private JTextField textFieldNbPieces;
-	private JTextField textFieldStatut;
 
-	/**
-	 * Create the frame.
-	 */
 	public IHMModificationBien(BienImmobilier bien) {
 		getContentPane().setForeground(SystemColor.menu);
-		controleurModificationBien controleur = new controleurModificationBien(this, bien);
+		ControleurModificationBien controleur = new ControleurModificationBien(this, bien);
 		setTitle("Modification du bien");
 		this.setSize(600, 400);
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
@@ -144,8 +133,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_1 = (FlowLayout) panelTextfieldAdress.getLayout();
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldAdress);
-		
-		textFieldAdresse = new JTextField();
+
+        JTextField textFieldAdresse = new JTextField();
 		textFieldAdresse.setHorizontalAlignment(SwingConstants.LEFT);
 		textFieldAdresse.setColumns(10);
 		panelTextfieldAdress.add(textFieldAdresse);
@@ -154,8 +143,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_3 = (FlowLayout) panelTextfieldVille.getLayout();
 		flowLayout_3.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldVille);
-		
-		textFieldVille = new JTextField();
+
+        JTextField textFieldVille = new JTextField();
 		textFieldVille.setColumns(10);
 		panelTextfieldVille.add(textFieldVille);
 		
@@ -163,8 +152,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_5 = (FlowLayout) panelTextfieldCodepostal.getLayout();
 		flowLayout_5.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldCodepostal);
-		
-		textFieldCodepostal = new JTextField();
+
+        JTextField textFieldCodepostal = new JTextField();
 		textFieldCodepostal.setColumns(10);
 		panelTextfieldCodepostal.add(textFieldCodepostal);
 		
@@ -172,8 +161,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_7 = (FlowLayout) panelTextfieldEtage.getLayout();
 		flowLayout_7.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie1.add(panelTextfieldEtage);
-		
-		textFieldEtage = new JTextField();
+
+        JTextField textFieldEtage = new JTextField();
 		textFieldEtage.setColumns(10);
 		panelTextfieldEtage.add(textFieldEtage);
 		
@@ -225,8 +214,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_9 = (FlowLayout) panelTextfieldAdresse.getLayout();
 		flowLayout_9.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextfieldAdresse);
-		
-		textFieldTypedebien = new JTextField();
+
+        JTextField textFieldTypedebien = new JTextField();
 		textFieldTypedebien.setHorizontalAlignment(SwingConstants.LEFT);
 		textFieldTypedebien.setColumns(10);
 		panelTextfieldAdresse.add(textFieldTypedebien);
@@ -235,8 +224,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_11 = (FlowLayout) panelTextfieldSurface.getLayout();
 		flowLayout_11.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextfieldSurface);
-		
-		textFieldSurface = new JTextField();
+
+        JTextField textFieldSurface = new JTextField();
 		textFieldSurface.setColumns(10);
 		panelTextfieldSurface.add(textFieldSurface);
 		
@@ -244,8 +233,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_13 = (FlowLayout) panelTextfieldNbPieces.getLayout();
 		flowLayout_13.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextfieldNbPieces);
-		
-		textFieldNbPieces = new JTextField();
+
+        JTextField textFieldNbPieces = new JTextField();
 		textFieldNbPieces.setColumns(10);
 		panelTextfieldNbPieces.add(textFieldNbPieces);
 		
@@ -253,8 +242,8 @@ public class IHMModificationBien extends JFrame {
 		FlowLayout flowLayout_15 = (FlowLayout) panelTextFieldStatut.getLayout();
 		flowLayout_15.setAlignment(FlowLayout.LEFT);
 		panelTextfieldsPartie2.add(panelTextFieldStatut);
-		
-		textFieldStatut = new JTextField();
+
+        JTextField textFieldStatut = new JTextField();
 		textFieldStatut.setColumns(10);
 		panelTextFieldStatut.add(textFieldStatut);
 		
@@ -277,13 +266,12 @@ public class IHMModificationBien extends JFrame {
 		fl_panelComboboxLocataire.setHgap(0);
 		panelChoixLocataire.add(panelComboboxLocataire);
 		
-		JComboBox ComboboxLocataire = new JComboBox();
+		JComboBox<String> ComboboxLocataire = new JComboBox<>();
 		ComboboxLocataire.setEditable(true);
 		panelComboboxLocataire.add(ComboboxLocataire);
 		
 		JPanel panelBoutons = new JPanel();
 		panelBoutons.setBorder(new EmptyBorder(10, 0, 0, 0));
-		FlowLayout fl_panelBoutons = (FlowLayout) panelBoutons.getLayout();
 		panelBody.add(panelBoutons, BorderLayout.SOUTH);
 		
 		JButton boutonAnnuler = new JButton("Annuler");

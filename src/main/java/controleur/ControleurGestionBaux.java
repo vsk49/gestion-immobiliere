@@ -6,36 +6,25 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
-import dao.JDBCBienImmobilier;
-import modele.BienImmobilier;
-import vue.IHMDetailsBien;
+
+import vue.IHMGestionBaux;
 import vue.IHMDeclarationFiscale;
 import vue.IHMRegularisationCharges;
-import vue.IHMGestionBaux;
+import vue.IHMGestionBiens;
 import vue.IHMGestionLocataires;
-import vue.IHMModificationBien;
 
-public class controleurModificationBien implements ActionListener {
+public class ControleurGestionBaux implements ActionListener{
 
-    private final IHMModificationBien vue;
-    private final BienImmobilier bien;
-
-    public controleurModificationBien (IHMModificationBien vue, BienImmobilier bien) {
-        this.vue = vue;
-        JDBCBienImmobilier modele = new JDBCBienImmobilier();
-        this.bien = modele.getById(bien.getIdBienImmobilier()).orElseThrow();
-    }
+    private final IHMGestionBaux vue;
     
+    public ControleurGestionBaux(IHMGestionBaux vue) {
+        this.vue = vue;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton actionCommand = (JButton) e.getSource();
         switch (actionCommand.getActionCommand()) {
-        case "Valider" :
-        case "Annuler" :
-            IHMDetailsBien vueDetailsBien = new IHMDetailsBien(this.bien);
-            vueDetailsBien.setVisible(true);
-            this.vue.setVisible(false);
-            break;
         case "DeclarationFiscale" :
             IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
             vueDeclarationFiscale.setVisible(true);
@@ -46,9 +35,9 @@ public class controleurModificationBien implements ActionListener {
             vueRegularisationCharges.setVisible(true);
             this.vue.setVisible(false);
             break;
-        case "baux" :
-            IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-            vueGestionBaux.setVisible(true);
+        case "biens" :
+            IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
+            vueGestionBiens.setVisible(true);
             this.vue.setVisible(false);
             break;
         case "locataires" :
@@ -56,6 +45,11 @@ public class controleurModificationBien implements ActionListener {
             vueGestionLocataires.setVisible(true);
             this.vue.setVisible(false);
             break;
+//        case "Ajout" :
+//            IHMAjouterBail vueAjouterBail = new IHMAjouterBail();
+//            vueAjouterBail.setVisible(true);
+//            this.vue.setVisible(false);
+//            break;
         }
     }
     

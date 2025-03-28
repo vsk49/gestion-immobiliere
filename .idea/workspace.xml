@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] I missed a little bit of refactoring.">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] refactoring Sprint 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +70,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -83,104 +80,104 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CreateBD.executor": "Run",
-    "Application.Eau.executor": "Run",
-    "Application.IHMAccueil.executor": "Run",
-    "Application.IHMAjouterBien.executor": "Run",
-    "Application.IHMAjouterLocataire.executor": "Run",
-    "Application.IHMConnexion.executor": "Run",
-    "Application.IHMDetailsBien.executor": "Run",
-    "Application.IHMDetailsLocataire.executor": "Run",
-    "Application.IHMGestionBiens.executor": "Run",
-    "Application.IHMGestionLocataires.executor": "Run",
-    "Application.IHMModificationLocataire.executor": "Debug",
-    "Application.InputData.executor": "Run",
-    "Application.JDBCConnexion.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.TestControleurAjouterLocataire.executor": "Run",
-    "JUnit.TestControleurAjouterLocataire.testActionPerformed_Annuler.executor": "Run",
-    "JUnit.TestControleurAjouterLocataire.testActionPerformed_Valider.executor": "Run",
-    "JUnit.TestControleurDetailsLocataire.executor": "Run",
-    "JUnit.TestControleurDetailsLocataire.testActionPerformed_declarationFiscale.executor": "Run",
-    "JUnit.TestControleurGestionLocataires.executor": "Run",
-    "JUnit.TestControleurGestionLocataires.testAppliquerFiltre_NationaliteEtrangere.executor": "Run",
-    "JUnit.TestControleurGestionLocataires.testAppliquerFiltre_NationaliteFrancaise.executor": "Run",
-    "JUnit.TestControleurGestionLocataires.testMouseClicked_DoubleClick.executor": "Run",
-    "JUnit.TestControleurGestionLocataires.testMouseClicked_SingleClick.executor": "Run",
-    "JUnit.TestControleurLocataire.testAppliquerFiltre_NationaliteEtrangere.executor": "Run",
-    "JUnit.TestControleurLocataire.testAppliquerFiltre_NationaliteFrancaise.executor": "Run",
-    "JUnit.TestControleurLocataire.testMouseClicked_SingleClick.executor": "Run",
-    "JUnit.TestControleurModificationLocataire.testActionPerformed_Annuler.executor": "Run",
-    "JUnit.TestControleurModificationLocataire.testActionPerformed_Valider.executor": "Run",
-    "JUnit.TestDAOBienImmobilier.executor": "Run",
-    "JUnit.TestDAOBienImmobilier.testDelete.executor": "Run",
-    "JUnit.TestDAOBienImmobilier.testGetAll.executor": "Run",
-    "JUnit.TestDAOBienImmobilier.testGetById.executor": "Run",
-    "JUnit.TestDAOBienImmobilier.testInsert.executor": "Run",
-    "JUnit.TestDAOBienImmobilier.testUpdate.executor": "Run",
-    "JUnit.TestDAOLocataire.executor": "Run",
-    "JUnit.TestDAOLocataire.testGetAll.executor": "Run",
-    "JUnit.TestDAOLocataire.testGetById.executor": "Run",
-    "JUnit.TestIHMAjouterLocataire.executor": "Run",
-    "JUnit.TestIHMAjouterLocataire.testButtonActionCommands.executor": "Run",
-    "JUnit.TestIHMAjouterLocataire.testInitialisationComponents.executor": "Run",
-    "JUnit.TestIHMAjouterLocataire.testRecuperationChampsLocataire.executor": "Run",
-    "JUnit.TestIHMDetailsLocataire.executor": "Run",
-    "JUnit.TestIHMDetailsLocataire.testButtonActionCommands.executor": "Run",
-    "JUnit.TestIHMGestionLocataires.executor": "Run",
-    "JUnit.TestIHMGestionLocataires.testButtonActionCommands.executor": "Run",
-    "JUnit.TestIHMGestionLocataires.testChampRechercheInitialization.executor": "Run",
-    "JUnit.TestIHMGestionLocataires.testInitialisationComponents.executor": "Run",
-    "JUnit.TestIHMGestionLocataires.testTableInitialization.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.testButtonActionCommands.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.testDatePickerInitialization.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.testInitialisationComponents.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.testInitialisationVue.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.testRadioButtonInitialization.executor": "Run",
-    "JUnit.TestIHMModificationLocataire.testRecuperationChampsStringLocataire.executor": "Run",
-    "JUnit.TestLocataire.executor": "Run",
-    "JUnit.TestLocataire.testConstructeur.executor": "Run",
-    "JUnit.TestLocataire.testGetters.executor": "Run",
-    "JUnit.TestLocataire.testSetters.executor": "Run",
-    "JUnit.testControleurLocataire.testAppliquerFiltre_NationaliteEtrangere.executor": "Run",
-    "JUnit.testControleurLocataire.testAppliquerFiltre_NationaliteFrancaise.executor": "Run",
-    "JUnit.testControleurLocataire.testMouseClicked_DoubleClick.executor": "Run",
-    "JUnit.testControleurLocataire.testMouseClicked_SingleClick.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "Virgil",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/vsk49/git/saea3.01/src/test/java/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2678161",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CreateBD.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Eau.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMAccueil.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMAjouterBien.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMAjouterLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMConnexion.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMDetailsBien.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMDetailsLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMGestionBiens.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMGestionLocataires.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IHMModificationLocataire.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.InputData.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JDBCConnexion.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.TestControleurAjouterLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurAjouterLocataire.testActionPerformed_Annuler.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurAjouterLocataire.testActionPerformed_Valider.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurDetailsLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurDetailsLocataire.testActionPerformed_declarationFiscale.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurGestionLocataires.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurGestionLocataires.testAppliquerFiltre_NationaliteEtrangere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurGestionLocataires.testAppliquerFiltre_NationaliteFrancaise.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurGestionLocataires.testMouseClicked_DoubleClick.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurGestionLocataires.testMouseClicked_SingleClick.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurLocataire.testAppliquerFiltre_NationaliteEtrangere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurLocataire.testAppliquerFiltre_NationaliteFrancaise.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurLocataire.testMouseClicked_SingleClick.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurModificationLocataire.testActionPerformed_Annuler.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestControleurModificationLocataire.testActionPerformed_Valider.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.testGetAll.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.testGetById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.testInsert.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOBienImmobilier.testUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOLocataire.testGetAll.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDAOLocataire.testGetById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMAjouterLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMAjouterLocataire.testButtonActionCommands.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMAjouterLocataire.testInitialisationComponents.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMAjouterLocataire.testRecuperationChampsLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMDetailsLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMDetailsLocataire.testButtonActionCommands.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMGestionLocataires.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMGestionLocataires.testButtonActionCommands.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMGestionLocataires.testChampRechercheInitialization.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMGestionLocataires.testInitialisationComponents.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMGestionLocataires.testTableInitialization.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.testButtonActionCommands.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.testDatePickerInitialization.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.testInitialisationComponents.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.testInitialisationVue.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.testRadioButtonInitialization.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestIHMModificationLocataire.testRecuperationChampsStringLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestLocataire.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestLocataire.testConstructeur.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestLocataire.testGetters.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestLocataire.testSetters.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.testControleurLocataire.testAppliquerFiltre_NationaliteEtrangere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.testControleurLocataire.testAppliquerFiltre_NationaliteFrancaise.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.testControleurLocataire.testMouseClicked_DoubleClick.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.testControleurLocataire.testMouseClicked_SingleClick.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Virgil&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vsk49/git/saea3.01/src/test/java/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2678161&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "Oracle"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;Oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vsk49\git\saea3.01\src\test\java\test" />
@@ -633,7 +630,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741004244769</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="[CONFIG] trying to fix pipeline with docker image of my database.">
+      <option name="closed" value="true" />
+      <created>1741006111959</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1741006111959</updated>
+    </task>
+    <task id="LOCAL-00039" summary="[CODE] removing files unrelated to User Story">
+      <option name="closed" value="true" />
+      <created>1743169926672</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1743169926672</updated>
+    </task>
+    <task id="LOCAL-00040" summary="[CODE] refactoring Sprint 2">
+      <option name="closed" value="true" />
+      <created>1743172074617</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1743172074617</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,9 +714,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="j'ai pas valide mes changements" />
-    <MESSAGE value="[CODE] Ajout du locataire OK" />
-    <MESSAGE value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
     <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
     <MESSAGE value="[CODE] IHMGestionBiens OK!" />
     <MESSAGE value="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO." />
@@ -718,6 +736,9 @@
     <MESSAGE value="[CONFIG] resoudre les warnings du encodage et configuration de la methode setUp() du TestDAOLocataire" />
     <MESSAGE value="[CONFIG] Resolving merge conflicts." />
     <MESSAGE value="[CODE] I missed a little bit of refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] I missed a little bit of refactoring." />
+    <MESSAGE value="[CONFIG] trying to fix pipeline with docker image of my database." />
+    <MESSAGE value="[CODE] removing files unrelated to User Story" />
+    <MESSAGE value="[CODE] refactoring Sprint 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] refactoring Sprint 2" />
   </component>
 </project>

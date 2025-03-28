@@ -1,8 +1,8 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.io.Serial;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -19,35 +19,15 @@ import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-import controleur.controleurGestionBaux;
+import controleur.ControleurGestionBaux;
 
 public class IHMGestionBaux extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTable tableBaux;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHMGestionBaux frame = new IHMGestionBaux();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public IHMGestionBaux() {
-		controleurGestionBaux controleur = new controleurGestionBaux(this);
+    public IHMGestionBaux() {
+		ControleurGestionBaux controleur = new ControleurGestionBaux(this);
 		setTitle("Gestion des baux");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 400);
@@ -102,15 +82,15 @@ public class IHMGestionBaux extends JFrame {
 		JPanel panelParamRecherche = new JPanel();
 		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		textField = new JTextField();
+
+        JTextField textField = new JTextField();
 		textField.setColumns(10);
 		panelParamRecherche.add(textField);
 		
 		JButton BoutonRecherche = new JButton("Chercher");
 		panelParamRecherche.add(BoutonRecherche);
 		
-		JComboBox comboBoxFiltre = new JComboBox();
+		JComboBox<String> comboBoxFiltre = new JComboBox<>();
 		panelParamRecherche.add(comboBoxFiltre);
 
 		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
@@ -119,9 +99,19 @@ public class IHMGestionBaux extends JFrame {
 		panelParamRecherche.add(BoutonGestionAjout);
 		BoutonGestionAjout.setActionCommand("Ajout");
 		BoutonGestionAjout.addActionListener(controleur);
+
+
+		JTable tableBaux = getTableBaux();
+		panelCentre.add(tableBaux, BorderLayout.CENTER);
 		
-		
-		tableBaux = new JTable();
+		JLabel LabelTitre = new JLabel("Gestion des baux");
+		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(LabelTitre, BorderLayout.NORTH);
+	}
+
+	private static JTable getTableBaux() {
+		JTable tableBaux = new JTable();
 		tableBaux.setModel(new DefaultTableModel(
 				new Object[][] {
 					{null, null, null, null},
@@ -143,12 +133,7 @@ public class IHMGestionBaux extends JFrame {
 				new String[] {
 					"New column", "New column", "New column", "New column"
 				}));
-		panelCentre.add(tableBaux, BorderLayout.CENTER);
-		
-		JLabel LabelTitre = new JLabel("Gestion des baux");
-		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(LabelTitre, BorderLayout.NORTH);
+		return tableBaux;
 	}
 
 }
