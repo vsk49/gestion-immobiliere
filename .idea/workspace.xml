@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] removing files unrelated to User Story">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurConnexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurConnexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionLocataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurInscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurInscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDeclarationFiscale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDeclarationFiscale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBaux.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBaux.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" afterDir="false" />
-    </list>
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] refactoring Sprint 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -655,7 +646,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743169926672</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="[CODE] refactoring Sprint 2">
+      <option name="closed" value="true" />
+      <created>1743172074617</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1743172074617</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,7 +714,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[CODE] Mise en place du MouseListener dans IHMGestionLocataires" />
     <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
     <MESSAGE value="[CODE] IHMGestionBiens OK!" />
     <MESSAGE value="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO." />
@@ -740,6 +738,7 @@
     <MESSAGE value="[CODE] I missed a little bit of refactoring." />
     <MESSAGE value="[CONFIG] trying to fix pipeline with docker image of my database." />
     <MESSAGE value="[CODE] removing files unrelated to User Story" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] removing files unrelated to User Story" />
+    <MESSAGE value="[CODE] refactoring Sprint 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] refactoring Sprint 2" />
   </component>
 </project>
