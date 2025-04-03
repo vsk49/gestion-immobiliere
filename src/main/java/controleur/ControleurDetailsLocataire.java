@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.format.DateTimeFormatter;
 
-import dao.JDBCLocataire;
+import modele.JDBCLocataire;
 import modele.Locataire;
 import vue.IHMDetailsLocataire;
 import vue.IHMGestionLocataires;

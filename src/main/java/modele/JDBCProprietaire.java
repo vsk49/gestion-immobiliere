@@ -1,12 +1,10 @@
-package dao;
+package modele;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
-
-import modele.Proprietaire;
 
 public class JDBCProprietaire implements DAO<Proprietaire, String> {
 

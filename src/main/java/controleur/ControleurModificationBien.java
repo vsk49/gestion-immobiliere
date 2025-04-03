@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
-import dao.JDBCBienImmobilier;
+import modele.JDBCBienImmobilier;
 import modele.BienImmobilier;
 import vue.IHMDetailsBien;
 import vue.IHMDeclarationFiscale;

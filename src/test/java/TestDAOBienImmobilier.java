@@ -1,4 +1,4 @@
-import dao.JDBCBienImmobilier;
+import modele.JDBCBienImmobilier;
 import modele.Batiment;
 import modele.Garage;
 import modele.Logement;

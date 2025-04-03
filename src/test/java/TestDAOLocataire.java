@@ -1,6 +1,6 @@
-import dao.CreateBD;
-import dao.InputData;
-import dao.JDBCLocataire;
+import modele.CreateBD;
+import modele.InputData;
+import modele.JDBCLocataire;
 import modele.Locataire;
 import org.junit.After;
 import org.junit.Before;

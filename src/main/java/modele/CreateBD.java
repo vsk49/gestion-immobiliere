@@ -1,4 +1,4 @@
-package dao;
+package modele;
 
 import java.sql.*;
 import java.util.logging.Logger;

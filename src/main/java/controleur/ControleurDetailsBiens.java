@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import dao.JDBCBienImmobilier;
+import modele.JDBCBienImmobilier;
 import modele.BienImmobilier;
 import modele.Logement;
 import vue.IHMDetailsBien;

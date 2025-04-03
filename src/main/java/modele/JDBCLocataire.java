@@ -1,4 +1,4 @@
-package dao;
+package modele;
 
 import java.util.logging.Logger;
 import java.sql.Date;
@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import modele.Locataire;
 
 public class JDBCLocataire implements DAO<Locataire, String> {
 

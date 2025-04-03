@@ -1,8 +1,6 @@
-package dao;
+package modele;
 
 import java.time.LocalDate;
-
-import modele.*;
 
 public class InputData {
 

@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import dao.JDBCBienImmobilier;
+import modele.JDBCBienImmobilier;
 import modele.Batiment;
 import modele.BienImmobilier;
 import modele.Logement;

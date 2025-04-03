@@ -1,15 +1,10 @@
-package dao;
+package modele;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
-
-import modele.Batiment;
-import modele.BienImmobilier;
-import modele.Garage;
-import modele.Logement;
 
 public class JDBCBienImmobilier implements DAO<BienImmobilier, String> {
 

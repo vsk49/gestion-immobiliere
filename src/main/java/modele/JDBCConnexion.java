@@ -1,4 +1,4 @@
-package dao;
+package modele;
 
 import java.io.Serial;
 import java.sql.*;
