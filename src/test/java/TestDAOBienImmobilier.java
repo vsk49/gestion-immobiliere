@@ -3,25 +3,26 @@ import modele.Batiment;
 import modele.Garage;
 import modele.Logement;
 import modele.BienImmobilier;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class TestDAOBienImmobilier {
+class TestDAOBienImmobilier {
 
 	private JDBCBienImmobilier dao;
 	private BienImmobilier bien1;
 	private BienImmobilier bien2;
 	private BienImmobilier bien3;
 
-	@Before
-	public void setUp() {
+	@BeforeEach
+	void setUp() {
 		this.dao = new JDBCBienImmobilier();
 		this.bien1 = new Batiment("testBatiment", "15 Avenue du Tarn", 31400, "Toulouse", 3, "2 ans");
 		this.bien2 = new Logement("3125789461342", "1 Rue du Verdun", 31000, "Toulouse",
@@ -33,8 +34,8 @@ public class TestDAOBienImmobilier {
 		this.dao.insert(bien3);
 	}
 
-	@After
-	public void tearDown() {
+	@AfterEach
+	void tearDown() {
 		if (this.dao.getById("testBatiment").isPresent()) {
 			this.dao.delete(this.bien1);
 		}
@@ -54,66 +55,58 @@ public class TestDAOBienImmobilier {
 	}
 
 	@Test
-	public void testGetById() {
-		// ÉTANT DONNE un bien déjà inséré dans la base de données
-		// QUAND le proprietaire recupere le bien
+	@DisplayName("ÉTANT DONNE un bien déjà inséré dans la base de données, " +
+				 "QUAND le proprietaire recupere le bien, " +
+				 "ALORS le bien est correctement recupere de la BD.")
+	void testGetById() {
 		BienImmobilier bienRecupere1 = this.dao.getById("testBatiment").orElseThrow();
 		BienImmobilier bienRecupere2 = this.dao.getById("3125789461342").orElseThrow();
 		BienImmobilier bienRecupere3 = this.dao.getById("testGarage").orElseThrow();
-		
-		// ALORS le bien est correctement recupere de la BD.
 		assertEquals(bien1, bienRecupere1);
 		assertEquals(bien2, bienRecupere2);
 		assertEquals(bien3, bienRecupere3);
 	}
 
 	@Test
-	public void testInsert() {
-		// ÉTANT DONNE un nouveau bien à insérer
+	@DisplayName("ÉTANT DONNE un nouveau bien à insérer, " +
+				 "QUAND j'insere le bien, " +
+				 "ALORS le bien est correctement inséré dans la base de données")
+	void testInsert() {
 		LocalDate dateAnniversaire = LocalDate.of(2001, 3, 14);
-		BienImmobilier bien = new Logement("3134567890123","17 Avenue du Rangueil",
+		BienImmobilier bien = new Logement("3134567890123", "17 Avenue du Rangueil",
 				31200, "Toulouse", dateAnniversaire, 2, 45.5, 3);
-
-		// QUAND j'insere le bien
 		this.dao.insert(bien);
-
-		// ALORS le bien est correctement inséré dans la base de données
 		BienImmobilier bienRecupere = this.dao.getById("3134567890123").orElseThrow();
 		assertEquals(bien, bienRecupere);
-    }
+	}
 
 	@Test
-	public void testUpdate() {
-		// ÉTANT DONNE un bien déjà inséré dans la base de données
+	@DisplayName("ÉTANT DONNE un bien déjà inséré dans la base de données, " +
+				 "QUAND je mets a jour les information du bien, " +
+				 "ALORS le bien a ete mise a jour dans la BD.")
+	void testUpdate() {
 		BienImmobilier bien = this.dao.getById("testBatiment").orElseThrow();
-
-		// QUAND je mets a jour les information du bien
 		((Batiment) bien).setPeriodeConstruction("3 ans");
 		this.dao.update(bien);
-
-		// ALORS le bien a ete mise a jour dans la BD.
 		BienImmobilier bienRecupere = this.dao.getById("testBatiment").orElseThrow();
 		assertEquals(bien, bienRecupere);
 	}
 
 	@Test
-	public void testDelete() {
-		// ÉTANT DONNE un bien déjà inséré dans la base de données
-		// QUAND je supprime ce bien
+	@DisplayName("ÉTANT DONNE un bien déjà inséré dans la base de données, " +
+				 "QUAND je supprime ce bien, " +
+				 "ALORS ce bien a bien ete supprime dans la BD.")
+	void testDelete() {
 		this.dao.delete(bien2);
-
-		// ALORS ce bien a bien ete supprime dans la BD.
 		assertFalse(this.dao.getById("3125789461342").isPresent());
 	}
 
 	@Test
-	public void testGetAll() {
-		// ETANT DONNE 5 biens existants dans la BD et j'insere 3 biens supplementaires
-		// QUAND le proprietaire recupere tous les biens
+	@DisplayName("ETANT DONNE 5 biens existants dans la BD et j'insere 3 biens supplementaires, " +
+				 "QUAND le proprietaire recupere tous les biens, " +
+				 "ALORS tous les biens sont bien recuperes (8 biens au total)")
+	void testGetAll() {
 		List<BienImmobilier> biensRecuperes = this.dao.getAll();
-		
-		// ALORS tous les biens sont bien recuperes (8 biens au total)
-        assertEquals(8, biensRecuperes.size());
+		assertEquals(8, biensRecuperes.size());
 	}
-
 }

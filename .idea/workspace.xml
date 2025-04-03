@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] refactoring Sprint 2">
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] moving dao files to the modele package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDAOBienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDAOBienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDAOLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDAOLocataire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +191,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.IHMConnexion">
+  <component name="RunManager" selected="JUnit.TestDAOBienImmobilier">
     <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modele.CreateBD" />
       <module name="SAEA_3.01" />
@@ -216,19 +218,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IHMDetailsLocataire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMDetailsLocataire" />
-      <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vue.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InputData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modele.InputData" />
       <module name="SAEA_3.01" />
@@ -242,16 +231,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestControleurAjouterLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDAOBienImmobilier" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.TestControleurAjouterLocataire" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDAOBienImmobilier" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDAOLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAEA_3.01" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDAOLocataire" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -259,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestDAOBienImmobilier" />
+        <item itemvalue="JUnit.TestDAOLocataire" />
         <item itemvalue="Application.IHMConnexion" />
         <item itemvalue="Application.InputData" />
         <item itemvalue="Application.CreateBD" />
-        <item itemvalue="Application.IHMDetailsLocataire" />
-        <item itemvalue="JUnit.TestControleurAjouterLocataire" />
       </list>
     </recent_temporary>
   </component>
@@ -337,7 +329,7 @@
       <workItem from="1740900503459" duration="95000" />
       <workItem from="1740988575167" duration="11927000" />
       <workItem from="1743709230725" duration="3497000" />
-      <workItem from="1743720206902" duration="657000" />
+      <workItem from="1743720206902" duration="2738000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -667,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743172238888</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="[CODE] moving dao files to the modele package">
+      <option name="closed" value="true" />
+      <created>1743721704794</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1743721704794</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,7 +727,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
     <MESSAGE value="[CODE] IHMGestionBiens OK!" />
     <MESSAGE value="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO." />
     <MESSAGE value="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)" />
@@ -752,6 +751,7 @@
     <MESSAGE value="[CONFIG] trying to fix pipeline with docker image of my database." />
     <MESSAGE value="[CODE] removing files unrelated to User Story" />
     <MESSAGE value="[CODE] refactoring Sprint 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] refactoring Sprint 2" />
+    <MESSAGE value="[CODE] moving dao files to the modele package" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] moving dao files to the modele package" />
   </component>
 </project>
