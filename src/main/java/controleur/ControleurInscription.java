@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import dao.JDBCProprietaire;
+import modele.JDBCProprietaire;
 import vue.IHMConnexion;
 import vue.IHMInscription;
 

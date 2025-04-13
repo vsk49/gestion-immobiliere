@@ -1,24 +1,26 @@
-import dao.CreateBD;
-import dao.InputData;
-import dao.JDBCLocataire;
+import modele.CreateBD;
+import modele.InputData;
+import modele.JDBCLocataire;
 import modele.Locataire;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 
-public class TestDAOLocataire {
+@DisplayName("Test de la classe JDBCLocataire")
+class TestDAOLocataire {
 
 	private JDBCLocataire daoLocataire;
 	private Locataire locataire1;
 	private Locataire locataire2;
 
-	@Before
-	public void setUp() {
+	@BeforeEach
+	void setUp() {
 		CreateBD.main(null);
 		InputData.main(null);
 		this.daoLocataire = new JDBCLocataire();
@@ -30,8 +32,8 @@ public class TestDAOLocataire {
 		this.daoLocataire.insert(locataire2);
 	}
 
-	@After
-	public void tearDown() {
+	@AfterEach
+	void tearDown() {
 		if (this.daoLocataire.getById("DJEA").isPresent()) {
 			this.daoLocataire.delete(this.locataire1);
 		}
@@ -47,59 +49,52 @@ public class TestDAOLocataire {
 	}
 
 	@Test
-	public void testGetById() {
-		// ÉTANT DONNE un locataire déjà inséré dans la base de données
-		// QUAND le proprietaire recupere le locataire
+	@DisplayName("ÉTANT DONNE un locataire déjà inséré dans la base de données, " +
+				 "QUAND le proprietaire recupere le locataire, " +
+				 "ALORS le locataire est correctement recupere de la BD.")
+	void testGetById() {
 		Locataire locataireRecupere = this.daoLocataire.getById("DJEA").orElseThrow();
-		
-		// ALORS le locataire est correctement recupere de la BD.
 		assertEquals(this.locataire1, locataireRecupere);
 	}
 
 	@Test
-	public void testInsert() {
-		// ÉTANT DONNE un nouveau locataire à insérer
+	@DisplayName("ÉTANT DONNE un nouveau locataire à insérer" +
+				 "QUAND j'insere le locataire" +
+				 "ALORS le locataire est correctement inséré dans la base de données")
+	void testInsert() {
 		Locataire test = new Locataire("JDOE", "Doe", "Jim",
 				LocalDate.of(2000, 5, 12), "jimmydoe@gmail.com", "01 23 45 67 89");
-
-		// QUAND j'insere le locataire
 		this.daoLocataire.insert(test);
-
-		// ALORS le locataire est correctement inséré dans la base de données
 		Locataire locataireRecupere = this.daoLocataire.getById("JDOE").orElseThrow();
 		assertEquals(test, locataireRecupere);
     }
 
 	@Test
-	public void testUpdate() {
-		// ÉTANT DONNE un locataire déjà inséré dans la base de données
+	@DisplayName("ÉTANT DONNE un locataire déjà inséré dans la base de données" +
+				 "QUAND je mets à jour les informations du locataire" +
+				 "ALORS le locataire est correctement mis à jour dans la base de données")
+	void testUpdate() {
 		Locataire locataireRecupere = this.daoLocataire.getById("DJEA").orElseThrow();
-
-		// QUAND je mets a jour les information du locataire
 		locataireRecupere.setEmail("testing.update@gmail.com");
 		this.daoLocataire.update(locataireRecupere);
-
-		// ALORS le locataire a ete mise a jour dans la BD.
 		assertNotEquals(this.locataire1, locataireRecupere);
 	}
 
 	@Test
-	public void testDelete() {
-		// ÉTANT DONNE un locataire déjà inséré dans la base de données
-		// QUAND je supprime ce locataire
+	@DisplayName("ÉTANT DONNE un locataire déjà inséré dans la base de données" +
+				 "QUAND je supprime le locataire" +
+				 "ALORS le locataire est correctement supprimé de la base de données")
+	void testDelete() {
 		this.daoLocataire.delete(this.locataire1);
-
-		// ALORS ce locataire a correctement ete supprime dans la BD.
 		assertFalse(this.daoLocataire.getById(this.locataire1.getIdLocataire()).isPresent());
 	}
 
 	@Test
-	public void testGetAll() {
-		// ETANT DONNE 4 locataire existants dans la BD et j'insere 2 locataires
-		// QUAND le proprietaire recupere tous les locataire
+	@DisplayName("ÉTANT DONNE plusieurs locataires dans la base de données" +
+				 "QUAND je récupère tous les locataires" +
+				 "ALORS tous les locataires sont correctement récupérés")
+	void testGetAll() {
 		List<Locataire> locataireRecuperes = this.daoLocataire.getAll();
-		
-		// ALORS tous les locataire sont bien recuperes
         assertEquals(6, locataireRecuperes.size());
 	}
 

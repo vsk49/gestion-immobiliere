@@ -1,14 +1,11 @@
 package vue;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.Serial;
 import java.util.Objects;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
 import controleur.ControleurGestionBiens;
 
 public class IHMGestionBiens extends JFrame {
@@ -18,110 +15,125 @@ public class IHMGestionBiens extends JFrame {
 	private final JTable tableBiens;
 	private final JTextField champRecherche;
 
-	/**
-	 * Create the frame.
-	 */
 	public IHMGestionBiens() {
-		ControleurGestionBiens controleur = new ControleurGestionBiens(this);
 		setTitle("Gestion des Biens");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setSize(600, 400);
-		this.setExtendedState(Frame.MAXIMIZED_BOTH);
-        this.setVisible(true);
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		
+		setSize(800, 600);
+		setExtendedState(Frame.MAXIMIZED_BOTH);
+		getContentPane().setLayout(new BorderLayout());
+
 		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panelGauche = new JPanel();
-		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
-		contentPane.add(panelGauche, BorderLayout.WEST);
-		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
-		JButton BoutonGLocataires = new JButton();
-		BoutonGLocataires.setIcon(iconeLocataires);
-		panelGauche.add(BoutonGLocataires);
-		BoutonGLocataires.setActionCommand("locataires");
-		BoutonGLocataires.addActionListener(controleur);
-		
-		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
-		JButton BoutonGBaux = new JButton();
-		BoutonGBaux.setIcon(iconeBaux);
-		panelGauche.add(BoutonGBaux);
-		BoutonGBaux.setActionCommand("baux");
-		BoutonGBaux.addActionListener(controleur);
-		
-		
-		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
-		JButton BoutonGDeclFisc = new JButton();
-		BoutonGDeclFisc.setIcon(iconeDeclFisc);
-		panelGauche.add(BoutonGDeclFisc);
-		BoutonGDeclFisc.setActionCommand("DeclarationFiscale");
-		BoutonGDeclFisc.addActionListener(controleur);
 
-		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
-		JButton BoutonGFinances = new JButton();
-		BoutonGFinances.setIcon(iconeFinances);
-		panelGauche.add(BoutonGFinances);
-		BoutonGFinances.setActionCommand("RegularisationCharges");
-		BoutonGFinances.addActionListener(controleur);
-		
 		JPanel panelCentre = new JPanel();
+		panelCentre.setLayout(new BorderLayout());
 		contentPane.add(panelCentre, BorderLayout.CENTER);
-		panelCentre.setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel panelParamRecherche = new JPanel();
-		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 		panelParamRecherche.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panelCentre.add(panelParamRecherche, BorderLayout.NORTH);
 
-		this.champRecherche = new JTextField();
-		this.champRecherche.setColumns(10);
-		panelParamRecherche.add(this.champRecherche);
-		
-		JButton BoutonRecherche = new JButton("Chercher");
-		panelParamRecherche.add(BoutonRecherche);
-		BoutonRecherche.setActionCommand("Chercher");
-		BoutonRecherche.addActionListener(controleur);
+		champRecherche = new JTextField(20);
+		panelParamRecherche.add(champRecherche);
 
-		JComboBox<String> comboBoxFiltre = new JComboBox<>(new String[] {"Tous", "Batiment", "Logement", "Garage"});
+		JButton boutonRecherche = new JButton("Chercher");
+		boutonRecherche.setActionCommand("Chercher");
+		panelParamRecherche.add(boutonRecherche);
+
+		JComboBox<String> comboBoxFiltre = new JComboBox<>(new String[]{"Tous", "Batiment", "Logement", "Garage"});
 		panelParamRecherche.add(comboBoxFiltre);
-		comboBoxFiltre.addActionListener(controleur);
 
 		ImageIcon iconeGestionAjout = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("plus.png")));
-		JButton BoutonGestionAjout = new JButton();
-		BoutonGestionAjout.setIcon(iconeGestionAjout);
-		panelParamRecherche.add(BoutonGestionAjout);
-		BoutonGestionAjout.setActionCommand("Ajout");
-		BoutonGestionAjout.addActionListener(controleur);
+		JButton boutonGestionAjout = new JButton(iconeGestionAjout);
+		boutonGestionAjout.setActionCommand("Ajout");
+		panelParamRecherche.add(boutonGestionAjout);
 
-		this.tableBiens = new JTable(new DefaultTableModel(new Object[] {"ID", "Numero Fiscal", "Adresse",
-				"Code Postal", "Ville"}, 0) {
+		tableBiens = new JTable(new DefaultTableModel(new Object[]{"Numero Fiscal", "Adresse", "Code Postal", "Ville", "Date d'Acquisition"}, 0) {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return false;
 			}
 		});
-		JScrollPane scrollPane = new JScrollPane(this.tableBiens);
+		JScrollPane scrollPane = new JScrollPane(tableBiens);
 		panelCentre.add(scrollPane, BorderLayout.CENTER);
-		this.tableBiens.addMouseListener(controleur);
-		
-		JLabel LabelTitre = new JLabel("Gestion des biens");
-		LabelTitre.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		LabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(LabelTitre, BorderLayout.NORTH);
 
-		controleur.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
+		JLabel labelTitre = new JLabel("Gestion des biens");
+		labelTitre.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		labelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(labelTitre, BorderLayout.NORTH);
+
+		ControleurGestionBiens controleur = new ControleurGestionBiens(this);
+		boutonRecherche.addActionListener(controleur);
+		boutonGestionAjout.addActionListener(controleur);
+		comboBoxFiltre.addActionListener(controleur);
+		tableBiens.addMouseListener(controleur);
+
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.LIGHT_GRAY);
+
+		JMenu menu = new JMenu("Menu");
+		menu.setOpaque(true);
+		menu.setBackground(Color.LIGHT_GRAY);
+		menu.setForeground(Color.BLACK);
+
+		addMenuItems(menu, controleur);
+
+		menuBar.add(menu);
+		setJMenuBar(menuBar);
+	}
+
+	private void addMenuItems(JMenu menu, ControleurGestionBiens controleur) {
+		JMenuItem menuItemAccueil = new JMenuItem("Accueil");
+		menuItemAccueil.setOpaque(true);
+		menuItemAccueil.setBackground(Color.LIGHT_GRAY);
+		menuItemAccueil.setForeground(Color.BLACK);
+		menuItemAccueil.addActionListener(controleur);
+		menu.add(menuItemAccueil);
+
+		JMenuItem menuItemLocataires = new JMenuItem("Mes Locataires");
+		menuItemLocataires.setOpaque(true);
+		menuItemLocataires.setBackground(Color.LIGHT_GRAY);
+		menuItemLocataires.setForeground(Color.BLACK);
+		menuItemLocataires.addActionListener(controleur);
+		menu.add(menuItemLocataires);
+
+		JMenuItem menuItemBiens = new JMenuItem("Mes Biens");
+		menuItemBiens.setOpaque(true);
+		menuItemBiens.setBackground(Color.LIGHT_GRAY);
+		menuItemBiens.setForeground(Color.BLACK);
+		menuItemBiens.addActionListener(controleur);
+		menu.add(menuItemBiens);
+
+		JMenuItem menuItemBaux = new JMenuItem("Mes Baux");
+		menuItemBaux.setOpaque(true);
+		menuItemBaux.setBackground(Color.LIGHT_GRAY);
+		menuItemBaux.setForeground(Color.BLACK);
+		menuItemBaux.addActionListener(controleur);
+		menu.add(menuItemBaux);
+
+		JMenuItem menuItemDeclaration = new JMenuItem("Déclaration Fiscale");
+		menuItemDeclaration.setOpaque(true);
+		menuItemDeclaration.setBackground(Color.LIGHT_GRAY);
+		menuItemDeclaration.setForeground(Color.BLACK);
+		menuItemDeclaration.addActionListener(controleur);
+		menu.add(menuItemDeclaration);
+
+		JMenuItem menuItemRegularisation = new JMenuItem("Régularisation de Charges");
+		menuItemRegularisation.setOpaque(true);
+		menuItemRegularisation.setBackground(Color.LIGHT_GRAY);
+		menuItemRegularisation.setForeground(Color.BLACK);
+		menuItemRegularisation.addActionListener(controleur);
+		menu.add(menuItemRegularisation);
 	}
 
 	public JTable getTableBiens() {
-		return this.tableBiens;
+		return tableBiens;
 	}
 
 	public JTextField getChampRecherche() {
-		return this.champRecherche;
+		return champRecherche;
 	}
 
 }

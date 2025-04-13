@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Batiment extends BienImmobilier {
 
-	private final int nombreEtages;
+	private int nombreEtages;
 	private String periodeConstruction;
 	private final Map<String, BienImmobilier> biens;
 
@@ -19,6 +19,12 @@ public class Batiment extends BienImmobilier {
 
 	public int getNombreEtages() {
 		return this.nombreEtages;
+	}
+
+	public void setNombreEtages(int nombreEtages) {
+		if (nombreEtages <= 0)
+			throw new IllegalArgumentException("Le nombre d'étages doit être supérieur à 0.");
+		this.nombreEtages = nombreEtages;
 	}
 
 	public String getPeriodeConstruction() {

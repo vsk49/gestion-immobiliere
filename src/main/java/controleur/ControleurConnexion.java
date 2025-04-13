@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import dao.JDBCProprietaire;
+import modele.JDBCProprietaire;
 import modele.Proprietaire;
 import vue.IHMAccueil;
 import vue.IHMConnexion;

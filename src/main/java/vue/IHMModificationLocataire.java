@@ -22,7 +22,7 @@ public class IHMModificationLocataire extends JFrame {
 
 	public IHMModificationLocataire(Locataire locataire) {
 		setTitle("Modification du locataire");
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout(10, 10));
 		this.setBackground(Color.WHITE);
 

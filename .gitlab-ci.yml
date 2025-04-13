@@ -36,8 +36,8 @@ reset-db:
   stage: reset-db
   script:
     - echo "Resetting the database..."
-    - mvn exec:java -Dexec.mainClass="dao.CreateBD"
-    - mvn exec:java -Dexec.mainClass="dao.InputData"
+    - mvn exec:java -Dexec.mainClass="modele.CreateBD"
+    - mvn exec:java -Dexec.mainClass="modele.InputData"
 
 test:
   stage: test

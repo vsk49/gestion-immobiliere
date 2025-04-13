@@ -1,15 +1,15 @@
-package dao;
+package modele;
 
 import java.time.LocalDate;
-
-import modele.*;
 
 public class InputData {
 
     private static final JDBCLocataire donneesLocataires = new JDBCLocataire();
     private static final JDBCProprietaire donneesProprietaire = new JDBCProprietaire();
     private static final JDBCBienImmobilier donneesBienImmobilier = new JDBCBienImmobilier();
+    private static final JDBCLocation donneesLocation = new JDBCLocation();
     private static final String VILLE = "Toulouse";
+    private static final String ID_COLOCATION = "3101234567891";
 
     // donnees des locataires
     private static final Locataire[] locataires = {
@@ -36,10 +36,22 @@ public class InputData {
                     VILLE,4,"2 ans"),
             new Logement("3198765432100", "10 rue des Princes", 31000,
                     VILLE, LocalDate.of(2020, 4, 4), 3, 18.00, 2),
-            new Logement("3101234567891", "41 rue des Lilas", 31000,
+            new Logement(ID_COLOCATION, "41 rue des Lilas", 31000,
                     VILLE, LocalDate.of(2020, 5, 5), 1, 22.00, 3),
             new Garage("2", "90 boulevard du 6 juin 1944", 31000,
                     VILLE, LocalDate.of(2020, 6, 6))
+    };
+
+    // donnees des locations
+    private static final Location[] locations = {
+            new Location("3101234567890", "YPOU", LocalDate.of(2024, 10, 10),
+                    LocalDate.of(2026, 6, 20), 437.85),
+            new Location("3198765432100", "VKOH", LocalDate.of(2023, 4, 18),
+                    LocalDate.of(2025, 7, 31), 428.36),
+            new Location(ID_COLOCATION, "EDEH", LocalDate.of(2024, 7, 7),
+                    LocalDate.of(2025, 4, 4), 365.89),
+            new Location(ID_COLOCATION, "RMIE", LocalDate.of(2024, 7, 7),
+                    LocalDate.of(2025, 9, 30), 365.89)
     };
 
     public static void main(String[] args) {
@@ -58,9 +70,15 @@ public class InputData {
         for (BienImmobilier bien : biens) {
             donneesBienImmobilier.insert(bien);
         }
+        for (Location location : locations) {
+            donneesLocation.insert(location);
+        }
     }
 
     private static void supprimerDonnees() {
+        for (Location location : locations) {
+            donneesLocation.delete(location);
+        }
         for (Locataire locataire : locataires) {
             donneesLocataires.delete(locataire);
         }

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import dao.JDBCLocataire;
+import modele.JDBCLocataire;
 import modele.Locataire;
 import vue.IHMAjouterLocataire;
 import vue.IHMGestionLocataires;

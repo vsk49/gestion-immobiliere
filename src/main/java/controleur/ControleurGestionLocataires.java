@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.*;
 
-import dao.JDBCLocataire;
+import modele.JDBCLocataire;
 import modele.Locataire;
 import vue.*;
 

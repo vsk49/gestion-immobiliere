@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] refactoring Sprint 2" />
+    <list default="true" id="bc544956-0a41-4644-9cab-08483f3cfd05" name="Changes" comment="[CODE] JUnit 5 tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/modele/JDBCLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6637e0ae-887a-49d1-8fcf-a059059fa3df.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurAccueil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurDetailsBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurDetailsBiens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurGestionBiens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/ControleurModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/ControleurModificationBien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Batiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/BienImmobilier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/CreateBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/CreateBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/InputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Logement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMDetailsBien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionBiens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMGestionLocataires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationBien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/IHMModificationLocataire.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +185,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2678161&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -188,11 +207,11 @@
   </component>
   <component name="RunManager" selected="Application.IHMConnexion">
     <configuration name="CreateBD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.CreateBD" />
+      <option name="MAIN_CLASS_NAME" value="modele.CreateBD" />
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="modele.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -213,25 +232,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IHMDetailsLocataire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vue.IHMDetailsLocataire" />
-      <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vue.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InputData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.InputData" />
+      <option name="MAIN_CLASS_NAME" value="modele.InputData" />
       <module name="SAEA_3.01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="modele.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -239,16 +245,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestControleurAjouterLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDAOBienImmobilier" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SAEA_3.01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.TestControleurAjouterLocataire" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDAOBienImmobilier" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDAOLocataire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SAEA_3.01" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDAOLocataire" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -259,16 +268,16 @@
         <item itemvalue="Application.IHMConnexion" />
         <item itemvalue="Application.InputData" />
         <item itemvalue="Application.CreateBD" />
-        <item itemvalue="Application.IHMDetailsLocataire" />
-        <item itemvalue="JUnit.TestControleurAjouterLocataire" />
+        <item itemvalue="JUnit.TestDAOBienImmobilier" />
+        <item itemvalue="JUnit.TestDAOLocataire" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -333,6 +342,10 @@
       <workItem from="1740900136985" duration="339000" />
       <workItem from="1740900503459" duration="95000" />
       <workItem from="1740988575167" duration="11927000" />
+      <workItem from="1743709230725" duration="3497000" />
+      <workItem from="1743720206902" duration="15332000" />
+      <workItem from="1744365651891" duration="5788000" />
+      <workItem from="1744568160118" duration="5144000" />
     </task>
     <task id="LOCAL-00001" summary="[CONFIG] fixed the whole Maven project structure.">
       <option name="closed" value="true" />
@@ -654,7 +667,31 @@
       <option name="project" value="LOCAL" />
       <updated>1743172074617</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="[CODE] refactoring Sprint 2">
+      <option name="closed" value="true" />
+      <created>1743172238888</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1743172238888</updated>
+    </task>
+    <task id="LOCAL-00042" summary="[CODE] moving dao files to the modele package">
+      <option name="closed" value="true" />
+      <created>1743721704794</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1743721704794</updated>
+    </task>
+    <task id="LOCAL-00043" summary="[CODE] JUnit 5 tests">
+      <option name="closed" value="true" />
+      <created>1743723259134</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1743723259134</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,8 +751,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[CODE] Insertion de 4 biens immobiliers (implique des changements dans la partie DAO)" />
-    <MESSAGE value="[CODE] IHMGestionBiens OK!" />
     <MESSAGE value="[CODE] IHMModificationLocataire OK! Distinction des types de biens dans la couche DAO." />
     <MESSAGE value="[CONFIG] Ajout d'une nouvelle dependence dans le pom.xml (calendrier)" />
     <MESSAGE value="[CODE] implementation JDBCBienLouable" />
@@ -739,6 +774,8 @@
     <MESSAGE value="[CONFIG] trying to fix pipeline with docker image of my database." />
     <MESSAGE value="[CODE] removing files unrelated to User Story" />
     <MESSAGE value="[CODE] refactoring Sprint 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="[CODE] refactoring Sprint 2" />
+    <MESSAGE value="[CODE] moving dao files to the modele package" />
+    <MESSAGE value="[CODE] JUnit 5 tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="[CODE] JUnit 5 tests" />
   </component>
 </project>

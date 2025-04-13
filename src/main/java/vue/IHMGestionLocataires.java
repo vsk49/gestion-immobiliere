@@ -31,7 +31,8 @@ public class IHMGestionLocataires extends JFrame {
 
 	private final JTextField champRecherche;
 	private final JPanel panelLocataires;
-	private final ControleurGestionLocataires controleur;
+	private final transient ControleurGestionLocataires controleur;
+	private static final String FONT_NAME = "Tahoma";
 
 	public IHMGestionLocataires() {
 		setTitle("Gestion des Locataires");
@@ -76,7 +77,7 @@ public class IHMGestionLocataires extends JFrame {
 		panelCentre.add(scrollPane, BorderLayout.CENTER);
 
 		JLabel libelleTitrePage = new JLabel("Gestion des locataires");
-		libelleTitrePage.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		libelleTitrePage.setFont(new Font(FONT_NAME, Font.PLAIN, 24));
 		libelleTitrePage.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(libelleTitrePage, BorderLayout.NORTH);
 
@@ -148,11 +149,11 @@ public class IHMGestionLocataires extends JFrame {
 			panel.putClientProperty("locataire", locataire);
 
 			JLabel nameLabel = new JLabel("Nom: " + locataire.getNom() + " " + locataire.getPrenom());
-			nameLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+			nameLabel.setFont(new Font(FONT_NAME, Font.BOLD, 14));
 			panel.add(nameLabel);
 
 			JLabel emailLabel = new JLabel("Email: " + locataire.getEmail());
-			emailLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			emailLabel.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 			panel.add(emailLabel);
 
 			panelLocataires.add(panel);
