@@ -6,10 +6,10 @@ import java.util.Objects;
 public class BienImmobilier {
 
 	private final String idBienImmobilier;
-	private final String adresse;
-	private final int codePostal;
-	private final String ville;
-	private final LocalDate dateAcquisition;
+	private String adresse;
+	private int codePostal;
+	private String ville;
+	private LocalDate dateAcquisition;
 
 	public BienImmobilier(String idBienImmobilier, String adresse, int codePostal, String ville, LocalDate dateAcquisition) {
 		this.idBienImmobilier = idBienImmobilier;
@@ -27,16 +27,32 @@ public class BienImmobilier {
 		return adresse;
 	}
 
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
 	public int getCodePostal() {
 		return codePostal;
+	}
+
+	public void setCodePostal(int codePostal) {
+		this.codePostal = codePostal;
 	}
 
 	public String getVille() {
 		return ville;
 	}
 
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
 	public LocalDate getDateAcquisition() {
 		return dateAcquisition;
+	}
+
+	public void setDateAcquisition(LocalDate dateAcquisition) {
+		this.dateAcquisition = dateAcquisition;
 	}
 
 	@Override

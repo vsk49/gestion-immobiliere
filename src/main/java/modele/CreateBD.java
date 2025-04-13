@@ -17,6 +17,7 @@ public class CreateBD {
 	// suppression des tables en cas d'erreur
 	private static void dropTablesBD() {
 		try (Statement requeteSQL = jdbcConnexion.createStatement()) {
+			requeteSQL.executeUpdate("DROP TABLE Location");
 			requeteSQL.executeUpdate("DROP TABLE Locataire");
 			requeteSQL.executeUpdate("DROP TABLE BienImmobilier");
 			requeteSQL.executeUpdate("DROP TABLE Proprietaire");
@@ -64,6 +65,19 @@ public class CreateBD {
 							+ ")"
 			);
 			LOGGER.info("Table Proprietaire created.");
+			requeteSQL.executeQuery(
+					"CREATE TABLE Location ("
+							+ "idBienImmobilier VARCHAR2(13) NOT NULL, "
+							+ "idLocataire VARCHAR2(10) NOT NULL, "
+							+ "dateDebut DATE NOT NULL, "
+							+ "dateFin DATE NOT NULL, "
+							+ "loyer DOUBLE PRECISION NOT NULL, "
+							+ "PRIMARY KEY (idBienImmobilier, idLocataire), "
+							+ "FOREIGN KEY (idBienImmobilier) REFERENCES BienImmobilier(idBienImmobilier), "
+							+ "FOREIGN KEY (idLocataire) REFERENCES Locataire(idLocataire)"
+							+ ")"
+			);
+			LOGGER.info("Table Location created.");
 		} catch (SQLException e) {
 			LOGGER.severe(e.getErrorCode() + " : " + e.getMessage());
 			System.exit(-1);

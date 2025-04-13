@@ -1,19 +1,10 @@
 package vue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
-import javax.swing.JLabel;
 import java.io.Serial;
-import java.util.Objects;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.SwingConstants;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import controleur.ControleurDetailsBiens;
 import modele.BienImmobilier;
 
@@ -29,164 +20,147 @@ public class IHMDetailsBien extends JFrame {
 	private final JLabel labelSurface;
 	private final JLabel labelNbPieces;
 	private final JLabel labelStatut;
+	private final JTable tableLocataires;
 
 	public IHMDetailsBien(BienImmobilier bien) {
-		setTitle("Détail du bien");
-		this.setSize(600, 400);
-		this.setExtendedState(Frame.MAXIMIZED_BOTH);
-		this.setVisible(true);
-		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setTitle("Détail du Bien " + bien.getIdBienImmobilier());
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		this.setLayout(new BorderLayout(10, 10));
+		this.setBackground(Color.WHITE);
 
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-				vueGestionBiens.setVisible(true);
-				dispose();
-			}
-		});
-
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
-
-		JPanel panelGauche = new JPanel();
-		panelGauche.setBorder(new EmptyBorder(0, 0, 0, 5));
-		contentPane.add(panelGauche, BorderLayout.WEST);
-		panelGauche.setLayout(new GridLayout(0, 1, 0, 0));
-
-		ImageIcon iconeLocataires = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("locataires.png")));
-		JButton boutonLocataires = new JButton();
-		boutonLocataires.setIcon(iconeLocataires);
-		panelGauche.add(boutonLocataires);
-
-		ImageIcon iconeBaux = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("baux.png")));
-		JButton boutonBaux = new JButton();
-		boutonBaux.setIcon(iconeBaux);
-		panelGauche.add(boutonBaux);
-
-		ImageIcon iconeDeclFisc = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("declarationFiscale.png")));
-		JButton boutonDeclFisc = new JButton();
-		boutonDeclFisc.setIcon(iconeDeclFisc);
-		panelGauche.add(boutonDeclFisc);
-
-		ImageIcon iconeFinances = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("finance.png")));
-		JButton boutonFinances = new JButton();
-		boutonFinances.setIcon(iconeFinances);
-		panelGauche.add(boutonFinances);
-
-		JPanel panelMain = new JPanel();
-		panelMain.setBorder(new EmptyBorder(0, 0, 0, 5));
-		contentPane.add(panelMain, BorderLayout.CENTER);
-		panelMain.setLayout(new BorderLayout(0, 0));
-
-		JPanel panelFormulaire = new JPanel();
-		panelMain.add(panelFormulaire, BorderLayout.NORTH);
-		panelFormulaire.setLayout(new GridLayout(0, 2, 0, 0));
-
-		this.labelAdresse = new JLabel("Adresse: ");
-		panelFormulaire.add(labelAdresse);
-
-		this.labelCodePostal = new JLabel("Code postal: ");
-		panelFormulaire.add(labelCodePostal);
-
-		this.labelVille = new JLabel("Ville: ");
-		panelFormulaire.add(labelVille);
-
-		this.labelEtage = new JLabel("Etage: ");
-		panelFormulaire.add(labelEtage);
-
-		this.labelTypeBien = new JLabel("Type de bien: ");
-		panelFormulaire.add(labelTypeBien);
-
-		this.labelSurface = new JLabel("Surface: ");
-		panelFormulaire.add(labelSurface);
-
-		this.labelNbPieces = new JLabel("Nombre de pièces: ");
-		panelFormulaire.add(labelNbPieces);
-
-		this.labelStatut = new JLabel("Statut: ");
-		panelFormulaire.add(labelStatut);
-
-		JPanel panelDocsEtLocataires = new JPanel();
-		panelDocsEtLocataires.setBorder(new EmptyBorder(10, 0, 10, 0));
-		panelMain.add(panelDocsEtLocataires, BorderLayout.CENTER);
-		panelDocsEtLocataires.setLayout(new BorderLayout(0, 0));
-
-		JPanel panelListeLocataire = new JPanel();
-		panelListeLocataire.setBorder(new EmptyBorder(0, 0, 0, 5));
-		panelDocsEtLocataires.add(panelListeLocataire, BorderLayout.WEST);
-		panelListeLocataire.setLayout(new BorderLayout(0, 0));
-
-		JLabel labelLocataire = new JLabel("Liste des locataires :");
-		labelLocataire.setVerticalAlignment(SwingConstants.BOTTOM);
-		panelListeLocataire.add(labelLocataire, BorderLayout.NORTH);
-
-		JTable tableLocataires = new JTable();
-		tableLocataires.setModel(new DefaultTableModel(
-				new Object[][] {
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-				},
-				new String[] {
-						"New column", "New colum", "New colun", "New olumn"
-				}
-		));
-		panelListeLocataire.add(tableLocataires);
-
-		JPanel panelDocuments = new JPanel();
-		panelDocuments.setBorder(new EmptyBorder(0, 0, 0, 5));
-		panelDocsEtLocataires.add(panelDocuments, BorderLayout.EAST);
-		panelDocuments.setLayout(new GridLayout(0, 1, 0, 0));
-
-		JLabel labelDocsLieAuBien = new JLabel("Liste des documents liés aux biens :");
-		labelDocsLieAuBien.setVerticalAlignment(SwingConstants.BOTTOM);
-		labelDocsLieAuBien.setHorizontalAlignment(SwingConstants.LEFT);
-		panelDocuments.add(labelDocsLieAuBien);
-
-		JPanel panelListeDocuments = new JPanel();
-		panelDocuments.add(panelListeDocuments);
-		panelListeDocuments.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-
-		JButton btnExemple1 = new JButton("Exemple1.pdf");
-		panelListeDocuments.add(btnExemple1);
-
-		JButton btnExemple2 = new JButton("Exemple2.pdf");
-		panelListeDocuments.add(btnExemple2);
-
-		JPanel panelBouton = new JPanel();
-		panelMain.add(panelBouton, BorderLayout.SOUTH);
+		// Bottom panel with buttons
+		JPanel panelBasDePage = new JPanel();
+		panelBasDePage.setLayout(new GridLayout(1, 2, 10, 10));
+		panelBasDePage.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		JButton boutonRetour = new JButton("Retour");
-		panelBouton.add(boutonRetour);
-
 		JButton boutonModifier = new JButton("Modifier");
-		panelBouton.add(boutonModifier);
+		panelBasDePage.add(boutonRetour);
+		panelBasDePage.add(boutonModifier);
 
+		// Main body panel
+		JPanel panelBody = new JPanel();
+		panelBody.setLayout(new BorderLayout(10, 10));
+		panelBody.add(panelBasDePage, BorderLayout.SOUTH);
+
+		// Form panel with TitledBorder
+		JPanel panelFormulaire = new JPanel();
+		TitledBorder border = new TitledBorder(new EmptyBorder(25, 15, 15, 15),
+				"Informations du Bien " + bien.getIdBienImmobilier(),
+				TitledBorder.CENTER, TitledBorder.TOP, new Font("Calibri", Font.BOLD, 16), Color.BLUE);
+		panelFormulaire.setBorder(BorderFactory.createCompoundBorder(border, new EmptyBorder(10, 10, 10, 10)));
+		panelFormulaire.setLayout(new GridBagLayout());
+		panelFormulaire.setBackground(Color.WHITE);
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(15, 15, 10, 15);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+
+		// Adding fields
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Adresse :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelAdresse = new JLabel(bien.getAdresse());
+		panelFormulaire.add(labelAdresse, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Code Postal :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelCodePostal = new JLabel(String.valueOf(bien.getCodePostal()));
+		panelFormulaire.add(labelCodePostal, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Ville :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelVille = new JLabel(bien.getVille());
+		panelFormulaire.add(labelVille, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Etage :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelEtage = new JLabel("N/A"); // Example value
+		panelFormulaire.add(labelEtage, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 4;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Type de Bien :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelTypeBien = new JLabel(bien.getClass().getSimpleName());
+		panelFormulaire.add(labelTypeBien, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Surface :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelSurface = new JLabel("N/A"); // Example value
+		panelFormulaire.add(labelSurface, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Nombre de Pièces :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelNbPieces = new JLabel("N/A"); // Example value
+		panelFormulaire.add(labelNbPieces, gbc);
+
+		gbc.gridx = 0;
+		gbc.gridy = 7;
+		gbc.anchor = GridBagConstraints.EAST;
+		panelFormulaire.add(new JLabel("Statut :"), gbc);
+
+		gbc.gridx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		labelStatut = new JLabel("N/A"); // Example value
+		panelFormulaire.add(labelStatut, gbc);
+
+		// Locataires section
+		JPanel panelLocataires = new JPanel();
+		TitledBorder locatairesBorder = new TitledBorder("Liste des Locataires");
+		panelLocataires.setBorder(locatairesBorder);
+		panelLocataires.setLayout(new BorderLayout());
+
+		// Initialize JTable with no data
+		tableLocataires = new JTable(new Object[][]{}, new String[]{"Nom", "Date d'entrée", "Email"});
+		JScrollPane scrollPane = new JScrollPane(tableLocataires);
+		panelLocataires.add(scrollPane, BorderLayout.CENTER);
+
+		panelBody.add(panelFormulaire, BorderLayout.CENTER); // Details in the center
+		panelBody.add(panelLocataires, BorderLayout.EAST);   // Locataires on the right
+		this.add(panelBody, BorderLayout.CENTER);
+		this.pack();
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+
+		// Controller
 		ControleurDetailsBiens controleur = new ControleurDetailsBiens(this, bien);
-
-		boutonLocataires.setActionCommand("locataires");
-		boutonLocataires.addActionListener(controleur);
-
-		boutonBaux.setActionCommand("baux");
-		boutonBaux.addActionListener(controleur);
-
-		boutonDeclFisc.setActionCommand("DeclarationFiscale");
-		boutonDeclFisc.addActionListener(controleur);
-
-		boutonFinances.setActionCommand("RegularisationCharges");
-		boutonFinances.addActionListener(controleur);
-
-		boutonRetour.setActionCommand("Retour");
-		boutonRetour.addActionListener(controleur);
-
-		boutonModifier.setActionCommand("Modifier");
 		boutonModifier.addActionListener(controleur);
+		boutonRetour.addActionListener(controleur);
 	}
 
+	// Getters for labels
 	public JLabel getLabelAdresse() {
 		return this.labelAdresse;
 	}
@@ -217,6 +191,10 @@ public class IHMDetailsBien extends JFrame {
 
 	public JLabel getLabelStatut() {
 		return this.labelStatut;
+	}
+
+	public JTable getTableLocataires() {
+		return this.tableLocataires;
 	}
 
 }

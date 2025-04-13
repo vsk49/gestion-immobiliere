@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class Logement extends BienImmobilier {
 
-	private final int numeroEtage;
-	private final double surfaceHabitable;
-	private final int nbPieces;
+	private int numeroEtage;
+	private double surfaceHabitable;
+	private int nbPieces;
 
 	public Logement(String idLogement, String adresse, int codePostal, String ville,
 					LocalDate dateAcquisition, int numeroEtage, double surfaceHabitable, int nbPieces) {
@@ -22,12 +22,24 @@ public class Logement extends BienImmobilier {
 		return this.numeroEtage;
 	}
 
+	public void setNumeroEtage(int numeroEtage) {
+		this.numeroEtage = numeroEtage;
+	}
+
 	public double getSurfaceHabitable() {
 		return this.surfaceHabitable;
 	}
 
+	public void setSurfaceHabitable(double v) {
+		this.surfaceHabitable = v;
+	}
+
 	public int getNbPieces() {
 		return this.nbPieces;
+	}
+
+	public void setNbPieces(int n) {
+		this.nbPieces = n;
 	}
 
 	@Override
@@ -35,9 +47,9 @@ public class Logement extends BienImmobilier {
 		if (this == o) return true;
 		if (!(o instanceof Logement logement)) return false;
 		if (!super.equals(o)) return false;
-        return numeroEtage == logement.numeroEtage &&
-				Double.compare(logement.surfaceHabitable, surfaceHabitable) == 0 &&
-				nbPieces == logement.nbPieces;
+        return this.numeroEtage == logement.numeroEtage
+				        && Double.compare(this.surfaceHabitable, logement.surfaceHabitable) == 0
+				        && this.nbPieces == logement.nbPieces;
 	}
 
 	@Override

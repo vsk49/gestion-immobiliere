@@ -71,8 +71,8 @@ public class ControleurAccueil implements ActionListener {
 		@Override
 		public void gererEvenement() {
 			IHMGestionBiens vueGestionBiens = new IHMGestionBiens();
-			vueGestionBiens.setVisible(true);
 			vue.dispose();
+			vueGestionBiens.setVisible(true);
 		}
 	}
 

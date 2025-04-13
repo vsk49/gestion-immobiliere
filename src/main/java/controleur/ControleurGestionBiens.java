@@ -4,34 +4,42 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import modele.JDBCBienImmobilier;
-import modele.Batiment;
 import modele.BienImmobilier;
-import modele.Logement;
-import vue.IHMAjouterBien;
-import vue.IHMDeclarationFiscale;
-import vue.IHMDetailsBien;
-import vue.IHMGestionBaux;
-import vue.IHMGestionBiens;
-import vue.IHMGestionLocataires;
-import vue.IHMRegularisationCharges;
+import vue.*;
 
 public class ControleurGestionBiens extends MouseAdapter implements ActionListener {
 
     private final IHMGestionBiens vue;
     private final JDBCBienImmobilier modele;
+    private final Map<String, ActionItemMenu> menuActions = new HashMap<>();
 
     public ControleurGestionBiens (IHMGestionBiens vue) {
         this.vue = vue;
         this.modele = new JDBCBienImmobilier();
+        initializeMenuActions();
+        // initialize the table with all properties
+        List<BienImmobilier> biens = this.modele.getAll();
+        JTable tableBiens = this.vue.getTableBiens();
+        DefaultTableModel tableModel = (DefaultTableModel) tableBiens.getModel();
+        tableModel.setRowCount(0);
+        for (BienImmobilier bien : biens) {
+            tableModel.addRow(new Object[]{
+                    bien.getIdBienImmobilier(),
+                    bien.getAdresse(),
+                    bien.getCodePostal(),
+                    bien.getVille(),
+                    // checking the date acquisition
+                    (bien.getDateAcquisition() != null) ? bien.getDateAcquisition().toString() : "N/A"
+            });
+        }
     }
 
     @Override
@@ -40,103 +48,149 @@ public class ControleurGestionBiens extends MouseAdapter implements ActionListen
             JTable table = (JTable) e.getSource();
             int ligne = table.getSelectedRow();
             if (ligne != -1) {
-                String numeroFiscal = (String) table.getValueAt(ligne, 1);
-                System.out.println("Numero fiscal : "+ numeroFiscal); // Débogage manuel
-                if (numeroFiscal == null) {
-                    BienImmobilier bien = this.modele.getById(String.valueOf(ligne + 1)).orElseThrow();
-                    if (bien instanceof Batiment batiment) {
-                        IHMDetailsBien vueDetails = new IHMDetailsBien(batiment);
-                        vueDetails.setVisible(true);
-                        this.vue.dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this.vue, "L'objet sélectionné n'est pas un Batiment.");
-                    }
-                } else {
-                    BienImmobilier bien = this.modele.getById(numeroFiscal).orElseThrow();
-                    if (bien instanceof Logement logement) {
-                        IHMDetailsBien vueDetails = new IHMDetailsBien(logement);
-                        vueDetails.setVisible(true);
-                        this.vue.dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this.vue, "L'objet sélectionné n'est pas un Logement.");
-                    }
-                }
+                String idBienImmobilier = (String) table.getValueAt(ligne, 0);
+                BienImmobilier bien = this.modele.getById(idBienImmobilier).orElseThrow();
+                IHMDetailsBien vueDetails = new IHMDetailsBien(bien);
+                vueDetails.setVisible(true);
+                this.vue.dispose();
             }
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() instanceof JButton) {
+            gererBoutonsNonMenu(e, (DefaultTableModel) this.vue.getTableBiens().getModel());
+        } else if (e.getSource() instanceof JMenuItem menuItem) {
+            ActionItemMenu action = menuActions.get(menuItem.getText());
+            action.gererEvenement();
+        } else {
+            gererAffichageBiens(e);
+        }
+    }
+
+    private void initializeMenuActions() {
+        menuActions.put("Accueil", new AccueilAction());
+        menuActions.put("Mes Locataires", new MesLocatairesAction());
+        menuActions.put("Mes Biens", new MesBiensAction());
+        menuActions.put("Mes Baux", new MesBauxAction());
+        menuActions.put("Déclaration Fiscale", new DeclarationFiscaleAction());
+        menuActions.put("Régularisation de Charges", new RegularisationChargesAction());
+    }
+
+    private void gererBoutonsNonMenu(ActionEvent e, DefaultTableModel tableModel) {
+        if (e.getSource() instanceof JButton actionCommand) {
+            if (actionCommand.getActionCommand().equals("Ajout")) {
+                IHMAjouterBien vueAjouterBien = new IHMAjouterBien();
+                this.vue.setVisible(false);
+                vueAjouterBien.setVisible(true);
+            } else {
+                String numeroFiscal = this.vue.getChampRecherche().getText();
+                BienImmobilier bien = this.modele.getById(numeroFiscal).orElseThrow();
+                tableModel.setRowCount(0);
+                tableModel.addRow(new Object[]{
+                        bien.getIdBienImmobilier(),
+                        bien.getAdresse(),
+                        bien.getCodePostal(),
+                        bien.getVille(),
+                        // checking the date acquisition
+                        (bien.getDateAcquisition() != null) ? bien.getDateAcquisition().toString() : "N/A"
+                });
+            }
+        }
+    }
+
+    private void gererAffichageBiens(ActionEvent e) {
         List<BienImmobilier> biens = this.modele.getAll();
         JTable tableBiens = this.vue.getTableBiens();
         DefaultTableModel tableModel = (DefaultTableModel) tableBiens.getModel();
         tableModel.setRowCount(0);
-
         if (e.getSource() instanceof JComboBox<?> comboBox) {
             String filtre = (String) comboBox.getSelectedItem();
             assert filtre != null;
             biens = appliquerFiltre(biens, filtre);
         }
-
         for (BienImmobilier bien : biens) {
             tableModel.addRow(new Object[]{
                     bien.getIdBienImmobilier(),
                     bien.getAdresse(),
                     bien.getCodePostal(),
                     bien.getVille(),
-                    bien.getDateAcquisition().toString()
+                    // checking the date acquisition
+                    (bien.getDateAcquisition() != null) ? bien.getDateAcquisition().toString() : "N/A"
             });
-        }
-
-        if (e.getSource() instanceof JButton actionCommand) {
-            switch (actionCommand.getActionCommand()) {
-                case "DeclarationFiscale":
-                    IHMDeclarationFiscale vueDeclarationFiscale = new IHMDeclarationFiscale();
-                    vueDeclarationFiscale.setVisible(true);
-                    this.vue.setVisible(false);
-                    break;
-                case "RegularisationCharges":
-                    IHMRegularisationCharges vueRegularisationCharges = new IHMRegularisationCharges();
-                    vueRegularisationCharges.setVisible(true);
-                    this.vue.setVisible(false);
-                    break;
-                case "baux":
-                    IHMGestionBaux vueGestionBaux = new IHMGestionBaux();
-                    vueGestionBaux.setVisible(true);
-                    this.vue.setVisible(false);
-                    break;
-                case "locataires":
-                    IHMGestionLocataires vueGestionLocataires = new IHMGestionLocataires();
-                    vueGestionLocataires.setVisible(true);
-                    this.vue.setVisible(false);
-                    break;
-                case "Ajout":
-                    IHMAjouterBien vueAjouterBien = new IHMAjouterBien();
-                    vueAjouterBien.setVisible(true);
-                    this.vue.setVisible(false);
-                    break;
-                case "Chercher":
-                    String numeroFiscal = this.vue.getChampRecherche().getText();
-                    BienImmobilier bien = this.modele.getById(numeroFiscal).orElseThrow();
-                    tableModel.setRowCount(0);
-                    tableModel.addRow(new Object[]{
-                            bien.getIdBienImmobilier(),
-                            bien.getAdresse(),
-                            bien.getCodePostal(),
-                            bien.getVille(),
-                            bien.getDateAcquisition().toString()
-                    });
-                    break;
-            }
         }
     }
 
     private List<BienImmobilier> appliquerFiltre(List<BienImmobilier> biens, String filter) {
         return switch (filter) {
-            case "Batiment" -> biens.stream().filter(b -> b.getIdBienImmobilier() == null).toList();
-            case "Logement", "Garage" -> biens.stream().filter(b -> b.getIdBienImmobilier() != null).toList();
+            case "Batiment" -> biens.stream().filter(b -> b.getDateAcquisition() == null).toList();
+            case "Garage" -> biens.stream()
+                    .filter(b -> b.getIdBienImmobilier().length() < 13 && b.getDateAcquisition() != null)
+                    .toList();
+            case "Logement" -> biens.stream().filter(b -> b.getIdBienImmobilier().length() == 13).toList();
             default -> biens;
         };
+    }
+
+    // Inner interface for menu actions
+    private interface ActionItemMenu {
+        void gererEvenement();
+    }
+
+    // Inner classes for each menu action
+    private class AccueilAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMAccueil vueAccueil = new IHMAccueil();
+            vue.dispose();
+            vueAccueil.setVisible(true);
+        }
+    }
+
+    private class MesLocatairesAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMGestionLocataires vueLocataires = new IHMGestionLocataires();
+            vue.dispose();
+            vueLocataires.setVisible(true);
+        }
+    }
+
+    private class MesBiensAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMGestionBiens vueBiens = new IHMGestionBiens();
+            vue.dispose();
+            vueBiens.setVisible(true);
+        }
+    }
+
+    private class MesBauxAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMGestionBaux vueBaux = new IHMGestionBaux();
+            vue.dispose();
+            vueBaux.setVisible(true);
+        }
+    }
+
+    private class DeclarationFiscaleAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMDeclarationFiscale vueDeclaration = new IHMDeclarationFiscale();
+            vue.dispose();
+            vueDeclaration.setVisible(true);
+        }
+    }
+
+    private class RegularisationChargesAction implements ActionItemMenu {
+        @Override
+        public void gererEvenement() {
+            IHMRegularisationCharges vueRegularisation = new IHMRegularisationCharges();
+            vue.dispose();
+            vueRegularisation.setVisible(true);
+        }
     }
 
 }
