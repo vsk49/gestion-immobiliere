@@ -1,22 +1,26 @@
 image:
-  name: maven:3.9-eclipse-temurin-17
+  name: docker:24.0.5
   entrypoint: [""]
 
 services:
+  - docker:24.0.5-dind
   - name: container-registry.oracle.com/database/express:21.3.0-xe
     alias: oracle
 
-stages:
-  - build
-  - reset-db
-  - test
-  - deploy
-
 variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
   DB_URL: jdbc:oracle:thin:@localhost:1521/XEPDB1
   DB_USERNAME: SAE3A01
   DB_PASSWORD: $iutinfo
+
+stages:
+  - build
+  - dockerize
+  - reset-db
+  - test
+  - deploy
 
 before_script:
   - echo "Waiting for Oracle Database to be ready..."
@@ -24,25 +28,30 @@ before_script:
 
 build:
   stage: build
+  image: maven:3.9-eclipse-temurin-17
   script:
-    - echo "Starting the Maven build..."
     - mvn clean package -B
   artifacts:
     paths:
       - target/*.jar
     expire_in: 1 week
 
+dockerize:
+  stage: dockerize
+  script:
+    - docker build -t saea301-app:latest .
+
 reset-db:
   stage: reset-db
+  image: maven:3.9-eclipse-temurin-17
   script:
-    - echo "Resetting the database..."
     - mvn exec:java -Dexec.mainClass="modele.CreateBD"
     - mvn exec:java -Dexec.mainClass="modele.InputData"
 
 test:
   stage: test
+  image: maven:3.9-eclipse-temurin-17
   script:
-    - echo "Running unit tests..."
     - mvn test -B
   artifacts:
     when: always
