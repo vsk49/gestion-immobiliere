@@ -76,7 +76,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.iut.MainClass</mainClass>
+                            <mainClass>vue.IHMConnexion</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

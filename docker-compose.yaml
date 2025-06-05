@@ -1,0 +1,30 @@
+# Docker Compose file for Oracle Database and Java application
+services:
+  db:
+    image: gvenzl/oracle-xe:21.3.0
+    environment:
+      ORACLE_PASSWORD: PassworD_#1120
+    ports:
+      - "1521:1521"
+    restart: always
+
+  initdb:
+    build: .
+    environment:
+      DB_URL: jdbc:oracle:thin:@db:1521/XEPDB1
+      DB_USER: SAE3A01
+      DB_PASSWORD: $iutinfo
+    depends_on:
+      - db
+    entrypoint: ["/bin/sh", "-c", "/app/wait-for-oracle.sh && java -cp app.jar:ojdbc11.jar modele.CreateBD"]
+
+  seeddb:
+    build: .
+    environment:
+      DB_URL: jdbc:oracle:thin:@db:1521/XEPDB1
+      DB_USER: SAE3A01
+      DB_PASSWORD: $iutinfo
+    depends_on:
+      - db
+      - initdb
+    entrypoint: ["/bin/sh", "-c", "/app/wait-for-oracle.sh && java -cp app.jar:ojdbc11.jar modele.InputData"]
